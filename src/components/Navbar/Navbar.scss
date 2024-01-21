@@ -1,27 +1,117 @@
-.navbar-container {
-  display: flex;
-  width: 375px;
-  height: 46px;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
+@import "../../styles/mediaQueries.scss";
+@mixin navbar-desktop-option-font {
+  color: #000;
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 1.92px;
+}
 
-  .menu-container {
+@mixin navbar-button-padding {
+  padding-right: 32px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.navbar-container {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    width: 1186px;
+    height: 36px;
     padding-top: 14px;
     padding-bottom: 14px;
+    padding-left: 127px;
+    padding-right: 127px;
+  }
+  @include mobile {
+    display: flex;
+    width: 375px;
+    height: 46px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .menu-container {
+    @include desktop {
+      display: none;
+    }
+    @include mobile {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
   }
 
   .logo-container {
-    padding-top: 7px;
-    padding-bottom: 7px;
+    @include desktop {
+      display: flex;
+      padding-top: 1.5px;
+      padding-bottom: 2.5px;
+      .epicure-text-title {
+        color: #000;
+        font-family: "Helvetica Neue";
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        letter-spacing: 1.35px;
+        padding-right: 32px;
+        padding-left: 14px; //concluded this on my own, couldn't extract this from figma
+        padding-top: 1.5px;
+        padding-bottom: 1.5px;
+      }
+
+      .restaurants-navbar-button {
+        @include navbar-desktop-option-font();
+        @include navbar-button-padding();
+      }
+
+      .chefs-navbar-button {
+        @include navbar-desktop-option-font();
+        @include navbar-button-padding();
+      }
+    }
+    @include mobile {
+      padding-top: 7px;
+      padding-bottom: 7px;
+
+      .epicure-text-title {
+        display: none;
+      }
+      .chefs-navbar-button {
+        display: none;
+      }
+      .restaurants-navbar-button {
+        display: none;
+      }
+    }
   }
 
   .search-signin-bag-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100px;
-    height: 20px;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+      height: 20px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      .search-button {
+        padding-right: 24px;
+      }
+      .signin-button {
+        padding-right: 24px;
+      }
+    }
+    @include mobile {
+      display: flex;
+      justify-content: space-between;
+      width: 100px;
+      height: 20px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+    }
   }
 }

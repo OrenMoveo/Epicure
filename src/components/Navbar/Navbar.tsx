@@ -8,6 +8,9 @@ function Navbar() {
       </div>
       <div className="logo-container">
         <img src="src/assets/images/logo.svg" alt="logo" />
+        <div className="epicure-text-title">EPICURE</div>
+        <div className="restaurants-navbar-button">Restaurants</div>
+        <div className="chefs-navbar-button">Chefs</div>
       </div>
       <div className="search-signin-bag-container">
         <div className="search-button">
