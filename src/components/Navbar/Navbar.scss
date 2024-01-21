@@ -1,0 +1,27 @@
+.navbar-container {
+  display: flex;
+  width: 375px;
+  height: 46px;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .menu-container {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .logo-container {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  .search-signin-bag-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    height: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+}
