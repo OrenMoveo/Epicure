@@ -15,24 +15,27 @@
   padding-bottom: 7px;
 }
 
-.navbar-container {
+.header-container {
   @include desktop {
     display: flex;
     justify-content: space-between;
-    width: 1186px;
+    width: 100%;
     height: 36px;
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 127px;
     padding-right: 127px;
+    box-sizing: border-box;
   }
+
   @include mobile {
     display: flex;
-    width: 375px;
+    width: 100%;
     height: 46px;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    box-sizing: border-box;
   }
 
   .menu-container {
@@ -45,11 +48,14 @@
     }
   }
 
-  .logo-container {
+  .navbar-container {
     @include desktop {
       display: flex;
-      padding-top: 1.5px;
-      padding-bottom: 2.5px;
+
+      .logo-container {
+        padding-top: 1.5px;
+        padding-bottom: 2.5px;
+      }
       .epicure-text-title {
         color: #000;
         font-family: "Helvetica Neue";
@@ -59,7 +65,7 @@
         line-height: normal;
         letter-spacing: 1.35px;
         padding-right: 32px;
-        padding-left: 14px; //concluded this on my own, couldn't extract this from figma
+        padding-left: 15.07px;
         padding-top: 1.5px;
         padding-bottom: 1.5px;
       }

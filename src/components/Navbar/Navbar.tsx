@@ -2,12 +2,14 @@ import React from "react";
 import "./Navbar.scss";
 function Navbar() {
   return (
-    <div className="navbar-container">
+    <div className="header-container">
       <div className="menu-container">
         <img src="src/assets/images/HamburgIcon.svg" alt="hambur" />
       </div>
-      <div className="logo-container">
-        <img src="src/assets/images/logo.svg" alt="logo" />
+      <div className="navbar-container">
+        <div className="logo-container">
+          <img src="src/assets/images/logo.svg" alt="logo" />
+        </div>
         <div className="epicure-text-title">EPICURE</div>
         <div className="restaurants-navbar-button">Restaurants</div>
         <div className="chefs-navbar-button">Chefs</div>
