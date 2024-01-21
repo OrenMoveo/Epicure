@@ -1,0 +1,81 @@
+@import "../../styles/mediaQueries.scss";
+
+.hero-container {
+  @include mobile {
+    background: url("/src/assets/images/hero-picture-mobile.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 100%;
+    width: 100vw;
+    background-repeat: no-repeat;
+    height: 273px;
+    .hero-search-text-container {
+      display: flex;
+      flex-direction: column;
+      width: 335px;
+      height: 144px;
+      background: rgba(255, 255, 255, 0.88);
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      box-sizing: border-box;
+
+      .hero-text {
+        width: 315px;
+        height: 64px;
+        border: none;
+        outline: none;
+        font-family: Helvetica Neue;
+        font-size: 23.8px; //need to change to 24 as in specs
+        font-weight: 200;
+        line-height: 32px;
+        letter-spacing: 1.9700000286102295px;
+        text-align: left;
+        padding-bottom: 18px;
+      }
+
+      .hero-search {
+        display: flex;
+        width: 315px;
+        height: 30px;
+        border: 0.5px solid rgba(0, 0, 0, 1);
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding-left: 12px;
+        padding-right: 12px;
+
+        .search-button {
+          display: flex;
+          align-self: center;
+          outline: none;
+          border: none;
+          background: none;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-right: 8px;
+        }
+      }
+
+      .search-input {
+        display: flex;
+        align-self: center;
+        width: 253px;
+        height: 15px;
+        outline: none;
+        border: none;
+        background: none;
+        font-family: Helvetica Neue;
+        font-size: 12px;
+        font-weight: 200;
+        line-height: 15px;
+        letter-spacing: 1.2899999618530273px;
+        text-align: left;
+        padding-bottom: 7.5px;
+        padding-top: 7.5px;
+        padding-left: 6px;
+      }
+    }
+  }
+}
