@@ -78,6 +78,19 @@ h6 {
       justify-content: space-between;
       width: calc(50% + $halfOfLogoPixels);
 
+      .logo-container {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu-container {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+      }
+
       .epicure-text-title {
         display: none;
       }
@@ -98,5 +111,24 @@ h6 {
     gap: 20px;
     width: 100px;
     height: 20px;
+
+    .search-button {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .signIn-button {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .bag-button {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
