@@ -1,4 +1,6 @@
 @import "../../styles/mediaQueries.scss";
+@import "../../styles/fonts.scss";
+
 //css reset
 *,
 *::before,
@@ -59,8 +61,7 @@ h6 {
     background: url("/src/assets/images/hero-picture-desktop.png");
     width: 100%;
     height: 696px;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 
   .hero-search-text-container {
@@ -73,6 +74,10 @@ h6 {
     height: 144px;
     background: rgba(255, 255, 255, 0.88);
 
+    @include desktop {
+      width: 776px;
+      height: 221px;
+    }
     .hero-text {
       display: flex;
       justify-content: flex-start;
@@ -82,13 +87,17 @@ h6 {
       height: 64px;
       border: none;
       outline: none;
+      @include hero-mobile-text-box-font;
 
-      font-family: Helvetica Neue;
-      font-size: 23.8px;
-      font-weight: 200;
-      line-height: 32px;
-      letter-spacing: 1.9700000286102295px;
-      text-align: left;
+      @include desktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 402px;
+        height: 80px;
+        @include hero-desktop-text-box-font;
+      }
     }
 
     .hero-search {
@@ -102,6 +111,11 @@ h6 {
       border: 0.5px solid rgba(0, 0, 0, 1);
       border-radius: 4px;
       padding: 0 12px;
+      @include desktop {
+        width: 505px;
+        height: 48px;
+        gap: 16px;
+      }
 
       .search-button {
         display: flex;
@@ -109,6 +123,12 @@ h6 {
         outline: none;
         border: none;
         background: none;
+        @include desktop {
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
       }
       .search-input {
         display: flex;
@@ -118,12 +138,15 @@ h6 {
         outline: none;
         border: none;
         background: none;
-        font-family: Helvetica Neue;
-        font-size: 12px;
-        font-weight: 200;
-        line-height: 15px;
-        letter-spacing: 1.2899999618530273px;
-        text-align: left;
+        @include hero-mobile-search-placeholder-font;
+        @include desktop {
+          &::placeholder {
+            color: rgba(0, 0, 0, 1);
+          }
+          width: 423px;
+          height: 29px;
+          @include hero-desktop-search-placeholder-font;
+        }
       }
     }
   }
