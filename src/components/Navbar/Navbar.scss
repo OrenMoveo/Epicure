@@ -9,80 +9,74 @@
   letter-spacing: 1.92px;
 }
 
-@mixin navbar-button-padding {
-  padding-right: 32px;
-  padding-top: 7px;
-  padding-bottom: 7px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
 }
 
 .header-container {
-  @include desktop {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  padding: 0 20px;
+
+  .navbar-wrapper {
     display: flex;
+    flex-flow: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 36px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 127px;
-    padding-right: 127px;
-    box-sizing: border-box;
-  }
 
-  @include mobile {
-    display: flex;
-    width: 100%;
-    height: 46px;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-  }
-
-  .menu-container {
-    @include desktop {
-      display: none;
-    }
-    @include mobile {
-      padding-top: 14px;
-      padding-bottom: 14px;
-    }
-  }
-
-  .navbar-container {
-    @include desktop {
+    .navbar-container {
+      $halfOfLogoPixels: 12px;
       display: flex;
-
-      .logo-container {
-        padding-top: 1.5px;
-        padding-bottom: 2.5px;
-      }
-      .epicure-text-title {
-        color: #000;
-        font-family: "Helvetica Neue";
-        font-size: 27px;
-        font-style: normal;
-        font-weight: 200;
-        line-height: normal;
-        letter-spacing: 1.35px;
-        padding-right: 32px;
-        padding-left: 15.07px;
-        padding-top: 1.5px;
-        padding-bottom: 1.5px;
-      }
-
-      .restaurants-navbar-button {
-        @include navbar-desktop-option-font();
-        @include navbar-button-padding();
-      }
-
-      .chefs-navbar-button {
-        @include navbar-desktop-option-font();
-        @include navbar-button-padding();
-      }
-    }
-    @include mobile {
-      padding-top: 7px;
-      padding-bottom: 7px;
+      flex-flow: row;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(50% + $halfOfLogoPixels);
 
       .epicure-text-title {
         display: none;
@@ -96,28 +90,13 @@
     }
   }
 
-  .search-signin-bag-container {
-    @include desktop {
-      display: flex;
-      justify-content: space-between;
-      width: 100px;
-      height: 20px;
-      padding-top: 6px;
-      padding-bottom: 6px;
-      .search-button {
-        padding-right: 24px;
-      }
-      .signin-button {
-        padding-right: 24px;
-      }
-    }
-    @include mobile {
-      display: flex;
-      justify-content: space-between;
-      width: 100px;
-      height: 20px;
-      padding-top: 13px;
-      padding-bottom: 13px;
-    }
+  .icons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100px;
+    height: 20px;
   }
 }
