@@ -1,0 +1,17 @@
+@mixin epicure-navbar-font {
+  font-family: Helvetica Neue;
+  font-size: 27px;
+  font-weight: 200;
+  line-height: 33px;
+  letter-spacing: 1.350000023841858px;
+  text-align: left;
+}
+
+@mixin link-buttons-navbar-font {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 22px;
+  letter-spacing: 1.9199999570846558px;
+  text-align: left;
+}
