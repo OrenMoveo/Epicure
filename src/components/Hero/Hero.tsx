@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.scss";
 function Hero() {
   return (
-    <div className="hero-container">
+    <section className="hero-container">
       <div className="hero-search-text-container">
         <div className="hero-text">
           Epicure works with the top chef restaurants in Tel Aviv
@@ -17,7 +17,7 @@ function Hero() {
           ></input>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

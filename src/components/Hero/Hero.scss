@@ -1,23 +1,59 @@
 @import "../../styles/mediaQueries.scss";
 //css reset
-* {
-  padding: 0;
-  margin: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
-#root {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
 }
 
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background: url("/src/assets/images/hero-picture-mobile.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 273px;
 
   @include desktop {
     background: url("/src/assets/images/hero-picture-desktop.png");
@@ -25,65 +61,55 @@
     height: 696px;
     background-size: 100%;
     background-repeat: no-repeat;
-
-    .hero-search-text-container {
-    }
   }
 
-  @include mobile {
-    background: url("/src/assets/images/hero-picture-mobile.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 273px;
-    .hero-search-text-container {
+  .hero-search-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    width: 335px;
+    height: 144px;
+    background: rgba(255, 255, 255, 0.88);
+
+    .hero-text {
       display: flex;
-      flex-direction: column;
-      width: 335px;
-      height: 144px;
-      background: rgba(255, 255, 255, 0.88);
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 16px;
-      padding-bottom: 16px;
-      box-sizing: border-box;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      width: 315px;
+      height: 64px;
+      border: none;
+      outline: none;
 
-      .hero-text {
-        width: 315px;
-        height: 64px;
-        border: none;
-        outline: none;
-        font-family: Helvetica Neue;
-        font-size: 23.8px;
-        font-weight: 200;
-        line-height: 32px;
-        letter-spacing: 1.9700000286102295px;
-        text-align: left;
-        padding-bottom: 18px;
-      }
+      font-family: Helvetica Neue;
+      font-size: 23.8px;
+      font-weight: 200;
+      line-height: 32px;
+      letter-spacing: 1.9700000286102295px;
+      text-align: left;
+    }
 
-      .hero-search {
+    .hero-search {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      width: 315px;
+      height: 30px;
+      border: 0.5px solid rgba(0, 0, 0, 1);
+      border-radius: 4px;
+      padding: 0 12px;
+
+      .search-button {
         display: flex;
-        width: 315px;
-        height: 30px;
-        border: 0.5px solid rgba(0, 0, 0, 1);
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding-left: 12px;
-        padding-right: 12px;
-
-        .search-button {
-          display: flex;
-          align-self: center;
-          outline: none;
-          border: none;
-          background: none;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          padding-right: 8px;
-        }
+        align-self: center;
+        outline: none;
+        border: none;
+        background: none;
       }
-
       .search-input {
         display: flex;
         align-self: center;
@@ -98,9 +124,6 @@
         line-height: 15px;
         letter-spacing: 1.2899999618530273px;
         text-align: left;
-        padding-bottom: 7.5px;
-        padding-top: 7.5px;
-        padding-left: 6px;
       }
     }
   }
