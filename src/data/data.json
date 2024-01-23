@@ -1,0 +1,214 @@
+{
+  "data": {
+    "restaurants": [
+      {
+        "name": "Claro",
+        "chef": "Ran Shmueli",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Kab Kem",
+        "chef": "Yariv Malili",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Messa",
+        "chef": "Aviv Moshe",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Nitan Thai",
+        "chef": "Shahaf Shabtay",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Tiger Lilly",
+        "chef": "Yanir Green",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Ya Pan",
+        "chef": "Yuval Ben Moshe",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Onza",
+        "chef": "Yossi Shitrit",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Kitchen Market",
+        "chef": "Yossi Shitrit",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      },
+      {
+        "name": "Mashya",
+        "chef": "Yossi Shitrit",
+        "pictureUrl": "",
+        "openNow": false,
+        "location": "",
+        "rating": 0,
+        "priceRange": []
+      }
+    ],
+    "dishes": [
+      {
+        "name": "Pad Ki Mao",
+        "pictureUrl": "",
+        "descriptions": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+        "price": 88,
+        "signatureDish": true,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      },
+      {
+        "name": "Ta Ma La Ko",
+        "pictureUrl": "",
+        "descriptions": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+        "price": 65,
+        "signatureDish": false,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      },
+      {
+        "name": "Red Farm",
+        "pictureUrl": "",
+        "descriptions": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+        "price": 65,
+        "signatureDish": false,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      },
+      {
+        "name": "Pad Ki Mao 1",
+        "pictureUrl": "",
+        "descriptions": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+        "price": 65,
+        "signatureDish": false,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      },
+      {
+        "name": "Red Farm",
+        "pictureUrl": "",
+        "descriptions": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+        "price": 88,
+        "signatureDish": true,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      },
+      {
+        "name": "Pad Ki Mao 2",
+        "pictureUrl": "",
+        "descriptions": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+        "price": 98,
+        "signatureDish": true,
+        "changes": [],
+        "chooseASide": [],
+        "quantity": 1
+      }
+    ],
+    "chefs": [
+      {
+        "name": "Ran Shmueli",
+        "pictureUrl": "",
+        "restaurants": "Claro",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Yariv Malili",
+        "pictureUrl": "",
+        "restaurants": "Kab Kem",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Aviv Moshe",
+        "pictureUrl": "",
+        "restaurants": "Messa",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Shahaf Shabtay",
+        "pictureUrl": "",
+        "restaurants": "Nitan Thai",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Yanir Green",
+        "pictureUrl": "",
+        "restaurants": "Tiger Lilly",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Yuval Ben Moshe",
+        "pictureUrl": "",
+        "restaurants": "Ya Pan",
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      },
+      {
+        "name": "Yossi Shitrit",
+        "pictureUrl": "",
+        "restaurants": ["Onza", "Kitchen Market", "Mashya"],
+        "new": false,
+        "views": 0,
+        "mostViewed": false,
+        "description": ""
+      }
+    ]
+  }
+}
