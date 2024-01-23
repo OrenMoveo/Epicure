@@ -50,3 +50,21 @@
   letter-spacing: 1.2899999618530273px;
   text-align: left;
 }
+
+@mixin card-title-font {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 2.6700000762939453px;
+  text-align: left;
+}
+
+@mixin card-content-font {
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  letter-spacing: 1.9700000286102295px;
+  text-align: left;
+}

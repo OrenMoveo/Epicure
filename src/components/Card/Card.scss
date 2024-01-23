@@ -1,3 +1,5 @@
+@import "../../styles/fonts.scss";
+
 *,
 *::before,
 *::after {
@@ -40,4 +42,49 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+$restaurant-card-width: 245px;
+$restaurant-card-height: 151.8px;
+.card {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  flex-direction: column;
+  width: $restaurant-card-width;
+  height: 232.8px;
+  .card-img {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    flex-direction: row;
+    $image-width: $restaurant-card-width;
+    $image-height: $restaurant-card-height;
+    width: $image-width;
+    height: $image-height;
+    img {
+      width: $image-width;
+      height: $image-height;
+    }
+  }
+
+  .restaurant-card-container {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    flex-direction: column;
+    width: $restaurant-card-width;
+    height: 81px;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(249, 244, 234, 1);
+
+    .card-title {
+      @include card-title-font;
+    }
+
+    .restaurant-card-content {
+      @include card-content-font;
+    }
+  }
 }
