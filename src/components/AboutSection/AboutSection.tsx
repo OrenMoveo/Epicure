@@ -38,15 +38,14 @@ function AboutSection() {
         <div className="would-be-replaced-with-header-component">About Us:</div>
         <div className="about-us-descriptions-container">
           <p className="about-us-description-top-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-            earum eaque ut modi sunt nobis voluptatum ipsa consequatur sed,
-            minus tempora iste, aspernatur quidem aliquam, quas ducimus nam vero
-            ratione?
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lacus
+            vel justo fermentum bibendum non eu ipsum. Cras porta malesuada
+            eros, eget blandit turpis suscipit at. Vestibulum sed massa in magna
+            sodales porta. Vivamus elit urna, dignissim a vestibulum.
           </p>
           <p className="about-us-description-bottom-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex
-            perferendis facere, praesentium magnam delectus vitae aut ab facilis
-            amet ipsa?
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a lacus
+            vel justo fermentum bibendum no eu ipsum. Cras porta malesuada eros.
           </p>
         </div>
       </div>
