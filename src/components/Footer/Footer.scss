@@ -1,6 +1,6 @@
 @import "../../styles/fonts.scss";
 @import "../../styles/mediaQueries.scss";
-
+@import "../../styles/constants.scss";
 *,
 *::before,
 *::after {
@@ -54,20 +54,41 @@ h6 {
   height: 202px;
   padding: 32px 232px 24px 19px;
   box-sizing: border-box;
+
+  @include desktop {
+    height: 86px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 31px 397px;
+  }
   .buttons-container {
     display: flex;
     flex-direction: column;
     width: 126px;
     height: 146px;
     gap: 40px;
-    @include footer-mobile-font;
+    @include footer-font;
 
-    .contact-us-button,
-    .term-of-use-button,
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 419px;
+      height: 22px;
+    }
+    .contact-us-button {
+      @include clean-button-style;
+      width: 103px;
+    }
+    .term-of-use-button {
+      @include clean-button-style;
+      width: 110px;
+    }
     .privacy-policy-button {
-      cursor: pointer;
-      border: none;
-      background: none;
+      @include clean-button-style;
+      width: 126px;
     }
   }
 }

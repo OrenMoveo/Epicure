@@ -1,1 +1,7 @@
 $mobile-max-width: 480px;
+
+@mixin clean-button-style {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
