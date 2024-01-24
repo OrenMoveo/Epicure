@@ -1,0 +1,28 @@
+.about-us-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 867px;
+
+  .about-us-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px 25px 48px 24px;
+
+    .about-us-logo-container {
+      padding-bottom: 32px;
+    }
+
+    .apple-store-container {
+      border: 0.5px;
+      border-radius: 10px;
+    }
+    .google-play-store-container {
+      border: 1px solid black;
+    }
+  }
+}
