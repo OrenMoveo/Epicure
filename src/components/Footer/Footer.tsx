@@ -14,6 +14,7 @@ function Footer() {
           Privacy Policy
         </button>
       </div>
+      <section className="blank-space-container"></section>
     </div>
   );
 }

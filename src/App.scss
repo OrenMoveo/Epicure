@@ -1,3 +1,4 @@
+@import "./styles/constants.scss";
 //css reset
 *,
 *::before,
@@ -49,4 +50,8 @@ h6 {
   justify-content: flex-start;
   align-items: center;
   width: 100vw;
+
+  font-family: $app-primary-font-family;
+  font-weight: $app-primary-font-weight;
+  text-align: $app-primary-text-align;
 }

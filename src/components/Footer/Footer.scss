@@ -1,48 +1,9 @@
-@import "../../styles/fonts.scss";
 @import "../../styles/mediaQueries.scss";
 @import "../../styles/constants.scss";
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
-html,
-body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-#root,
-#__next {
-  isolation: isolate;
+
+button {
+  border: none;
+  background: none;
 }
 
 .footer-container {
@@ -68,7 +29,9 @@ h6 {
     width: 126px;
     height: 146px;
     gap: 40px;
-    @include footer-font;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 1.9199999570846558px;
 
     @include desktop {
       display: flex;
@@ -79,15 +42,12 @@ h6 {
       height: 22px;
     }
     .contact-us-button {
-      @include clean-button-style;
       width: 103px;
     }
     .term-of-use-button {
-      @include clean-button-style;
       width: 110px;
     }
     .privacy-policy-button {
-      @include clean-button-style;
       width: 126px;
     }
   }
