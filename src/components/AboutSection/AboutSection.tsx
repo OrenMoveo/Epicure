@@ -16,17 +16,22 @@ function AboutSection() {
             <img
               src="/src/assets/images/google play icon.svg"
               alt="google-play-icon"
+              className="google-play-icon"
             />
             <div className="apps-text-container">
-              <p className="google-play-top-text">Get it on</p>
-              <p className="google-play-bottom-text">Google Play</p>
+              <p className="apps-top-text">Get it on</p>
+              <p className="apps-bottom-text">Google Play</p>
             </div>
           </div>
           <div className="apple-store-container">
-            <img src="/src/assets/images/apple icon.svg" alt="apple-icon" />
+            <img
+              src="/src/assets/images/apple icon.svg"
+              alt="apple-icon"
+              className="apple-icon"
+            />
             <div className="apps-text-container">
-              <p className="app-store-top-text">Download on the</p>
-              <p className="app-store-bottom-text">App Store</p>
+              <p className="apps-top-text">Download on the</p>
+              <p className="apps-bottom-text">App Store</p>
             </div>
           </div>
         </div>
