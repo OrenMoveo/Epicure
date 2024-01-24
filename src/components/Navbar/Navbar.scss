@@ -41,7 +41,6 @@
         $logo-button-links-gap: 15.07px;
         justify-content: flex-start;
         gap: $logo-button-links-gap;
-        // width: auto;
       }
 
       .logo-container {
@@ -89,7 +88,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    // width: 100px;
     height: 20px;
     flex-shrink: 0;
     @include desktop {
