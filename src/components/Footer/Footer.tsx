@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.scss";
 function Footer() {
   return (
-    <div className="footer-container">
+    <section className="footer-container">
       <div className="buttons-container">
         <button className="contact-us-button" name="contact-us-button">
           Contact Us
@@ -14,7 +14,7 @@ function Footer() {
           Privacy Policy
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 
