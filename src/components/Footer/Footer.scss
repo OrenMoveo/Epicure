@@ -1,0 +1,73 @@
+@import "../../styles/fonts.scss";
+@import "../../styles/mediaQueries.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 377px;
+  height: 202px;
+  padding: 32px 232px 24px 19px;
+  box-sizing: border-box;
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    width: 126px;
+    height: 146px;
+    gap: 40px;
+    @include footer-mobile-font;
+
+    .contact-us-button,
+    .term-of-use-button,
+    .privacy-policy-button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+  }
+}

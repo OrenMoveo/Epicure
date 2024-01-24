@@ -50,3 +50,12 @@
   letter-spacing: 1.2899999618530273px;
   text-align: left;
 }
+
+@mixin footer-mobile-font {
+  font-family: Helvetica Neue;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 22px;
+  letter-spacing: 1.9199999570846558px;
+  text-align: left;
+}
