@@ -45,18 +45,24 @@ h6 {
 }
 
 .header-container {
+  $padding-horizontal: 14px;
+
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  align-items: center;
   box-sizing: border-box;
+  align-items: center;
   width: 100%;
   height: 46px;
   padding: 0 20px;
 
-  @include desktop {
+  @include tablet {
     height: 64px;
-    padding: 14px 127px;
+    padding: $padding-horizontal 18px;
+  }
+
+  @include desktop {
+    padding: $padding-horizontal 127px;
   }
 
   .header-wrapper {
