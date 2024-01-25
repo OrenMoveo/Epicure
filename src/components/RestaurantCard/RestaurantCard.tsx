@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../Card/Card";
 import { Restaurant, Chef } from "../../types/types";
 interface RestaurantCardProps {
   restaurant: Restaurant;
 }
-function RestaurantCard(restaurantProps: RestaurantCardProps) {
-  const { restaurant } = restaurantProps;
+
+function RestaurantCard({ restaurant }: RestaurantCardProps) {
   return (
     <Card
       cardType={"restaurant"}
-      content={restaurant.chef}
+      description={restaurant.chef}
       pictureUrl={restaurant.pictureUrl}
       title={restaurant.name}
       isHorizontal={false}

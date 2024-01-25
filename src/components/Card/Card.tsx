@@ -1,42 +1,42 @@
 import React from "react";
 import { Dish, Restaurant } from "../../types/types";
-import "./Card.scss";
+// import styles from "./Card.module.scss";
+
 interface CardProps {
   cardType: string;
   pictureUrl: string;
-  title: string;
-  content: string;
-  isHorizontal: boolean;
+  title?: string;
+  description?: string;
+  isHorizontal?: boolean;
+  summary?: string;
+  rating?: number;
 }
 function Card({
-  content,
   pictureUrl,
   title,
-  cardType,
+  description,
   isHorizontal,
+  summary,
+  rating = 3,
 }: CardProps) {
   console.log(pictureUrl);
 
   return (
+    // <div className={styles.card}>
     <div className="card">
-      <div className="card-img">
-        <img src={pictureUrl} alt={title + " " + cardType} />
+      <div className="main-img">
+        <img src={pictureUrl} alt={title} />
       </div>
-      <div
-        className={
-          cardType === "restaurant"
-            ? "restaurant-card-container"
-            : "dish-card-container"
-        }
-      >
-        {/* <div className="card-content-wrapper"> */}
-        <h4 className="card-title">{title}</h4>
-        {cardType === "restaurant" ? (
-          <p className="restaurant-card-content">{content}</p>
-        ) : (
-          <div className="dish-card-content">{content}</div>
+      <div className="content-container">
+        {title && <h4 className="title">{title}</h4>}
+        {description && <div className="description">{description}</div>}
+        {summary && <div className="summary">{summary}</div>}
+        {rating && (
+          <div className="rating">
+            {/* TODO: Implement */}
+            {/* <Rating rating /> */}
+          </div>
         )}
-        {/* </div> */}
       </div>
     </div>
   );
