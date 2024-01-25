@@ -1,5 +1,4 @@
 @import "../../styles/mediaQueries.scss";
-@import "../../styles/fonts.scss";
 
 .header-container {
   $padding-horizontal: 14px;
@@ -30,7 +29,7 @@
     width: 100%;
 
     .navbar-container {
-      $halfOfLogoPixels: 12px;
+      $halfOfLogoPixels: 16.5px;
       display: flex;
       flex-flow: row;
       align-items: center;
@@ -61,10 +60,14 @@
           align-items: center;
           justify-content: center;
           gap: $button-links-gap;
-          @include link-buttons-navbar-font;
+          font-size: 18px;
+          line-height: 22px;
+          letter-spacing: 1.9199999570846558px;
 
           .epicure-text-title {
-            @include epicure-navbar-font;
+            font-size: 27px;
+            line-height: 33px;
+            letter-spacing: 1.350000023841858px;
           }
         }
       }
@@ -92,24 +95,6 @@
     flex-shrink: 0;
     @include desktop {
       gap: 24px;
-    }
-    .search-button {
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      justify-content: center;
-    }
-    .signIn-button {
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      justify-content: center;
-    }
-    .bag-button {
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      justify-content: center;
     }
   }
 }

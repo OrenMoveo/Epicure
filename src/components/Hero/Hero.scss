@@ -1,19 +1,17 @@
 @import "../../styles/mediaQueries.scss";
-@import "../../styles/fonts.scss";
 
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url("/src/assets/images/hero-picture-mobile.png");
-  background-size: cover;
+  background: url("/src/assets/images/heroPicture.png");
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 273px;
 
   @include desktop {
-    background: url("/src/assets/images/hero-picture-desktop.png");
     height: 696px;
   }
 
@@ -40,7 +38,10 @@
       height: 64px;
       border: none;
       outline: none;
-      @include hero-mobile-text-box-font;
+      font-size: 23.8px;
+      line-height: 32px;
+      letter-spacing: 1.9700000286102295px;
+      text-align: left;
 
       @include desktop {
         display: flex;
@@ -49,7 +50,9 @@
         flex-direction: row;
         width: 402px;
         height: 80px;
-        @include hero-desktop-text-box-font;
+        font-size: 31.8px;
+        line-height: 40px;
+        letter-spacing: 1.9700000286102295px;
       }
     }
 
@@ -91,14 +94,19 @@
         outline: none;
         border: none;
         background: none;
-        @include hero-mobile-search-placeholder-font;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 1.2899999618530273px;
+
         @include desktop {
           &::placeholder {
             color: rgba(0, 0, 0, 1);
           }
           width: 423px;
           height: 29px;
-          @include hero-desktop-search-placeholder-font;
+          font-size: 24px;
+          line-height: 29px;
+          letter-spacing: 1.2899999618530273px;
         }
       }
     }

@@ -9,7 +9,7 @@ function Hero() {
         </div>
         <div className="hero-search">
           <button className="search-button">
-            <img src="/src/assets/images/SearchIcon.svg" alt="search-icon" />
+            <img src="/src/assets/images/searchIcon.svg" alt="search-icon" />
           </button>
           <input
             className="search-input"
