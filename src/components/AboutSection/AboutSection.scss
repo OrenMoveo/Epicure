@@ -15,6 +15,7 @@
     padding: 24px 25px 48px 24px;
 
     .about-us-logo-container {
+      padding-bottom: 32px;
     }
 
     .app-stores-container {
@@ -31,8 +32,8 @@
       align-items: flex-start;
       justify-content: flex-start;
       width: 180px;
-      height: 120px;
       gap: 16px;
+      padding-bottom: 48px;
 
       .apple-store-container,
       .google-play-store-container {
@@ -89,6 +90,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
+      padding-bottom: 16px;
 
       font-size: 18px;
       line-height: 35px;
