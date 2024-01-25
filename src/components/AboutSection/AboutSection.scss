@@ -59,14 +59,6 @@
       }
 
       .app-stores-container {
-        $app-stores-border-width: 0.5px;
-        $app-stores-border-color: rgba(0, 0, 0, 1);
-        $app-stores-border-texture: solid;
-        $app-stores-border-radius: 10px;
-        $app-stores-container-horizontal-padding: 12px;
-        $app-stores-container-vertical-padding: 7px;
-        $app-stores-container-gap: 7px;
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -84,18 +76,17 @@
           padding-bottom: 0;
         }
 
-        .apple-store-container,
-        .google-play-store-container {
+        .apple-store-icon-container,
+        .google-play-store-icon-container {
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          border: $app-stores-border-width $app-stores-border-texture;
-          border-color: $app-stores-border-color;
-          border-radius: $app-stores-border-radius;
-          padding: $app-stores-container-vertical-padding
-            $app-stores-container-horizontal-padding;
-          gap: $app-stores-container-gap;
+          border: 0.5px solid;
+          border-color: rgba(0, 0, 0, 1);
+          border-radius: 10px;
+          padding: 7px 12px;
+          gap: 7px;
 
           @include desktop {
           }
@@ -165,22 +156,6 @@
           width: 569px;
           height: 330px;
           gap: 32px;
-        }
-        .about-us-description-top-text {
-          width: 331px;
-          height: 255px;
-          @include desktop {
-            width: auto;
-            height: auto;
-          }
-        }
-        .about-us-description-bottom-text {
-          width: 306px;
-          height: 168px;
-          @include desktop {
-            width: auto;
-            height: auto;
-          }
         }
       }
     }

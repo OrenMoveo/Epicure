@@ -13,7 +13,7 @@ function AboutSection() {
         </div>
         <div className="about-us-information-container">
           <div className="app-stores-container">
-            <div className="google-play-store-container">
+            <div className="google-play-store-icon-container">
               <img
                 src="/src/assets/images/googlePlayIcon.svg"
                 alt="google-play-icon"
@@ -24,7 +24,7 @@ function AboutSection() {
                 <p className="apps-bottom-text">Google Play</p>
               </div>
             </div>
-            <div className="apple-store-container">
+            <div className="apple-store-icon-container">
               <img
                 src="/src/assets/images/appleIcon.svg"
                 alt="apple-icon"
