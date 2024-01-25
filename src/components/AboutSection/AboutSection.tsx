@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutSection.scss";
+import { SectionTitle } from "../SectionTitle/SectionTitle";
 function AboutSection() {
   return (
     <section className="about-us-section-container">
@@ -35,8 +36,14 @@ function AboutSection() {
               </div>
             </div>
           </div>
-          <div className="would-be-replaced-with-header-component">
-            About Us:
+          <div className="section-title-container">
+            <SectionTitle
+              mobileWidth={101}
+              mobileHeight={35}
+              desktopWidth={665}
+              desktopHeight={35}
+              title={"About Us"}
+            />
           </div>
           <div className="about-us-descriptions-container">
             <p className="about-us-description-top-text">
