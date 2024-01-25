@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
-import RestaurantCarousell from "../../components/RestaurantCarousell/RestaurantCarousell";
+import RestaurantCarousel from "../../components/RestaurantCarousel/RestaurantCarousel";
 import Footer from "../../components/Footer/Footer";
 
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
     <>
       <Navbar />
       <Hero />
-      <RestaurantCarousell />
+      <RestaurantCarousel />
       <Footer />
     </>
   );
