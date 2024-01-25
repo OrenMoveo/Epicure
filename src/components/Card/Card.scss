@@ -1,49 +1,3 @@
-@import "../../styles/fonts.scss";
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
-html,
-body {
-  height: 100%;
-}
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-#root,
-#__next {
-  isolation: isolate;
-}
-
 $restaurant-card-width: 245px;
 $restaurant-card-height: 151.8px;
 .card {
@@ -80,11 +34,17 @@ $restaurant-card-height: 151.8px;
     background: rgba(249, 244, 234, 1);
 
     .card-title {
-      @include card-title-font;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 2.6700000762939453px;
     }
 
     .restaurant-card-content {
-      @include card-content-font;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 20px;
+      letter-spacing: 1.9700000286102295px;
     }
   }
 }
