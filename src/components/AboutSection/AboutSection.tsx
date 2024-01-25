@@ -7,14 +7,14 @@ function AboutSection() {
       <div className="about-us-content-container">
         <div className="about-us-logo-container">
           <img
-            src="/src/assets/images/about-section-logo.svg"
+            src="/src/assets/images/aboutSectionLogo.svg"
             alt="about-us-logo"
           />
         </div>
         <div className="app-stores-container">
           <div className="google-play-store-container">
             <img
-              src="/src/assets/images/google play icon.svg"
+              src="/src/assets/images/googlePlayIcon.svg"
               alt="google-play-icon"
               className="google-play-icon"
             />
@@ -25,7 +25,7 @@ function AboutSection() {
           </div>
           <div className="apple-store-container">
             <img
-              src="/src/assets/images/apple icon.svg"
+              src="/src/assets/images/appleIcon.svg"
               alt="apple-icon"
               className="apple-icon"
             />
