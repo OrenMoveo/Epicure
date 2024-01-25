@@ -1,6 +1,11 @@
 @import "/src/styles/constants.scss";
-@mixin desktop {
+@mixin tablet {
   @media screen and (min-width: $mobile-max-width) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media screen and (min-width: $tablet-max-width) {
     @content;
   }
 }

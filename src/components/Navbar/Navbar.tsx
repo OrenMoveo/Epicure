@@ -11,7 +11,7 @@ function Navbar() {
       <div className="header-wrapper">
         <div className="navbar-container">
           <div className="menu-container">
-            <img src={hamburgerIcon} alt="hambur" />
+            <img src="/src/assets/images/hamburgerIcon.svg" alt="hambur" />
           </div>
           <div className="logo-container">
             <img src={logoIcon} alt="logo" />
@@ -24,13 +24,13 @@ function Navbar() {
         </div>
         <div className="icons-container">
           <div className="search-button">
-            <img src={searchIcon} alt="search-icon" />
+            <img src="src/assets/images/searchIcon.svg" alt="search-icon" />
           </div>
           <div className="signIn-button">
-            <img src={signInIcon} alt="signIn-icon" />
+            <img src="src/assets/images/signInIcon.svg" alt="signIn-icon" />
           </div>
           <div className="bag-button">
-            <img src={bagIcon} alt="bag-icon" />
+            <img src="src/assets/images/bagIcon.svg" alt="bag-icon" />
           </div>
         </div>
       </div>
