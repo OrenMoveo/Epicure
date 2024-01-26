@@ -37,7 +37,7 @@ function AboutSection() {
             </div>
           </div>
           <div className="section-title-container">
-            <SectionTitle title={"About Us"} />
+            <SectionTitle title={"ABOUT US:"} />
           </div>
           <div className="about-us-descriptions-container">
             <p className="about-us-description-top-text">
