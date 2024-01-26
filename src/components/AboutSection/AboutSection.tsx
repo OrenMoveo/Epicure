@@ -37,13 +37,7 @@ function AboutSection() {
             </div>
           </div>
           <div className="section-title-container">
-            <SectionTitle
-              mobileWidth={101}
-              mobileHeight={35}
-              desktopWidth={665}
-              desktopHeight={35}
-              title={"About Us"}
-            />
+            <SectionTitle title={"About Us"} />
           </div>
           <div className="about-us-descriptions-container">
             <p className="about-us-description-top-text">
