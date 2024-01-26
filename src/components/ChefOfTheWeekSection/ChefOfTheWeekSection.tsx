@@ -7,7 +7,7 @@ export const ChefOfTheWeekSection = () => {
     <section className="chef-of-the-week-section">
       <div className="chef-of-the-week-content-container">
         <div className="chef-of-the-week-title-container">
-          <SectionTitle title={"CHEF OF THE WEEK"} />
+          <SectionTitle title={"CHEF OF THE WEEK:"} />
         </div>
         <div className="chef-of-the-week-description-container">
           <div className="chef-of-the-week-image-container">
@@ -15,6 +15,7 @@ export const ChefOfTheWeekSection = () => {
               src="/src/assets/images/Chefs/yossiShitrit.png"
               alt="yossiShitrit"
             />
+            <div className="overlay-text-container">Yossi Shitrit</div>
           </div>
           <p className="chef-of-the-week-about-paragraph">
             Chef Yossi Shitrit has been living and breathing his culinary dreams
@@ -32,10 +33,10 @@ export const ChefOfTheWeekSection = () => {
             Carousel
             {/* <RestaurantsCards /> */}
           </div>
-        </div>
-        <div className="go-forward-all-restaurants-button-container">
-          All Restaurants
-          {/* <goForwardButton /> */}
+          <div className="go-forward-all-restaurants-button-container">
+            All Restaurants
+            {/* <goForwardButton /> */}
+          </div>
         </div>
       </div>
     </section>
