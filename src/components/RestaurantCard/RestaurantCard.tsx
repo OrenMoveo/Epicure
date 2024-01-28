@@ -1,19 +1,36 @@
 import React from "react";
-import Card from "../Card/Card";
-import { Restaurant, Chef } from "../../types/types";
+import "./RestaurantCard.scss";
+import { Restaurant } from "../../types/types";
+import { useMediaQuery } from "react-responsive";
 interface RestaurantCardProps {
   restaurant: Restaurant;
 }
 
 function RestaurantCard({ restaurant }: RestaurantCardProps) {
+  const isMobile: boolean = useMediaQuery({
+    query: "(max-width: 450px)",
+  });
+  const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
+
   return (
-    <Card
-      cardType={"restaurant"}
-      description={restaurant.chef}
-      pictureUrl={restaurant.pictureUrl}
-      title={restaurant.name}
-      isHorizontal={false}
-    />
+    <div className="card-container">
+      <div className="card-image-container">
+        <img src={restaurant.pictureUrl} alt={restaurant.name} />
+      </div>
+      <div className="card-content-container">
+        <p className="restaurant-name">{restaurant.name}</p>
+        <p className="restaurant-chef-name">{restaurant.chef}</p>
+        {!isMobile && (
+          <div className="restaurant-rating-container">
+            <img
+              src={ratingImageSrcString}
+              alt="rating"
+              className="rating-img"
+            />
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 

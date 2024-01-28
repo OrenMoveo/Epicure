@@ -7,7 +7,7 @@
         "pictureUrl": "/src/assets/images/restaurants/claro.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 1,
         "priceRange": []
       },
       {
@@ -16,7 +16,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Kab kem.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 2,
         "priceRange": []
       },
       {
@@ -25,7 +25,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Messa.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 1,
         "priceRange": []
       },
       {
@@ -34,7 +34,7 @@
         "pictureUrl": "/src/assets/images/restaurants/nithan-thai.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 1,
         "priceRange": []
       },
       {
@@ -43,7 +43,7 @@
         "pictureUrl": "/src/assets/images/restaurants/tiger-lily.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 4,
         "priceRange": []
       },
       {
@@ -52,7 +52,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Yapan.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 2,
         "priceRange": []
       },
       {
@@ -61,7 +61,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Onza.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 1,
         "priceRange": []
       },
       {
@@ -70,7 +70,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Kitchen Market.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 2,
         "priceRange": []
       },
       {
@@ -79,7 +79,7 @@
         "pictureUrl": "/src/assets/images/restaurants/Mashia.png",
         "openNow": false,
         "location": "",
-        "rating": 0,
+        "rating": 3,
         "priceRange": []
       }
     ],

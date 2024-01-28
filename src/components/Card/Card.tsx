@@ -3,7 +3,6 @@ import { Dish, Restaurant } from "../../types/types";
 // import styles from "./Card.module.scss";
 
 interface CardProps {
-  cardType: string;
   pictureUrl: string;
   title?: string;
   description?: string;
@@ -22,17 +21,16 @@ function Card({
   console.log(pictureUrl);
 
   return (
-    // <div className={styles.card}>
-    <div className="card">
-      <div className="main-img">
+    <div className="card-container">
+      <div className="card-main-img">
         <img src={pictureUrl} alt={title} />
       </div>
-      <div className="content-container">
-        {title && <h4 className="title">{title}</h4>}
-        {description && <div className="description">{description}</div>}
-        {summary && <div className="summary">{summary}</div>}
+      <div className="card-content-container">
+        {title && <h4 className="card-title">{title}</h4>}
+        {description && <div className="card-description">{description}</div>}
+        {summary && <div className="card-summary">{summary}</div>}
         {rating && (
-          <div className="rating">
+          <div className="card-rating">
             {/* TODO: Implement */}
             {/* <Rating rating /> */}
           </div>

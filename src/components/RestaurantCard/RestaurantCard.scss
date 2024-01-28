@@ -1,0 +1,41 @@
+@import "../../styles/mediaQueries.scss";
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 245px;
+  //   height: 232.8px;
+
+  .card-image-container {
+    width: 245px;
+    height: 151.8px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+  .card-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 245px;
+    gap: 8px;
+    padding: 16px;
+    background-color: rgba(249, 244, 234, 1);
+
+    .restaurant-name {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 2.6700000762939453px;
+    }
+    .restaurant-chef-name {
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 1.9700000286102295px;
+    }
+  }
+}
