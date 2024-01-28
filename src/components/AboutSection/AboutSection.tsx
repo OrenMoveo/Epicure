@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutSection.scss";
+import { SectionTitle } from "../SectionTitle/SectionTitle";
 function AboutSection() {
   return (
     <section className="about-us-section-container">
@@ -12,7 +13,7 @@ function AboutSection() {
         </div>
         <div className="about-us-information-container">
           <div className="app-stores-container">
-            <div className="google-play-store-container">
+            <div className="google-play-store-icon-container">
               <img
                 src="/src/assets/images/googlePlayIcon.svg"
                 alt="google-play-icon"
@@ -23,7 +24,7 @@ function AboutSection() {
                 <p className="apps-bottom-text">Google Play</p>
               </div>
             </div>
-            <div className="apple-store-container">
+            <div className="apple-store-icon-container">
               <img
                 src="/src/assets/images/appleIcon.svg"
                 alt="apple-icon"
@@ -35,8 +36,8 @@ function AboutSection() {
               </div>
             </div>
           </div>
-          <div className="would-be-replaced-with-header-component">
-            About Us:
+          <div className="section-title-container">
+            <SectionTitle title={"ABOUT US:"} />
           </div>
           <div className="about-us-descriptions-container">
             <p className="about-us-description-top-text">

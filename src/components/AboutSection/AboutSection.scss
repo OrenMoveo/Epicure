@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   height: 867px;
   background-color: rgba(250, 250, 250, 1);
@@ -18,14 +18,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 24px 25px 48px 24px;
-
+    padding: 0px 24.5px;
     @include desktop {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 40px 128.78px 40px 132px;
       gap: 83.22px;
     }
 
@@ -61,14 +59,6 @@
       }
 
       .app-stores-container {
-        $app-stores-border-width: 0.5px;
-        $app-stores-border-color: rgba(0, 0, 0, 1);
-        $app-stores-border-texture: solid;
-        $app-stores-border-radius: 10px;
-        $app-stores-container-horizontal-padding: 12px;
-        $app-stores-container-vertical-padding: 7px;
-        $app-stores-container-gap: 7px;
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -86,18 +76,17 @@
           padding-bottom: 0;
         }
 
-        .apple-store-container,
-        .google-play-store-container {
+        .apple-store-icon-container,
+        .google-play-store-icon-container {
           display: flex;
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          border: $app-stores-border-width $app-stores-border-texture;
-          border-color: $app-stores-border-color;
-          border-radius: $app-stores-border-radius;
-          padding: $app-stores-container-vertical-padding
-            $app-stores-container-horizontal-padding;
-          gap: $app-stores-container-gap;
+          border: 0.5px solid;
+          border-color: rgba(0, 0, 0, 1);
+          border-radius: 10px;
+          padding: 7px 12px;
+          gap: 7px;
 
           @include desktop {
           }
@@ -142,28 +131,21 @@
         }
       }
 
-      .would-be-replaced-with-header-component {
+      .section-title-container {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
         padding-bottom: 16px;
-        width: 101px;
-        height: 35px;
-
         font-size: 18px;
         line-height: 35px;
         letter-spacing: 1.25px;
 
         @include desktop {
-          width: 665px;
-          height: 35px;
+          padding-bottom: 0;
           font-size: 30px;
           line-height: 35px;
           letter-spacing: 2.140000104904175px;
-          @include desktop {
-            padding-bottom: 0;
-          }
         }
       }
 
@@ -180,22 +162,6 @@
           width: 569px;
           height: 330px;
           gap: 32px;
-        }
-        .about-us-description-top-text {
-          width: 331px;
-          height: 255px;
-          @include desktop {
-            width: auto;
-            height: auto;
-          }
-        }
-        .about-us-description-bottom-text {
-          width: 306px;
-          height: 168px;
-          @include desktop {
-            width: auto;
-            height: auto;
-          }
         }
       }
     }
