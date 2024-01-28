@@ -9,10 +9,24 @@
   gap: 18px;
   padding: 48px 0 48px 20px;
 
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
   .restaurant-carousel-title {
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1.25px;
+
+    @include tablet {
+      font-size: 30px;
+      line-height: 35px;
+      letter-spacing: 1.25px;
+      text-align: center;
+    }
   }
 
   .restaurant-carousel-content {
@@ -22,12 +36,29 @@
     align-items: center;
     gap: 24px;
     overflow-x: hidden;
+
+    @include tablet {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 24px;
+      overflow-x: hidden;
+
+      .restaurant-card-item-container {
+      }
+    }
   }
   .all-restaurants-goto-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    @include tablet {
+      justify-content: flex-end;
+      width: 100%;
+    }
 
     .all-restaurants-button {
       display: flex;
@@ -41,9 +72,17 @@
       letter-spacing: 2px;
       text-align: right;
 
+      @include tablet {
+        font-size: 24px;
+      }
+
       img {
         width: 24px;
         height: 24px;
+
+        @include tablet {
+          height: 18px;
+        }
       }
     }
   }

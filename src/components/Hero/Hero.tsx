@@ -14,6 +14,7 @@ function Hero() {
           <input
             className="search-input"
             placeholder="Search for restaurant cuisine, chef"
+            name="search-input"
           ></input>
         </div>
       </div>

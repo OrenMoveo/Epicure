@@ -8,7 +8,7 @@ interface RestaurantCardProps {
 
 function RestaurantCard({ restaurant }: RestaurantCardProps) {
   const isTablet: boolean = useMediaQuery({
-    query: "(max-width: 820px)",
+    query: "(max-width: 819px)",
   });
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
