@@ -1,3 +1,5 @@
+@import "../../styles/mediaQueries.scss";
+
 .legend-section {
   display: flex;
   flex-direction: column;
@@ -14,10 +16,21 @@
     gap: 32px;
     padding: 24px 0;
 
+    @include tablet {
+      padding: 39px 0;
+    }
+
     .legend-title-container {
       font-size: 18px;
       line-height: 35px;
       letter-spacing: 1.25px;
+
+      @include tablet {
+        font-size: 30px;
+        line-height: 35px;
+        letter-spacing: 2.140000104904175px;
+        text-align: center;
+      }
     }
 
     .icons-container {
@@ -27,16 +40,37 @@
       align-items: center;
       gap: 56px;
 
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+      }
       .legend-item-container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         gap: 32px;
+
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          gap: 32px;
+        }
+
         &.spicy-item-container {
           img {
             width: 46.14px;
             height: 34.44px;
+
+            @include tablet {
+              width: 76.95px;
+              height: 57.44px;
+            }
           }
         }
 
@@ -65,6 +99,13 @@
           line-height: 30px;
           letter-spacing: 1.9700000286102295px;
           text-align: center;
+
+          @include tablet {
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 1.9700000286102295px;
+            text-align: center;
+          }
         }
       }
     }
