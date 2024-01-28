@@ -17,7 +17,7 @@
     padding: $padding-horizontal 18px;
   }
 
-  @include desktop {
+  @include smallDesktopScreen {
     padding: $padding-horizontal 127px;
   }
 
@@ -36,7 +36,7 @@
       justify-content: space-between;
       width: calc(50% + $halfOfLogoPixels);
 
-      @include desktop {
+      @include smallDesktopScreen {
         $logo-button-links-gap: 15.07px;
         justify-content: flex-start;
         gap: $logo-button-links-gap;
@@ -53,7 +53,7 @@
       .navbar-buttons-container {
         display: none;
 
-        @include desktop {
+        @include smallDesktopScreen {
           $button-links-gap: 32px;
           display: flex;
           flex-flow: row;
@@ -78,7 +78,7 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        @include desktop {
+        @include smallDesktopScreen {
           display: none;
         }
       }
@@ -93,7 +93,7 @@
     gap: 20px;
     height: 20px;
     flex-shrink: 0;
-    @include desktop {
+    @include smallDesktopScreen {
       gap: 24px;
     }
   }
