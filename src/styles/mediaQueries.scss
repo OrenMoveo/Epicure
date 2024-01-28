@@ -4,8 +4,14 @@
     @content;
   }
 }
-@mixin desktop {
+
+@mixin smallDesktopScreen {
   @media screen and (min-width: $tablet-max-width) {
+    @content;
+  }
+}
+@mixin mediumDesktopScreen {
+  @media screen and (min-width: $medium-desktop-max-width) {
     @content;
   }
 }

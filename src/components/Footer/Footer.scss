@@ -16,7 +16,7 @@ button {
   padding: 32px 232px 24px 19px;
   box-sizing: border-box;
 
-  @include desktop {
+  @include smallDesktopScreen {
     height: 86px;
     flex-direction: row;
     align-items: center;
@@ -33,7 +33,7 @@ button {
     line-height: 22px;
     letter-spacing: 1.9199999570846558px;
 
-    @include desktop {
+    @include smallDesktopScreen {
       display: flex;
       flex-direction: row;
       justify-content: center;
