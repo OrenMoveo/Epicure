@@ -1,0 +1,8 @@
+@import "../../styles/mediaQueries.scss";
+
+.restaurant-carousel-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

@@ -7,8 +7,8 @@ interface RestaurantCardProps {
 }
 
 function RestaurantCard({ restaurant }: RestaurantCardProps) {
-  const isMobile: boolean = useMediaQuery({
-    query: "(max-width: 450px)",
+  const isTablet: boolean = useMediaQuery({
+    query: "(max-width: 820px)",
   });
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
@@ -20,7 +20,7 @@ function RestaurantCard({ restaurant }: RestaurantCardProps) {
       <div className="card-content-container">
         <p className="restaurant-name">{restaurant.name}</p>
         <p className="restaurant-chef-name">{restaurant.chef}</p>
-        {!isMobile && (
+        {!isTablet && (
           <div className="restaurant-rating-container">
             <img
               src={ratingImageSrcString}
