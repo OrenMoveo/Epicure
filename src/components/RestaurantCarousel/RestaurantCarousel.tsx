@@ -19,6 +19,7 @@ const RestaurantCarousel = () => {
       </div>
       <div className="restaurant-carousel-content">
         <RestaurantCard restaurant={restaurants[0]} />
+        <RestaurantCard restaurant={restaurants[1]} />
       </div>
       {isMobile && (
         <div className="all-restaurants-goto-container">
