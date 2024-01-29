@@ -1,0 +1,15 @@
+$tablet-max-width: 820px;
+$mobile-max-width: 480px;
+$medium-desktop-max-width: 1024px;
+$app-primary-font-family: Helvetica Neue;
+$app-primary-font-weight: 200;
+$app-primary-text-align: left;
+
+:export {
+  tabletMaxWidth: $tablet-max-width;
+  mobileMaxWidth: $mobile-max-width;
+  medium-desktop-max-width: $medium-desktop-max-width;
+  app-primary-font-family: $app-primary-font-family;
+  app-primary-font-weight: $app-primary-font-weight;
+  app-primary-text-align: $app-primary-text-align;
+}

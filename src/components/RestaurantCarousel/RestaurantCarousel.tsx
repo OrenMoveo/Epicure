@@ -7,6 +7,7 @@ import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { useMediaQuery } from "react-responsive";
 
 const RestaurantCarousel = () => {
+  const isTablet: boolean = useMediaQuery({ query: "(max-width: 820px)" });
   const restaurants: Restaurant[] = data.data.restaurants;
   return (
     <div className="restaurant-carousel-container">
@@ -14,11 +15,17 @@ const RestaurantCarousel = () => {
         <SectionTitle title={"POPULAR RESTAURANT IN EPICURE:"} />
       </div>
       <div className="restaurant-carousel-content">
-        {restaurants.map((restaurant, keyId) => (
-          <div className="restaurant-card-item-container" key={keyId}>
-            <RestaurantCard restaurant={restaurant} />
-          </div>
-        ))}
+        {!isTablet
+          ? restaurants.map((restaurant, keyId) => (
+              <div className="restaurant-card-item-container" key={keyId}>
+                <RestaurantCard restaurant={restaurant} />
+              </div>
+            ))
+          : restaurants.slice(0, 3).map((restaurant, keyId) => (
+              <div className="restaurant-card-item-container" key={keyId}>
+                <RestaurantCard restaurant={restaurant} />
+              </div>
+            ))}
       </div>
       <div className="all-restaurants-goto-container">
         <button className="all-restaurants-button">
