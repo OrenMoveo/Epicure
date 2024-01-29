@@ -16,6 +16,7 @@
     align-items: center;
     gap: 40px;
   }
+
   .restaurant-carousel-title {
     font-size: 18px;
     line-height: 24px;
@@ -28,49 +29,54 @@
       text-align: center;
     }
   }
-
-  .swiper {
-    width: 100%;
-    max-width: 1185px;
-
-    .swiper-wrapper {
-      max-width: 1185px;
-      width: 100%;
-    }
-  }
-
-  .all-restaurants-goto-container {
+  .carousel-content-container {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    @include tablet {
-      justify-content: flex-end;
-      width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    overflow-x: hidden;
+    gap: 18px;
+    width: 100%;
+    .slick-slider {
+      overflow-x: hidden;
     }
 
-    .all-restaurants-button {
+    .restaurant-cards-big-screen-container {
+    }
+
+    .all-restaurants-goto-container {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      gap: 12px;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 35px;
-      letter-spacing: 2px;
-      text-align: right;
-
       @include tablet {
-        font-size: 24px;
+        justify-content: flex-end;
+        width: 100%;
       }
 
-      img {
-        width: 24px;
-        height: 24px;
+      .all-restaurants-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 35px;
+        letter-spacing: 2px;
+        text-align: right;
 
         @include tablet {
-          height: 18px;
+          font-size: 24px;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+
+          @include tablet {
+            height: 18px;
+          }
         }
       }
     }
