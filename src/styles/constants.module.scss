@@ -8,8 +8,8 @@ $app-primary-text-align: left;
 :export {
   tabletMaxWidth: $tablet-max-width;
   mobileMaxWidth: $mobile-max-width;
-  medium-desktop-max-width: $medium-desktop-max-width;
-  app-primary-font-family: $app-primary-font-family;
-  app-primary-font-weight: $app-primary-font-weight;
-  app-primary-text-align: $app-primary-text-align;
+  mediumDesktopMaxWidth: $medium-desktop-max-width;
+  appPrimaryFontFamily: $app-primary-font-family;
+  appPrimaryFontWeight: $app-primary-font-weight;
+  appPrimaryTextAlign: $app-primary-text-align;
 }

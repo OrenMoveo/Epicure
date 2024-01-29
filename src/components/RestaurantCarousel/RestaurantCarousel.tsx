@@ -1,13 +1,14 @@
-import React from "react";
 import "./RestaurantCarousel.scss";
 import data from "../../data/data.json";
 import { Restaurant } from "../../types/types";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
-import { useMediaQuery } from "react-responsive";
+import useGetScreenWidth from "../../hooks/useScreenWidth";
+import { UIConstants } from "../../shared/constants";
 
 const RestaurantCarousel = () => {
-  const isTablet: boolean = useMediaQuery({ query: "(max-width: 820px)" });
+  const screenWidth = useGetScreenWidth();
+  const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const restaurants: Restaurant[] = data.data.restaurants;
   return (
     <div className="restaurant-carousel-container">
