@@ -29,27 +29,16 @@
     }
   }
 
-  .restaurant-carousel-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 24px;
-    overflow-x: hidden;
+  .swiper {
+    width: 100%;
+    max-width: 1185px;
 
-    @include tablet {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
+    .swiper-wrapper {
+      max-width: 1185px;
       width: 100%;
-      gap: 24px;
-      overflow-x: hidden;
-
-      .restaurant-card-item-container {
-      }
     }
   }
+
   .all-restaurants-goto-container {
     display: flex;
     flex-direction: row;
