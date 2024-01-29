@@ -1,15 +1,14 @@
-import React from "react";
 import "./RestaurantCard.scss";
 import { Restaurant } from "../../types/types";
-import useGetScreenWidth from "../../hooks/useGetWidthScreen";
-
+import useGetScreenWidth from "../../hooks/useScreenWidth";
+import { UIConstants } from "../../shared/constants";
 interface RestaurantCardProps {
   restaurant: Restaurant;
 }
 
-function RestaurantCard({ restaurant }: RestaurantCardProps) {
+const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
   const screenWidth = useGetScreenWidth();
-  const isTablet = screenWidth < 820;
+  const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
   return (
@@ -32,6 +31,6 @@ function RestaurantCard({ restaurant }: RestaurantCardProps) {
       </div>
     </div>
   );
-}
+};
 
 export default RestaurantCard;

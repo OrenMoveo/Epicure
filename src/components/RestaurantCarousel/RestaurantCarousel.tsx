@@ -1,4 +1,3 @@
-import React from "react";
 import "./RestaurantCarousel.scss";
 import data from "../../data/data.json";
 import { Restaurant } from "../../types/types";
@@ -10,6 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const RestaurantCarousel = () => {
+  const screenWidth = useGetScreenWidth();
+  const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const restaurants: Restaurant[] = data.data.restaurants;
   return (
     <div className="restaurant-carousel-container">
