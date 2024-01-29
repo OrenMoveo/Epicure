@@ -1,6 +1,10 @@
 import React from "react";
 import "./Navbar.scss";
-
+import hamburgerIcon from "../../assets/images/HamburgIcon.svg";
+import logoIcon from "../../assets/images/logo.svg";
+import searchIcon from "../../assets/images/SearchIcon.svg";
+import signInIcon from "../../assets/images/SignInIcon.svg";
+import bagIcon from "../../assets/images/BagIcon.svg";
 function Navbar() {
   return (
     <section className="header-container">
@@ -10,7 +14,7 @@ function Navbar() {
             <img src="/src/assets/images/hamburgerIcon.svg" alt="hambur" />
           </div>
           <div className="logo-container">
-            <img src="src/assets/images/logo.svg" alt="logo" />
+            <img src={logoIcon} alt="logo" />
           </div>
           <div className="navbar-buttons-container">
             <div className="epicure-text-title">EPICURE</div>
