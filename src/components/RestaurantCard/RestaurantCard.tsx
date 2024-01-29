@@ -1,15 +1,15 @@
 import React from "react";
 import "./RestaurantCard.scss";
 import { Restaurant } from "../../types/types";
-import { useMediaQuery } from "react-responsive";
+import useGetScreenWidth from "../../hooks/useGetWidthScreen";
+
 interface RestaurantCardProps {
   restaurant: Restaurant;
 }
 
 function RestaurantCard({ restaurant }: RestaurantCardProps) {
-  const isTablet: boolean = useMediaQuery({
-    query: "(max-width: 819px)",
-  });
+  const screenWidth = useGetScreenWidth();
+  const isTablet = screenWidth < 820;
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
   return (
