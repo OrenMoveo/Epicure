@@ -5,17 +5,14 @@ import Footer from "../../components/Footer/Footer";
 import AboutSection from "../../components/AboutSection/AboutSection";
 import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/ChefOfTheWeekSection";
 import Legend from "../../components/Legend/Legend";
-import PopularRestaurant from "../../components/RestaurantCarousel/PopularRestaurant";
-// import Carousel from "../../components/Carousel/Carousel";
+import PopularRestaurant from "../../components/PopularRestaurants/PopularRestaurant";
 
 function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      {/* <Carousel /> */}
       <PopularRestaurant />
-      {/* <RestaurantCarousel /> */}
       <Legend />
       <ChefOfTheWeekSection />
       <AboutSection />
