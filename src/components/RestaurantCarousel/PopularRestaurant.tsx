@@ -10,7 +10,10 @@ import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { Restaurant } from "../../types/types";
 const PopularRestaurant = () => {
   const screenWidth: number = useGetScreenWidth();
-  const isTablet: boolean = screenWidth > UIConstants.sizes.mobileWidth;
+  const isMobile: boolean = screenWidth <= UIConstants.sizes.mobileWidth;
+  const isTablet: boolean =
+    UIConstants.sizes.mobileWidth < screenWidth &&
+    screenWidth <= UIConstants.sizes.tabletWidth;
   const restaurants: Restaurant[] = data.data.restaurants;
   return (
     <section className={styles.popularRestaurantLayout}>
@@ -18,26 +21,38 @@ const PopularRestaurant = () => {
         <SectionTitle title={"POPULAR RESTAURANT IN EPICURE:"} />
       </div>
       <div className={styles.popularRestaurantContainer}>
-        {!isTablet && (
-          <div className={styles.mobileCarouselContainer}>
-            <Swiper spaceBetween={24} slidesPerView={2} initialSlide={0}>
-              {restaurants.map((restaurant, keyId) => (
-                <SwiperSlide>
-                  <RestaurantCard key={keyId} restaurant={restaurant} />
-                </SwiperSlide>
-              ))}
+        {isMobile || isTablet ? (
+          <div className={styles.carouselContainer}>
+            <Swiper
+              className={styles["swiper"]}
+              spaceBetween={24}
+              slidesPerView={"auto"}
+              initialSlide={0}
+            >
+              {restaurants &&
+                restaurants.map((restaurant, keyId) => (
+                  <SwiperSlide className={styles["swiper-slide"]}>
+                    <RestaurantCard key={keyId} restaurant={restaurant} />
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
-        )}
-        {isTablet && (
-          <div className={styles.desktopPopularRestaurantContainer}></div>
+        ) : (
+          <div className={styles.desktopPopularRestaurantContainer}>
+            {restaurants &&
+              restaurants
+                .slice(0, 3)
+                .map((restaurant, keyId) => (
+                  <RestaurantCard key={keyId} restaurant={restaurant} />
+                ))}
+          </div>
         )}
 
         <button
           className={styles.allRestaurantsGotoContainer}
           name="all-restaurant-goto-button"
         >
-          <p className="allRestaurantsGotoText">All Restaurants</p>
+          <p className={styles.allRestaurantsGotoText}>All Restaurants</p>
           <img src={goToIcon} alt="go-to-icon" />
         </button>
       </div>

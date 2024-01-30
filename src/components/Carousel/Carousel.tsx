@@ -1,15 +1,14 @@
 import styles from "./Carousel.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import data from "../../data/data.json";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
-import { Restaurant } from "../../types/types";
+import { Dish, Restaurant } from "../../types/types";
 
-import React from "react";
-
-const Carousel = () => {
-  const restaurants: Restaurant[] = data.data.restaurants;
-
+interface CarouselProps {
+  restaurants?: Restaurant[];
+  dishes?: Dish[];
+}
+const Carousel = ({ restaurants }: CarouselProps) => {
   return (
     <div className={styles.carouselContainer}>
       <Swiper
@@ -18,11 +17,18 @@ const Carousel = () => {
         slidesPerView={"auto"}
         initialSlide={0}
       >
-        {restaurants.map((restaurant, keyId) => (
+        {restaurants &&
+          restaurants.map((restaurant, keyId) => (
+            <SwiperSlide className={styles["swiper-slide"]}>
+              <RestaurantCard key={keyId} restaurant={restaurant} />
+            </SwiperSlide>
+          ))}
+        {/* {dishes && dishes.map((dish, keyId) => (
           <SwiperSlide className={styles["swiper-slide"]}>
-            <RestaurantCard key={keyId} restaurant={restaurant} />
+            
+            <DishCard key={keyId} dishes={dish} />
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
     </div>
   );

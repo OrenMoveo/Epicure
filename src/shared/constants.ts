@@ -13,4 +13,8 @@ export const UIConstants = {
       textAlign: styles.appPrimaryTextAlign,
     },
   },
+  layoutWidths: {
+    appPrimaryWidth: styles.appPrimaryWidth,
+    mobileViewWidth: styles.mobileViewWidth,
+  },
 };

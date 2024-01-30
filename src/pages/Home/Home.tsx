@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 
@@ -7,15 +6,15 @@ import AboutSection from "../../components/AboutSection/AboutSection";
 import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/ChefOfTheWeekSection";
 import Legend from "../../components/Legend/Legend";
 import PopularRestaurant from "../../components/RestaurantCarousel/PopularRestaurant";
-import Carousel from "../../components/Carousel/Carousel";
+// import Carousel from "../../components/Carousel/Carousel";
 
 function Home() {
   return (
     <>
       <Navbar />
       <Hero />
-      <Carousel />
-      {/* <PopularRestaurant /> */}
+      {/* <Carousel /> */}
+      <PopularRestaurant />
       {/* <RestaurantCarousel /> */}
       <Legend />
       <ChefOfTheWeekSection />
