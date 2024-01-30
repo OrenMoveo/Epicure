@@ -9,6 +9,10 @@ import { UIConstants } from "../../shared/constants";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 const RestaurantCarousel = () => {
   const screenWidth: number = useGetScreenWidth();
   const isMobile: boolean =
@@ -32,34 +36,49 @@ const RestaurantCarousel = () => {
     initialSlide: 0,
     centerMode: true,
     centerPadding: "8%",
-    autoplay: true,
+    // autoplay: true,
   };
   return (
-    <div className="restaurant-carousel-container">
-      <div className="restaurant-carousel-title">
+    <section className="popular-restaurant-section">
+      <div className="popular-restaurant-title">
         <SectionTitle title={"POPULAR RESTAURANT IN EPICURE:"} />
       </div>
-      <div className="carousel-content-container">
-        <Slider {...sliderSettings}>
-          {restaurants.map((restaurant, keyId) => (
-            <RestaurantCard key={keyId} restaurant={restaurant} />
-          ))}
-        </Slider>
-        {isMediumDesktopScreen && (
-          <div className="restaurant-cards-big-screen-container">
+      <div className="carousel-container">
+        {isMobile && (
+          <Swiper
+            spaceBetween={24}
+            slidesPerView={1.4}
+            breakpoints={{
+              480: {
+                spaceBetween: 24,
+                slidesPerView: 3,
+              },
+            }}
+          >
             {restaurants.slice(0, 3).map((restaurant, keyId) => (
+              <SwiperSlide>
+                <RestaurantCard key={keyId} restaurant={restaurant} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+      </div>
+
+      <div className="popular-restaurants-container">
+        {!isMobile &&
+          restaurants
+            .slice(0, 3)
+            .map((restaurant, keyId) => (
               <RestaurantCard key={keyId} restaurant={restaurant} />
             ))}
-          </div>
-        )}
-        <div className="all-restaurants-goto-container">
-          <button className="all-restaurants-button">
-            All Restaurants
-            <img src="/src/assets/images/goToIcon.svg" alt="goToIcon" />
-          </button>
-        </div>
       </div>
-    </div>
+      <div className="all-restaurants-goto-container">
+        <button className="all-restaurants-button">
+          All Restaurants
+          <img src="/src/assets/images/goToIcon.svg" alt="goToIcon" />
+        </button>
+      </div>
+    </section>
   );
 };
 export default RestaurantCarousel;
