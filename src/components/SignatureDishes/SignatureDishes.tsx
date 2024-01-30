@@ -29,9 +29,9 @@ const SignatureDishes = () => {
               initialSlide={0}
             >
               {signatureDishes &&
-                signatureDishes.map((restaurant, keyId) => (
+                signatureDishes.map((dish, keyId) => (
                   <SwiperSlide className={styles["swiper-slide"]}>
-                    <DishCard key={keyId} restaurant={restaurant} />
+                    <DishCard key={keyId} dish={dish} />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -41,8 +41,8 @@ const SignatureDishes = () => {
             {signatureDishes &&
               signatureDishes
                 .slice(0, 3)
-                .map((restaurant, keyId) => (
-                  <DishCard key={keyId} restaurant={restaurant} />
+                .map((dish, keyId) => (
+                  <DishCard key={keyId} dish={dish} />
                 ))}
           </div>
         )}
