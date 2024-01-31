@@ -70,13 +70,15 @@ export const ChefOfTheWeekSection = () => {
                 ))}
           </div>
         )}
-        <button
-          className={styles.allRestaurantsGotoContainer}
-          name="all-restaurant-goto-button"
-        >
-          <p className={styles.allRestaurantsGotoText}>All Restaurants</p>
-          <img src={goToIcon} alt="go-to-icon" />
-        </button>
+        {(isMobile || isTablet) && (
+          <button
+            className={styles.allRestaurantsGotoContainer}
+            name="all-restaurant-goto-button"
+          >
+            <p className={styles.allRestaurantsGotoText}>All Restaurants</p>
+            <img src={goToIcon} alt="go-to-icon" />
+          </button>
+        )}
       </div>
     </section>
   );
