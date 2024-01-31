@@ -1,5 +1,5 @@
 @import "../../styles/mediaQueries.scss";
-
+@import "../../styles/constants.module.scss";
 .chefOfTheWeekSection {
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: calc(100% - 255px);
+    width: $app-primary-width;
     gap: 40px;
   }
   .chefOfTheWeekTitleContainer {
