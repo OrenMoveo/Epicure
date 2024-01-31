@@ -1,0 +1,196 @@
+@import "../../styles/mediaQueries.scss";
+@import "../../styles/constants.module.scss";
+.chefOfTheWeekSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  @include smallDesktopScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: $desktop-view-width;
+    gap: 40px;
+  }
+  .chefOfTheWeekTitleContainer {
+    width: 187px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 1.25px;
+    width: $mobile-view-width;
+
+    @include smallDesktopScreen {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      line-height: 35px;
+      letter-spacing: 1.25px;
+      text-align: center;
+    }
+  }
+
+  .chefOfTheWeekDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% - 40px);
+    gap: 24px;
+    padding-bottom: 16px;
+    @include smallDesktopScreen {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      gap: 63.5px;
+      padding-bottom: 5px;
+    }
+    @include mediumDesktopScreen {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chefOfTheWeekImageContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      align-items: center;
+      background-position: center;
+      background-size: cover;
+      width: 335px;
+      height: 262px;
+
+      @include smallDesktopScreen {
+        width: 478px;
+        height: 372px;
+      }
+      .overlayTextContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 51px;
+        background-color: rgba(255, 255, 255, 0.8);
+
+        @include smallDesktopScreen {
+          height: 78px;
+        }
+        .chefOfTheWeekName {
+          display: flex;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 47px;
+          letter-spacing: 2.6700000762939453px;
+          text-align: center;
+
+          @include smallDesktopScreen {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+
+    .chefOfTheWeekAboutParagraph {
+      width: 335px;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 1.25px;
+      text-align: justify;
+
+      @include smallDesktopScreen {
+        width: 100%;
+        font-size: 24px;
+        line-height: 35px;
+      }
+    }
+  }
+
+  .chefOfTheWeekRestaurantContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px;
+    padding-left: 20px;
+    @include smallDesktopScreen {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 0;
+      overflow-x: scroll;
+    }
+
+    .chefOfTheWeekRestaurantsTitle {
+      font-size: 16px;
+      line-height: 25px;
+      letter-spacing: 1.25px;
+      text-align: left;
+
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+      }
+    }
+    .carouselContainer {
+      width: 100%;
+      height: 100%;
+      .swiper {
+        .swiper-slide {
+          width: fit-content;
+        }
+      }
+    }
+
+    .desktopChefOfTheWeekRestaurantsContainer {
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+    .allRestaurantsGotoContainer {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      @include smallDesktopScreen {
+        align-self: flex-end;
+      }
+
+      .allRestaurantsGotoText {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 35px;
+        letter-spacing: 2px;
+        text-align: right;
+        @include smallDesktopScreen {
+          font-size: 24px;
+        }
+      }
+
+      img {
+        width: 24px;
+        height: 18px;
+      }
+    }
+  }
+}

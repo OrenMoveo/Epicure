@@ -13,7 +13,7 @@
       {
         "name": "Kab Kem",
         "chef": "Yariv Malili",
-        "pictureUrl": "/src/assets/images/restaurants/Kab kem.png",
+        "pictureUrl": "/src/assets/images/restaurants/kabKem.png",
         "openNow": false,
         "location": "",
         "rating": 2,
@@ -31,7 +31,7 @@
       {
         "name": "Nitan Thai",
         "chef": "Shahaf Shabtay",
-        "pictureUrl": "/src/assets/images/restaurants/nithan-thai.png",
+        "pictureUrl": "/src/assets/images/restaurants/nithanThai.png",
         "openNow": false,
         "location": "",
         "rating": 1,
@@ -40,7 +40,7 @@
       {
         "name": "Tiger Lilly",
         "chef": "Yanir Green",
-        "pictureUrl": "/src/assets/images/restaurants/tiger-lily.png",
+        "pictureUrl": "/src/assets/images/restaurants/tigerLily.png",
         "openNow": false,
         "location": "",
         "rating": 4,
@@ -67,7 +67,7 @@
       {
         "name": "Kitchen Market",
         "chef": "Yossi Shitrit",
-        "pictureUrl": "/src/assets/images/restaurants/Kitchen Market.png",
+        "pictureUrl": "/src/assets/images/restaurants/kitchenMarket.png",
         "openNow": false,
         "location": "",
         "rating": 2,
@@ -126,7 +126,7 @@
       },
       {
         "name": "Pad Ki Mao 1",
-        "pictureUrl": "/src/assets/images/dishes/padKiMao1.png",
+        "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
         "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "price": 65,
         "signatureDish": false,
@@ -134,7 +134,7 @@
       },
       {
         "name": "Red Farm",
-        "pictureUrl": "/src/assets/images/dishes/padKiMao3.png",
+        "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
         "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
         "price": 88,
         "signatureDish": true,
@@ -142,7 +142,7 @@
       },
       {
         "name": "Pad Ki Mao 2",
-        "pictureUrl": "/src/assets/images/dishes/padKiMao2.png",
+        "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
         "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
         "price": 98,
         "signatureDish": true,
@@ -153,7 +153,17 @@
       {
         "name": "Ran Shmueli",
         "pictureUrl": "",
-        "restaurants": "Claro",
+        "restaurants": [
+          {
+            "name": "Claro",
+            "chef": "Ran Shmueli",
+            "pictureUrl": "/src/assets/images/restaurants/claro.png",
+            "openNow": false,
+            "location": "",
+            "rating": 1,
+            "priceRange": []
+          }
+        ],
         "new": false,
         "views": 0,
         "mostViewed": false,
@@ -162,7 +172,17 @@
       {
         "name": "Yariv Malili",
         "pictureUrl": "",
-        "restaurants": "Kab Kem",
+        "restaurants": [
+          {
+            "name": "Kab Kem",
+            "chef": "Yariv Malili",
+            "pictureUrl": "/src/assets/images/restaurants/kabKem.png",
+            "openNow": false,
+            "location": "",
+            "rating": 2,
+            "priceRange": []
+          }
+        ],
         "new": false,
         "views": 0,
         "mostViewed": false,
@@ -170,8 +190,18 @@
       },
       {
         "name": "Aviv Moshe",
-        "pictureUrl": "/src/assets/images/chefs/Aviv Moshe.png",
-        "restaurants": "Messa",
+        "pictureUrl": "/src/assets/images/chefs/avivMoshe.png",
+        "restaurants": [
+          {
+            "name": "Messa",
+            "chef": "Aviv Moshe",
+            "pictureUrl": "/src/assets/images/restaurants/Messa.png",
+            "openNow": false,
+            "location": "",
+            "rating": 1,
+            "priceRange": []
+          }
+        ],
         "new": true,
         "views": 0,
         "mostViewed": true,
@@ -179,8 +209,18 @@
       },
       {
         "name": "Shahaf Shabtay",
-        "pictureUrl": "/src/assets/images/chefs/Shahaf Shabtay.png",
-        "restaurants": "Nitan Thai",
+        "pictureUrl": "/src/assets/images/chefs/shahafShabtay.png",
+        "restaurants": [
+          {
+            "name": "Nitan Thai",
+            "chef": "Shahaf Shabtay",
+            "pictureUrl": "/src/assets/images/restaurants/nithanThai.png",
+            "openNow": false,
+            "location": "",
+            "rating": 1,
+            "priceRange": []
+          }
+        ],
         "new": true,
         "views": 0,
         "mostViewed": false,
@@ -189,7 +229,17 @@
       {
         "name": "Yanir Green",
         "pictureUrl": "",
-        "restaurants": "Tiger Lilly",
+        "restaurants": [
+          {
+            "name": "Tiger Lilly",
+            "chef": "Yanir Green",
+            "pictureUrl": "/src/assets/images/restaurants/tigerLily.png",
+            "openNow": false,
+            "location": "",
+            "rating": 4,
+            "priceRange": []
+          }
+        ],
         "new": false,
         "views": 0,
         "mostViewed": false,
@@ -198,7 +248,17 @@
       {
         "name": "Yuval Ben Moshe",
         "pictureUrl": "",
-        "restaurants": "Ya Pan",
+        "restaurants": [
+          {
+            "name": "Ya Pan",
+            "chef": "Yuval Ben Moshe",
+            "pictureUrl": "/src/assets/images/restaurants/Yapan.png",
+            "openNow": false,
+            "location": "",
+            "rating": 2,
+            "priceRange": []
+          }
+        ],
         "new": false,
         "views": 0,
         "mostViewed": false,
@@ -206,17 +266,45 @@
       },
       {
         "name": "Yossi Shitrit",
-        "pictureUrl": "/src/assets/images/chefs/Yossi Shitrit.png",
-        "restaurants": ["Onza", "Kitchen Market", "Mashya"],
+        "pictureUrl": "/src/assets/images/chefs/yossiShitrit.png",
+        "restaurants": [
+          {
+            "name": "Onza",
+            "chef": "Yossi Shitrit",
+            "pictureUrl": "/src/assets/images/restaurants/Onza.png",
+            "openNow": false,
+            "location": "",
+            "rating": 1,
+            "priceRange": []
+          },
+          {
+            "name": "Kitchen Market",
+            "chef": "Yossi Shitrit",
+            "pictureUrl": "/src/assets/images/restaurants/kitchenMarket.png",
+            "openNow": false,
+            "location": "",
+            "rating": 2,
+            "priceRange": []
+          },
+          {
+            "name": "Mashya",
+            "chef": "Yossi Shitrit",
+            "pictureUrl": "/src/assets/images/restaurants/Mashia.png",
+            "openNow": false,
+            "location": "",
+            "rating": 3,
+            "priceRange": []
+          }
+        ],
         "new": false,
         "views": 0,
         "mostViewed": false,
-        "description": ""
+        "description": "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including running the kitchen in his first restaurant, the fondly-remembered Violet, located in Moshav Udim. Shitrit's creativity and culinary acumen born of long experience are expressed in the every detail of each and every dish."
       },
       {
         "name": "Asaf Granit",
-        "pictureUrl": "/src/assets/images/chefs/Asaf Granit.png",
-        "restaurants": "Balagan",
+        "pictureUrl": "/src/assets/images/chefs/asafGranit.png",
+        "restaurants": [],
         "new": true,
         "views": 0,
         "mostViewed": true,
@@ -224,8 +312,8 @@
       },
       {
         "name": "Eyal Shani",
-        "pictureUrl": "/src/assets/images/chefs/Eyal Shani.png",
-        "restaurants": "",
+        "pictureUrl": "/src/assets/images/chefs/eyalShani.png",
+        "restaurants": [],
         "new": true,
         "views": 0,
         "mostViewed": true,
@@ -233,8 +321,8 @@
       },
       {
         "name": "Meir Adoni",
-        "pictureUrl": "/src/assets/images/chefs/Meir Adoni.png",
-        "restaurants": "",
+        "pictureUrl": "/src/assets/images/chefs/meirAdoni.png",
+        "restaurants": [],
         "new": true,
         "views": 0,
         "mostViewed": false,
@@ -242,8 +330,8 @@
       },
       {
         "name": "Omer Miller",
-        "pictureUrl": "/src/assets/images/chefs/Omer Miller.png",
-        "restaurants": "",
+        "pictureUrl": "/src/assets/images/chefs/omerMiller.png",
+        "restaurants": [],
         "new": true,
         "views": 0,
         "mostViewed": false,
@@ -251,8 +339,8 @@
       },
       {
         "name": "Nitzan Raz",
-        "pictureUrl": "/src/assets/images/chefs/Nitzan Raz.png",
-        "restaurants": "",
+        "pictureUrl": "/src/assets/images/chefs/nitzanRaz.png",
+        "restaurants": [],
         "new": false,
         "views": 0,
         "mostViewed": false,
@@ -260,8 +348,8 @@
       },
       {
         "name": "Yuval Ben Neriya",
-        "pictureUrl": "/src/assets/images/chefs/Yuval Ben Neriah.png",
-        "restaurants": "",
+        "pictureUrl": "/src/assets/images/chefs/yuvalBenNeriah.png",
+        "restaurants": [],
         "new": false,
         "views": 0,
         "mostViewed": false,
