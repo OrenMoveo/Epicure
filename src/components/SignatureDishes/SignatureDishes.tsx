@@ -38,7 +38,7 @@ const SignatureDishes = () => {
             </Swiper>
           </div>
         ) : (
-          <div className={styles.desktopPopularRestaurantContainer}>
+          <div className={styles.desktopSignatureDishesContainer}>
             {signatureDishes &&
               signatureDishes
                 .slice(0, 3)
