@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  gap: 16px;
   @include smallDesktopScreen {
     display: flex;
     flex-direction: column;
@@ -41,7 +42,7 @@
     justify-content: flex-start;
     width: calc(100% - 40px);
     gap: 24px;
-
+    padding-bottom: 16px;
     @include smallDesktopScreen {
       display: flex;
       flex-flow: column;
@@ -106,7 +107,7 @@
       text-align: justify;
 
       @include smallDesktopScreen {
-        width: 642px;
+        width: 100%;
         font-size: 24px;
         line-height: 35px;
       }
@@ -122,16 +123,29 @@
     gap: 16px;
     padding-left: 20px;
     @include smallDesktopScreen {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
       padding-left: 0;
+      overflow-x: scroll;
     }
 
     .chefOfTheWeekRestaurantsTitle {
-      width: 190px;
-      height: 25px;
       font-size: 16px;
       line-height: 25px;
       letter-spacing: 1.25px;
       text-align: left;
+
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+      }
     }
     .carouselContainer {
       width: 100%;
