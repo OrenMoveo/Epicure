@@ -1,171 +1,93 @@
 @import "../../styles/mediaQueries.scss";
 
-.chef-of-the-week-section {
+.chefOfTheWeekSection {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding-top: 48px;
 
-  .chef-of-the-week-content-container {
-    width: 100%;
-    @include tablet {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 45px;
-    }
+  .chefOfTheWeekTitleContainer {
+    width: 187px;
+    height: 35px;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 1.25px;
+    width: calc(100% - 40px);
+  }
 
-    @include smallDesktopScreen {
+  .chefOfTheWeekDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px);
+    gap: 24px;
+
+    .chefOfTheWeekImageContainer {
       display: flex;
       flex-flow: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 80px 127.5px;
-    }
-
-    .chef-of-the-week-title-container {
-      width: 187px;
-      height: 35px;
-      font-size: 18px;
-      line-height: 35px;
-      letter-spacing: 1.25px;
-
-      @include tablet {
-        width: 93.9585973807%;
-        height: 35px;
-        font-size: 30px;
-        line-height: 35px;
-        letter-spacing: 1.25px;
-        text-align: center;
-      }
-    }
-
-    .chef-of-the-week-description-container {
-      display: flex;
-      flex-direction: column;
+      justify-content: flex-end;
       align-items: center;
-      justify-content: center;
-      width: 100%;
-      gap: 24px;
+      background-position: center;
+      background-size: cover;
+      width: 335px;
+      height: 262px;
 
-      @include tablet {
+      .overlayTextContainer {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
-      }
+        width: 100%;
+        height: 51px;
+        background-color: rgba(255, 255, 255, 0.8);
 
-      @include smallDesktopScreen {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: 63.5px;
-      }
-
-      .chef-of-the-week-image-container {
-        position: relative;
-        width: 335px;
-        height: 262px;
-
-        @include smallDesktopScreen {
-          width: 478px;
-          height: 372px;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .overlay-text-container {
-          position: absolute;
+        .chefOfTheWeekName {
           display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 51px;
+          align-self: flex-end;
           font-size: 18px;
           font-weight: 400;
           line-height: 47px;
           letter-spacing: 2.6700000762939453px;
           text-align: center;
-          background-color: rgba(255, 255, 255, 0.8);
-
-          @include smallDesktopScreen {
-            height: 78px;
-            font-size: 40px;
-            font-weight: 400;
-            line-height: 47px;
-            letter-spacing: 2.6700000762939453px;
-            text-align: center;
-          }
-        }
-      }
-
-      .chef-of-the-week-about-paragraph {
-        width: 335px;
-        height: 252px;
-        font-size: 18px;
-        line-height: 28px;
-        letter-spacing: 1.25px;
-        text-align: justify;
-
-        @include smallDesktopScreen {
-          width: 642px;
-          height: 255px;
-          font-size: 24px;
-          line-height: 35px;
-          letter-spacing: 1.25px;
-          text-align: justify;
         }
       }
     }
 
-    .chef-of-the-week-restaurants-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 16px;
-      padding-top: 32px;
+    .chefOfTheWeekAboutParagraph {
+      width: 335px;
+      height: 252px;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 1.25px;
+      text-align: justify;
+    }
+  }
 
-      @include smallDesktopScreen {
-        display: flex;
-        flex-flow: column;
-        width: 725px;
-        height: 432px;
-        gap: 40px;
-      }
-      .chef-of-the-week-restaurants-title {
-        width: 190px;
-        height: 25px;
-        font-size: 16px;
-        line-height: 25px;
-        letter-spacing: 1.25px;
-        text-align: left;
+  .chefOfTheWeekRestaurantContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px;
+    padding-left: 20px;
 
-        @include tablet {
-          width: 100%;
-          height: 35px;
-          font-size: 30px;
-          line-height: 35px;
-          letter-spacing: 1.25px;
-          text-align: center;
-        }
-
-        @include smallDesktopScreen {
-          width: 665px;
-          height: 35px;
-          font-size: 30px;
-          line-height: 35px;
-          letter-spacing: 1.25px;
-          text-align: left;
+    .chefOfTheWeekRestaurantsTitle {
+      width: 190px;
+      height: 25px;
+      font-size: 16px;
+      line-height: 25px;
+      letter-spacing: 1.25px;
+      text-align: left;
+    }
+    .carouselContainer {
+      width: 100%;
+      height: 100%;
+      .swiper {
+        .swiper-slide {
+          width: fit-content;
         }
       }
     }
