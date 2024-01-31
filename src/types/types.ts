@@ -24,9 +24,5 @@ export interface Dish {
   description: string;
   price: number;
   signatureDish: boolean;
-
-  //not sure but optional
-  changes: string[];
-  chooseASide: string[];
-  quantity: number;
+  foodIcon: string;
 }
