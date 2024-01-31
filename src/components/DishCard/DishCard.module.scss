@@ -1,0 +1,18 @@
+.cardContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 245px;
+  height: 100%;
+
+  .imageContainer {
+    width: 245px;
+    height: 152px;
+
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+}

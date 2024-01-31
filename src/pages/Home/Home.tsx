@@ -7,12 +7,15 @@ import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/Chef
 import Legend from "../../components/Legend/Legend";
 import PopularRestaurant from "../../components/PopularRestaurants/PopularRestaurant";
 
+import SignatureDishes from "../../components/SignatureDishes/SignatureDishes";
+
 function Home() {
   return (
     <>
       <Navbar />
       <Hero />
       <PopularRestaurant />
+      <SignatureDishes />
       <Legend />
       <ChefOfTheWeekSection />
       <AboutSection />
