@@ -21,7 +21,7 @@
     font-size: 18px;
     line-height: 35px;
     letter-spacing: 1.25px;
-    width: calc(100% - 40px);
+    width: $mobile-view-width;
 
     @include smallDesktopScreen {
       display: flex;
