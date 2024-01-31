@@ -9,6 +9,7 @@
   padding-top: 48px;
 
   .chef-of-the-week-content-container {
+    width: 100%;
     @include tablet {
       display: flex;
       flex-direction: column;

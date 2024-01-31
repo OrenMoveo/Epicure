@@ -1,6 +1,14 @@
+// sizes
 $tablet-max-width: 820px;
 $mobile-max-width: 480px;
-$medium-desktop-max-width: 1024px;
+$small-desktop-max-width: 1024px;
+
+// layout-widths
+$app-primary-width: 100vw;
+$mobile-view-width: calc(100% - 40px);
+$desktop-view-width: calc(100% - 255px);
+
+// fonts
 $app-primary-font-family: Helvetica Neue;
 $app-primary-font-weight: 200;
 $app-primary-text-align: left;
@@ -8,8 +16,13 @@ $app-primary-text-align: left;
 :export {
   tabletMaxWidth: $tablet-max-width;
   mobileMaxWidth: $mobile-max-width;
-  mediumDesktopMaxWidth: $medium-desktop-max-width;
+  smallDesktopMaxWidth: $small-desktop-max-width;
+
   appPrimaryFontFamily: $app-primary-font-family;
   appPrimaryFontWeight: $app-primary-font-weight;
   appPrimaryTextAlign: $app-primary-text-align;
+
+  appPrimaryWidth: $app-primary-width;
+  mobileViewWidth: $mobile-view-width;
+  desktopViewWidth: $desktop-view-width;
 }
