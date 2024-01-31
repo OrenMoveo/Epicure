@@ -1,18 +1,187 @@
+@import "../../styles/mediaQueries.scss";
+
 .cardContainer {
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 245px;
-  height: 100%;
+  height: 388px;
+
+  @include smallDesktopScreen {
+    width: 380px;
+    height: 654px;
+  }
 
   .imageContainer {
     width: 245px;
     height: 152px;
-
+    @include smallDesktopScreen {
+      width: 380px;
+      height: 306px;
+    }
     img {
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .dishContentLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+    height: 236px;
+    background-color: rgba(249, 244, 234, 1);
+
+    @include smallDesktopScreen {
+      width: 380px;
+      height: 348px;
+    }
+    .dishContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: calc(100% - 32px);
+      height: calc(100% - 32px);
+      gap: 8px;
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100% - 8px);
+        padding-top: 16px;
+      }
+      .dishTitle {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 2.6700000762939453px;
+
+        @include smallDesktopScreen {
+          order: 1;
+          width: 140px;
+          font-size: 40px;
+          line-height: 47px;
+          text-align: center;
+        }
+      }
+      .dishDescription {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 1.9700000286102295px;
+        padding-bottom: 8px;
+
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          order: 3;
+          width: 295px;
+          height: 123px;
+          padding-bottom: 10px;
+          font-size: 24px;
+          line-height: 30px;
+          text-align: center;
+        }
+      }
+      .foodIconContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: 8px;
+
+        @include smallDesktopScreen {
+          order: 1;
+          width: 39.76px;
+          height: 29.68px;
+        }
+        img {
+          @include smallDesktopScreen {
+            width: 39.76px;
+            height: 29.68px;
+          }
+          width: 29.82px;
+          height: 22.98px;
+        }
+      }
+      .dishPriceContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+
+          order: 4;
+          gap: 8px;
+
+          .line {
+            width: 112px;
+            height: 0.5px;
+            background-color: rgba(151, 151, 151, 1);
+            align-self: center;
+          }
+        }
+        .dishPriceTextContainer {
+          display: flex;
+          flex-flow: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .currencyIconContainer {
+          display: flex;
+          align-self: flex-end;
+          width: 8.11px;
+          height: 11px;
+
+          @include smallDesktopScreen {
+            width: 14px;
+            height: 19px;
+          }
+          img {
+            width: 8.11px;
+            height: 11px;
+            @include smallDesktopScreen {
+              width: 14px;
+              height: 19px;
+            }
+          }
+        }
+        .dishPriceAmount {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 19px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+
+          @include smallDesktopScreen {
+            font-size: 24px;
+            line-height: 30px;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }

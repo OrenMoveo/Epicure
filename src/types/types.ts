@@ -24,4 +24,5 @@ export interface Dish {
   description: string;
   price: number;
   signatureDish: boolean;
+  foodIcon: string;
 }
