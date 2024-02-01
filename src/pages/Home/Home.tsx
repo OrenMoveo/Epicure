@@ -4,9 +4,7 @@ import AboutSection from "../../components/AboutSection/AboutSection";
 import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/ChefOfTheWeekSection";
 import Legend from "../../components/Legend/Legend";
 import PopularRestaurant from "../../components/PopularRestaurants/PopularRestaurant";
-
 import SignatureDishes from "../../components/SignatureDishes/SignatureDishes";
-
 function Home() {
   return (
     <div className={styles.homepageLayout}>

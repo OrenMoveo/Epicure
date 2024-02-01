@@ -1,0 +1,54 @@
+@import "../../styles/constants.module.scss";
+
+.RestaurantsPageSection {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 53px;
+
+  .restaurantsPageLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: $mobile-view-width;
+
+    .restaurantsPageContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 24px;
+
+      .restaurantPageTitleContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
+      }
+
+      .filtersContainer {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
+        border: 0.5px solid black;
+        width: 100%;
+        padding-bottom: 8px;
+      }
+
+      .restaurantsCardsContainer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+      }
+    }
+  }
+}
