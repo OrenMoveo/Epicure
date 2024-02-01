@@ -48,10 +48,10 @@ const SignatureDishes = () => {
         {isMobile ||
           (isTablet && (
             <button
-              className={styles.allRestaurantsGotoContainer}
+              className={styles.gotoAllRestaurantsBtn}
               name="all-restaurant-goto-button"
             >
-              <p className={styles.allRestaurantsGotoText}>All Restaurants</p>
+              <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
               <img src={goToIcon} alt="go-to-icon" />
             </button>
           ))}
