@@ -54,8 +54,8 @@ export const ChefOfTheWeekSection = () => {
             >
               {chefOfTheWeek &&
                 chefOfTheWeek.restaurants.map((restaurant, keyId) => (
-                  <SwiperSlide className={styles["swiper-slide"]}>
-                    <ChefsRestaurantCard key={keyId} restaurant={restaurant} />
+                  <SwiperSlide key={keyId} className={styles["swiper-slide"]}>
+                    <ChefsRestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
             </Swiper>

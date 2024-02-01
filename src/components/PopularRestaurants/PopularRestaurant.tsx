@@ -31,8 +31,8 @@ const PopularRestaurant = () => {
             >
               {restaurants &&
                 restaurants.map((restaurant, keyId) => (
-                  <SwiperSlide className={styles["swiper-slide"]}>
-                    <RestaurantCard key={keyId} restaurant={restaurant} />
+                  <SwiperSlide key={keyId} className={styles["swiper-slide"]}>
+                    <RestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
             </Swiper>
