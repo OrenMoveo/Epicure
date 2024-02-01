@@ -18,23 +18,25 @@ export const ChefOfTheWeekSection = () => {
 
   return (
     <section className={styles.chefOfTheWeekSection}>
-      <div className={styles.chefOfTheWeekTitleContainer}>
-        <SectionTitle title={"CHEF OF THE WEEK:"} />
-      </div>
-      <div className={styles.chefOfTheWeekDescriptionContainer}>
-        <div
-          className={styles.chefOfTheWeekImageContainer}
-          style={{
-            backgroundImage: `url(${chefOfTheWeek?.pictureUrl})`,
-          }}
-        >
-          <div className={styles.overlayTextContainer}>
-            <p className={styles.chefOfTheWeekName}> {chefOfTheWeek?.name}</p>
-          </div>
+      <div className={styles.chefOfTheWeekContainer}>
+        <div className={styles.chefOfTheWeekTitleContainer}>
+          <SectionTitle title={"CHEF OF THE WEEK:"} />
         </div>
-        <p className={styles.chefOfTheWeekAboutParagraph}>
-          {chefOfTheWeek?.description}
-        </p>
+        <div className={styles.chefOfTheWeekDescriptionContainer}>
+          <div
+            className={styles.chefOfTheWeekImageContainer}
+            style={{
+              backgroundImage: `url(${chefOfTheWeek?.pictureUrl})`,
+            }}
+          >
+            <div className={styles.overlayTextContainer}>
+              <p className={styles.chefOfTheWeekName}> {chefOfTheWeek?.name}</p>
+            </div>
+          </div>
+          <p className={styles.chefOfTheWeekAboutParagraph}>
+            {chefOfTheWeek?.description}
+          </p>
+        </div>
       </div>
       <div className={styles.chefOfTheWeekRestaurantContainer}>
         <div className={styles.chefOfTheWeekRestaurantsTitle}>
