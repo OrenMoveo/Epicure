@@ -1,6 +1,6 @@
 import "./RestaurantCard.scss";
 import { Restaurant } from "../../types/types";
-import useGetScreenWidth from "../../hooks/useScreenWidth";
+import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import { UIConstants } from "../../shared/constants";
 interface RestaurantCardProps {
   restaurant: Restaurant;

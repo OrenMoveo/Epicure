@@ -1,5 +1,3 @@
-import useGetScreenWidth from "../../hooks/useGetWidthScreen";
-import { UIConstants } from "../../shared/constants";
 import { Dish } from "../../types/types";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import styles from "./SignatureDishes.module.scss";
@@ -7,14 +5,15 @@ import data from "../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import goToIcon from "../../assets/images/goToIcon.svg";
 import DishCard from "../DishCard/DishCard";
+import useIsMobile from "../../hooks/useIsMobile";
+import useIsTablet from "../../hooks/useIsTablet";
 
 const SignatureDishes = () => {
-  const screenWidth: number = useGetScreenWidth();
-  const isMobile: boolean = screenWidth <= UIConstants.sizes.mobileWidth;
-  const isTablet: boolean =
-    UIConstants.sizes.mobileWidth < screenWidth &&
-    screenWidth <= UIConstants.sizes.tabletWidth;
+  const isMobile = useIsMobile();
+  const isTablet: boolean = useIsTablet();
+
   const signatureDishes: Dish[] = data.data.dishes;
+
   return (
     <section className={styles.signatureDishesLayout}>
       <div className={styles.signatureDishesTitle}>

@@ -3,23 +3,19 @@ import styles from "./ChefOfTheWeekSection.module.scss";
 import ChefsRestaurantCard from "../ChefsRestaurantCard/ChefsRestaurantCard";
 import { Chef } from "../../types/types";
 import data from "../../data/data.json";
-import useGetScreenWidth from "../../hooks/useGetWidthScreen";
-import { UIConstants } from "../../shared/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import goToIcon from "../../assets/images/goToIcon.svg";
+import useIsMobile from "../../hooks/useIsMobile";
+import useIsTablet from "../../hooks/useIsTablet";
 
 export const ChefOfTheWeekSection = () => {
+  const isTablet: boolean = useIsTablet();
+  const isMobile = useIsMobile();
+
   const chefs: Chef[] = data.data.chefs;
-  const chefOfTheWeek: Chef | undefined = chefs.find(
-    (chef) => chef.name === "Yossi Shitrit"
-  );
-  const screenWidth: number = useGetScreenWidth();
-  const isMobile: boolean = screenWidth <= UIConstants.sizes.mobileWidth;
-  const isTablet: boolean =
-    UIConstants.sizes.mobileWidth < screenWidth &&
-    screenWidth <= UIConstants.sizes.tabletWidth;
+  const chefOfTheWeek = chefs.find((chef) => chef.name === "Yossi Shitrit");
+
   return (
     <section className={styles.chefOfTheWeekSection}>
       <div className={styles.chefOfTheWeekTitleContainer}>

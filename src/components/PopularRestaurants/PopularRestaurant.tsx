@@ -2,19 +2,19 @@ import styles from "./PopularRestaurant.module.scss";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import useGetScreenWidth from "../../hooks/useScreenWidth";
-import { UIConstants } from "../../shared/constants";
 import goToIcon from "../../assets/images/goToIcon.svg";
 import data from "../../data/data.json";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { Restaurant } from "../../types/types";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
+
 const PopularRestaurant = () => {
-  const screenWidth: number = useGetScreenWidth();
-  const isMobile: boolean = screenWidth <= UIConstants.sizes.mobileWidth;
-  const isTablet: boolean =
-    UIConstants.sizes.mobileWidth < screenWidth &&
-    screenWidth <= UIConstants.sizes.tabletWidth;
+  const isMobile = useIsMobile();
+  const isTablet: boolean = useIsTablet();
+
   const restaurants: Restaurant[] = data.data.restaurants;
+
   return (
     <section className={styles.popularRestaurantLayout}>
       <div className={styles.popularRestaurantTitle}>
@@ -30,8 +30,8 @@ const PopularRestaurant = () => {
               initialSlide={0}
             >
               {restaurants &&
-                restaurants.map((restaurant, keyId) => (
-                  <SwiperSlide key={keyId} className={styles["swiper-slide"]}>
+                restaurants.map((restaurant) => (
+                  <SwiperSlide className={styles["swiper-slide"]}>
                     <RestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
