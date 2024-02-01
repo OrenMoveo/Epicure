@@ -1,0 +1,19 @@
+@import "../../styles/mediaQueries.scss";
+.homepageLayout {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  .bodyContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 48px;
+    @include smallDesktopScreen {
+      gap: 80px;
+    }
+  }
+}

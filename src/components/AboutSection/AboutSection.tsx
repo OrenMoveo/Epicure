@@ -1,21 +1,20 @@
-import React from "react";
 import "./AboutSection.scss";
+import googlePlayIcon from "../../assets/images/googlePlayIcon.svg";
+import appleIcon from "../../assets/images/appleIcon.svg";
+import aboutSectionLogo from "../../assets/images/aboutSectionLogo.svg";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 function AboutSection() {
   return (
     <section className="about-us-section-container">
       <div className="about-us-content-container">
         <div className="about-us-logo-container">
-          <img
-            src="/src/assets/images/aboutSectionLogo.svg"
-            alt="about-us-logo"
-          />
+          <img src={aboutSectionLogo} alt="about-us-logo" />
         </div>
         <div className="about-us-information-container">
           <div className="app-stores-container">
             <div className="google-play-store-icon-container">
               <img
-                src="/src/assets/images/googlePlayIcon.svg"
+                src={googlePlayIcon}
                 alt="google-play-icon"
                 className="google-play-icon"
               />
@@ -25,11 +24,7 @@ function AboutSection() {
               </div>
             </div>
             <div className="apple-store-icon-container">
-              <img
-                src="/src/assets/images/appleIcon.svg"
-                alt="apple-icon"
-                className="apple-icon"
-              />
+              <img src={appleIcon} alt="apple-icon" className="apple-icon" />
               <div className="apps-text-container">
                 <p className="apps-top-text">Download on the</p>
                 <p className="apps-bottom-text">App Store</p>
