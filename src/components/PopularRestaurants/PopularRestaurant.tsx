@@ -31,7 +31,10 @@ const PopularRestaurant = () => {
             >
               {restaurants &&
                 restaurants.map((restaurant) => (
-                  <SwiperSlide className={styles["swiper-slide"]}>
+                  <SwiperSlide
+                    key={restaurant.keyId}
+                    className={styles["swiper-slide"]}
+                  >
                     <RestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
@@ -42,8 +45,11 @@ const PopularRestaurant = () => {
             {restaurants &&
               restaurants
                 .slice(0, 3)
-                .map((restaurant, keyId) => (
-                  <RestaurantCard key={keyId} restaurant={restaurant} />
+                .map((restaurant) => (
+                  <RestaurantCard
+                    key={restaurant.keyId}
+                    restaurant={restaurant}
+                  />
                 ))}
           </div>
         )}

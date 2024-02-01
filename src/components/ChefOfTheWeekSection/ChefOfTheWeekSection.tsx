@@ -51,8 +51,11 @@ export const ChefOfTheWeekSection = () => {
               initialSlide={0}
             >
               {chefOfTheWeek &&
-                chefOfTheWeek.restaurants.map((restaurant, keyId) => (
-                  <SwiperSlide key={keyId} className={styles["swiper-slide"]}>
+                chefOfTheWeek.restaurants.map((restaurant) => (
+                  <SwiperSlide
+                    key={restaurant.keyId}
+                    className={styles["swiper-slide"]}
+                  >
                     <ChefsRestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
@@ -63,8 +66,11 @@ export const ChefOfTheWeekSection = () => {
             {chefOfTheWeek &&
               chefOfTheWeek.restaurants
                 .slice(0, 3)
-                .map((restaurant, keyId) => (
-                  <ChefsRestaurantCard key={keyId} restaurant={restaurant} />
+                .map((restaurant) => (
+                  <ChefsRestaurantCard
+                    key={restaurant.keyId}
+                    restaurant={restaurant}
+                  />
                 ))}
           </div>
         )}
