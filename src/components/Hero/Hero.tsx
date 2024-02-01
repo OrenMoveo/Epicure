@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.scss";
+import searchIcon from "../../assets/images/SearchIcon.svg";
 function Hero() {
   return (
     <section className="hero-container">
@@ -9,7 +10,7 @@ function Hero() {
         </div>
         <div className="hero-search">
           <button className="search-button">
-            <img src="/src/assets/images/searchIcon.svg" alt="search-icon" />
+            <img src={searchIcon} alt="search-icon" />
           </button>
           <input
             className="search-input"
