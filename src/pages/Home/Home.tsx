@@ -1,5 +1,4 @@
 import styles from "./Home.module.scss";
-import Navbar from "../../components/Navbar/Navbar";
 import Hero from "../../components/Hero/Hero";
 
 import Footer from "../../components/Footer/Footer";
@@ -13,7 +12,6 @@ import SignatureDishes from "../../components/SignatureDishes/SignatureDishes";
 function Home() {
   return (
     <div className={styles.homepageLayout}>
-      <Navbar />
       <div className={styles.bodyContainer}>
         <Hero />
         <PopularRestaurant />
