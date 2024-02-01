@@ -1,9 +1,9 @@
-import React from "react";
 import styles from "./ChefsRestaurantCard.module.scss";
 import { Restaurant } from "../../types/types";
 interface ChefsRestaurantCardProps {
   restaurant: Restaurant | undefined;
 }
+
 const ChefsRestaurantCard = ({ restaurant }: ChefsRestaurantCardProps) => {
   return (
     <div className={styles.cardContainer}>

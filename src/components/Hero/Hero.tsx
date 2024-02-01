@@ -1,6 +1,6 @@
-import React from "react";
 import "./Hero.scss";
 import searchIcon from "../../assets/images/SearchIcon.svg";
+
 function Hero() {
   return (
     <section className="hero-container">

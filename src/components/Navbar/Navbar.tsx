@@ -1,10 +1,10 @@
-import React from "react";
 import "./Navbar.scss";
 import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
+
 function Navbar() {
   return (
     <section className="header-container">

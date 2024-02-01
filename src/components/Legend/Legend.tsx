@@ -1,6 +1,4 @@
-import "./Legened.scss";
-
-import React from "react";
+import "./Legend.scss";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 
 const Legend = () => {
