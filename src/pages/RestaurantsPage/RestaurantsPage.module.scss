@@ -1,4 +1,5 @@
 @import "../../styles/constants.module.scss";
+@import "../../styles/mediaQueries.scss";
 
 .RestaurantsPageSection {
   display: flex;
@@ -8,6 +9,12 @@
   width: 100%;
   padding-top: 14px;
   padding-bottom: 53px;
+  border-bottom: 0.5px solid rgba(151, 151, 151, 1);
+  @include smallDesktopScreen {
+    border-top: 0.5px solid rgba(151, 151, 151, 1);
+    padding-top: 48px;
+    padding-bottom: 137px;
+  }
 
   .restaurantsPageLayout {
     display: flex;
@@ -15,6 +22,9 @@
     justify-content: center;
     align-items: center;
     width: $mobile-view-width;
+    @include smallDesktopScreen {
+      width: 100%;
+    }
 
     .restaurantsPageContentContainer {
       display: flex;
@@ -22,6 +32,14 @@
       justify-content: flex-start;
       align-items: flex-start;
       gap: 24px;
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: 40px;
+      }
 
       .restaurantPageTitleContainer {
         display: flex;
@@ -33,13 +51,19 @@
         letter-spacing: 1.9199999570846558px;
       }
 
-      .filtersContainer {
+      .dropDownsFiltersContainer {
         font-size: 18px;
         line-height: 22px;
         letter-spacing: 1.9199999570846558px;
-        border: 0.5px solid black;
         width: 100%;
         padding-bottom: 8px;
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(250, 250, 250, 1);
+        }
       }
 
       .restaurantsCardsContainer {
@@ -48,6 +72,14 @@
         justify-content: center;
         align-items: center;
         gap: 25px;
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: center;
+          align-items: center;
+          width: $mobile-view-width;
+          gap: 40px 24px;
+        }
       }
     }
   }
