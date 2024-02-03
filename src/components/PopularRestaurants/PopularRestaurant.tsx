@@ -2,19 +2,19 @@ import styles from "./PopularRestaurant.module.scss";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import useGetScreenWidth from "../../hooks/useScreenWidth";
-import { UIConstants } from "../../shared/constants";
 import goToIcon from "../../assets/images/goToIcon.svg";
 import data from "../../data/data.json";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { Restaurant } from "../../types/types";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
+
 const PopularRestaurant = () => {
-  const screenWidth: number = useGetScreenWidth();
-  const isMobile: boolean = screenWidth <= UIConstants.sizes.mobileWidth;
-  const isTablet: boolean =
-    UIConstants.sizes.mobileWidth < screenWidth &&
-    screenWidth <= UIConstants.sizes.tabletWidth;
+  const isMobile = useIsMobile();
+  const isTablet: boolean = useIsTablet();
+
   const restaurants: Restaurant[] = data.data.restaurants;
+
   return (
     <section className={styles.popularRestaurantLayout}>
       <div className={styles.popularRestaurantTitle}>
@@ -30,9 +30,12 @@ const PopularRestaurant = () => {
               initialSlide={0}
             >
               {restaurants &&
-                restaurants.map((restaurant, keyId) => (
-                  <SwiperSlide className={styles["swiper-slide"]}>
-                    <RestaurantCard key={keyId} restaurant={restaurant} />
+                restaurants.map((restaurant) => (
+                  <SwiperSlide
+                    key={restaurant.keyId}
+                    className={styles["swiper-slide"]}
+                  >
+                    <RestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -42,17 +45,20 @@ const PopularRestaurant = () => {
             {restaurants &&
               restaurants
                 .slice(0, 3)
-                .map((restaurant, keyId) => (
-                  <RestaurantCard key={keyId} restaurant={restaurant} />
+                .map((restaurant) => (
+                  <RestaurantCard
+                    key={restaurant.keyId}
+                    restaurant={restaurant}
+                  />
                 ))}
           </div>
         )}
 
         <button
-          className={styles.allRestaurantsGotoContainer}
+          className={styles.gotoAllRestaurantsBtn}
           name="all-restaurant-goto-button"
         >
-          <p className={styles.allRestaurantsGotoText}>All Restaurants</p>
+          <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
           <img src={goToIcon} alt="go-to-icon" />
         </button>
       </div>

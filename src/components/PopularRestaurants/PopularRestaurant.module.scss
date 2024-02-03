@@ -1,5 +1,6 @@
 @import "../../styles/constants.module.scss";
 @import "../../styles/mediaQueries.scss";
+
 .popularRestaurantLayout {
   display: flex;
   flex-flow: column;
@@ -17,11 +18,11 @@
     padding: 0;
     width: $desktop-view-width;
   }
+
   .popularRestaurantTitle {
     font-size: 18px;
     line-height: 24px;
     letter-spacing: 1.25px;
-
     @include smallDesktopScreen {
       font-size: 30px;
       line-height: 35px;
@@ -37,7 +38,6 @@
     align-items: flex-start;
     width: 100%;
     gap: 17.2px;
-
     @include smallDesktopScreen {
       display: flex;
       flex-flow: column;
@@ -62,12 +62,13 @@
         flex-flow: row;
         justify-content: space-between;
         align-items: center;
-        overflow-x: scroll;
+        overflow-x: auto;
         width: 100%;
         gap: 24px;
       }
     }
-    .allRestaurantsGotoContainer {
+
+    .gotoAllRestaurantsBtn {
       display: flex;
       flex-flow: row;
       justify-content: flex-start;
@@ -77,7 +78,7 @@
         align-self: flex-end;
       }
 
-      .allRestaurantsGotoText {
+      .gotoAllRestaurantsText {
         font-size: 16px;
         font-weight: 400;
         line-height: 35px;

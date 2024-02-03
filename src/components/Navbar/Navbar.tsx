@@ -1,17 +1,17 @@
-import React from "react";
 import "./Navbar.scss";
-import hamburgerIcon from "../../assets/images/HamburgIcon.svg";
+import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
+
 function Navbar() {
   return (
     <section className="header-container">
       <div className="header-wrapper">
         <div className="navbar-container">
           <div className="menu-container">
-            <img src="/src/assets/images/hamburgerIcon.svg" alt="hambur" />
+            <img src={hamburgerIcon} alt="hambur" />
           </div>
           <div className="logo-container">
             <img src={logoIcon} alt="logo" />
@@ -24,13 +24,13 @@ function Navbar() {
         </div>
         <div className="icons-container">
           <div className="search-button">
-            <img src="src/assets/images/searchIcon.svg" alt="search-icon" />
+            <img src={searchIcon} alt="search-icon" />
           </div>
           <div className="signIn-button">
-            <img src="src/assets/images/signInIcon.svg" alt="signIn-icon" />
+            <img src={signInIcon} alt="signIn-icon" />
           </div>
           <div className="bag-button">
-            <img src="src/assets/images/bagIcon.svg" alt="bag-icon" />
+            <img src={bagIcon} alt="bag-icon" />
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ export interface Restaurant {
   location: string; // not sure
   rating: number;
   priceRange: number[];
+  keyId: string;
 }
 
 export interface Chef {
@@ -16,6 +17,7 @@ export interface Chef {
   views: number;
   mostViewed: boolean;
   description: string;
+  keyId: string;
 }
 
 export interface Dish {
@@ -25,4 +27,5 @@ export interface Dish {
   price: number;
   signatureDish: boolean;
   foodIcon: string;
+  keyId: string;
 }

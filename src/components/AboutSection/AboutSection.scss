@@ -1,50 +1,40 @@
 @import "../../styles/mediaQueries.scss";
-
+@import "../../styles/constants.module.scss";
 .about-us-section-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 867px;
   background-color: rgba(250, 250, 250, 1);
-
-  @include tablet {
-    height: 867px;
-  }
-
-  @include mediumDesktopScreen {
-    height: 529px;
-  }
 
   .about-us-content-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 100%;
-    padding: 24px 25px 48px 24px;
+    width: $mobile-view-width;
+    gap: 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 
-    @include mediumDesktopScreen {
+    @include smallDesktopScreen {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      flex-flow: row;
+      justify-content: space-between;
       align-items: center;
+      width: $desktop-view-width;
       gap: 83.22px;
     }
-
     .about-us-logo-container {
-      padding-bottom: 32px;
       flex-shrink: 0;
+      @include smallDesktopScreen {
+        order: 1;
+      }
       img {
         width: 102px;
         height: 95px;
-      }
-
-      @include mediumDesktopScreen {
-        order: 1;
-        padding-bottom: 0;
-        img {
+        @include smallDesktopScreen {
           width: 178.22px;
           height: 166px;
         }
@@ -56,15 +46,57 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      height: 672px;
+      gap: 16px;
+      width: 331px;
 
-      @include mediumDesktopScreen {
+      @include smallDesktopScreen {
         order: 0;
-        width: 917.78px;
-        height: 449px;
         gap: 16px;
+        width: 569px;
       }
 
+      .section-title-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 18px;
+        line-height: 35px;
+        letter-spacing: 1.25px;
+
+        @include smallDesktopScreen {
+          font-size: 30px;
+          letter-spacing: 2.140000104904175px;
+        }
+      }
+      .about-us-descriptions-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 2.140000104904175px;
+        @include smallDesktopScreen {
+          width: 100%;
+          font-size: 20px;
+          line-height: 30px;
+        }
+        .about-us-description-top-text {
+          width: 331px;
+
+          @include smallDesktopScreen {
+            width: 100%;
+            padding-bottom: 32px;
+          }
+        }
+        .about-us-description-bottom-text {
+          width: 331px;
+          @include smallDesktopScreen {
+            width: 100%;
+          }
+        }
+      }
       .app-stores-container {
         display: flex;
         flex-direction: column;
@@ -72,9 +104,9 @@
         justify-content: flex-start;
         width: 180px;
         gap: 16px;
-        padding-bottom: 48px;
+        padding-bottom: 32px;
 
-        @include mediumDesktopScreen {
+        @include smallDesktopScreen {
           display: flex;
           flex-direction: row-reverse;
           justify-content: flex-end;
@@ -95,99 +127,34 @@
           padding: 7px 12px;
           gap: 7px;
 
-          @include mediumDesktopScreen {
-          }
-          .apple-icon {
-            width: 24px;
-            height: 31px;
-          }
-          .google-play-icon {
-            width: 19px;
-            height: 25px;
-          }
-        }
+          .apps-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 130px;
+            height: 36px;
 
-        .apps-text-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 130px;
-          height: 36px;
+            .apps-top-text {
+              font-size: 13px;
+              font-weight: 440;
+              line-height: 18px;
+              letter-spacing: 1.2899999618530273px;
+              text-align: center;
+              height: 18px;
 
-          .apps-top-text {
-            font-size: 13px;
-            font-weight: 440;
-            line-height: 18px;
-            letter-spacing: 1.2899999618530273px;
-            text-align: center;
-            height: 18px;
-
-            @include mediumDesktopScreen {
-              font-size: 11.3px;
+              @include smallDesktopScreen {
+                font-size: 11.3px;
+              }
             }
-          }
-          .apps-bottom-text {
-            height: 20px;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 20px;
-            letter-spacing: 1.2899999618530273px;
-            text-align: center;
-          }
-        }
-      }
-
-      .section-title-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding-bottom: 16px;
-        font-size: 18px;
-        line-height: 35px;
-        letter-spacing: 1.25px;
-
-        @include mediumDesktopScreen {
-          width: 665px;
-          height: 35px;
-          font-size: 30px;
-          line-height: 35px;
-          letter-spacing: 2.140000104904175px;
-          @include mediumDesktopScreen {
-            padding-bottom: 0;
-          }
-        }
-      }
-
-      .about-us-descriptions-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        font-size: 18px;
-        line-height: 28px;
-        letter-spacing: 2.140000104904175px;
-
-        @include mediumDesktopScreen {
-          width: 569px;
-          height: 330px;
-          gap: 32px;
-        }
-        .about-us-description-top-text {
-          width: 331px;
-          height: 255px;
-          @include mediumDesktopScreen {
-            width: auto;
-            height: auto;
-          }
-        }
-        .about-us-description-bottom-text {
-          width: 306px;
-          height: 168px;
-          @include mediumDesktopScreen {
-            width: auto;
-            height: auto;
+            .apps-bottom-text {
+              height: 20px;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 20px;
+              letter-spacing: 1.2899999618530273px;
+              text-align: center;
+            }
           }
         }
       }
