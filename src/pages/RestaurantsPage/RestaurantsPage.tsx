@@ -1,3 +1,4 @@
+import Dropdown from "../../components/Dropdown/Dropdown";
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import { useFetch } from "../../hooks/useFetch";
@@ -27,6 +28,7 @@ const RestaurantsPage = () => {
           ) : (
             <div className={styles.dropDownsFiltersContainer}>
               <div>Price Range</div>
+              <Dropdown />
               <div>Distance</div>
               <div>Rating</div>
             </div>
