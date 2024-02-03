@@ -5,7 +5,6 @@ import { FC, useEffect, useRef, useState } from "react";
 const Dropdown: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement | null>(null);
-  const [count, setCount] = useState(0);
 
   const handleBlur = (e: MouseEvent) => {
     // Close the popover only if it is currently open
