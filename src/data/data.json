@@ -8,7 +8,7 @@
         "openNow": false,
         "location": "",
         "rating": 1,
-        "priceRange": [],
+        "priceRange": [88, 250],
         "keyId": "0"
       },
       {
@@ -18,7 +18,7 @@
         "openNow": false,
         "location": "",
         "rating": 2,
-        "priceRange": [],
+        "priceRange": [40, 300],
         "keyId": "1"
       },
       {

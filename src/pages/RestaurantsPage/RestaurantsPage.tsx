@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
@@ -27,10 +28,9 @@ const RestaurantsPage = () => {
             <div className={styles.dropDownsFiltersContainer}>Filters</div>
           ) : (
             <div className={styles.dropDownsFiltersContainer}>
-              <div>Price Range</div>
-              <Dropdown />
-              <div>Distance</div>
-              <div>Rating</div>
+              {/* <Dropdown filterTitle={"Distance"} distance={true} />
+              <Dropdown filterTitle={"Price Range"} priceRange={true} /> */}
+              <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
           <div className={styles.restaurantsCardsContainer}>
