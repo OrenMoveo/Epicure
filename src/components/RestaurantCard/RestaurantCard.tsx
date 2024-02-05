@@ -4,15 +4,16 @@ import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import { UIConstants } from "../../shared/constants";
 interface RestaurantCardProps {
   restaurant: Restaurant;
+  className?: string;
 }
 
-const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+const RestaurantCard = ({ restaurant, className }: RestaurantCardProps) => {
   const screenWidth = useGetScreenWidth();
   const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
   return (
-    <button className="card-container">
+    <div className={`card-container ${className || ""}`}>
       <div className="card-image-container">
         <img src={restaurant.pictureUrl} alt={restaurant.name} />
       </div>
