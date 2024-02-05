@@ -38,15 +38,15 @@ function Navbar() {
           </div>
         </div>
         <div className="icons-container">
-          <div className="search-button">
+          <button className="search-button">
             <img src={searchIcon} alt="search-icon" />
-          </div>
-          <div className="signIn-button">
+          </button>
+          <button className="signIn-button">
             <img src={signInIcon} alt="signIn-icon" />
-          </div>
-          <div className="bag-button">
+          </button>
+          <button className="bag-button">
             <img src={bagIcon} alt="bag-icon" />
-          </div>
+          </button>
         </div>
       </div>
     </section>
