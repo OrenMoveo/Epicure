@@ -8,6 +8,7 @@ import "swiper/css";
 import goToIcon from "../../assets/images/goToIcon.svg";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
+import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 export const ChefOfTheWeekSection = () => {
   const isTablet: boolean = useIsTablet();
@@ -75,13 +76,7 @@ export const ChefOfTheWeekSection = () => {
           </div>
         )}
         {(isMobile || isTablet) && (
-          <button
-            className={styles.gotoAllRestaurantsBtn}
-            name="all-restaurant-goto-button"
-          >
-            <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
-            <img src={goToIcon} alt="go-to-icon" />
-          </button>
+        <GoToAllRestaurantsButton />
         )}
       </div>
     </section>
