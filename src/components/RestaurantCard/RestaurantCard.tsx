@@ -13,7 +13,7 @@ const RestaurantCard = ({ restaurant, className }: RestaurantCardProps) => {
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
   return (
-    <div className={`card-container ${className || ""}`}>
+    <button className={`card-container ${className || ""}`}>
       <div className="card-image-container">
         <img src={restaurant.pictureUrl} alt={restaurant.name} />
       </div>
