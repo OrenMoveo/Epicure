@@ -4,16 +4,12 @@ import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
   const handleHomePageNavigation = () => {
     navigate("/");
-  };
-
-  const handleRestaurantsPageNavigation = () => {
-    navigate("/restaurants");
   };
 
   return (
@@ -23,9 +19,9 @@ function Navbar() {
           <div className="menu-container">
             <img src={hamburgerIcon} alt="hamburger-icon" />
           </div>
-          <button className="logo-container" onClick={handleHomePageNavigation}>
+          <NavLink to="/" className="logo-container">
             <img src={logoIcon} alt="logo" />
-          </button>
+          </NavLink>
           <div className="navbar-buttons-container">
             <button
               className="epicure-text-title"
@@ -33,13 +29,12 @@ function Navbar() {
             >
               EPICURE
             </button>
-            <button
-              className="restaurants-navbar-button"
-              onClick={handleRestaurantsPageNavigation}
-            >
+            <NavLink to="/restaurants" className="restaurants-navbar-button">
               Restaurants
-            </button>
-            <div className="chefs-navbar-button">Chefs</div>
+            </NavLink>
+            <NavLink to="/chefs" className="chefs-navbar-button">
+              Chefs
+            </NavLink>
           </div>
         </div>
         <div className="icons-container">

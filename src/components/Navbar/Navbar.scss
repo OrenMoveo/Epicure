@@ -55,6 +55,7 @@
 
         @include smallDesktopScreen {
           $button-links-gap: 32px;
+
           display: flex;
           flex-flow: row;
           align-items: center;
@@ -68,6 +69,24 @@
             font-size: 27px;
             line-height: 33px;
             letter-spacing: 1.350000023841858px;
+            text-decoration: none;
+            color: black;
+          }
+
+          .restaurants-navbar-button {
+            text-decoration: none;
+            color: black;
+          }
+          .chefs-navbar-button {
+            text-decoration: none;
+            color: black;
+          }
+          .active {
+            text-decoration: none;
+            color: black;
+            border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
+            padding-bottom: 8px;
+            padding-top: 8px;
           }
         }
       }
