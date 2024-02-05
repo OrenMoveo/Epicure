@@ -12,7 +12,7 @@ function AboutSection() {
         </div>
         <div className="about-us-information-container">
           <div className="app-stores-container">
-            <div className="google-play-store-icon-container">
+            <button className="google-play-store-icon-container">
               <img
                 src={googlePlayIcon}
                 alt="google-play-icon"
@@ -22,14 +22,14 @@ function AboutSection() {
                 <p className="apps-top-text">Get it on</p>
                 <p className="apps-bottom-text">Google Play</p>
               </div>
-            </div>
-            <div className="apple-store-icon-container">
+            </button>
+            <button className="apple-store-icon-container">
               <img src={appleIcon} alt="apple-icon" className="apple-icon" />
               <div className="apps-text-container">
                 <p className="apps-top-text">Download on the</p>
                 <p className="apps-bottom-text">App Store</p>
               </div>
-            </div>
+            </button>
           </div>
           <div className="section-title-container">
             <SectionTitle title={"ABOUT US:"} />

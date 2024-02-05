@@ -6,7 +6,7 @@ interface DishCardProps {
 }
 const DishCard = ({ dish }: DishCardProps) => {
   return (
-    <div className={styles.cardContainer}>
+    <button className={styles.cardContainer}>
       <div className={styles.imageContainer}>
         <img src={dish.pictureUrl} alt={dish.name} />
       </div>
@@ -29,7 +29,7 @@ const DishCard = ({ dish }: DishCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
