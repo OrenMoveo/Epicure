@@ -1,3 +1,4 @@
+import PopularRestaurant from "../components/PopularRestaurants/PopularRestaurant";
 export interface Restaurant {
   name: string;
   chef: string;
@@ -6,7 +7,9 @@ export interface Restaurant {
   location: string; // not sure
   rating: number;
   priceRange: number[];
+  mostPopular: boolean;
   keyId: string;
+  new: boolean;
 }
 
 export interface Chef {

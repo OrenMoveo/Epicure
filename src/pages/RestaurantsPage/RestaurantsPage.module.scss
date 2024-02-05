@@ -41,6 +41,23 @@
         gap: 40px;
       }
 
+      .filtersContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 21px;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
+
+        button {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
       .restaurantPageTitleContainer {
         display: flex;
         flex-flow: row;

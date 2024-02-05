@@ -8,6 +8,8 @@
         "openNow": false,
         "location": "",
         "rating": 1,
+        "mostPopular": false,
+        "new": false,
         "priceRange": [88, 250],
         "keyId": "0"
       },
@@ -18,6 +20,8 @@
         "openNow": false,
         "location": "",
         "rating": 2,
+        "mostPopular": false,
+        "new": true,
         "priceRange": [40, 300],
         "keyId": "1"
       },
@@ -28,6 +32,8 @@
         "openNow": false,
         "location": "",
         "rating": 1,
+        "mostPopular": true,
+        "new": true,
         "priceRange": [],
         "keyId": "2"
       },
@@ -38,6 +44,8 @@
         "openNow": false,
         "location": "",
         "rating": 1,
+        "mostPopular": true,
+        "new": true,
         "priceRange": [],
         "keyId": "3"
       },
@@ -48,6 +56,8 @@
         "openNow": false,
         "location": "",
         "rating": 4,
+        "mostPopular": false,
+        "new": false,
         "priceRange": [],
         "keyId": "4"
       },
@@ -58,6 +68,8 @@
         "openNow": false,
         "location": "",
         "rating": 2,
+        "mostPopular": false,
+        "new": false,
         "priceRange": [],
         "keyId": "5"
       },
@@ -68,6 +80,8 @@
         "openNow": false,
         "location": "",
         "rating": 1,
+        "mostPopular": true,
+        "new": false,
         "priceRange": [],
         "keyId": "6"
       },
@@ -78,6 +92,8 @@
         "openNow": false,
         "location": "",
         "rating": 2,
+        "mostPopular": true,
+        "new": false,
         "priceRange": [],
         "keyId": "7"
       },
@@ -85,9 +101,11 @@
         "name": "Mashya",
         "chef": "Yossi Shitrit",
         "pictureUrl": "/src/assets/images/restaurants/Mashia.png",
-        "openNow": false,
+        "openNow": true,
         "location": "",
         "rating": 3,
+        "mostPopular": false,
+        "new": false,
         "priceRange": [],
         "keyId": "8"
       }
@@ -178,6 +196,8 @@
             "openNow": false,
             "location": "",
             "rating": 1,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "17"
           }
@@ -199,6 +219,8 @@
             "openNow": false,
             "location": "",
             "rating": 2,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "19"
           }
@@ -220,6 +242,8 @@
             "openNow": false,
             "location": "",
             "rating": 1,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "21"
           }
@@ -241,6 +265,8 @@
             "openNow": false,
             "location": "",
             "rating": 1,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "23"
           }
@@ -262,6 +288,8 @@
             "openNow": false,
             "location": "",
             "rating": 4,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "25"
           }
@@ -283,6 +311,8 @@
             "openNow": false,
             "location": "",
             "rating": 2,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "27"
           }
@@ -304,6 +334,8 @@
             "openNow": false,
             "location": "",
             "rating": 1,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "29"
           },
@@ -314,6 +346,8 @@
             "openNow": false,
             "location": "",
             "rating": 2,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "30"
           },
@@ -324,6 +358,8 @@
             "openNow": false,
             "location": "",
             "rating": 3,
+            "mostPopular": true,
+            "new": false,
             "priceRange": [],
             "keyId": "31"
           }
