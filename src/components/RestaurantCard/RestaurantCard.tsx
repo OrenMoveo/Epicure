@@ -1,4 +1,4 @@
-import "./RestaurantCard.scss";
+import styles from "./RestaurantCard.module.scss";
 import { Restaurant } from "../../types/types";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import { UIConstants } from "../../shared/constants";
@@ -13,22 +13,28 @@ const RestaurantCard = ({ restaurant, className }: RestaurantCardProps) => {
   const ratingImageSrcString: string = `/src/assets/images/ratings/rating${restaurant.rating}.svg`;
 
   return (
-    <button className={`card-container ${className || ""}`}>
-      <div className="card-image-container">
+    <button
+      className={`${styles.restaurantCardContainer} ${
+        className ? styles[className] : ""
+      }`}
+    >
+      <div className={styles.restaurantCardImageContainer}>
         <img src={restaurant.pictureUrl} alt={restaurant.name} />
       </div>
-      <div className="card-content-container">
-        <p className="restaurant-name">{restaurant.name}</p>
-        <p className="restaurant-chef-name">{restaurant.chef}</p>
-        {!isTablet && (
-          <div className="restaurant-rating-container">
-            <img
-              src={ratingImageSrcString}
-              alt="rating"
-              className="rating-img"
-            />
-          </div>
-        )}
+      <div className={styles.restaurantCardContentLayout}>
+        <div className={styles.restaurantCardContentContainer}>
+          <p className={styles.restaurantName}>{restaurant.name}</p>
+          <p className={styles.restaurantChefName}>{restaurant.chef}</p>
+          {!isTablet && (
+            <div className={styles.restaurantRatingContainer}>
+              <img
+                src={ratingImageSrcString}
+                alt="rating"
+                className="rating-img"
+              />
+            </div>
+          )}
+        </div>
       </div>
     </button>
   );

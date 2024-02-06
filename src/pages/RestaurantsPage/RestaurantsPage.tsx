@@ -158,7 +158,11 @@ const RestaurantsPage = () => {
 
           <div className={styles.restaurantsCardsContainer}>
             {restaurants.map((restaurant) => (
-              <RestaurantCard restaurant={restaurant} key={restaurant.keyId} />
+              <RestaurantCard
+                restaurant={restaurant}
+                key={restaurant.keyId}
+                className={"restaurantsPageCard"}
+              />
             ))}
           </div>
         </div>
