@@ -29,10 +29,20 @@ function Navbar() {
             >
               EPICURE
             </button>
-            <NavLink to="/restaurants" className={styles.restaurantsNavbarBtn}>
+            <NavLink
+              to="/restaurants"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inActive
+              }
+            >
               Restaurants
             </NavLink>
-            <NavLink to="/chefs" className={styles.chefsNavbarBtn}>
+            <NavLink
+              to="/chefs"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inActive
+              }
+            >
               Chefs
             </NavLink>
           </div>
