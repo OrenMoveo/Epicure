@@ -3,10 +3,15 @@ import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
 interface DishCardProps {
   dish: Dish;
+  className?: string;
 }
-const DishCard = ({ dish }: DishCardProps) => {
+const DishCard = ({ dish, className }: DishCardProps) => {
   return (
-    <button className={styles.cardContainer}>
+    <button
+      className={`${styles.dishCardContainer} ${
+        className ? styles[className] : ""
+      }`}
+    >
       <div className={styles.imageContainer}>
         <img src={dish.pictureUrl} alt={dish.name} />
       </div>

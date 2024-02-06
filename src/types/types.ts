@@ -1,4 +1,3 @@
-import PopularRestaurant from "../components/PopularRestaurants/PopularRestaurant";
 export interface Restaurant {
   name: string;
   chef: string;
@@ -10,6 +9,7 @@ export interface Restaurant {
   mostPopular: boolean;
   keyId: string;
   new: boolean;
+  restaurantDishes: Dish[];
 }
 
 export interface Chef {
@@ -31,4 +31,5 @@ export interface Dish {
   signatureDish: boolean;
   foodIcon: string;
   keyId: string;
+  mealType: "breakfast" | "lunch" | "dinner";
 }

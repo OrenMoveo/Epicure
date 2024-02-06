@@ -10,6 +10,28 @@
         "rating": 1,
         "mostPopular": false,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "15"
+          },
+          {
+            "name": "Pad Ki Mao 2",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+            "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "16"
+          }
+        ],
         "priceRange": [88, 250],
         "keyId": "0"
       },
@@ -22,6 +44,38 @@
         "rating": 2,
         "mostPopular": false,
         "new": true,
+        "restaurantDishes": [
+          {
+            "name": "Ta Ma La Ko",
+            "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "dinner",
+            "keyId": "12"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "lunch",
+            "keyId": "13"
+          },
+          {
+            "name": "Pad Ki Mao 1",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "lunch",
+            "keyId": "14"
+          }
+        ],
         "priceRange": [40, 300],
         "keyId": "1"
       },
@@ -34,6 +88,38 @@
         "rating": 1,
         "mostPopular": true,
         "new": true,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "lunch",
+            "keyId": "9"
+          },
+          {
+            "name": "Ta Ma La Ko",
+            "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "12"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "lunch",
+            "keyId": "15"
+          }
+        ],
         "priceRange": [],
         "keyId": "2"
       },
@@ -46,6 +132,28 @@
         "rating": 1,
         "mostPopular": true,
         "new": true,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "9"
+          },
+          {
+            "name": "Garbanzo Frito",
+            "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+            "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "dinner",
+            "keyId": "10"
+          }
+        ],
         "priceRange": [],
         "keyId": "3"
       },
@@ -58,6 +166,48 @@
         "rating": 4,
         "mostPopular": false,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "9"
+          },
+          {
+            "name": "Garbanzo Frito",
+            "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+            "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "10"
+          },
+          {
+            "name": "Smoked Pizza",
+            "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+            "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/veganIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "11"
+          },
+          {
+            "name": "Ta Ma La Ko",
+            "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "12"
+          }
+        ],
         "priceRange": [],
         "keyId": "4"
       },
@@ -70,6 +220,88 @@
         "rating": 2,
         "mostPopular": false,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "9"
+          },
+          {
+            "name": "Garbanzo Frito",
+            "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+            "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "10"
+          },
+          {
+            "name": "Smoked Pizza",
+            "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+            "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/veganIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "11"
+          },
+          {
+            "name": "Ta Ma La Ko",
+            "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "12"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "13"
+          },
+          {
+            "name": "Pad Ki Mao 1",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "14"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "15"
+          },
+          {
+            "name": "Pad Ki Mao 2",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+            "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "dinner",
+            "keyId": "16"
+          }
+        ],
         "priceRange": [],
         "keyId": "5"
       },
@@ -82,6 +314,68 @@
         "rating": 1,
         "mostPopular": true,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "9"
+          },
+          {
+            "name": "Garbanzo Frito",
+            "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+            "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "10"
+          },
+          {
+            "name": "Smoked Pizza",
+            "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+            "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/veganIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "11"
+          },
+          {
+            "name": "Ta Ma La Ko",
+            "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "12"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "13"
+          },
+          {
+            "name": "Pad Ki Mao 1",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "14"
+          }
+        ],
         "priceRange": [],
         "keyId": "6"
       },
@@ -94,6 +388,69 @@
         "rating": 2,
         "mostPopular": true,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao",
+            "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "9"
+          },
+          {
+            "name": "Garbanzo Frito",
+            "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+            "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "10"
+          },
+          {
+            "name": "Smoked Pizza",
+            "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+            "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/veganIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "11"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "13"
+          },
+          {
+            "name": "Pad Ki Mao 1",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "14"
+          },
+
+          {
+            "name": "Pad Ki Mao 2",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+            "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "16"
+          }
+        ],
         "priceRange": [],
         "keyId": "7"
       },
@@ -106,6 +463,38 @@
         "rating": 3,
         "mostPopular": false,
         "new": false,
+        "restaurantDishes": [
+          {
+            "name": "Pad Ki Mao 1",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 65,
+            "signatureDish": false,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "14"
+          },
+          {
+            "name": "Red Farm",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+            "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+            "price": 88,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "15"
+          },
+          {
+            "name": "Pad Ki Mao 2",
+            "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+            "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+            "price": 98,
+            "signatureDish": true,
+            "foodIcon": "/src/assets/images/spicyIcon.svg",
+            "mealType": "breakfast",
+            "keyId": "16"
+          }
+        ],
         "priceRange": [],
         "keyId": "8"
       }
@@ -118,6 +507,7 @@
         "price": 88,
         "signatureDish": true,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "9"
       },
       {
@@ -127,6 +517,7 @@
         "price": 98,
         "signatureDish": true,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "10"
       },
       {
@@ -136,6 +527,7 @@
         "price": 98,
         "signatureDish": true,
         "foodIcon": "/src/assets/images/veganIcon.svg",
+        "mealType": "breakfast",
         "keyId": "11"
       },
       {
@@ -145,6 +537,7 @@
         "price": 65,
         "signatureDish": false,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "12"
       },
       {
@@ -154,6 +547,7 @@
         "price": 65,
         "signatureDish": false,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "13"
       },
       {
@@ -163,6 +557,7 @@
         "price": 65,
         "signatureDish": false,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "14"
       },
       {
@@ -172,6 +567,7 @@
         "price": 88,
         "signatureDish": true,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "15"
       },
       {
@@ -181,6 +577,7 @@
         "price": 98,
         "signatureDish": true,
         "foodIcon": "/src/assets/images/spicyIcon.svg",
+        "mealType": "breakfast",
         "keyId": "16"
       }
     ],
@@ -196,13 +593,36 @@
             "openNow": false,
             "location": "",
             "rating": 1,
-            "mostPopular": true,
+            "mostPopular": false,
             "new": false,
-            "priceRange": [],
-            "keyId": "17"
+            "restaurantDishes": [
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "15"
+              },
+              {
+                "name": "Pad Ki Mao 2",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+                "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "16"
+              }
+            ],
+            "priceRange": [88, 250],
+            "keyId": "0"
           }
         ],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -219,13 +639,46 @@
             "openNow": false,
             "location": "",
             "rating": 2,
-            "mostPopular": true,
-            "new": false,
-            "priceRange": [],
-            "keyId": "19"
+            "mostPopular": false,
+            "new": true,
+            "restaurantDishes": [
+              {
+                "name": "Ta Ma La Ko",
+                "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "12"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "13"
+              },
+              {
+                "name": "Pad Ki Mao 1",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "14"
+              }
+            ],
+            "priceRange": [40, 300],
+            "keyId": "1"
           }
         ],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -243,12 +696,45 @@
             "location": "",
             "rating": 1,
             "mostPopular": true,
-            "new": false,
+            "new": true,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Ta Ma La Ko",
+                "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "12"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "15"
+              }
+            ],
             "priceRange": [],
-            "keyId": "21"
+            "keyId": "2"
           }
         ],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -266,12 +752,35 @@
             "location": "",
             "rating": 1,
             "mostPopular": true,
-            "new": false,
+            "new": true,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Garbanzo Frito",
+                "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+                "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "10"
+              }
+            ],
             "priceRange": [],
-            "keyId": "23"
+            "keyId": "3"
           }
         ],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -288,13 +797,56 @@
             "openNow": false,
             "location": "",
             "rating": 4,
-            "mostPopular": true,
+            "mostPopular": false,
             "new": false,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Garbanzo Frito",
+                "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+                "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "10"
+              },
+              {
+                "name": "Smoked Pizza",
+                "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+                "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/veganIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "11"
+              },
+              {
+                "name": "Ta Ma La Ko",
+                "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "12"
+              }
+            ],
             "priceRange": [],
-            "keyId": "25"
+            "keyId": "4"
           }
         ],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -311,13 +863,96 @@
             "openNow": false,
             "location": "",
             "rating": 2,
-            "mostPopular": true,
+            "mostPopular": false,
             "new": false,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Garbanzo Frito",
+                "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+                "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "10"
+              },
+              {
+                "name": "Smoked Pizza",
+                "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+                "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/veganIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "11"
+              },
+              {
+                "name": "Ta Ma La Ko",
+                "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "12"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "13"
+              },
+              {
+                "name": "Pad Ki Mao 1",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "14"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "15"
+              },
+              {
+                "name": "Pad Ki Mao 2",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+                "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "16"
+              }
+            ],
             "priceRange": [],
-            "keyId": "27"
+            "keyId": "5"
           }
         ],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -336,8 +971,70 @@
             "rating": 1,
             "mostPopular": true,
             "new": false,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Garbanzo Frito",
+                "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+                "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "10"
+              },
+              {
+                "name": "Smoked Pizza",
+                "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+                "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/veganIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "11"
+              },
+              {
+                "name": "Ta Ma La Ko",
+                "pictureUrl": "/src/assets/images/dishes/taMaLaKo.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "12"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "13"
+              },
+              {
+                "name": "Pad Ki Mao 1",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "14"
+              }
+            ],
             "priceRange": [],
-            "keyId": "29"
+            "keyId": "6"
           },
           {
             "name": "Kitchen Market",
@@ -348,23 +1045,119 @@
             "rating": 2,
             "mostPopular": true,
             "new": false,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao",
+                "pictureUrl": "/src/assets/images/dishes/padKiMao.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "9"
+              },
+              {
+                "name": "Garbanzo Frito",
+                "pictureUrl": "/src/assets/images/dishes/garbanzoFrito.png",
+                "description": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "10"
+              },
+              {
+                "name": "Smoked Pizza",
+                "pictureUrl": "/src/assets/images/dishes/smokedPizza.png",
+                "description": "Basil dough, cashew butter , demi-glace, bison & radish",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/veganIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "11"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/redFarm.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "13"
+              },
+              {
+                "name": "Pad Ki Mao 1",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "14"
+              },
+
+              {
+                "name": "Pad Ki Mao 2",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+                "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "16"
+              }
+            ],
             "priceRange": [],
-            "keyId": "30"
+            "keyId": "7"
           },
           {
             "name": "Mashya",
             "chef": "Yossi Shitrit",
             "pictureUrl": "/src/assets/images/restaurants/Mashia.png",
-            "openNow": false,
+            "openNow": true,
             "location": "",
             "rating": 3,
-            "mostPopular": true,
+            "mostPopular": false,
             "new": false,
+            "restaurantDishes": [
+              {
+                "name": "Pad Ki Mao 1",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoOne.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 65,
+                "signatureDish": false,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "14"
+              },
+              {
+                "name": "Red Farm",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoThree.png",
+                "description": "Green Papaya, Mango, Chukka Chili, Mint, Kaffir lime, Cashew, Akaya Cham sauce",
+                "price": 88,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "15"
+              },
+              {
+                "name": "Pad Ki Mao 2",
+                "pictureUrl": "/src/assets/images/dishes/padKiMaoTwo.png",
+                "description": "Tofu, Spekkoek Peanuts, Spicy Manis, Pear Yakitori",
+                "price": 98,
+                "signatureDish": true,
+                "foodIcon": "/src/assets/images/spicyIcon.svg",
+                "mealType": "breakfast",
+                "keyId": "16"
+              }
+            ],
             "priceRange": [],
-            "keyId": "31"
+            "keyId": "8"
           }
         ],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including running the kitchen in his first restaurant, the fondly-remembered Violet, located in Moshav Udim. Shitrit's creativity and culinary acumen born of long experience are expressed in the every detail of each and every dish.",
@@ -375,6 +1168,7 @@
         "pictureUrl": "/src/assets/images/chefs/asafGranit.png",
         "restaurants": [],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -385,6 +1179,7 @@
         "pictureUrl": "/src/assets/images/chefs/eyalShani.png",
         "restaurants": [],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -395,6 +1190,7 @@
         "pictureUrl": "/src/assets/images/chefs/meirAdoni.png",
         "restaurants": [],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -405,6 +1201,7 @@
         "pictureUrl": "/src/assets/images/chefs/omerMiller.png",
         "restaurants": [],
         "new": true,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -415,6 +1212,7 @@
         "pictureUrl": "/src/assets/images/chefs/nitzanRaz.png",
         "restaurants": [],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -425,6 +1223,7 @@
         "pictureUrl": "/src/assets/images/chefs/yuvalBenNeriah.png",
         "restaurants": [],
         "new": false,
+        "restaurantDishes": [],
         "views": 0,
         "mostViewed": false,
         "description": "",

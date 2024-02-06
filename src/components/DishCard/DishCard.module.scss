@@ -1,15 +1,13 @@
 @import "../../styles/mediaQueries.scss";
 
-.cardContainer {
+.dishCardContainer {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 245px;
-  height: 388px;
   @include smallDesktopScreen {
     width: 380px;
-    height: 654px;
   }
 
   .imageContainer {
@@ -31,7 +29,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 245px;
+    width: 100%;
     height: 236px;
     background-color: rgba(249, 244, 234, 1);
     @include smallDesktopScreen {
@@ -184,6 +182,25 @@
           }
         }
       }
+    }
+  }
+}
+
+.restaurantDisplayDishCard {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 335px;
+
+  .imageContainer {
+    width: 338px;
+    height: 210.89px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
