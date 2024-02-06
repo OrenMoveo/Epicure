@@ -7,7 +7,6 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import Rating from "../../components/Rating/Rating";
 
 const RestaurantsPage = () => {
   const data = useFetch();
