@@ -53,7 +53,9 @@ const PopularRestaurant = () => {
                 ))}
           </div>
         )}
-        <GoToAllRestaurantsButton />
+        <div className={styles.GoToAllRestaurantsBtnContainer}>
+          <GoToAllRestaurantsButton />
+        </div>
       </div>
     </section>
   );
