@@ -37,7 +37,7 @@ function Navbar() {
             </NavLink>
           </div>
         </div>
-        <div className="headerIconsContainer">
+        <div className={styles.headerIconsContainer}>
           <button className={styles.searchBtn}>
             <img src={searchIcon} alt="search-icon" />
           </button>

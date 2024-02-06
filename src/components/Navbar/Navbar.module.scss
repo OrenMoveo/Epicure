@@ -1,24 +1,30 @@
 @import "../../styles/mediaQueries.scss";
+@import "../../styles/constants.module.scss";
 
 .headerSectionLayout {
-  $padding-horizontal: 14px;
-
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 46px;
+  @include smallDesktopScreen {
+    height: 64px;
+  }
 
   .HeaderContainer {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: $mobile-view-width;
+    @include smallDesktopScreen {
+      width: $desktop-view-width;
+    }
 
     .navbarContainer {
       $halfOfLogoPixels: 16.5px;
+
       display: flex;
       flex-flow: row;
       align-items: center;
@@ -26,9 +32,8 @@
       width: calc(50% + $halfOfLogoPixels);
 
       @include smallDesktopScreen {
-        $logo-button-links-gap: 15.07px;
         justify-content: flex-start;
-        gap: $logo-button-links-gap;
+        gap: 15.07px;
       }
 
       .logoContainer {
@@ -91,18 +96,17 @@
         }
       }
     }
-  }
-
-  .headerIconsContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    @include smallDesktopScreen {
-      gap: 24px;
+    .headerIconsContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      @include smallDesktopScreen {
+        gap: 24px;
+      }
     }
   }
 }
