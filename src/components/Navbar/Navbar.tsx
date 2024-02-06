@@ -1,4 +1,4 @@
-import "./Navbar.scss";
+import styles from "./Navbar.module.scss";
 import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
@@ -13,38 +13,38 @@ function Navbar() {
   };
 
   return (
-    <section className="header-container">
-      <div className="header-wrapper">
-        <div className="navbar-container">
-          <div className="menu-container">
+    <section className={styles.headerSectionLayout}>
+      <div className={styles.HeaderContainer}>
+        <div className={styles.navbarContainer}>
+          <div className={styles.menuContainer}>
             <img src={hamburgerIcon} alt="hamburger-icon" />
           </div>
-          <NavLink to="/" className="logo-container">
+          <NavLink to="/" className={styles.logoContainer}>
             <img src={logoIcon} alt="logo" />
           </NavLink>
-          <div className="navbar-buttons-container">
+          <div className={styles.navbarButtonsContainer}>
             <button
-              className="epicure-text-title"
+              className={styles.epicureTextTitle}
               onClick={handleHomePageNavigation}
             >
               EPICURE
             </button>
-            <NavLink to="/restaurants" className="restaurants-navbar-button">
+            <NavLink to="/restaurants" className={styles.restaurantsNavbarBtn}>
               Restaurants
             </NavLink>
-            <NavLink to="/chefs" className="chefs-navbar-button">
+            <NavLink to="/chefs" className={styles.chefsNavbarBtn}>
               Chefs
             </NavLink>
           </div>
         </div>
-        <div className="icons-container">
-          <button className="search-button">
+        <div className={styles.headerIconsContainer}>
+          <button className={styles.searchBtn}>
             <img src={searchIcon} alt="search-icon" />
           </button>
-          <button className="signIn-button">
+          <button className={styles.signInBtn}>
             <img src={signInIcon} alt="signIn-icon" />
           </button>
-          <button className="bag-button">
+          <button className={styles.bagBtn}>
             <img src={bagIcon} alt="bag-icon" />
           </button>
         </div>
