@@ -48,12 +48,21 @@
         align-items: center;
         width: 100%;
         gap: 21px;
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          width: $desktop-view-width;
+          gap: 40px;
+        }
 
         .filterButton {
           font-size: 18px;
           line-height: 22px;
           letter-spacing: 1.9199999570846558px;
         }
+
         .activeButton {
           font-size: 18px;
           font-weight: 400;
@@ -104,7 +113,7 @@
           flex-flow: row wrap;
           justify-content: center;
           align-items: center;
-          width: $mobile-view-width;
+          width: $desktop-view-width;
           gap: 40px 24px;
         }
       }

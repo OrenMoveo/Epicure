@@ -141,7 +141,9 @@ const RestaurantsPage = () => {
             <button
               ref={buttonRefs[MOST_POPULAR_INDEX]}
               className={`${styles.filterButton} ${
-                activeFilterButton === MOST_POPULAR_INDEX ? styles.activeButton : ""
+                activeFilterButton === MOST_POPULAR_INDEX
+                  ? styles.activeButton
+                  : ""
               }`}
               onClick={handleClick(MOST_POPULAR_INDEX)}
             >
@@ -159,7 +161,9 @@ const RestaurantsPage = () => {
             {!isMobileOrTable && (
               <button
                 className={`${styles.filterButton} ${
-                  activeFilterButton === ALL_INDEX ? styles.activeButton : ""
+                  activeFilterButton === MAP_VIEW_INDEX
+                    ? styles.activeButton
+                    : ""
                 }`}
               >
                 Map View
