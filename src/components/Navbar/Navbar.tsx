@@ -31,17 +31,13 @@ function Navbar() {
             </button>
             <NavLink
               to="/restaurants"
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.inActive
-              }
+              className={({ isActive }) => (isActive ? styles.active : "")}
             >
               Restaurants
             </NavLink>
             <NavLink
               to="/chefs"
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.inActive
-              }
+              className={({ isActive }) => (isActive ? styles.active : "")}
             >
               Chefs
             </NavLink>
