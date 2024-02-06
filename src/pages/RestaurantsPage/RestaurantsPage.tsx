@@ -27,11 +27,17 @@ const RestaurantsPage = () => {
   const [rating, setRating] = useState(3);
   const [priceRange, setPriceRange] = useState([0, 330]);
   const [restaurants, setRestaurants] = useState<Restaurant[]>(restaurantsData);
+  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
 
   const ALL_INDEX = 0;
   const NEW_INDEX = 1;
   const MOST_POPULAR_INDEX = 2;
   const OPEN_NOW_INDEX = 3;
+  const MAP_VIEW_INDEX = 4;
+
+  const handleButtonClick = (buttonIndex) => {
+    setActiveFilterButton(buttonIndex);
+  };
 
   const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
     return restaurant.rating === rating;
@@ -47,7 +53,7 @@ const RestaurantsPage = () => {
     );
   };
 
-  const newPredicate = (restaurant: Restaurant): boolean => {
+  const newRestaurantPredicate = (restaurant: Restaurant): boolean => {
     return restaurant.new === true;
   };
 
@@ -58,13 +64,12 @@ const RestaurantsPage = () => {
   const mostPopularPredicate = (restaurant: Restaurant): boolean => {
     return restaurant.mostPopular === true;
   };
+
   const handleClick =
     (filterButtonIndex: number): React.MouseEventHandler<HTMLButtonElement> =>
     (event) => {
       event.preventDefault();
-      buttonRefs[filterButtonIndex].current!.className = "activeMainFilter";
-      console.log(`'restaurantData' value is: ,${restaurantsData}`);
-
+      setActiveFilterButton(filterButtonIndex);
       filterRestaurants(restaurantsData, filterButtonIndex);
     };
 
@@ -75,7 +80,7 @@ const RestaurantsPage = () => {
     switch (filterButtonIndex) {
       case NEW_INDEX:
         setRestaurants(
-          restaurants.filter((restaurant) => newPredicate(restaurant))
+          restaurants.filter((restaurant) => newRestaurantPredicate(restaurant))
         );
 
         break;
@@ -117,34 +122,48 @@ const RestaurantsPage = () => {
           <div className={styles.filtersContainer}>
             <button
               ref={buttonRefs[ALL_INDEX]}
-              className={styles.allFilter}
+              className={`${styles.filterButton} ${
+                activeFilterButton === ALL_INDEX ? styles.activeButton : ""
+              }`}
               onClick={handleClick(ALL_INDEX)}
             >
               All
             </button>
             <button
               ref={buttonRefs[NEW_INDEX]}
-              className={styles.newFilter}
+              className={`${styles.filterButton} ${
+                activeFilterButton === NEW_INDEX ? styles.activeButton : ""
+              }`}
               onClick={handleClick(NEW_INDEX)}
             >
               New
             </button>
             <button
               ref={buttonRefs[MOST_POPULAR_INDEX]}
-              className={styles.mostPopularFilter}
+              className={`${styles.filterButton} ${
+                activeFilterButton === MOST_POPULAR_INDEX ? styles.activeButton : ""
+              }`}
               onClick={handleClick(MOST_POPULAR_INDEX)}
             >
               Most Popular
             </button>
             <button
               ref={buttonRefs[OPEN_NOW_INDEX]}
-              className={styles.openNoaFilter}
+              className={`${styles.filterButton} ${
+                activeFilterButton === OPEN_NOW_INDEX ? styles.activeButton : ""
+              }`}
               onClick={handleClick(OPEN_NOW_INDEX)}
             >
               Open Now
             </button>
             {!isMobileOrTable && (
-              <button className={styles.mapViewFilter}>Map View</button>
+              <button
+                className={`${styles.filterButton} ${
+                  activeFilterButton === ALL_INDEX ? styles.activeButton : ""
+                }`}
+              >
+                Map View
+              </button>
             )}
           </div>
 
