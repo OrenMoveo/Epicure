@@ -35,10 +35,6 @@ const RestaurantsPage = () => {
   const OPEN_NOW_INDEX = 3;
   const MAP_VIEW_INDEX = 4;
 
-  const handleButtonClick = (buttonIndex) => {
-    setActiveFilterButton(buttonIndex);
-  };
-
   const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
     return restaurant.rating === rating;
   };
