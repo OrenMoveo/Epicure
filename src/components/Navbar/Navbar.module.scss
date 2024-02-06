@@ -30,7 +30,6 @@
       align-items: center;
       justify-content: space-between;
       width: calc(50% + $halfOfLogoPixels);
-
       @include smallDesktopScreen {
         justify-content: flex-start;
         gap: 15.07px;
@@ -46,15 +45,12 @@
 
       .navbarButtonsContainer {
         display: none;
-
         @include smallDesktopScreen {
-          $button-links-gap: 32px;
-
           display: flex;
           flex-flow: row;
           align-items: center;
           justify-content: center;
-          gap: $button-links-gap;
+          gap: 32px;
           font-size: 18px;
           line-height: 22px;
           letter-spacing: 1.9199999570846558px;
@@ -67,14 +63,11 @@
             color: black;
           }
 
-          .restaurantsNavbarBtn {
+          .inActive {
             text-decoration: none;
             color: black;
           }
-          .chefsNavbarBtn {
-            text-decoration: none;
-            color: black;
-          }
+
           .active {
             text-decoration: none;
             color: black;
