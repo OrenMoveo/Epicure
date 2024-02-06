@@ -169,8 +169,8 @@ const RestaurantsPage = () => {
 
           {!isMobileOrTable && (
             <div className={styles.dropDownsFiltersContainer}>
-              {/* <Dropdown filterTitle={"Distance"} distance={true} />
-              <Dropdown filterTitle={"Price Range"} priceRange={true} /> */}
+              <Dropdown filterTitle={"Distance"} distance={true} />
+              <Dropdown filterTitle={"Price Range"} priceRange={true} />
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}

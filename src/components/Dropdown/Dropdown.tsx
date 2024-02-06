@@ -48,7 +48,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
           <img src={dropdownIcon} alt="dropwdownIcon" />
         </div>
       </button>
-      {
+      {isOpen && (
         <div
           className={styles.ratingPopoverContainer}
           ref={ratingPopoverRef}
@@ -97,7 +97,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
             </div>
           </div>
         </div>
-      }
+      )}
     </div>
   );
 };
