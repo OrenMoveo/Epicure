@@ -48,10 +48,12 @@
         align-items: center;
         width: 100%;
         gap: 21px;
-        font-size: 18px;
-        line-height: 22px;
-        letter-spacing: 1.9199999570846558px;
 
+        .filterButton {
+          font-size: 18px;
+          line-height: 22px;
+          letter-spacing: 1.9199999570846558px;
+        }
         .activeButton {
           font-size: 18px;
           font-weight: 400;
