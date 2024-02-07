@@ -1,7 +1,7 @@
 import styles from "./Dropdown.module.scss";
 import dropdownIcon from "../../assets/images/dropdownArrowIcon.svg";
 import { FC, useEffect, useRef, useState } from "react";
-import Rating from "../Rating/Rating";
+import RatingContainer from "../RatingContainer/RatingContainer";
 interface DropDownProps {
   filterTitle: string;
   rating?: boolean;
@@ -23,7 +23,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
   const ratingPopoverRef = useRef<HTMLDivElement | null>(null);
 
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {
-    return booleanArray.some((value) => value === true);
+    return booleanArray.some((value) => value);
   };
 
   useEffect(() => {
@@ -59,28 +59,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
               <p className={styles.titleText}>{props.filterTitle}</p>
             </div>
             <div className={styles.ratingsContainer}>
-              <Rating
-                rating={1}
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
-              />
-              <Rating
-                rating={2}
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
-              />
-              <Rating
-                rating={3}
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
-              />
-              <Rating
-                rating={4}
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
-              />
-              <Rating
-                rating={5}
+              <RatingContainer
                 isChecked={isChecked}
                 setIsChecked={setIsChecked}
               />
@@ -89,7 +68,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
               {hasAtLeastOneTrue(isChecked) && (
                 <button
                   className={styles.clearCheckboxBtn}
-                  onClick={handleClearAll}
+                  onClick={() => handleClearAll()}
                 >
                   CLEAR
                 </button>

@@ -56,13 +56,10 @@ const RestaurantsPage = () => {
     return restaurant.mostPopular === true;
   };
 
-  const handleClick =
-    (filterButtonIndex: number): React.MouseEventHandler<HTMLButtonElement> =>
-    (event) => {
-      event.preventDefault();
-      setActiveFilterButton(filterButtonIndex);
-      filterRestaurants(restaurantsData, filterButtonIndex);
-    };
+  const handleClick = (filterButtonIndex: number) => {
+    setActiveFilterButton(filterButtonIndex);
+    filterRestaurants(restaurantsData, filterButtonIndex);
+  };
 
   const filterRestaurants = (
     restaurants: Restaurant[],
@@ -115,7 +112,7 @@ const RestaurantsPage = () => {
               className={`${styles.filterButton} ${
                 activeFilterButton === IndexType.ALL ? styles.activeButton : ""
               }`}
-              onClick={handleClick(IndexType.ALL)}
+              onClick={() => handleClick(IndexType.ALL)}
             >
               All
             </button>
@@ -123,17 +120,17 @@ const RestaurantsPage = () => {
               className={`${styles.filterButton} ${
                 activeFilterButton === IndexType.NEW ? styles.activeButton : ""
               }`}
-              onClick={handleClick(IndexType.NEW)}
+              onClick={() => handleClick(IndexType.NEW)}
             >
               New
             </button>
             <button
               className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.MAP_VIEW
+                activeFilterButton === IndexType.MOST_POPULAR
                   ? styles.activeButton
                   : ""
               }`}
-              onClick={handleClick(IndexType.MAP_VIEW)}
+              onClick={() => handleClick(IndexType.MOST_POPULAR)}
             >
               Most Popular
             </button>
@@ -143,7 +140,7 @@ const RestaurantsPage = () => {
                   ? styles.activeButton
                   : ""
               }`}
-              onClick={handleClick(IndexType.OPEN_NOW)}
+              onClick={() => handleClick(IndexType.OPEN_NOW)}
             >
               Open Now
             </button>

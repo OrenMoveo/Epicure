@@ -5,6 +5,7 @@ import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
+import { appRoutes } from "../../shared/constants";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -30,14 +31,18 @@ function Navbar() {
               EPICURE
             </button>
             <NavLink
-              to="/restaurants"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+              to={appRoutes.restaurants}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inActive
+              }
             >
               Restaurants
             </NavLink>
             <NavLink
-              to="/chefs"
-              className={({ isActive }) => (isActive ? styles.active : "")}
+              to={appRoutes.chefs}
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.inActive
+              }
             >
               Chefs
             </NavLink>
