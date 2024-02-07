@@ -26,33 +26,33 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
 
   return (
     <Link
-      to={`${appRoutes.restaurants}/${props.restaurant.keyId}`}
+      to={appRoutes.getRestaurantRoute(props.restaurant.keyId)}
       state={{ restaurant: props.restaurant }}
     >
-    <button
-      className={`${styles.restaurantCardContainer} ${
-        props.className ? styles[props.className] : ""
-      }`}
-    >
-      <div className={styles.restaurantCardImageContainer}>
-        <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
-      </div>
-      <div className={styles.restaurantCardContentLayout}>
-        <div className={styles.restaurantCardContentContainer}>
-          <p className={styles.restaurantName}>{props.restaurant.name}</p>
-          <p className={styles.restaurantChefName}>{props.restaurant.chef}</p>
-          {!isTablet && (
-            <div className={styles.restaurantRatingContainer}>
-              <img
-                src={ratingsMap.get(props.restaurant.rating)}
-                alt="rating"
-                className="rating-img"
-              />
-            </div>
-          )}
+      <button
+        className={`${styles.restaurantCardContainer} ${
+          props.className ? styles[props.className] : ""
+        }`}
+      >
+        <div className={styles.restaurantCardImageContainer}>
+          <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
         </div>
-      </div>
-    </button>
+        <div className={styles.restaurantCardContentLayout}>
+          <div className={styles.restaurantCardContentContainer}>
+            <p className={styles.restaurantName}>{props.restaurant.name}</p>
+            <p className={styles.restaurantChefName}>{props.restaurant.chef}</p>
+            {!isTablet && (
+              <div className={styles.restaurantRatingContainer}>
+                <img
+                  src={ratingsMap.get(props.restaurant.rating)}
+                  alt="rating"
+                  className="rating-img"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </button>
     </Link>
   );
 };
