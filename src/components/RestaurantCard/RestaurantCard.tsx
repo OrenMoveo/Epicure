@@ -7,13 +7,14 @@ import twoStarRating from "../../assets/images/ratings/rating2.svg";
 import threeStarRating from "../../assets/images/ratings/rating3.svg";
 import fourStarRating from "../../assets/images/ratings/rating4.svg";
 import fiveStarRating from "../../assets/images/ratings/rating5.svg";
+import { FC } from "react";
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
   className?: string;
 }
 
-const RestaurantCard = ({ restaurant, className }: RestaurantCardProps) => {
+const RestaurantCard: FC<RestaurantCardProps> = (props) => {
   const screenWidth = useGetScreenWidth();
   const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const ratingsMap = new Map<number, string>();
@@ -24,18 +25,22 @@ const RestaurantCard = ({ restaurant, className }: RestaurantCardProps) => {
   ratingsMap.set(5, fiveStarRating);
 
   return (
-    <button className={`${styles.restaurantCardContainer} ${className ?? ""}`}>
+    <button
+      className={`${styles.restaurantCardContainer} ${
+        props.className ? styles[props.className] : ""
+      }`}
+    >
       <div className={styles.restaurantCardImageContainer}>
-        <img src={restaurant.pictureUrl} alt={restaurant.name} />
+        <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
       </div>
       <div className={styles.restaurantCardContentLayout}>
         <div className={styles.restaurantCardContentContainer}>
-          <p className={styles.restaurantName}>{restaurant.name}</p>
-          <p className={styles.restaurantChefName}>{restaurant.chef}</p>
+          <p className={styles.restaurantName}>{props.restaurant.name}</p>
+          <p className={styles.restaurantChefName}>{props.restaurant.chef}</p>
           {!isTablet && (
             <div className={styles.restaurantRatingContainer}>
               <img
-                src={ratingsMap.get(restaurant.rating)}
+                src={ratingsMap.get(props.restaurant.rating)}
                 alt="rating"
                 className="rating-img"
               />
