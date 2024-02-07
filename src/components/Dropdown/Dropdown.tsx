@@ -68,7 +68,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
               {hasAtLeastOneTrue(isChecked) && (
                 <button
                   className={styles.clearCheckboxBtn}
-                  onClick={() => handleClearAll}
+                  onClick={() => handleClearAll()}
                 >
                   CLEAR
                 </button>
