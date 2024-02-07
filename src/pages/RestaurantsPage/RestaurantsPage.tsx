@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
@@ -14,12 +14,6 @@ const RestaurantsPage = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
-  const buttonRefs: React.MutableRefObject<HTMLButtonElement | null>[] = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ];
 
   const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
   const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
@@ -28,11 +22,13 @@ const RestaurantsPage = () => {
   const [restaurants, setRestaurants] = useState<Restaurant[]>(restaurantsData);
   const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
 
-  const ALL_INDEX = 0;
-  const NEW_INDEX = 1;
-  const MOST_POPULAR_INDEX = 2;
-  const OPEN_NOW_INDEX = 3;
-  const MAP_VIEW_INDEX = 4;
+  enum IndexType {
+    ALL = 0,
+    NEW = 1,
+    MOST_POPULAR = 2,
+    OPEN_NOW = 3,
+    MAP_VIEW = 4,
+  }
 
   const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
     return restaurant.rating === rating;
@@ -49,7 +45,7 @@ const RestaurantsPage = () => {
   };
 
   const newRestaurantPredicate = (restaurant: Restaurant): boolean => {
-    return restaurant.new === true;
+    return restaurant.newRestaurant === true;
   };
 
   const openNowPredicate = (restaurant: Restaurant): boolean => {
@@ -73,18 +69,18 @@ const RestaurantsPage = () => {
     filterButtonIndex: number
   ) => {
     switch (filterButtonIndex) {
-      case NEW_INDEX:
+      case IndexType.NEW:
         setRestaurants(
           restaurants.filter((restaurant) => newRestaurantPredicate(restaurant))
         );
 
         break;
-      case OPEN_NOW_INDEX:
+      case IndexType.OPEN_NOW:
         setRestaurants(
           restaurants.filter((restaurant) => openNowPredicate(restaurant))
         );
         break;
-      case MOST_POPULAR_INDEX:
+      case IndexType.MOST_POPULAR:
         setRestaurants(
           restaurants.filter((restaurant) => mostPopularPredicate(restaurant))
         );
@@ -116,47 +112,45 @@ const RestaurantsPage = () => {
 
           <div className={styles.filtersContainer}>
             <button
-              ref={buttonRefs[ALL_INDEX]}
               className={`${styles.filterButton} ${
-                activeFilterButton === ALL_INDEX ? styles.activeButton : ""
+                activeFilterButton === IndexType.ALL ? styles.activeButton : ""
               }`}
-              onClick={handleClick(ALL_INDEX)}
+              onClick={handleClick(IndexType.ALL)}
             >
               All
             </button>
             <button
-              ref={buttonRefs[NEW_INDEX]}
               className={`${styles.filterButton} ${
-                activeFilterButton === NEW_INDEX ? styles.activeButton : ""
+                activeFilterButton === IndexType.NEW ? styles.activeButton : ""
               }`}
-              onClick={handleClick(NEW_INDEX)}
+              onClick={handleClick(IndexType.NEW)}
             >
               New
             </button>
             <button
-              ref={buttonRefs[MOST_POPULAR_INDEX]}
               className={`${styles.filterButton} ${
-                activeFilterButton === MOST_POPULAR_INDEX
+                activeFilterButton === IndexType.MAP_VIEW
                   ? styles.activeButton
                   : ""
               }`}
-              onClick={handleClick(MOST_POPULAR_INDEX)}
+              onClick={handleClick(IndexType.MAP_VIEW)}
             >
               Most Popular
             </button>
             <button
-              ref={buttonRefs[OPEN_NOW_INDEX]}
               className={`${styles.filterButton} ${
-                activeFilterButton === OPEN_NOW_INDEX ? styles.activeButton : ""
+                activeFilterButton === IndexType.OPEN_NOW
+                  ? styles.activeButton
+                  : ""
               }`}
-              onClick={handleClick(OPEN_NOW_INDEX)}
+              onClick={handleClick(IndexType.OPEN_NOW)}
             >
               Open Now
             </button>
             {!isMobileOrTable && (
               <button
                 className={`${styles.filterButton} ${
-                  activeFilterButton === MAP_VIEW_INDEX
+                  activeFilterButton === IndexType.MAP_VIEW
                     ? styles.activeButton
                     : ""
                 }`}
