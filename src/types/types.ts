@@ -31,5 +31,5 @@ export interface Dish {
   signatureDish: boolean;
   foodIcon: string;
   keyId: string;
-  mealType: "breakfast" | "lunch" | "dinner";
+  mealType: string;
 }
