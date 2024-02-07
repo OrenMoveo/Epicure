@@ -32,10 +32,10 @@ const Dropdown: FC<DropDownProps> = (props) => {
     }
   }, [isOpen]);
 
-  function handleClearAll(): void {
+  const handleClearAll = (): void => {
     const clearedCheckboxArray = isChecked.map(() => false);
     setIsChecked(clearedCheckboxArray);
-  }
+  };
 
   return (
     <div className={styles.dropdownLayout}>

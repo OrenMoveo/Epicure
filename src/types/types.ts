@@ -8,7 +8,7 @@ export interface Restaurant {
   priceRange: number[];
   mostPopular: boolean;
   keyId: string;
-  new: boolean;
+  newRestaurant: boolean;
   restaurantDishes: Dish[];
 }
 
@@ -16,7 +16,7 @@ export interface Chef {
   name: string;
   pictureUrl: string;
   restaurants: Restaurant[];
-  new: boolean;
+  newChef: boolean;
   views: number;
   mostViewed: boolean;
   description: string;

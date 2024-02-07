@@ -9,7 +9,7 @@
         "location": "",
         "rating": 1,
         "mostPopular": false,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Red Farm",
@@ -43,7 +43,7 @@
         "location": "",
         "rating": 2,
         "mostPopular": false,
-        "new": true,
+        "newRestaurant": true,
         "restaurantDishes": [
           {
             "name": "Ta Ma La Ko",
@@ -87,7 +87,7 @@
         "location": "",
         "rating": 1,
         "mostPopular": true,
-        "new": true,
+        "newRestaurant": true,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -131,7 +131,7 @@
         "location": "",
         "rating": 1,
         "mostPopular": true,
-        "new": true,
+        "newRestaurant": true,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -165,7 +165,7 @@
         "location": "",
         "rating": 4,
         "mostPopular": false,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -219,7 +219,7 @@
         "location": "",
         "rating": 2,
         "mostPopular": false,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -313,7 +313,7 @@
         "location": "",
         "rating": 1,
         "mostPopular": true,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -387,7 +387,7 @@
         "location": "",
         "rating": 2,
         "mostPopular": true,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao",
@@ -462,7 +462,7 @@
         "location": "",
         "rating": 3,
         "mostPopular": false,
-        "new": false,
+        "newRestaurant": false,
         "restaurantDishes": [
           {
             "name": "Pad Ki Mao 1",
@@ -594,7 +594,7 @@
             "location": "",
             "rating": 1,
             "mostPopular": false,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Red Farm",
@@ -621,8 +621,7 @@
             "keyId": "0"
           }
         ],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -640,7 +639,7 @@
             "location": "",
             "rating": 2,
             "mostPopular": false,
-            "new": true,
+            "newRestaurant": true,
             "restaurantDishes": [
               {
                 "name": "Ta Ma La Ko",
@@ -677,8 +676,7 @@
             "keyId": "1"
           }
         ],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -696,7 +694,7 @@
             "location": "",
             "rating": 1,
             "mostPopular": true,
-            "new": true,
+            "newRestaurant": true,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -733,8 +731,7 @@
             "keyId": "2"
           }
         ],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -752,7 +749,7 @@
             "location": "",
             "rating": 1,
             "mostPopular": true,
-            "new": true,
+            "newRestaurant": true,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -779,8 +776,7 @@
             "keyId": "3"
           }
         ],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -798,7 +794,7 @@
             "location": "",
             "rating": 4,
             "mostPopular": false,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -845,8 +841,7 @@
             "keyId": "4"
           }
         ],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -864,7 +859,7 @@
             "location": "",
             "rating": 2,
             "mostPopular": false,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -951,8 +946,7 @@
             "keyId": "5"
           }
         ],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -970,7 +964,7 @@
             "location": "",
             "rating": 1,
             "mostPopular": true,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -1044,7 +1038,7 @@
             "location": "",
             "rating": 2,
             "mostPopular": true,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao",
@@ -1119,7 +1113,7 @@
             "location": "",
             "rating": 3,
             "mostPopular": false,
-            "new": false,
+            "newRestaurant": false,
             "restaurantDishes": [
               {
                 "name": "Pad Ki Mao 1",
@@ -1156,8 +1150,7 @@
             "keyId": "8"
           }
         ],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including running the kitchen in his first restaurant, the fondly-remembered Violet, located in Moshav Udim. Shitrit's creativity and culinary acumen born of long experience are expressed in the every detail of each and every dish.",
@@ -1167,8 +1160,7 @@
         "name": "Asaf Granit",
         "pictureUrl": "/src/assets/images/chefs/asafGranit.png",
         "restaurants": [],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -1178,8 +1170,7 @@
         "name": "Eyal Shani",
         "pictureUrl": "/src/assets/images/chefs/eyalShani.png",
         "restaurants": [],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": true,
         "description": "",
@@ -1189,8 +1180,7 @@
         "name": "Meir Adoni",
         "pictureUrl": "/src/assets/images/chefs/meirAdoni.png",
         "restaurants": [],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -1200,8 +1190,7 @@
         "name": "Omer Miller",
         "pictureUrl": "/src/assets/images/chefs/omerMiller.png",
         "restaurants": [],
-        "new": true,
-        "restaurantDishes": [],
+        "newChef": true,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -1211,8 +1200,7 @@
         "name": "Nitzan Raz",
         "pictureUrl": "/src/assets/images/chefs/nitzanRaz.png",
         "restaurants": [],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
@@ -1222,8 +1210,7 @@
         "name": "Yuval Ben Neriya",
         "pictureUrl": "/src/assets/images/chefs/yuvalBenNeriah.png",
         "restaurants": [],
-        "new": false,
-        "restaurantDishes": [],
+        "newChef": false,
         "views": 0,
         "mostViewed": false,
         "description": "",
