@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 interface RestaurantCardProps {
   restaurant: Restaurant;
   className?: string;
+  cardWidth?: React.CSSProperties;
 }
 
 const RestaurantCard: FC<RestaurantCardProps> = (props) => {
@@ -30,13 +31,10 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
       state={{ restaurant: props.restaurant }}
     >
       <button
-        className={`${styles.restaurantCardContainer} ${
-          props.className ? styles[props.className] : ""
-        }`}
+        className={styles.restaurantCardContainer}
+        style={props.cardWidth}
       >
-        <div className={styles.restaurantCardImageContainer}>
-          <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
-        </div>
+        <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
         <div className={styles.restaurantCardContentLayout}>
           <div className={styles.restaurantCardContentContainer}>
             <p className={styles.restaurantName}>{props.restaurant.name}</p>
