@@ -1,3 +1,6 @@
+@import "../../styles/constants.module.scss";
+@import "../../styles/mediaQueries.scss";
+
 .RestaurantDisplayPageLayout {
   display: flex;
   flex-flow: column;
@@ -16,4 +19,93 @@
     }
   }
 
+  .restaurantPageContentSection {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .restaurantPageContentLayout {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      width: $mobile-view-width;
+
+      .restaurantPageContentContainer {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+
+        .restaurantName {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 2.6700000762939453px;
+        }
+
+        .restaurantChef {
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 1.9700000286102295px;
+        }
+
+        .openNowContainer {
+          display: flex;
+          flex-flow: row;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding-bottom: 16px;
+
+          .clockIconContainer {
+            img {
+              width: 17px;
+              height: 18px;
+            }
+          }
+          .openNowText {
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 1.9700000286102295px;
+          }
+        }
+
+        .filtersContainer {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          gap: 21px;
+          padding-bottom: 8px;
+
+          .filterButton {
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 1.9199999570846558px;
+          }
+
+          .activeButton {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21px;
+            letter-spacing: 1.9199999570846558px;
+            border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
+            padding: 6px 0;
+          }
+        }
+
+        .dishesDisplayContainer {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          gap: 22px;
+        }
+      }
+    }
+  }
 }

@@ -1,26 +1,23 @@
 import styles from "./DishCard.module.scss";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
+import { FC } from "react";
 interface DishCardProps {
   dish: Dish;
-  className?: string;
+  shouldDisplayFoodIcon?: boolean;
+  cardWith?: React.CSSProperties;
 }
-const DishCard = ({ dish, className }: DishCardProps) => {
+
+const DishCard: FC<DishCardProps> = (props) => {
   return (
-    <button
-      className={`${styles.dishCardContainer} ${
-        className ? styles[className] : ""
-      }`}
-    >
-      <div className={styles.imageContainer}>
-        <img src={dish.pictureUrl} alt={dish.name} />
-      </div>
+    <button className={styles.dishCardContainer} style={props.cardWith}>
+      <img src={props.dish.pictureUrl} alt={props.dish.name} />
       <div className={styles.dishContentLayout}>
         <div className={styles.dishContentContainer}>
-          <p className={styles.dishTitle}>{dish.name}</p>
-          <div className={styles.dishDescription}>{dish.description}</div>
+          <p className={styles.dishTitle}>{props.dish.name}</p>
+          <div className={styles.dishDescription}>{props.dish.description}</div>
           <div className={styles.foodIconContainer}>
-            <img src={dish.foodIcon} alt="food icon" />
+            <img src={props.dish.foodIcon} alt="food icon" />
           </div>
           <div className={styles.dishPriceContainer}>
             <div className={styles.line}></div>
@@ -28,7 +25,7 @@ const DishCard = ({ dish, className }: DishCardProps) => {
               <div className={styles.currencyIconContainer}>
                 <img src={ILSIcon} alt="currencyIcon" />
               </div>
-              <p className={styles.dishPriceAmount}>{dish.price}</p>
+              <p className={styles.dishPriceAmount}>{props.dish.price}</p>
             </div>
             <div className={styles.line}></div>
           </div>
