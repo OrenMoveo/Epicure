@@ -11,7 +11,6 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 interface RestaurantCardProps {
   restaurant: Restaurant;
-  className?: string;
   cardWidth?: React.CSSProperties;
 }
 
