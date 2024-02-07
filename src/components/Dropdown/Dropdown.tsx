@@ -26,12 +26,6 @@ const Dropdown: FC<DropDownProps> = (props) => {
     return booleanArray.some((value) => value);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      ratingPopoverRef.current?.focus();
-    }
-  }, [isOpen]);
-
   const handleClearAll = (): void => {
     const clearedCheckboxArray = isChecked.map(() => false);
     setIsChecked(clearedCheckboxArray);
@@ -41,7 +35,12 @@ const Dropdown: FC<DropDownProps> = (props) => {
     <div className={styles.dropdownLayout}>
       <button
         className={styles.dropdownBtnContainer}
-        onClick={() => setIsOpen((open) => !open)}
+        onMouseDown={() => {
+          setIsOpen((open) => !open);
+        }}
+        onBlur={() => {
+          setIsOpen(false);
+        }}
       >
         <div className={styles.dropdownBtnContent}>
           <p className={styles.btnText}>{props.filterTitle}</p>
@@ -49,11 +48,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
         </div>
       </button>
       {isOpen && (
-        <div
-          className={styles.ratingPopoverContainer}
-          ref={ratingPopoverRef}
-          tabIndex={0}
-        >
+        <div className={styles.ratingPopoverContainer}>
           <div className={styles.ratingsContentContainer}>
             <div className={styles.titleContainer}>
               <p className={styles.titleText}>{props.filterTitle}</p>
@@ -68,7 +63,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
               {hasAtLeastOneTrue(isChecked) && (
                 <button
                   className={styles.clearCheckboxBtn}
-                  onClick={() => handleClearAll()}
+                  onMouseDown={() => handleClearAll()}
                 >
                   CLEAR
                 </button>
