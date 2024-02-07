@@ -2,12 +2,12 @@ import styles from "./PopularRestaurant.module.scss";
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import goToIcon from "../../assets/images/goToIcon.svg";
 import data from "../../data/data.json";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { Restaurant } from "../../types/types";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
+import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 const PopularRestaurant = () => {
   const isMobile = useIsMobile();
@@ -53,14 +53,9 @@ const PopularRestaurant = () => {
                 ))}
           </div>
         )}
-
-        <button
-          className={styles.gotoAllRestaurantsBtn}
-          name="all-restaurant-goto-button"
-        >
-          <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
-          <img src={goToIcon} alt="go-to-icon" />
-        </button>
+        <div className={styles.GoToAllRestaurantsBtnContainer}>
+          <GoToAllRestaurantsButton />
+        </div>
       </div>
     </section>
   );

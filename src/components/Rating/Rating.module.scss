@@ -1,0 +1,17 @@
+.RatingLayout {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 17px;
+
+  .checkBoxBtn {
+    .checkboxContainer {
+      .checkboxImg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}

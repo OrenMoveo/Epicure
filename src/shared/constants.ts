@@ -1,5 +1,11 @@
 import styles from "../styles/constants.module.scss";
 
+export const appRoutes = {
+  base: "/",
+  restaurants: "/restaurants",
+  chefs: "/chefs",
+};
+
 export const UIConstants = {
   sizes: {
     mobileWidth: Number(styles.mobileMaxWidth.slice(0, -2)),

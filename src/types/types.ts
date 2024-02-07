@@ -6,14 +6,16 @@ export interface Restaurant {
   location: string; // not sure
   rating: number;
   priceRange: number[];
+  mostPopular: boolean;
   keyId: string;
+  newRestaurant: boolean;
 }
 
 export interface Chef {
   name: string;
   pictureUrl: string;
   restaurants: Restaurant[];
-  new: boolean;
+  newChef: boolean;
   views: number;
   mostViewed: boolean;
   description: string;

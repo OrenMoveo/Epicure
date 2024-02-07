@@ -1,48 +1,41 @@
 @import "../../styles/mediaQueries.scss";
+@import "../../styles/constants.module.scss";
 
-.header-container {
-  $padding-horizontal: 14px;
-
+.headerSectionLayout {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
-  box-sizing: border-box;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 46px;
-  padding: 0 20px;
-
-  @include tablet {
-    height: 64px;
-    padding: $padding-horizontal 18px;
-  }
-
   @include smallDesktopScreen {
-    padding: $padding-horizontal 127px;
+    height: 64px;
   }
 
-  .header-wrapper {
+  .HeaderContainer {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: $mobile-view-width;
+    @include smallDesktopScreen {
+      width: $desktop-view-width;
+    }
 
-    .navbar-container {
+    .navbarContainer {
       $halfOfLogoPixels: 16.5px;
+
       display: flex;
       flex-flow: row;
       align-items: center;
       justify-content: space-between;
       width: calc(50% + $halfOfLogoPixels);
-
       @include smallDesktopScreen {
-        $logo-button-links-gap: 15.07px;
         justify-content: flex-start;
-        gap: $logo-button-links-gap;
+        gap: 15.07px;
       }
 
-      .logo-container {
+      .logoContainer {
         display: flex;
         flex-flow: row;
         align-items: center;
@@ -50,29 +43,42 @@
         flex-shrink: 0;
       }
 
-      .navbar-buttons-container {
+      .navbarButtonsContainer {
         display: none;
-
         @include smallDesktopScreen {
-          $button-links-gap: 32px;
           display: flex;
           flex-flow: row;
           align-items: center;
           justify-content: center;
-          gap: $button-links-gap;
+          gap: 32px;
           font-size: 18px;
           line-height: 22px;
           letter-spacing: 1.9199999570846558px;
 
-          .epicure-text-title {
+          .epicureTextTitle {
             font-size: 27px;
             line-height: 33px;
             letter-spacing: 1.350000023841858px;
+            text-decoration: none;
+            color: black;
+          }
+
+          .inActive {
+            text-decoration: none;
+            color: black;
+          }
+
+          .active {
+            text-decoration: none;
+            color: black;
+            border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
+            padding-bottom: 8px;
+            padding-top: 8px;
           }
         }
       }
 
-      .menu-container {
+      .menuContainer {
         display: flex;
         flex-flow: row;
         align-items: center;
@@ -83,18 +89,17 @@
         }
       }
     }
-  }
-
-  .icons-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    @include smallDesktopScreen {
-      gap: 24px;
+    .headerIconsContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      @include smallDesktopScreen {
+        gap: 24px;
+      }
     }
   }
 }

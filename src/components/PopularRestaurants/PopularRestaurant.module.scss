@@ -68,30 +68,21 @@
       }
     }
 
-    .gotoAllRestaurantsBtn {
-      display: flex;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 12px;
+    .GoToAllRestaurantsBtnContainer {
       @include smallDesktopScreen {
+        display: flex;
+        flex-flow: row;
         align-self: flex-end;
-      }
-
-      .gotoAllRestaurantsText {
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 400;
         line-height: 35px;
         letter-spacing: 2px;
         text-align: right;
-        @include smallDesktopScreen {
-          font-size: 24px;
-        }
-      }
 
-      img {
-        width: 24px;
-        height: 18px;
+        img {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }

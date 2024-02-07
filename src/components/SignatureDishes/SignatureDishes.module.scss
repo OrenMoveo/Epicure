@@ -64,24 +64,5 @@
         gap: 24px;
       }
     }
-    .gotoAllRestaurantsBtn {
-      display: flex;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 12px;
-
-      .gotoAllRestaurantsText {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 35px;
-        letter-spacing: 2px;
-        text-align: right;
-      }
-    }
-    img {
-      width: 24px;
-      height: 18px;
-    }
   }
 }
