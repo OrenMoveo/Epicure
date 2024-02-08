@@ -11,6 +11,10 @@
   .heroContainer {
     width: 100%;
     height: 272px;
+    @include smallDesktopScreen {
+      width: $desktop-view-width;
+      height: 425px;
+    }
 
     img {
       width: 100%;
@@ -27,6 +31,11 @@
     width: 100%;
     padding-top: 24px;
     padding-bottom: 56.47px;
+    @include smallDesktopScreen {
+      width: 100%;
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
 
     .restaurantPageContentLayout {
       display: flex;
@@ -34,6 +43,9 @@
       justify-content: center;
       align-items: center;
       width: $mobile-view-width;
+      @include smallDesktopScreen {
+        width: $desktop-view-width;
+      }
 
       .restaurantPageContentContainer {
         display: flex;
@@ -41,18 +53,37 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 16px;
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+        }
 
         .restaurantName {
           font-size: 18px;
           font-weight: 400;
           line-height: 21px;
           letter-spacing: 2.6700000762939453px;
+          @include smallDesktopScreen {
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 64px;
+            letter-spacing: 3.6700000762939453px;
+          }
         }
 
         .restaurantChef {
           font-size: 16px;
           line-height: 20px;
           letter-spacing: 1.9700000286102295px;
+          @include smallDesktopScreen {
+            font-size: 32px;
+            line-height: 36px;
+            letter-spacing: 1.9700000286102295px;
+            padding-bottom: 28px;
+          }
         }
 
         .openNowContainer {
@@ -62,6 +93,9 @@
           justify-content: center;
           gap: 8px;
           padding-bottom: 16px;
+          @include smallDesktopScreen {
+            padding-bottom: 44px;
+          }
 
           .clockIconContainer {
             img {
@@ -69,6 +103,7 @@
               height: 18px;
             }
           }
+
           .openNowText {
             font-size: 18px;
             line-height: 20px;
@@ -83,11 +118,20 @@
           align-items: center;
           gap: 21px;
           padding-bottom: 8px;
+          @include smallDesktopScreen {
+            gap: 32px;
+            padding-bottom: 36px;
+          }
 
           .filterButton {
             font-size: 18px;
             line-height: 22px;
             letter-spacing: 1.9199999570846558px;
+            @include smallDesktopScreen {
+              font-size: 24px;
+              line-height: 29px;
+              letter-spacing: 1.9199999570846558px;
+            }
           }
 
           .activeButton {
@@ -97,6 +141,13 @@
             letter-spacing: 1.9199999570846558px;
             border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
             padding: 6px 0;
+            @include smallDesktopScreen {
+              font-size: 24px;
+              font-weight: 200;
+              line-height: 29px;
+              letter-spacing: 1.9199999570846558px;
+              padding: 7px 0;
+            }
           }
         }
 
@@ -106,6 +157,10 @@
           justify-content: center;
           align-items: center;
           gap: 22px;
+          @include smallDesktopScreen {
+            flex-flow: row wrap;
+            gap: 32px;
+          }
         }
       }
     }

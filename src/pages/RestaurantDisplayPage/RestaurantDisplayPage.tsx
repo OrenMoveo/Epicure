@@ -147,6 +147,7 @@ const RestaurantDisplayPage = () => {
                     dish={dish}
                     cardWith={{ width: desktopDishCardWidth }}
                     dishImageSize={{
+                      width: desktopDishCardWidth,
                       height: desktopDishImageHeight,
                     }}
                     dishContentContainerStyling={{
