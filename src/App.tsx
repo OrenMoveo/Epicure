@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         path: appRoutes.chefs,
       },
       {
-        path: "/restaurants/:id",
+        path: appRoutes.getRestaurantRoute(":id"),
         element: <RestaurantDisplayPage />,
       },
     ],
