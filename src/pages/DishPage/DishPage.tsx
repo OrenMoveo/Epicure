@@ -8,9 +8,7 @@ const DishPage = () => {
 
   return (
     <div className={styles.DishPageLayout}>
-      <div className={styles.heroContainer}>
-        <img src={dish.pictureUrl} alt={dish.name} />
-      </div>
+      <img src={dish.pictureUrl} alt={dish.name} />
       <section className={styles.dishContentSection}>
         <div className={styles.dishContentContainer}>
           <div className={styles.dishDescriptionContainer}></div>
