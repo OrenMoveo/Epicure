@@ -8,6 +8,7 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const RestaurantDisplayPage = () => {
+  const pagePriceTextContainerGap = 2;
   const mobileDishCardWidth = 335;
   const mobileDishImageHeight = 211.9;
   const mobileDishContentContainerHeight = 168;
@@ -44,6 +45,11 @@ const RestaurantDisplayPage = () => {
     lineHeight: "30px",
     letterSpacing: "1.9700000286102295px",
     textAlign: "center",
+  };
+
+  const CurrencyIconSize: React.CSSProperties = {
+    width: "9px",
+    height: "19px",
   };
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -118,42 +124,46 @@ const RestaurantDisplayPage = () => {
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardWith={{ width: `${mobileDishCardWidth}px` }}
+                    cardWith={{ width: mobileDishCardWidth }}
                     dishImageSize={{
-                      width: `${mobileDishCardWidth}px`,
-                      height: `${mobileDishImageHeight}px`,
+                      width: mobileDishCardWidth,
+                      height: mobileDishImageHeight,
                     }}
                     dishContentContainerStyling={{
-                      height: `${mobileDishContentContainerHeight}px`,
+                      height: mobileDishContentContainerHeight,
                     }}
                     shouldDisplayRightSideLine={true}
-                    lineStyling={{ width: `${mobileLineWidth}px` }}
+                    lineStyling={{ width: mobileLineWidth }}
                     dishPriceContainerStyling={{
-                      gap: `${mobilePriceContainerGap}px`,
+                      gap: mobilePriceContainerGap,
+                    }}
+                    priceTextContainerStyling={{
+                      gap: pagePriceTextContainerGap,
                     }}
                   />
                 ) : (
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardWith={{ width: `${desktopDishCardWidth}px` }}
+                    cardWith={{ width: desktopDishCardWidth }}
                     dishImageSize={{
-                      height: `${desktopDishImageHeight}px`,
+                      height: desktopDishImageHeight,
                     }}
                     dishContentContainerStyling={{
-                      width: `${desktopDishCardWidth}px`,
-                      height: `${desktopDishContentContainerHeight}px`,
-                      gap: `${desktopDishContentContainerGap}px`,
+                      width: desktopDishCardWidth,
+                      height: desktopDishContentContainerHeight,
+                      gap: desktopDishContentContainerGap,
                     }}
                     shouldDisplayRightSideLine={true}
                     shouldDisplayLeftSideLine={true}
-                    lineStyling={{ width: `${desktopLineWidth}px` }}
+                    lineStyling={{ width: desktopLineWidth }}
                     dishPriceContainerStyling={{
-                      gap: `${desktopPriceContainerGap}px`,
+                      gap: desktopPriceContainerGap,
                     }}
                     dishTitleStyling={desktopDishTitleStyling}
                     dishDescriptionStyling={desktopDishDescriptionStyling}
                     dishPriceTextStyling={desktopDishPriceStyling}
+                    currencyIconSize={CurrencyIconSize}
                   />
                 )
               )}

@@ -144,12 +144,6 @@
         .currencyIconContainer {
           display: flex;
           align-self: flex-end;
-          width: 8.11px;
-          height: 11px;
-          @include smallDesktopScreen {
-            width: 14px;
-            height: 19px;
-          }
 
           img {
             width: 8.11px;
