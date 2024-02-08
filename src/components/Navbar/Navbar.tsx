@@ -12,9 +12,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import blackXIcon from "../../assets/images/blackXIcon.svg";
 
-interface NavbarProps {}
-
-const Navbar: FC<NavbarProps> = (props) => {
+const Navbar: FC = () => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTable = isMobile || isTablet;
