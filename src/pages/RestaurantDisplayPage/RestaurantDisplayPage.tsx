@@ -4,9 +4,50 @@ import { useLocation } from "react-router-dom";
 import clockIcon from "../../assets/images/clockIcon.svg";
 import { useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
 
 const RestaurantDisplayPage = () => {
-  const dishCardWidth = 335;
+  const mobileDishCardWidth = 335;
+  const mobileDishImageHeight = 211.9;
+  const mobileDishContentContainerHeight = 168;
+  const mobileLineWidth = 256;
+  const mobilePriceContainerGap = 12;
+  const desktopDishCardWidth = 272;
+  const desktopDishImageHeight = 173.23;
+  const desktopDishContentContainerHeight = 241;
+  const desktopLineWidth = 82.5;
+  const desktopPriceContainerGap = 12;
+  const desktopDishContentContainerGap = 8;
+  const desktopDishTitleStyling: React.CSSProperties = {
+    width: "auto",
+    fontSize: "24px",
+    fontWeight: "400",
+    lineHeight: "26px",
+    letterSpacing: "2.6700000762939453px",
+    textAlign: "center",
+  };
+
+  const desktopDishDescriptionStyling: React.CSSProperties = {
+    width: "auto",
+    fontSize: "20px",
+    fontWeight: "200",
+    lineHeight: "24px",
+    letterSpacing: "1.9700000286102295px",
+    textAlign: "center",
+    padding: "0px 25px",
+  };
+  const desktopDishPriceStyling: React.CSSProperties = {
+    width: "auto",
+    fontSize: "20px",
+    fontWeight: "400",
+    lineHeight: "30px",
+    letterSpacing: "1.9700000286102295px",
+    textAlign: "center",
+  };
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+
   enum IndexType {
     BREAKFAST_INDEX = 0,
     LUNCH_INDEX = 1,
@@ -72,13 +113,50 @@ const RestaurantDisplayPage = () => {
               </button>
             </div>
             <div className={styles.dishesDisplayContainer}>
-              {restaurant.restaurantDishes.map((dish) => (
-                <DishCard
-                  key={dish.keyId}
-                  dish={dish}
-                  cardWith={{ width: `${dishCardWidth}px` }}
-                />
-              ))}
+              {restaurant.restaurantDishes.map((dish) =>
+                isMobile || isTablet ? (
+                  <DishCard
+                    key={dish.keyId}
+                    dish={dish}
+                    cardWith={{ width: `${mobileDishCardWidth}px` }}
+                    dishImageSize={{
+                      width: `${mobileDishCardWidth}px`,
+                      height: `${mobileDishImageHeight}px`,
+                    }}
+                    dishContentContainerStyling={{
+                      height: `${mobileDishContentContainerHeight}px`,
+                    }}
+                    shouldDisplayRightSideLine={true}
+                    lineStyling={{ width: `${mobileLineWidth}px` }}
+                    dishPriceContainerStyling={{
+                      gap: `${mobilePriceContainerGap}px`,
+                    }}
+                  />
+                ) : (
+                  <DishCard
+                    key={dish.keyId}
+                    dish={dish}
+                    cardWith={{ width: `${desktopDishCardWidth}px` }}
+                    dishImageSize={{
+                      height: `${desktopDishImageHeight}px`,
+                    }}
+                    dishContentContainerStyling={{
+                      width: `${desktopDishCardWidth}px`,
+                      height: `${desktopDishContentContainerHeight}px`,
+                      gap: `${desktopDishContentContainerGap}px`,
+                    }}
+                    shouldDisplayRightSideLine={true}
+                    shouldDisplayLeftSideLine={true}
+                    lineStyling={{ width: `${desktopLineWidth}px` }}
+                    dishPriceContainerStyling={{
+                      gap: `${desktopPriceContainerGap}px`,
+                    }}
+                    dishTitleStyling={desktopDishTitleStyling}
+                    dishDescriptionStyling={desktopDishDescriptionStyling}
+                    dishPriceTextStyling={desktopDishPriceStyling}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
