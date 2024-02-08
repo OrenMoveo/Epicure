@@ -17,6 +17,7 @@ interface NavbarProps {}
 const Navbar: FC<NavbarProps> = (props) => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
+  const isMobileOrTable = isMobile || isTablet;
   const ONE_PAGE_BACK = -1;
   const navigate = useNavigate();
   const handleHomePageNavigation = () => {
@@ -70,17 +71,19 @@ const Navbar: FC<NavbarProps> = (props) => {
             </NavLink>
           </div>
         </div>
-        <div className={styles.headerIconsContainer}>
-          <button className={styles.searchBtn}>
-            <img src={searchIcon} alt="search-icon" />
-          </button>
-          <button className={styles.signInBtn}>
-            <img src={signInIcon} alt="signIn-icon" />
-          </button>
-          <button className={styles.bagBtn}>
-            <img src={bagIcon} alt="bag-icon" />
-          </button>
-        </div>
+        {(!isDish || !isMobileOrTable) && (
+          <div className={styles.headerIconsContainer}>
+            <button className={styles.searchBtn}>
+              <img src={searchIcon} alt="search-icon" />
+            </button>
+            <button className={styles.signInBtn}>
+              <img src={signInIcon} alt="signIn-icon" />
+            </button>
+            <button className={styles.bagBtn}>
+              <img src={bagIcon} alt="bag-icon" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
