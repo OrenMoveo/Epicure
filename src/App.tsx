@@ -6,6 +6,7 @@ import Root from "./pages/Root/Root";
 import "./styles/global.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { appRoutes } from "./shared/constants.ts";
+import DishPage from "./pages/DishPage/DishPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: appRoutes.getRestaurantRoute(":id"),
         element: <RestaurantDisplayPage />,
+      },
+      {
+        path: appRoutes.getDishRoute(":id"),
+        element: <DishPage />,
       },
     ],
   },

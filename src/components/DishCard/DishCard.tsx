@@ -2,6 +2,8 @@ import styles from "./DishCard.module.scss";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import { appRoutes } from "../../shared/constants";
 interface DishCardProps {
   dish: Dish;
   shouldDisplayFoodIcon?: boolean;
@@ -22,61 +24,63 @@ interface DishCardProps {
 
 const DishCard: FC<DishCardProps> = (props) => {
   return (
-    <button className={styles.dishCardContainer} style={props.cardWith}>
-      <div className={styles.dishImageContainer} style={props.dishImageSize}>
-        <img src={props.dish.pictureUrl} alt={props.dish.name} />
-      </div>
-      <div
-        className={styles.dishContentLayout}
-        style={props.dishContentContainerStyling}
-      >
-        <div className={styles.dishContentContainer}>
-          <p className={styles.dishTitle} style={props.dishTitleStyling}>
-            {props.dish.name}
-          </p>
-          <div
-            className={styles.dishDescription}
-            style={props.dishDescriptionStyling}
-          >
-            {props.dish.description}
-          </div>
-          {props.shouldDisplayFoodIcon && (
-            <div className={styles.foodIconContainer}>
-              <img src={props.dish.foodIcon} alt="food icon" />
+    <Link to={appRoutes.getDishRoute(props.dish.keyId)}>
+      <button className={styles.dishCardContainer} style={props.cardWith}>
+        <div className={styles.dishImageContainer} style={props.dishImageSize}>
+          <img src={props.dish.pictureUrl} alt={props.dish.name} />
+        </div>
+        <div
+          className={styles.dishContentLayout}
+          style={props.dishContentContainerStyling}
+        >
+          <div className={styles.dishContentContainer}>
+            <p className={styles.dishTitle} style={props.dishTitleStyling}>
+              {props.dish.name}
+            </p>
+            <div
+              className={styles.dishDescription}
+              style={props.dishDescriptionStyling}
+            >
+              {props.dish.description}
             </div>
-          )}
-          <div
-            className={styles.dishPriceContainer}
-            style={props.dishPriceContainerStyling}
-          >
-            {props.shouldDisplayLeftSideLine && (
-              <div className={styles.line} style={props.lineStyling}></div>
+            {props.shouldDisplayFoodIcon && (
+              <div className={styles.foodIconContainer}>
+                <img src={props.dish.foodIcon} alt="food icon" />
+              </div>
             )}
             <div
-              className={styles.dishPriceTextContainer}
-              style={props.priceTextContainerStyling}
+              className={styles.dishPriceContainer}
+              style={props.dishPriceContainerStyling}
             >
-              <div className={styles.currencyIconContainer}>
-                <img
-                  src={ILSIcon}
-                  alt="currencyIcon"
-                  style={props.currencyIconSize}
-                />
-              </div>
-              <p
-                className={styles.dishPriceAmount}
-                style={props.dishPriceTextStyling}
+              {props.shouldDisplayLeftSideLine && (
+                <div className={styles.line} style={props.lineStyling}></div>
+              )}
+              <div
+                className={styles.dishPriceTextContainer}
+                style={props.priceTextContainerStyling}
               >
-                {props.dish.price}
-              </p>
+                <div className={styles.currencyIconContainer}>
+                  <img
+                    src={ILSIcon}
+                    alt="currencyIcon"
+                    style={props.currencyIconSize}
+                  />
+                </div>
+                <p
+                  className={styles.dishPriceAmount}
+                  style={props.dishPriceTextStyling}
+                >
+                  {props.dish.price}
+                </p>
+              </div>
+              {props.shouldDisplayRightSideLine && (
+                <div className={styles.line} style={props.lineStyling}></div>
+              )}
             </div>
-            {props.shouldDisplayRightSideLine && (
-              <div className={styles.line} style={props.lineStyling}></div>
-            )}
           </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </Link>
   );
 };
 
