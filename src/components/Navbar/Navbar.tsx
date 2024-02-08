@@ -42,7 +42,7 @@ const Navbar: FC = () => {
             {!isDish && <img src={hamburgerIcon} alt="hamburger-icon" />}
           </button>
           <NavLink to="/" className={styles.logoContainer}>
-            {!isDish && <img src={logoIcon} alt="logo" />}
+            {(!isDish || !isMobileOrTable) && <img src={logoIcon} alt="logo" />}
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
             <button
