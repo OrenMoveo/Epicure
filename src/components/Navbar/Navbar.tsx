@@ -6,22 +6,44 @@ import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../shared/constants";
+import { FC } from "react";
+import { useLocation } from "react-router-dom";
+import useIsMobile from "../../hooks/useIsMobile";
+import useIsTablet from "../../hooks/useIsTablet";
+import blackXIcon from "../../assets/images/blackXIcon.svg";
 
-function Navbar() {
+interface NavbarProps {}
+
+const Navbar: FC<NavbarProps> = (props) => {
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+  const ONE_PAGE_BACK = -1;
   const navigate = useNavigate();
   const handleHomePageNavigation = () => {
     navigate("/");
   };
 
+  const location = useLocation();
+  const currentPathName = location.pathname.toLowerCase();
+  const pathNameArray = currentPathName.split("/");
+  const isDish = pathNameArray.includes("dish");
+
   return (
     <section className={styles.headerSectionLayout}>
       <div className={styles.HeaderContainer}>
         <div className={styles.navbarContainer}>
-          <div className={styles.menuContainer}>
-            <img src={hamburgerIcon} alt="hamburger-icon" />
-          </div>
+          <button className={styles.menuContainer}>
+            {(isMobile || isTablet) && isDish && (
+              <img
+                src={blackXIcon}
+                alt="blackXIcon"
+                onClick={() => navigate(ONE_PAGE_BACK)}
+              />
+            )}
+            {!isDish && <img src={hamburgerIcon} alt="hamburger-icon" />}
+          </button>
           <NavLink to="/" className={styles.logoContainer}>
-            <img src={logoIcon} alt="logo" />
+            {!isDish && <img src={logoIcon} alt="logo" />}
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
             <button
@@ -62,6 +84,6 @@ function Navbar() {
       </div>
     </section>
   );
-}
+};
 
 export default Navbar;
