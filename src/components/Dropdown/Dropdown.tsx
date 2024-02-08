@@ -35,11 +35,8 @@ const Dropdown: FC<DropDownProps> = (props) => {
     <div className={styles.dropdownLayout}>
       <button
         className={styles.dropdownBtnContainer}
-        onMouseDown={() => {
+        onClick={() => {
           setIsOpen((open) => !open);
-        }}
-        onBlur={() => {
-          setIsOpen(false);
         }}
       >
         <div className={styles.dropdownBtnContent}>
@@ -63,7 +60,9 @@ const Dropdown: FC<DropDownProps> = (props) => {
               {hasAtLeastOneTrue(isChecked) && (
                 <button
                   className={styles.clearCheckboxBtn}
-                  onMouseDown={() => handleClearAll()}
+                  onClick={() => {
+                    handleClearAll();
+                  }}
                 >
                   CLEAR
                 </button>

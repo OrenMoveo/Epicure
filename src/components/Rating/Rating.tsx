@@ -23,8 +23,7 @@ const Rating: FC<RatingProps> = (props) => {
     <div className={styles.RatingLayout}>
       <button
         className={styles.checkBoxBtn}
-        onMouseDown={(event) => {
-          event.stopPropagation();
+        onClick={() => {
           handleClick();
         }}
       >
