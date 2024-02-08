@@ -24,7 +24,10 @@ interface DishCardProps {
 
 const DishCard: FC<DishCardProps> = (props) => {
   return (
-    <Link to={appRoutes.getDishRoute(props.dish.keyId)}>
+    <Link
+      to={appRoutes.getDishRoute(props.dish.keyId)}
+      state={{ dish: props.dish }}
+    >
       <button className={styles.dishCardContainer} style={props.cardWith}>
         <div className={styles.dishImageContainer} style={props.dishImageSize}>
           <img src={props.dish.pictureUrl} alt={props.dish.name} />
