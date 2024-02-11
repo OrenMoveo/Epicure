@@ -3,17 +3,13 @@ import { SectionTitle } from "../SectionTitle/SectionTitle";
 import styles from "./SignatureDishes.module.scss";
 import data from "../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
+import goToIcon from "../../assets/images/goToIcon.svg";
 import DishCard from "../DishCard/DishCard";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 const SignatureDishes = () => {
-  const mobileDishImageWidth = 245;
-  const mobileDishImageHeight = 152;
-  const desktopDishImageWidth = 380;
-  const desktopDishImageHeight = 306;
-
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
 
@@ -39,14 +35,7 @@ const SignatureDishes = () => {
                     key={dish.keyId}
                     className={styles["swiper-slide"]}
                   >
-                    <DishCard
-                      dish={dish}
-                      dishImageSize={{
-                        width: `${mobileDishImageWidth}px`,
-                        height: `${mobileDishImageHeight}px`,
-                      }}
-                      shouldDisplayFoodIcon={true}
-                    />
+                    <DishCard dish={dish} />
                   </SwiperSlide>
                 ))}
             </Swiper>
@@ -54,19 +43,9 @@ const SignatureDishes = () => {
         ) : (
           <div className={styles.desktopSignatureDishesContainer}>
             {signatureDishes &&
-              signatureDishes.slice(0, 3).map((dish) => (
-                <DishCard
-                  key={dish.keyId}
-                  dish={dish}
-                  dishImageSize={{
-                    width: `${desktopDishImageWidth}px`,
-                    height: `${desktopDishImageHeight}px`,
-                  }}
-                  shouldDisplayFoodIcon={true}
-                  shouldDisplayLeftSideLine={true}
-                  shouldDisplayRightSideLine={true}
-                />
-              ))}
+              signatureDishes
+                .slice(0, 3)
+                .map((dish) => <DishCard key={dish.keyId} dish={dish} />)}
           </div>
         )}
 

@@ -1,5 +1,7 @@
 @import "../../styles/mediaQueries.scss";
 .linkContainer {
+  text-decoration: none;
+  color: black;
   .gotoAllRestaurantsBtn {
     display: flex;
     flex-flow: row;

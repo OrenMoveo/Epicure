@@ -1,15 +1,24 @@
 @import "../../styles/mediaQueries.scss";
 
-.dishCardContainer {
+.cardContainer {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 245px;
+  height: 388px;
   @include smallDesktopScreen {
     width: 380px;
+    height: 654px;
   }
-  .dishImageContainer {
+
+  .imageContainer {
+    width: 245px;
+    height: 152px;
+    @include smallDesktopScreen {
+      width: 380px;
+      height: 306px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -22,7 +31,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 245px;
     height: 236px;
     background-color: rgba(249, 244, 234, 1);
     @include smallDesktopScreen {
@@ -80,7 +89,7 @@
           display: flex;
           flex-flow: row;
           justify-content: center;
-          align-items: flex-start;
+          align-items: center;
           order: 3;
           width: 295px;
           height: 123px;
@@ -125,12 +134,13 @@
           align-items: center;
           order: 4;
           gap: 8px;
-        }
-        .line {
-          width: 112px;
-          height: 0.5px;
-          background-color: rgba(151, 151, 151, 1);
-          align-self: center;
+
+          .line {
+            width: 112px;
+            height: 0.5px;
+            background-color: rgba(151, 151, 151, 1);
+            align-self: center;
+          }
         }
 
         .dishPriceTextContainer {
@@ -144,6 +154,12 @@
         .currencyIconContainer {
           display: flex;
           align-self: flex-end;
+          width: 8.11px;
+          height: 11px;
+          @include smallDesktopScreen {
+            width: 14px;
+            height: 19px;
+          }
 
           img {
             width: 8.11px;
@@ -164,7 +180,6 @@
           @include smallDesktopScreen {
             font-size: 24px;
             line-height: 30px;
-            font-weight: 200;
             text-align: center;
           }
         }
