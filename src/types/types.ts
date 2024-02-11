@@ -9,6 +9,7 @@ export interface Restaurant {
   mostPopular: boolean;
   keyId: string;
   newRestaurant: boolean;
+  restaurantDishes: Dish[];
 }
 
 export interface Chef {
@@ -30,4 +31,5 @@ export interface Dish {
   signatureDish: boolean;
   foodIcon: string;
   keyId: string;
+  mealType: string;
 }
