@@ -73,7 +73,7 @@ const RestaurantDisplayPage = () => {
   return (
     <div className={styles.RestaurantDisplayPageLayout}>
       <div className={styles.heroContainer}>
-        <img src={restaurant.pictureUrl} alt="restaurant-img" />
+        <img src={restaurant.pictureUrl} alt={restaurant.name} />
       </div>
       <section className={styles.restaurantPageContentSection}>
         <div className={styles.restaurantPageContentLayout}>
