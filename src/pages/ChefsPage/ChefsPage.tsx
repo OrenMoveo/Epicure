@@ -13,13 +13,13 @@ const ChefsPage = () => {
   const isMobileOrTable = isMobile || isTablet;
 
   enum IndexType {
-    ALL_INDEX = 0,
+    ALL_CHEFS_TAB_INDEX = 0,
     NEW_CHEF_INDEX = 1,
     MOST_VIEWED_INDEX = 2,
   }
 
   const [activeFilterButton, setActiveFilterButton] = useState(
-    IndexType.ALL_INDEX
+    IndexType.ALL_CHEFS_TAB_INDEX
   );
 
   const handleClick = (filterButtonIndex: number): void => {
@@ -36,11 +36,11 @@ const ChefsPage = () => {
           <div className={styles.chefsPageFiltersContainer}>
             <button
               className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.ALL_INDEX
+                activeFilterButton === IndexType.ALL_CHEFS_TAB_INDEX
                   ? styles.activeButton
                   : ""
               }`}
-              onClick={() => handleClick(IndexType.ALL_INDEX)}
+              onClick={() => handleClick(IndexType.ALL_CHEFS_TAB_INDEX)}
             >
               All
             </button>
