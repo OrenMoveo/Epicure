@@ -14,6 +14,7 @@ const RestaurantsPage = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
+  const restaurantCardWidth = 335;
 
   const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
   const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
@@ -170,7 +171,7 @@ const RestaurantsPage = () => {
               <RestaurantCard
                 restaurant={restaurant}
                 key={restaurant.keyId}
-                className={"restaurantsPageCard"}
+                cardWidth={{ width: `${restaurantCardWidth}px` }}
               />
             ))}
           </div>

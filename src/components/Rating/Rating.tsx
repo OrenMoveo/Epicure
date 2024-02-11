@@ -21,7 +21,12 @@ const Rating: FC<RatingProps> = (props) => {
 
   return (
     <div className={styles.RatingLayout}>
-      <button className={styles.checkBoxBtn} onClick={handleClick}>
+      <button
+        className={styles.checkBoxBtn}
+        onClick={() => {
+          handleClick();
+        }}
+      >
         <div className={styles.checkboxContainer}>
           {props.isChecked[props.rating - 1] ? (
             <img
