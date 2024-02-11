@@ -8,12 +8,19 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../shared/constants";
 import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
+import SearchPopover from "../SearchPopover/SearchPopover";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
   };
+  const toggleSearch = () => {
+    setIsSearchOpen((searchOpen) => !searchOpen);
+  };
+
   const navigate = useNavigate();
   const handleHomePageNavigation = () => {
     navigate("/");
@@ -55,7 +62,7 @@ function Navbar() {
           </div>
         </div>
         <div className={styles.headerIconsContainer}>
-          <button className={styles.searchBtn}>
+          <button className={styles.searchBtn} onClick={() => toggleSearch()}>
             <img src={searchIcon} alt="search-icon" />
           </button>
           <button className={styles.signInBtn}>
@@ -67,6 +74,7 @@ function Navbar() {
         </div>
       </div>
       {isMenuOpen ? <MenuPopover toggleMenu={toggleMenu} /> : ""}
+      {isSearchOpen ? <SearchPopover toggleSearch={toggleSearch} /> : ""}
     </section>
   );
 }

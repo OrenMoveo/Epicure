@@ -1,0 +1,45 @@
+@import "../../styles/constants.module.scss";
+@import "../../styles/mediaQueries.scss";
+
+.SearchPopoverLayout {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 413px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+
+  .popoverHeaderContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: $mobile-view-width;
+    height: 46px;
+
+    .popoverTitle {
+      align-self: center;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 1.9199999570846558px;
+    }
+
+    .emptyContainer {
+      width: 24px;
+      height: 24px;
+    }
+
+    .searchContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding-top: 24px;
+    }
+  }
+}
