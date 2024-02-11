@@ -11,10 +11,97 @@
     width: 379px;
   }
 
-  img {
+  .restaurantCardImageContainer {
+    width: 245px;
+    height: 151.8px;
+    @include smallDesktopScreen {
+      width: 379px;
+      height: 236px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .restaurantCardContentLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 81px;
+    background-color: rgba(249, 244, 234, 1);
+    @include smallDesktopScreen {
+      height: 169px;
+    }
+
+    .restaurantCardContentContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: calc(100% - 32px);
+      height: calc(100% - 32px);
+      gap: 8px;
+      @include smallDesktopScreen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100% - 48px);
+      }
+
+      .restaurantName {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 2.6700000762939453px;
+        @include smallDesktopScreen {
+          font-size: 40px;
+          line-height: 47px;
+        }
+      }
+
+      .restaurantChefName {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 1.9700000286102295px;
+        @include smallDesktopScreen {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+.restaurantsPageCard {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 335px;
+  height: 100%;
+  @include smallDesktopScreen {
+    width: 379px;
+  }
+
+  .restaurantCardImageContainer {
+    width: 334px;
+    height: 207px;
+    @include smallDesktopScreen {
+      width: 379px;
+      height: 236px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .restaurantCardContentLayout {
