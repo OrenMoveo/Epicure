@@ -1,6 +1,6 @@
 import styles from "./Dropdown.module.scss";
 import dropdownIcon from "../../assets/images/dropdownArrowIcon.svg";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useState } from "react";
 import RatingContainer from "../RatingContainer/RatingContainer";
 interface DropDownProps {
   filterTitle: string;
@@ -20,7 +20,6 @@ const Dropdown: FC<DropDownProps> = (props) => {
     false,
     false,
   ]);
-  const ratingPopoverRef = useRef<HTMLDivElement | null>(null);
 
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {
     return booleanArray.some((value) => value);

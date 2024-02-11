@@ -6,8 +6,14 @@ import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { appRoutes } from "../../shared/constants";
+import { useState } from "react";
+import MenuPopover from "../MenuPopover/MenuPopover";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen((menuOpen) => !menuOpen);
+  };
   const navigate = useNavigate();
   const handleHomePageNavigation = () => {
     navigate("/");
@@ -17,10 +23,10 @@ function Navbar() {
     <section className={styles.headerSectionLayout}>
       <div className={styles.HeaderContainer}>
         <div className={styles.navbarContainer}>
-          <div className={styles.menuContainer}>
+          <button className={styles.menuContainer} onClick={() => toggleMenu()}>
             <img src={hamburgerIcon} alt="hamburger-icon" />
-          </div>
-          <NavLink to="/" className={styles.logoContainer}>
+          </button>
+          <NavLink to={appRoutes.base} className={styles.logoContainer}>
             <img src={logoIcon} alt="logo" />
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
@@ -60,6 +66,7 @@ function Navbar() {
           </button>
         </div>
       </div>
+      {isMenuOpen ? <MenuPopover toggleMenu={toggleMenu} /> : ""}
     </section>
   );
 }
