@@ -1,0 +1,95 @@
+@import "../../styles/constants.module.scss";
+@import "../../styles/mediaQueries.scss";
+
+.chefsPageSection {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 48px;
+  box-shadow: 0px -5px 10px -5px rgba(0, 0, 0, 0.07);
+  @include smallDesktopScreen {
+    border-top: 1px solid rgba(242, 242, 242, 1);
+    box-shadow: none;
+    padding-top: 48px;
+    padding-bottom: 81px;
+  }
+
+  .chefsPageLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: $mobile-view-width;
+    @include smallDesktopScreen {
+      width: $desktop-view-width;
+    }
+
+    .chefsPageContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 24px;
+      @include smallDesktopScreen {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .chefsPageTitle {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
+      }
+
+      .chefsPageFiltersContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        gap: 21px;
+        padding-bottom: 8px;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
+        @include smallDesktopScreen {
+          gap: 40px;
+        }
+
+        .activeButton {
+          padding: 6px 0;
+          border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
+          font-weight: 400;
+          line-height: 21px;
+          @include smallDesktopScreen {
+            border: none;
+            padding: 0 0;
+          }
+        }
+      }
+
+      .chefsPhotosContainer {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: row wrap;
+          row-gap: 40px;
+          column-gap: 24px;
+        }
+      }
+    }
+  }
+}
