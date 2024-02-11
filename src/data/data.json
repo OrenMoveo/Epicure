@@ -63,7 +63,7 @@
       },
       {
         "name": "Ya Pan",
-        "chef": "Yuval Ben Moshe",
+        "chef": "Yuval Ben Neriya",
         "pictureUrl": "/src/assets/images/restaurants/Yapan.png",
         "openNow": false,
         "location": "",
@@ -187,7 +187,7 @@
     "chefs": [
       {
         "name": "Ran Shmueli",
-        "pictureUrl": "",
+        "pictureUrl": "/src/assets/images/Chefs/ranShumeli.png",
         "restaurants": [
           {
             "name": "Claro",
@@ -210,7 +210,7 @@
       },
       {
         "name": "Yariv Malili",
-        "pictureUrl": "",
+        "pictureUrl": "/src/assets/images/Chefs/yarivMalili.png",
         "restaurants": [
           {
             "name": "Kab Kem",
@@ -279,7 +279,7 @@
       },
       {
         "name": "Yanir Green",
-        "pictureUrl": "",
+        "pictureUrl": "/src/assets/images/Chefs/yanirGreen.png",
         "restaurants": [
           {
             "name": "Tiger Lilly",
@@ -299,29 +299,6 @@
         "mostViewed": false,
         "description": "",
         "keyId": "26"
-      },
-      {
-        "name": "Yuval Ben Moshe",
-        "pictureUrl": "",
-        "restaurants": [
-          {
-            "name": "Ya Pan",
-            "chef": "Yuval Ben Moshe",
-            "pictureUrl": "/src/assets/images/restaurants/Yapan.png",
-            "openNow": false,
-            "location": "",
-            "rating": 2,
-            "mostPopular": true,
-            "newRestaurant": false,
-            "priceRange": [],
-            "keyId": "27"
-          }
-        ],
-        "newChef": false,
-        "views": 0,
-        "mostViewed": false,
-        "description": "",
-        "keyId": "28"
       },
       {
         "name": "Yossi Shitrit",
@@ -423,7 +400,20 @@
       {
         "name": "Yuval Ben Neriya",
         "pictureUrl": "/src/assets/images/chefs/yuvalBenNeriah.png",
-        "restaurants": [],
+        "restaurants": [
+          {
+            "name": "Ya Pan",
+            "chef": "Yuval Ben Neriya",
+            "pictureUrl": "/src/assets/images/restaurants/Yapan.png",
+            "openNow": false,
+            "location": "",
+            "rating": 2,
+            "mostPopular": true,
+            "newRestaurant": false,
+            "priceRange": [],
+            "keyId": "27"
+          }
+        ],
         "newChef": false,
         "views": 0,
         "mostViewed": false,
