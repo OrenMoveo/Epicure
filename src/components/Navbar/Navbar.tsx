@@ -11,7 +11,7 @@ import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 
-function Navbar() {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const screenWidth = useGetScreenWidth();
@@ -28,11 +28,6 @@ function Navbar() {
   const handleHomePageNavigation = () => {
     navigate("/");
   };
-
-  const location = useLocation();
-  const currentPathName = location.pathname.toLowerCase();
-  const pathNameArray = currentPathName.split("/");
-  const isDish = pathNameArray.includes("dish");
 
   return (
     <section className={styles.headerSectionLayout}>
