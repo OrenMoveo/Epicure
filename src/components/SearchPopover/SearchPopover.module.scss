@@ -16,7 +16,7 @@
   .popoverHeaderContainer {
     display: flex;
     flex-flow: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: $mobile-view-width;
     height: 46px;
