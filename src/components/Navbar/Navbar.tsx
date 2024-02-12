@@ -5,18 +5,21 @@ import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
 import bagIcon from "../../assets/images/BagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
-import { appRoutes } from "../../shared/constants";
+import { UIConstants, appRoutes } from "../../shared/constants";
 import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
+import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const screenWidth = useGetScreenWidth();
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
   };
+
   const toggleSearch = () => {
     setIsSearchOpen((searchOpen) => !searchOpen);
   };
@@ -37,34 +40,31 @@ function Navbar() {
             <img src={logoIcon} alt="logo" />
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
-            <button
-              className={styles.epicureTextTitle}
-              onClick={handleHomePageNavigation}
-            >
+            <button className={styles.epicureTextTitle} onClick={handleHomePageNavigation}>
               EPICURE
             </button>
-            <NavLink
-              to={appRoutes.restaurants}
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.inActive
-              }
-            >
+            <NavLink to={appRoutes.restaurants} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
               Restaurants
             </NavLink>
-            <NavLink
-              to={appRoutes.chefs}
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.inActive
-              }
-            >
+            <NavLink to={appRoutes.chefs} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
               Chefs
             </NavLink>
           </div>
         </div>
         <div className={styles.headerIconsContainer}>
-          <button className={styles.searchBtn} onClick={() => toggleSearch()}>
-            <img src={searchIcon} alt="search-icon" />
-          </button>
+          <div className={styles.searchContainer}>
+            <button
+              className={styles.searchBtn}
+              onClick={() => {
+                if (screenWidth > UIConstants.sizes.tabletWidth) {
+                  return;
+                }
+                toggleSearch();
+              }}
+            >
+              <img src={searchIcon} alt="search-icon" />
+            </button>
+          </div>
           <button className={styles.signInBtn}>
             <img src={signInIcon} alt="signIn-icon" />
           </button>

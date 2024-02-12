@@ -32,14 +32,14 @@
       width: 24px;
       height: 24px;
     }
+  }
 
-    .searchContainer {
-      display: flex;
-      flex-flow: column;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      padding-top: 24px;
-    }
+  .searchContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-top: 24px;
   }
 }

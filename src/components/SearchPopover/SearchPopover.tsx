@@ -1,13 +1,25 @@
 import Search from "../Search/Search";
 import styles from "./SearchPopover.module.scss";
 import blackXIcon from "../../assets/images/blackXIcon.svg";
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import useGetScreenWidth from "../../hooks/useGetWidthScreen";
+import { UIConstants } from "../../shared/constants";
 
 interface SearchPopoverProps {
   toggleSearch: () => void;
 }
 
 const SearchPopover: FC<SearchPopoverProps> = (props) => {
+  const screenWidth = useGetScreenWidth();
+  useEffect(() => {
+    const handleScreenSizeChange = () => {
+      if (screenWidth > UIConstants.sizes.tabletWidth) {
+        props.toggleSearch();
+      }
+    };
+    handleScreenSizeChange();
+  }, [screenWidth, props]);
+
   return (
     <div className={styles.SearchPopoverLayout}>
       <div className={styles.popoverHeaderContainer}>
