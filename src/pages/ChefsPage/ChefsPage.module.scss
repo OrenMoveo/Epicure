@@ -33,6 +33,8 @@
       justify-content: flex-start;
       align-items: flex-start;
       gap: 24px;
+      max-width: $app-max-width;
+
       @include smallDesktopScreen {
         display: flex;
         flex-flow: column;
