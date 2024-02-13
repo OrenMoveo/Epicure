@@ -12,8 +12,8 @@ const GenericModal: FC<GenericModalProps> = ({ children }) => {
 
   return (
     <div className={styles.genericModalOverlay} onClick={() => closeModal()}>
-      <div className={styles.DishModalLayout} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.modalHeader}>
+      <div className={styles.genericModalLayout} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.genericModalHeader}>
           <button className={styles.btnContainer} onClick={() => closeModal()}>
             <img src={whiteXIcon} alt="white-x-icon" />
           </button>
