@@ -8,20 +8,14 @@ interface SideDishesStateInterface {
   isChecked: boolean;
 }
 
-interface ChooseASideDishProps {}
-
-const ChooseSideDishes: FC<ChooseASideDishProps> = () => {
+const ChooseSideDishes: FC = () => {
   const [sideDishes, setSideDishes] = useState<SideDishesStateInterface[]>([
     { name: "White bread", isChecked: false },
     { name: "Sticky rice", isChecked: false },
   ]);
 
   const toggleSideDish = (clickedDish: SideDishesStateInterface) => {
-    setSideDishes((prevSideDishes) =>
-      prevSideDishes.map((dish) =>
-        dish === clickedDish ? { ...dish, isChecked: !dish.isChecked } : dish
-      )
-    );
+    setSideDishes((prevSideDishes) => prevSideDishes.map((dish) => (dish === clickedDish ? { ...dish, isChecked: !dish.isChecked } : dish)));
   };
 
   return (
@@ -30,14 +24,8 @@ const ChooseSideDishes: FC<ChooseASideDishProps> = () => {
       <div className={styles.sideDishesContainer}>
         {sideDishes.map((sideDish: SideDishesStateInterface) => (
           <div className={styles.singleSideDishContainer} key={sideDish.name}>
-            <button
-              onClick={() => toggleSideDish(sideDish)}
-              className={styles.radioButtonContainer}
-            >
-              <img
-                src={sideDish.isChecked ? checkedRadioButton : emptyRadioButton}
-                alt="radioButton"
-              />
+            <button onClick={() => toggleSideDish(sideDish)} className={styles.radioButtonContainer}>
+              <img src={sideDish.isChecked ? checkedRadioButton : emptyRadioButton} alt="radioButton" />
             </button>
             {sideDish.name}
           </div>
