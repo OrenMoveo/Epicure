@@ -1,5 +1,6 @@
 @import "../../styles//mediaQueries.scss";
 @import "../../styles/constants.module.scss";
+
 .signatureDishesLayout {
   display: flex;
   flex-flow: column;
@@ -8,7 +9,6 @@
   width: 100%;
   padding-left: 20px;
   gap: 8px;
-
   @include smallDesktopScreen {
     display: flex;
     flex-flow: column;
@@ -28,6 +28,7 @@
       text-align: center;
     }
   }
+
   .signatureDishesContainer {
     display: flex;
     flex-flow: column;
@@ -35,7 +36,6 @@
     align-items: flex-start;
     width: 100%;
     gap: 17.2px;
-
     @include smallDesktopScreen {
       display: flex;
       flex-flow: column;
@@ -43,8 +43,8 @@
       align-items: center;
       width: 100%;
       gap: 40px;
-      max-width: 1185px;
     }
+
     .carouselContainer {
       width: 100%;
       height: 100%;
@@ -54,6 +54,7 @@
         }
       }
     }
+
     .desktopSignatureDishesContainer {
       @include smallDesktopScreen {
         display: flex;
@@ -63,6 +64,7 @@
         overflow-x: auto;
         width: 100%;
         gap: 22.9px;
+        max-width: $app-max-width;
       }
     }
   }
