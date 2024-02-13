@@ -1,0 +1,56 @@
+@import "../../styles/mediaQueries.scss";
+
+.SearchLayout {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  width: 315px;
+  height: 30px;
+  border: 0.5px solid rgba(0, 0, 0, 1);
+  border-radius: 4px;
+  padding: 0 12px;
+  @include smallDesktopScreen {
+    width: 505px;
+    height: 48px;
+    gap: 16px;
+  }
+
+  .searchBtn {
+    display: flex;
+    align-self: center;
+    outline: none;
+    border: none;
+    background: none;
+    @include smallDesktopScreen {
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  .searchInput {
+    display: flex;
+    align-self: center;
+    width: 253px;
+    height: 15px;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 1.2899999618530273px;
+    @include smallDesktopScreen {
+      &::placeholder {
+        color: rgba(0, 0, 0, 1);
+      }
+      width: 423px;
+      height: 29px;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: 1.2899999618530273px;
+    }
+  }
+}

@@ -1,14 +1,13 @@
 @import "../../styles/constants.module.scss";
 @import "../../styles/mediaQueries.scss";
 
-.MenuPopoverLayout {
+.SearchPopoverLayout {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  box-shadow: 2px 4px 10px 0px rgba(175, 175, 175, 0.25);
-  border-bottom: 1px solid rgba(242, 242, 242, 1);
+  height: 413px;
   position: absolute;
   top: 0;
   left: 0;
@@ -17,25 +16,30 @@
   .popoverHeaderContainer {
     display: flex;
     flex-flow: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: $mobile-view-width;
     height: 46px;
-  }
 
-  .buttonsContainer {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 24px;
-    width: $mobile-view-width;
-    padding: 40px 0;
-
-    .menuBtn {
+    .popoverTitle {
+      align-self: center;
       font-size: 18px;
       line-height: 22px;
       letter-spacing: 1.9199999570846558px;
     }
+
+    .emptyContainer {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .searchContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-top: 24px;
   }
 }

@@ -23,8 +23,13 @@ const MenuPopover: FC<MenuPopoverProps> = (props) => {
 
   return (
     <div className={styles.MenuPopoverLayout}>
-      <div className={styles.xBtnContainer} onClick={() => props.toggleMenu()}>
-        <img src={blackXIcon} alt="black-x-icon" />
+      <div className={styles.popoverHeaderContainer}>
+        <button
+          className={styles.xBtnContainer}
+          onClick={() => props.toggleMenu()}
+        >
+          <img src={blackXIcon} alt="black-x-icon" />
+        </button>
       </div>
       <div className={styles.buttonsContainer}>
         <NavLink

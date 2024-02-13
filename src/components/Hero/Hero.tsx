@@ -1,23 +1,14 @@
-import "./Hero.scss";
-import searchIcon from "../../assets/images/SearchIcon.svg";
+import styles from "./Hero.module.scss";
+import Search from "../Search/Search";
 
 function Hero() {
   return (
-    <section className="hero-container">
-      <div className="hero-search-text-container">
-        <div className="hero-text">
+    <section className={styles.heroContainer}>
+      <div className={styles.heroSearchOverlayContainer}>
+        <div className={styles.heroOverlayText}>
           Epicure works with the top chef restaurants in Tel Aviv
         </div>
-        <div className="hero-search">
-          <button className="search-button">
-            <img src={searchIcon} alt="search-icon" />
-          </button>
-          <input
-            className="search-input"
-            placeholder="Search for restaurant cuisine, chef"
-            name="search-input"
-          ></input>
-        </div>
+        <Search />
       </div>
     </section>
   );
