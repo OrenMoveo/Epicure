@@ -22,16 +22,13 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const { setIsModalActive } = useModalContext();
-  const closeModal = () => {
-    setIsModalActive(false);
-  };
+  const { closeDishModal } = useModalContext();
 
   const closeModalDesktop = () => {
     if (isMobileOrTablet) {
       return;
     }
-    setIsModalActive(false);
+    closeDishModal();
   };
   const mobileStyles = {
     cardImage: { display: "none" },
@@ -96,7 +93,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
     <div className={styles.modalOverlay} onClick={() => closeModalDesktop()}>
       <div className={styles.DishModalLayout} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
-          <button className={styles.btnContainer} onClick={() => closeModal()}>
+          <button className={styles.btnContainer} onClick={() => closeDishModal()}>
             {isMobileOrTablet ? <img src={blackXIcon} alt="black-x-icon" /> : <img src={whiteXIcon} alt="white-x-icon" />}
           </button>
         </div>

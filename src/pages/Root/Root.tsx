@@ -8,7 +8,7 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 
 const Root = () => {
-  const { isModalActive, dish } = useModalContext();
+  const { isDishModalActive: isModalActive, dish } = useModalContext();
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;

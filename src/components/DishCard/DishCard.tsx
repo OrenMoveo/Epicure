@@ -25,12 +25,12 @@ interface DishCardProps {
 }
 
 const DishCard: FC<DishCardProps> = (props) => {
-  const { updateDish, setIsModalActive } = useModalContext();
+  const { updateDish, openDishModal } = useModalContext();
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTable = isMobile || isTablet;
   const handleModalClick = () => {
-    setIsModalActive(true);
+    openDishModal();
     updateDish(props.dish);
     if (isMobileOrTable) window.scrollTo(0, 0);
   };
