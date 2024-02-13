@@ -7,14 +7,11 @@ interface GenericModalProps {
   children: React.ReactElement;
 }
 
-
-
 const GenericModal: FC<GenericModalProps> = ({ children }) => {
-
-const {isGenericModalOpen} = useModalContext();
+  const { closeModal } = useModalContext();
 
   return (
-    <div className={styles.genericModalOverlay} onClick={() => closeModalDesktop()}>
+    <div className={styles.genericModalOverlay} onClick={() => closeModal()}>
       <div className={styles.DishModalLayout} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <button className={styles.btnContainer} onClick={() => closeModal()}>

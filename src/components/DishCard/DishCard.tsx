@@ -29,6 +29,7 @@ const DishCard: FC<DishCardProps> = (props) => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTable = isMobile || isTablet;
+
   const handleModalClick = () => {
     openDishModal();
     updateDish(props.dish);
