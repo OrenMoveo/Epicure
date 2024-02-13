@@ -10,6 +10,7 @@ import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
+import GenericPopover from "../GenericPopover/GenericPopover";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,8 +74,20 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {isMenuOpen ? <MenuPopover toggleMenu={toggleMenu} /> : ""}
-      {isSearchOpen ? <SearchPopover toggleSearch={toggleSearch} /> : ""}
+      {isMenuOpen ? (
+        <GenericPopover>
+          <MenuPopover toggleMenu={toggleMenu} />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
+      {isSearchOpen ? (
+        <GenericPopover>
+          <SearchPopover toggleSearch={toggleSearch} />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
     </section>
   );
 };
