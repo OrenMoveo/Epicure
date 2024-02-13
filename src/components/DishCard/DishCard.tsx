@@ -2,14 +2,15 @@ import styles from "./DishCard.module.scss";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
 import React, { FC } from "react";
-import DishModal from "../DishModal/DishModal";
 import { useModalContext } from "../../context/ModalContext/ModalContext";
+import useIsMobile from "../../hooks/useIsMobile";
+import useIsTablet from "../../hooks/useIsTablet";
 interface DishCardProps {
   dish: Dish;
   shouldDisplayFoodIcon?: boolean;
   cardWith?: React.CSSProperties;
   dishImageSize?: React.CSSProperties;
-  dishContentContainerStyling?: React.CSSProperties;
+  dishContentLayoutStyling?: React.CSSProperties;
   shouldDisplayRightSideLine?: boolean;
   shouldDisplayLeftSideLine?: boolean;
   dishPriceStyling?: React.CSSProperties;
@@ -20,13 +21,18 @@ interface DishCardProps {
   dishTitleStyling?: React.CSSProperties;
   currencyIconSize?: React.CSSProperties;
   priceTextContainerStyling?: React.CSSProperties;
+  dishContentContainerStyling?: React.CSSProperties;
 }
 
 const DishCard: FC<DishCardProps> = (props) => {
-  const { updateDish, isModalActive, setIsModalActive } = useModalContext();
+  const { updateDish, setIsModalActive } = useModalContext();
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+  const isMobileOrTable = isMobile || isTablet;
   const handleModalClick = () => {
     setIsModalActive(true);
     updateDish(props.dish);
+    if (isMobileOrTable) window.scrollTo(0, 0);
   };
 
   return (
@@ -34,8 +40,8 @@ const DishCard: FC<DishCardProps> = (props) => {
       <div className={styles.dishImageContainer} style={props.dishImageSize}>
         <img src={props.dish.pictureUrl} alt={props.dish.name} />
       </div>
-      <div className={styles.dishContentLayout} style={props.dishContentContainerStyling}>
-        <div className={styles.dishContentContainer}>
+      <div className={styles.dishContentLayout} style={props.dishContentLayoutStyling}>
+        <div className={styles.dishContentContainer} style={props.dishContentContainerStyling}>
           <p className={styles.dishTitle} style={props.dishTitleStyling}>
             {props.dish.name}
           </p>

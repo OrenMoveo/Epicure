@@ -1,9 +1,14 @@
+@import "../../styles/mediaQueries.scss";
+
 .dishChangesContainer {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 24px;
+  @include smallDesktopScreen {
+    width: 189px;
+  }
 
   .dishChangesTitle {
     padding: 8px 0;
@@ -12,6 +17,9 @@
     line-height: 18px;
     letter-spacing: 1.9700000286102295px;
     text-align: center;
+    @include smallDesktopScreen {
+      align-self: center;
+    }
   }
 
   .dishChangesContainer {
@@ -31,6 +39,9 @@
       line-height: 18px;
       letter-spacing: 1.9700000286102295px;
       text-align: center;
+      @include smallDesktopScreen {
+        font-size: 17px;
+      }
     }
   }
 }

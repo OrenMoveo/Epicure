@@ -1,9 +1,14 @@
+@import "../../styles/mediaQueries.scss";
+
 .dishQuantityContainer {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 24px;
+  @include smallDesktopScreen {
+    align-items: center;
+  }
 
   .chooseQuantityTitle {
     padding: 8px 0;

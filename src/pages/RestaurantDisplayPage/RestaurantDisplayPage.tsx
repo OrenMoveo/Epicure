@@ -60,9 +60,7 @@ const RestaurantDisplayPage = () => {
     DINNER_INDEX = 2,
   }
 
-  const [activeFilterButton, setActiveFilterButton] = useState(
-    IndexType.BREAKFAST_INDEX
-  );
+  const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
   const location = useLocation();
   const { restaurant } = location.state as { restaurant: Restaurant };
 
@@ -88,31 +86,19 @@ const RestaurantDisplayPage = () => {
             </div>
             <div className={styles.filtersContainer}>
               <button
-                className={`${styles.filterButton} ${
-                  activeFilterButton === IndexType.BREAKFAST_INDEX
-                    ? styles.activeButton
-                    : ""
-                }`}
+                className={`${styles.filterButton} ${activeFilterButton === IndexType.BREAKFAST_INDEX ? styles.activeButton : ""}`}
                 onClick={() => handleClick(IndexType.BREAKFAST_INDEX)}
               >
                 Breakfast
               </button>
               <button
-                className={`${styles.filterButton} ${
-                  activeFilterButton === IndexType.LUNCH_INDEX
-                    ? styles.activeButton
-                    : ""
-                }`}
+                className={`${styles.filterButton} ${activeFilterButton === IndexType.LUNCH_INDEX ? styles.activeButton : ""}`}
                 onClick={() => handleClick(IndexType.LUNCH_INDEX)}
               >
                 Lunch
               </button>
               <button
-                className={`${styles.filterButton} ${
-                  activeFilterButton === IndexType.DINNER_INDEX
-                    ? styles.activeButton
-                    : ""
-                }`}
+                className={`${styles.filterButton} ${activeFilterButton === IndexType.DINNER_INDEX ? styles.activeButton : ""}`}
                 onClick={() => handleClick(IndexType.DINNER_INDEX)}
               >
                 Dinner
@@ -129,7 +115,7 @@ const RestaurantDisplayPage = () => {
                       width: mobileDishCardWidth,
                       height: mobileDishImageHeight,
                     }}
-                    dishContentContainerStyling={{
+                    dishContentLayoutStyling={{
                       height: mobileDishContentContainerHeight,
                     }}
                     shouldDisplayRightSideLine={true}
@@ -150,7 +136,7 @@ const RestaurantDisplayPage = () => {
                       width: desktopDishCardWidth,
                       height: desktopDishImageHeight,
                     }}
-                    dishContentContainerStyling={{
+                    dishContentLayoutStyling={{
                       width: desktopDishCardWidth,
                       height: desktopDishContentContainerHeight,
                       gap: desktopDishContentContainerGap,
