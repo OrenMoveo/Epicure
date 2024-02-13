@@ -7,6 +7,7 @@ $small-desktop-max-width: 1024px;
 $app-primary-width: 100vw;
 $mobile-view-width: calc(100% - 40px);
 $desktop-view-width: calc(100% - 255px);
+$app-max-width: 1186px;
 
 // fonts
 $app-primary-font-family: Helvetica Neue;
@@ -17,6 +18,7 @@ $app-primary-text-align: left;
   tabletMaxWidth: $tablet-max-width;
   mobileMaxWidth: $mobile-max-width;
   smallDesktopMaxWidth: $small-desktop-max-width;
+  appMaxWidth: $app-max-width;
 
   appPrimaryFontFamily: $app-primary-font-family;
   appPrimaryFontWeight: $app-primary-font-weight;

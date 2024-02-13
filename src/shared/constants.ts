@@ -13,6 +13,7 @@ export const UIConstants = {
     mobileWidth: Number(styles.mobileMaxWidth.slice(0, -2)),
     tabletWidth: Number(styles.tabletMaxWidth.slice(0, -2)),
     smallDesktopWidth: Number(styles.smallDesktopMaxWidth.slice(0, -2)),
+    appMaxWidth: Number(styles.appMaxWidth.slice(0, -2)),
   },
   fonts: {
     primary: {

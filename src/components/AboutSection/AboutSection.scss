@@ -14,7 +14,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     width: $mobile-view-width;
-    max-width: 1186px;
+    max-width: $app-max-width;
     gap: 32px;
     padding-top: 24px;
     padding-bottom: 24px;
