@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { ModalProvider } from "./context/ModalContext";
 import App from "./App";
-import { CartProvider } from "./context/CartContext";
+import { ShoppingBagProvider } from "./context/ShoppingBagContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ModalProvider>
-      <CartProvider>
+      <ShoppingBagProvider>
         <App />
-      </CartProvider>
+      </ShoppingBagProvider>
     </ModalProvider>
   </React.StrictMode>
 );

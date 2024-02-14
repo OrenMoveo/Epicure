@@ -13,7 +13,7 @@ import whiteXIcon from "../../assets/images/whiteXIcon.svg";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import Footer from "../Footer/Footer";
-import { useCartContext } from "../../context/CartContext";
+import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 
 interface DishModalProps {
   dish: Dish;
@@ -39,7 +39,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
     closeDishModal();
   };
 
-  const { updateCart } = useCartContext();
+  const { updateShoppingBag } = useShoppingBagContext();
 
   return createPortal(
     <div className={styles.modalOverlay} onClick={() => closeModalDesktop()}>
@@ -95,7 +95,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
               <button
                 className={styles.addToBagBtn}
                 onClick={() => {
-                  updateCart({ dish, options: dishChanges }, quantity);
+                  updateShoppingBag({ dish, options: dishChanges }, quantity);
                   closeDishModal();
                 }}
               >

@@ -1,23 +1,23 @@
 import { FC } from "react";
 import { DishWithOptions } from "../../types/types";
-import styles from "./CartDishCard.module.scss";
+import styles from "./ShoppingBagDishCard.module.scss";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
 import goldILSIcon from "../../assets/images/goldILSIcon.svg";
 
-interface CartDishCardProps {
+interface ShoppingBagDishCardProps {
   dishWithOptions: DishWithOptions;
   quantity: number;
 }
-const CartDishCard: FC<CartDishCardProps> = ({ dishWithOptions, quantity }) => {
+const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions, quantity }) => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
   const totalPrice = quantity * dishWithOptions.dish.price;
 
   return (
-    <div className={styles.CartDishCardLayout}>
+    <div className={styles.ShoppingBagDishCardLayout}>
       <div className={styles.dishImageContainer}>
         <img src={dishWithOptions.dish.pictureUrl} alt={dishWithOptions.dish.name} />
       </div>
@@ -59,4 +59,4 @@ const CartDishCard: FC<CartDishCardProps> = ({ dishWithOptions, quantity }) => {
   );
 };
 
-export default CartDishCard;
+export default ShoppingBagDishCard;

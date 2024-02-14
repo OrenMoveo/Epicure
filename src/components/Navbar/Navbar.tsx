@@ -3,7 +3,7 @@ import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
-import bagIcon from "../../assets/images/BagIcon.svg";
+import smallShoppingBagIcon from "../../assets/images/smallShoppingBagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UIConstants, appRoutes } from "../../shared/constants";
 import { useState } from "react";
@@ -11,8 +11,8 @@ import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import GenericPopover from "../GenericPopover/GenericPopover";
-import Cart from "../Cart/Cart";
-import { useCartContext } from "../../context/CartContext";
+import ShoppingBag from "../ShoppingBag/ShoppingBag";
+import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
 
-  const { isEmptyCart } = useCartContext();
+  const { isEmptyShoppingBag } = useShoppingBagContext();
 
   const screenWidth = useGetScreenWidth();
 
@@ -32,7 +32,7 @@ const Navbar = () => {
     setIsSearchOpen((searchOpen) => !searchOpen);
   };
 
-  const toggleBag = () => {
+  const toggleShoppingBag = () => {
     setIsBagOpen((bagOpen) => !bagOpen);
   };
 
@@ -80,9 +80,9 @@ const Navbar = () => {
           <button className={styles.signInBtn}>
             <img src={signInIcon} alt="signIn-icon" />
           </button>
-          <button className={styles.bagBtn} onClick={() => toggleBag()}>
-            <img src={bagIcon} alt="bag-icon" />
-            {!isEmptyCart && <DishCounterCircle />}
+          <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
+            <img src={smallShoppingBagIcon} alt="bag-icon" />
+            {!isEmptyShoppingBag && <DishCounterCircle />}
           </button>
         </div>
       </div>
@@ -102,7 +102,7 @@ const Navbar = () => {
       )}
       {isBagOpen ? (
         <GenericPopover>
-          <Cart />
+          <ShoppingBag />
         </GenericPopover>
       ) : (
         ""

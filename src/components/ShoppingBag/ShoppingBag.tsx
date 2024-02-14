@@ -1,36 +1,36 @@
 import { FC } from "react";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
-import styles from "./Cart.module.scss";
-import { useCartContext } from "../../context/CartContext";
-import largeBagIcon from "../../assets/images/largeBagIcon.svg";
+import styles from "./ShoppingBag.module.scss";
+import { useShoppingBagContext } from "../../context/ShoppingBagContext";
+import largeShoppingBagIcon from "../../assets/images/largeShoppingBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
-import CartDishCard from "../CartDishCard/CartDishCard";
+import ShoppingBagDishCard from "../ShoppingBagDishCard/ShoppingBagDishCard";
 
-const Cart: FC = () => {
-  const { updateCartSum, cartSum, order, updateCart, isEmptyCart, dishQuantities } = useCartContext();
+const ShoppingBag: FC = () => {
+  const { updateShoppingBagSum, shoppingBagSum, order, updateShoppingBag, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
   return (
-    <div className={styles.cartLayout}>
-      <div className={styles.cartContent}>
-        <div className={styles.cartContentContainer}>
-          {isEmptyCart ? (
-            <div className={styles.emptyCart}>
-              <img src={largeBagIcon} alt="empty-cart" />
-              <div className={styles.emptyCartText}>YOUR BAG IS EMPTY</div>
+    <div className={styles.shoppingBagLayout}>
+      <div className={styles.shoppingBagContent}>
+        <div className={styles.shoppingBagContentContainer}>
+          {isEmptyShoppingBag ? (
+            <div className={styles.emptyShoppingBag}>
+              <img src={largeShoppingBagIcon} alt="empty-shoppingBag" />
+              <div className={styles.emptyShoppingBagText}>YOUR BAG IS EMPTY</div>
             </div>
           ) : (
-            <div className={styles.nonEmptyCart}>
+            <div className={styles.nonEmptyShoppingBag}>
               <div className={styles.orderContainer}>
-                <div className={styles.cartTitle}>{isMobileOrTablet ? "MY ORDER" : "YOUR ORDER"}</div>
+                <div className={styles.shoppingBagTitle}>{isMobileOrTablet ? "MY ORDER" : "YOUR ORDER"}</div>
                 <div className={styles.restaurantName}>{order.restaurantName}</div>
                 <div className={styles.orderDishes}>
                   {order.dishes.map((dishWithOptions) => (
-                    <CartDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
+                    <ShoppingBagDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
                   ))}
                 </div>
               </div>
@@ -41,7 +41,7 @@ const Cart: FC = () => {
                   <div className={styles.currencyIconContainer}>
                     <img src={currencyILSIcon} alt="currency-ils-con" />
                   </div>
-                  {cartSum}
+                  {shoppingBagSum}
                 </div>
                 {!isMobileOrTablet && <div className={styles.line}></div>}
               </div>
@@ -63,4 +63,4 @@ const Cart: FC = () => {
   );
 };
 
-export default Cart;
+export default ShoppingBag;

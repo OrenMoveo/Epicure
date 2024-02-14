@@ -1,8 +1,8 @@
 import styles from "./DishCounterCircle.module.scss";
-import { useCartContext } from "../../context/CartContext";
+import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 
 const DishCounterCircle = () => {
-  const { getTotalQuantity } = useCartContext();
+  const { getTotalQuantity } = useShoppingBagContext();
   const totalQuantity = getTotalQuantity();
   return (
     <div className={styles.dishCounter}>
