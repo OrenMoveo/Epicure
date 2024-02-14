@@ -4,22 +4,24 @@
 .cartLayout {
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: white;
   width: 100%;
+  padding-top: 16px;
+  padding-bottom: 24px;
 
   .cartContent {
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: $mobile-view-width;
 
     .cartContentContainer {
       display: flex;
       flex-flow: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       .emptyCart {
@@ -44,38 +46,84 @@
       .nonEmptyCart {
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         width: 100%;
+        gap: 20px;
 
-        .cartTitle {
-          display: flex;
-          flex-flow: row;
-          justify-content: center;
-          align-items: center;
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 24px;
-          letter-spacing: 2.6700000762939453px;
-          text-align: center;
-        }
-
-        .restaurantName {
-          display: flex;
-          flex-flow: row;
-          justify-content: center;
-          align-items: center;
-          font-size: 18px;
-          line-height: 20px;
-          letter-spacing: 1.9700000286102295px;
-          text-align: center;
-        }
-
-        .orderDishes {
+        .orderContainer {
           display: flex;
           flex-flow: column;
+          justify-content: flex-start;
+          align-items: center;
+          padding-bottom: 63px;
+
+          .cartTitle {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 4px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 2.6700000762939453px;
+            text-align: center;
+          }
+
+          .restaurantName {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 1.9700000286102295px;
+            text-align: center;
+          }
+
+          .orderDishes {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            gap: 20px;
+            height: 299px;
+            overflow-y: auto;
+            direction: rtl;
+          }
+        }
+      }
+
+      .sumPaymentContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        font-family: Helvetica Neue;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+        gap: 10px;
+
+        .sumPaymentText {
+          display: flex;
+          flex-flow: row;
           justify-content: center;
           align-items: center;
+          gap: 2px;
+
+          .currencyIconContainer {
+            align-self: flex-end;
+            padding-bottom: 2px;
+
+            img {
+              width: 8.87px;
+              height: 8.53px;
+            }
+          }
         }
       }
     }

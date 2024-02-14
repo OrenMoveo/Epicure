@@ -31,19 +31,23 @@ const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSide
             </div>
           ) : (
             <div className={styles.nonEmptyCart}>
-              <div className={styles.cartTitle}>{isMobileOrTablet ? "MY ORDER" : "YOUR ORDER"}</div>
-              <div className={styles.restaurantName}>{order.restaurantName}</div>
-              <div className={styles.orderDishes}>
-                {order.dishes.map((dishWithOptions) => (
-                  <CartDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
-                ))}
+              <div className={styles.orderContainer}>
+                <div className={styles.cartTitle}>{isMobileOrTablet ? "MY ORDER" : "YOUR ORDER"}</div>
+                <div className={styles.restaurantName}>{order.restaurantName}</div>
+                <div className={styles.orderDishes}>
+                  {order.dishes.map((dishWithOptions) => (
+                    <CartDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
+                  ))}
+                </div>
               </div>
               <div className={styles.sumPaymentContainer}>
-                {shouldDisplayLeftSideLine && <div className={styles.line}></div>}
                 {isMobileOrTablet ? "TOTAL - " : ""}
-                <img src={currencyILSIcon} alt="currency-ils-con" />
-                <div className={styles.sumPaymentText}>{cartSum}</div>
-                {shouldDisplayRightSideLine && <div className={styles.line}></div>}
+                <div className={styles.sumPaymentText}>
+                  <div className={styles.currencyIconContainer}>
+                    <img src={currencyILSIcon} alt="currency-ils-con" />
+                  </div>
+                  {cartSum}
+                </div>
               </div>
               {isMobileOrTablet ? (
                 ""
