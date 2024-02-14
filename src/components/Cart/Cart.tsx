@@ -3,10 +3,8 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import styles from "./Cart.module.scss";
 import { useCartContext } from "../../context/CartContext";
-import DishCard from "../DishCard/DishCard";
 import largeBagIcon from "../../assets/images/largeBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
-import { mobileStyles } from "./DishCardCartStyling";
 import CartDishCard from "../CartDishCard/CartDishCard";
 interface CartProps {
   shouldDisplayRightSideLine?: boolean;
