@@ -8,6 +8,7 @@ interface CartContextType {
   updateCart: (dish: Dish, quantity: number) => void;
   isEmptyCart: boolean;
   dishQuantities: Record<string, number>;
+  getTotalQuantity: () => number;
 }
 
 const CartContext = createContext<CartContextType>({
@@ -17,6 +18,7 @@ const CartContext = createContext<CartContextType>({
   updateCart: (dish: Dish, quantity: number) => {},
   isEmptyCart: true,
   dishQuantities: {},
+  getTotalQuantity: () => 0,
 });
 
 export const useCartContext = () => useContext<CartContextType>(CartContext);
