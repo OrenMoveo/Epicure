@@ -4,6 +4,7 @@ import styles from "./CartDishCard.module.scss";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
+import goldILSIcon from "../../assets/images/goldILSIcon.svg";
 
 interface CartDishCardProps {
   dishWithOptions: DishWithOptions;
@@ -29,9 +30,9 @@ const CartDishCard: FC<CartDishCardProps> = ({ dishWithOptions, quantity }) => {
               {!isMobileOrTablet && (
                 <div className={styles.priceInTitleContainer}>
                   <div className={styles.currencyIconContainer}>
-                    <img src={ILSIcon} alt="currencyIcon" />
+                    <img src={goldILSIcon} alt="currencyIcon" />
                   </div>
-                  {dishWithOptions.dish.price}
+                  <div className={styles.priceTextContainer}>{parseFloat(dishWithOptions.dish.price.toString()).toFixed(2)}</div>
                 </div>
               )}
             </div>
