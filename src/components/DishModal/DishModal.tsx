@@ -57,7 +57,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                     dish={dish}
                     key={dish.keyId}
                     dishImageSize={mobileStyles.cardImage}
-                    cardWith={mobileStyles.cardWith}
+                    cardContainerStyling={mobileStyles.cardWith}
                     dishContentLayoutStyling={mobileStyles.cardContentLayout}
                     dishTitleStyling={mobileStyles.cardTitle}
                     dishDescriptionStyling={mobileStyles.cardDescription}
@@ -69,7 +69,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                     dish={dish}
                     key={dish.keyId}
                     dishImageSize={desktopStyles.cardImage}
-                    cardWith={desktopStyles.cardWith}
+                    cardContainerStyling={desktopStyles.cardWith}
                     dishContentLayoutStyling={desktopStyles.cardContentLayout}
                     dishTitleStyling={desktopStyles.cardTitle}
                     dishDescriptionStyling={desktopStyles.cardDescription}

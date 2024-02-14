@@ -20,7 +20,7 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
 
-  const { order, isEmptyCart } = useCartContext();
+  const { isEmptyCart } = useCartContext();
 
   const screenWidth = useGetScreenWidth();
 

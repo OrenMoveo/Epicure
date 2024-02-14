@@ -110,7 +110,7 @@ const RestaurantDisplayPage = () => {
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardWith={{ width: mobileDishCardWidth }}
+                    cardContainerStyling={{ width: mobileDishCardWidth }}
                     dishImageSize={{
                       width: mobileDishCardWidth,
                       height: mobileDishImageHeight,
@@ -131,7 +131,7 @@ const RestaurantDisplayPage = () => {
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardWith={{ width: desktopDishCardWidth }}
+                    cardContainerStyling={{ width: desktopDishCardWidth }}
                     dishImageSize={{
                       width: desktopDishCardWidth,
                       height: desktopDishImageHeight,

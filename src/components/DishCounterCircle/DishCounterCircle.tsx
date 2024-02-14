@@ -2,11 +2,11 @@ import styles from "./DishCounterCircle.module.scss";
 import { useCartContext } from "../../context/CartContext";
 
 const DishCounterCircle = () => {
-  const { order } = useCartContext();
-
+  const { getTotalQuantity } = useCartContext();
+  const totalQuantity = getTotalQuantity();
   return (
     <div className={styles.dishCounter}>
-      <div className={styles.circle}>{order.dishes.length}</div>
+      <div className={styles.circle}>{totalQuantity}</div>
     </div>
   );
 };

@@ -27,6 +27,7 @@
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
         gap: 20px;
         padding-top: 61px;
         padding-bottom: 45px;
@@ -37,6 +38,44 @@
           line-height: 20px;
           letter-spacing: 1.9700000286102295px;
           text-align: center;
+        }
+      }
+
+      .nonEmptyCart {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .cartTitle {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 2.6700000762939453px;
+          text-align: center;
+        }
+
+        .restaurantName {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          font-size: 18px;
+          line-height: 20px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+        }
+
+        .orderDishes {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
         }
       }
     }

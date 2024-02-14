@@ -7,7 +7,7 @@ import { useModalContext } from "../../context/ModalContext";
 interface DishCardProps {
   dish: Dish;
   shouldDisplayFoodIcon?: boolean;
-  cardWith?: React.CSSProperties;
+  cardContainerStyling?: React.CSSProperties;
   dishImageSize?: React.CSSProperties;
   dishContentLayoutStyling?: React.CSSProperties;
   shouldDisplayRightSideLine?: boolean;
@@ -21,6 +21,7 @@ interface DishCardProps {
   currencyIconSize?: React.CSSProperties;
   priceTextContainerStyling?: React.CSSProperties;
   dishContentContainerStyling?: React.CSSProperties;
+  quantity?: number;
 }
 
 const DishCard: FC<DishCardProps> = (props) => {
@@ -32,13 +33,14 @@ const DishCard: FC<DishCardProps> = (props) => {
   };
 
   return (
-    <button className={styles.dishCardContainer} style={props.cardWith} onClick={() => handleModalClick()}>
+    <button className={styles.dishCardContainer} style={props.cardContainerStyling} onClick={() => handleModalClick()}>
       <div className={styles.dishImageContainer} style={props.dishImageSize}>
         <img src={props.dish.pictureUrl} alt={props.dish.name} />
       </div>
       <div className={styles.dishContentLayout} style={props.dishContentLayoutStyling}>
         <div className={styles.dishContentContainer} style={props.dishContentContainerStyling}>
           <p className={styles.dishTitle} style={props.dishTitleStyling}>
+            {props.quantity && <span className={styles.quantityContainer}>{props.quantity}</span>}
             {props.dish.name}
           </p>
           <div className={styles.dishDescription} style={props.dishDescriptionStyling}>

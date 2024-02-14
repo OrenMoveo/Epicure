@@ -6,14 +6,14 @@ import { useCartContext } from "../../context/CartContext";
 import DishCard from "../DishCard/DishCard";
 import largeBagIcon from "../../assets/images/largeBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
-
+import { mobileStyles } from "./DishCardCartStyling";
 interface CartProps {
   shouldDisplayRightSideLine?: boolean;
   shouldDisplayLeftSideLine?: boolean;
 }
 
 const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSideLine }) => {
-  const { updateCartSum, cartSum, order, updateCart, isEmptyCart } = useCartContext();
+  const { updateCartSum, cartSum, order, updateCart, isEmptyCart, dishQuantities } = useCartContext();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -34,7 +34,15 @@ const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSide
               <div className={styles.restaurantName}>{order.restaurantName}</div>
               <div className={styles.orderDishes}>
                 {order.dishes.map((dish) => (
-                  <DishCard dish={dish} key={dish.keyId} />
+                  <DishCard
+                    dish={dish}
+                    key={dish.keyId}
+                    cardContainerStyling={mobileStyles.cardContainerStyling}
+                    dishImageSize={mobileStyles.dishImageSize}
+                    dishContentLayoutStyling={mobileStyles.dishContentLayout}
+                    dishContentContainerStyling={mobileStyles.dishContentContainer}
+                    quantity={dishQuantities[dish.keyId] || 1}
+                  />
                 ))}
               </div>
               <div className={styles.sumPaymentContainer}>
