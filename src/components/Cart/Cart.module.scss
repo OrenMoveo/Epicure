@@ -1,0 +1,44 @@
+@import "../../styles/mediaQueries.scss";
+@import "../../styles/constants.module.scss";
+
+.cartLayout {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+
+  .cartContent {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: $mobile-view-width;
+
+    .cartContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+
+      .emptyCart {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 61px;
+        padding-bottom: 45px;
+
+        .emptyCartText {
+          width: 145px;
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

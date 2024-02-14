@@ -3,8 +3,7 @@ import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
 import React, { FC } from "react";
 import { useModalContext } from "../../context/ModalContext/ModalContext";
-import useIsMobile from "../../hooks/useIsMobile";
-import useIsTablet from "../../hooks/useIsTablet";
+
 interface DishCardProps {
   dish: Dish;
   shouldDisplayFoodIcon?: boolean;
@@ -26,14 +25,12 @@ interface DishCardProps {
 
 const DishCard: FC<DishCardProps> = (props) => {
   const { updateDish, openDishModal } = useModalContext();
-  const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
-  const isMobileOrTable = isMobile || isTablet;
+ 
 
   const handleModalClick = () => {
     openDishModal();
     updateDish(props.dish);
-    if (isMobileOrTable) window.scrollTo(0, 0);
+   
   };
 
   return (

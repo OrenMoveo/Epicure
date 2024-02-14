@@ -11,10 +11,17 @@ import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import GenericPopover from "../GenericPopover/GenericPopover";
+import Cart from "../Cart/Cart";
+import { useCartContext } from "../../context/CartContext";
+import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isBagOpen, setIsBagOpen] = useState(false);
+
+  const { order, isEmptyCart } = useCartContext();
+
   const screenWidth = useGetScreenWidth();
 
   const toggleMenu = () => {
@@ -23,6 +30,10 @@ const Navbar = () => {
 
   const toggleSearch = () => {
     setIsSearchOpen((searchOpen) => !searchOpen);
+  };
+
+  const toggleBag = () => {
+    setIsBagOpen((bagOpen) => !bagOpen);
   };
 
   const navigate = useNavigate();
@@ -69,8 +80,9 @@ const Navbar = () => {
           <button className={styles.signInBtn}>
             <img src={signInIcon} alt="signIn-icon" />
           </button>
-          <button className={styles.bagBtn}>
+          <button className={styles.bagBtn} onClick={() => toggleBag()}>
             <img src={bagIcon} alt="bag-icon" />
+            {!isEmptyCart && <DishCounterCircle />}
           </button>
         </div>
       </div>
@@ -84,6 +96,13 @@ const Navbar = () => {
       {isSearchOpen ? (
         <GenericPopover>
           <SearchPopover toggleSearch={toggleSearch} />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
+      {isBagOpen ? (
+        <GenericPopover>
+          <Cart />
         </GenericPopover>
       ) : (
         ""

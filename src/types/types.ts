@@ -32,4 +32,10 @@ export interface Dish {
   foodIcon: string;
   keyId: string;
   mealType: string;
+  restaurant: string;
+}
+
+export interface Order {
+  restaurantName: string;
+  dishes: Dish[];
 }

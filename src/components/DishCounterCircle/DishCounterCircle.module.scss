@@ -1,0 +1,24 @@
+.dishCounter {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -20%;
+  left: -20%;
+
+  .circle {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 10px;
+  }
+}
