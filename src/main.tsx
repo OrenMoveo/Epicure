@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ModalProvider } from "./context/ModalContext/ModalContext";
+import { ModalProvider } from "./context/ModalContext";
 import App from "./App";
 import { CartProvider } from "./context/CartContext";
 

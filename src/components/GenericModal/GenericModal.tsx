@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./GenericModal.module.scss";
 import whiteXIcon from "../../assets/images/whiteXIcon.svg";
-import { useModalContext } from "../../context/ModalContext/ModalContext";
+import { useModalContext } from "../../context/ModalContext";
 
 interface GenericModalProps {
   children: React.ReactElement;

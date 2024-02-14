@@ -2,7 +2,7 @@ import styles from "./DishCard.module.scss";
 import ILSIcon from "../../assets/images/ILSIcon.svg";
 import { Dish } from "../../types/types";
 import React, { FC } from "react";
-import { useModalContext } from "../../context/ModalContext/ModalContext";
+import { useModalContext } from "../../context/ModalContext";
 
 interface DishCardProps {
   dish: Dish;
@@ -25,12 +25,10 @@ interface DishCardProps {
 
 const DishCard: FC<DishCardProps> = (props) => {
   const { updateDish, openDishModal } = useModalContext();
- 
 
   const handleModalClick = () => {
     openDishModal();
     updateDish(props.dish);
-   
   };
 
   return (

@@ -7,7 +7,7 @@ import ChooseDishChanges from "../ChooseDishChanges/ChooseDishChanges";
 import ChooseQuantity from "../ChooseQuantity/ChooseQuantity";
 import { createPortal } from "react-dom";
 import { FC, useState } from "react";
-import { useModalContext } from "../../context/ModalContext/ModalContext";
+import { useModalContext } from "../../context/ModalContext";
 import blackXIcon from "../../assets/images/blackXIcon.svg";
 import whiteXIcon from "../../assets/images/whiteXIcon.svg";
 import useIsMobile from "../../hooks/useIsMobile";
@@ -20,7 +20,6 @@ interface DishModalProps {
 }
 
 const DishModal: FC<DishModalProps> = ({ dish }) => {
-
   const [quantity, setQuantity] = useState<number>(1);
 
   const isMobile = useIsMobile();
@@ -87,12 +86,12 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
               <div className={styles.orderAddonsContainer}>
                 <ChooseSideDishes />
                 <ChooseDishChanges />
-                <ChooseQuantity quantity={quantity} setQuantity={setQuantity}/>
+                <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
               </div>
               <button
                 className={styles.addToBagBtn}
                 onClick={() => {
-                  updateCart(dish,quantity);
+                  updateCart(dish, quantity);
                   closeDishModal();
                 }}
               >

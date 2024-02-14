@@ -1,8 +1,8 @@
 import React, { createContext, useState, useContext } from "react";
-import { Dish } from "../../types/types";
-import useIsMobile from "../../hooks/useIsMobile";
-import useIsTablet from "../../hooks/useIsTablet";
-import { defaultDish } from "../../shared/defaults";
+import { Dish } from "../types/types";
+import useIsMobile from "../hooks/useIsMobile";
+import useIsTablet from "../hooks/useIsTablet";
+import { defaultDish } from "../shared/defaults";
 
 const ModalContext = createContext({
   isDishModalActive: false,
