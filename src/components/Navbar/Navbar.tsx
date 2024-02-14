@@ -87,14 +87,14 @@ const Navbar = () => {
         </div>
       </div>
       {isMenuOpen ? (
-        <GenericPopover>
+        <GenericPopover coverAllPage={true}>
           <MenuPopover toggleMenu={toggleMenu} />
         </GenericPopover>
       ) : (
         ""
       )}
       {isSearchOpen ? (
-        <GenericPopover>
+        <GenericPopover coverAllPage={true}>
           <SearchPopover toggleSearch={toggleSearch} />
         </GenericPopover>
       ) : (

@@ -137,6 +137,12 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+
         @include smallDesktopScreen {
           order: 1;
           gap: 12px;
