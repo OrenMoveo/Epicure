@@ -6,12 +6,8 @@ import { useCartContext } from "../../context/CartContext";
 import largeBagIcon from "../../assets/images/largeBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
 import CartDishCard from "../CartDishCard/CartDishCard";
-interface CartProps {
-  shouldDisplayRightSideLine?: boolean;
-  shouldDisplayLeftSideLine?: boolean;
-}
 
-const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSideLine }) => {
+const Cart: FC = () => {
   const { updateCartSum, cartSum, order, updateCart, isEmptyCart, dishQuantities } = useCartContext();
 
   const isMobile = useIsMobile();
