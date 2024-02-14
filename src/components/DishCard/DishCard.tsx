@@ -22,6 +22,7 @@ interface DishCardProps {
   priceTextContainerStyling?: React.CSSProperties;
   dishContentContainerStyling?: React.CSSProperties;
   quantity?: number;
+  description?: string | string[];
 }
 
 const DishCard: FC<DishCardProps> = (props) => {
@@ -40,7 +41,6 @@ const DishCard: FC<DishCardProps> = (props) => {
       <div className={styles.dishContentLayout} style={props.dishContentLayoutStyling}>
         <div className={styles.dishContentContainer} style={props.dishContentContainerStyling}>
           <p className={styles.dishTitle} style={props.dishTitleStyling}>
-            {props.quantity && <span className={styles.quantityContainer}>{props.quantity}</span>}
             {props.dish.name}
           </p>
           <div className={styles.dishDescription} style={props.dishDescriptionStyling}>

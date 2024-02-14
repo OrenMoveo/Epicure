@@ -1,6 +1,6 @@
 import styles from "./DishModal.module.scss";
 import { desktopStyles, mobileStyles } from "./DishCardStylesComposition";
-import { Dish } from "../../types/types";
+import { Dish, DishChangeStateInterface } from "../../types/types";
 import DishCard from "../DishCard/DishCard";
 import ChooseSideDishes from "../ChooseSideDishes/ChooseSideDishes";
 import ChooseDishChanges from "../ChooseDishChanges/ChooseDishChanges";
@@ -21,6 +21,10 @@ interface DishModalProps {
 
 const DishModal: FC<DishModalProps> = ({ dish }) => {
   const [quantity, setQuantity] = useState<number>(1);
+  const [dishChanges, setDishChanges] = useState<DishChangeStateInterface[]>([
+    { name: "Without peanuts", isChecked: false },
+    { name: "Less spicy", isChecked: false },
+  ]);
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -85,13 +89,13 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
               </div>
               <div className={styles.orderAddonsContainer}>
                 <ChooseSideDishes />
-                <ChooseDishChanges />
+                <ChooseDishChanges dishChanges={dishChanges} setDishChanges={setDishChanges} />
                 <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
               </div>
               <button
                 className={styles.addToBagBtn}
                 onClick={() => {
-                  updateCart(dish, quantity);
+                  updateCart({ dish, options: dishChanges }, quantity);
                   closeDishModal();
                 }}
               >

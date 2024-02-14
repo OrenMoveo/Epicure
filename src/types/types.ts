@@ -37,5 +37,15 @@ export interface Dish {
 
 export interface Order {
   restaurantName: string;
-  dishes: Dish[];
+  dishes: DishWithOptions[];
+}
+
+export interface DishWithOptions {
+  dish: Dish;
+  options: DishChangeStateInterface[];
+}
+
+export interface DishChangeStateInterface {
+  name: string;
+  isChecked: boolean;
 }

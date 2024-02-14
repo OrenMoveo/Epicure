@@ -1,11 +1,11 @@
 import React, { createContext, useState, useContext } from "react";
-import { Order, Dish } from "../types/types";
+import { Order, Dish, DishWithOptions } from "../types/types";
 
 interface CartContextType {
   cartSum: number;
   updateCartSum: (dishPrice: number) => void;
   order: Order;
-  updateCart: (dish: Dish, quantity: number) => void;
+  updateCart: (dish: DishWithOptions, quantity: number) => void;
   isEmptyCart: boolean;
   dishQuantities: Record<string, number>;
   getTotalQuantity: () => number;
@@ -15,7 +15,7 @@ const CartContext = createContext<CartContextType>({
   cartSum: 0,
   updateCartSum: (dishPrice: number) => {},
   order: { restaurantName: "", dishes: [] },
-  updateCart: (dish: Dish, quantity: number) => {},
+  updateCart: (dish: DishWithOptions, quantity: number) => {},
   isEmptyCart: true,
   dishQuantities: {},
   getTotalQuantity: () => 0,
@@ -35,21 +35,21 @@ export const CartProvider: React.FC<{ children: React.ReactElement }> = ({ child
     setCartSum((prevSum) => prevSum + dishPrice);
   };
 
-  const updateCart = (dish: Dish, quantity: number) => {
-    const dishId = dish.keyId;
+  const updateCart = (extendedDish: DishWithOptions, quantity: number) => {
+    const dishId = extendedDish.dish.keyId;
 
     const newQuantity = (dishQuantities[dishId] || 0) + quantity;
     setDishQuantities({ ...dishQuantities, [dishId]: newQuantity });
 
-    if (!order.dishes.some((d) => d.keyId === dishId)) {
-      if (order.restaurantName === dish.restaurant || order.restaurantName === "") {
+    if (!order.dishes.some((d) => d.dish.keyId === dishId)) {
+      if (order.restaurantName === extendedDish.dish.restaurant || order.restaurantName === "") {
         setOrder((prevOrder) => ({
-          restaurantName: dish.restaurant,
-          dishes: [...prevOrder.dishes, dish],
+          restaurantName: extendedDish.dish.restaurant,
+          dishes: [...prevOrder.dishes, extendedDish],
         }));
       } else {
         setDishQuantities({ [dishId]: quantity });
-        setOrder({ restaurantName: dish.restaurant, dishes: [dish] });
+        setOrder({ restaurantName: extendedDish.dish.restaurant, dishes: [extendedDish] });
       }
     }
   };

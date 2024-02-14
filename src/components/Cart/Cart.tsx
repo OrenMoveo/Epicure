@@ -7,6 +7,7 @@ import DishCard from "../DishCard/DishCard";
 import largeBagIcon from "../../assets/images/largeBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
 import { mobileStyles } from "./DishCardCartStyling";
+import CartDishCard from "../CartDishCard/CartDishCard";
 interface CartProps {
   shouldDisplayRightSideLine?: boolean;
   shouldDisplayLeftSideLine?: boolean;
@@ -33,16 +34,8 @@ const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSide
               <div className={styles.cartTitle}>{isMobileOrTablet ? "MY ORDER" : "YOUR ORDER"}</div>
               <div className={styles.restaurantName}>{order.restaurantName}</div>
               <div className={styles.orderDishes}>
-                {order.dishes.map((dish) => (
-                  <DishCard
-                    dish={dish}
-                    key={dish.keyId}
-                    cardContainerStyling={mobileStyles.cardContainerStyling}
-                    dishImageSize={mobileStyles.dishImageSize}
-                    dishContentLayoutStyling={mobileStyles.dishContentLayout}
-                    dishContentContainerStyling={mobileStyles.dishContentContainer}
-                    quantity={dishQuantities[dish.keyId] || 1}
-                  />
+                {order.dishes.map((dishWithOptions) => (
+                  <CartDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
                 ))}
               </div>
               <div className={styles.sumPaymentContainer}>
