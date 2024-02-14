@@ -12,6 +12,8 @@
   padding-bottom: 24px;
   @include smallDesktopScreen {
     width: 497px;
+    justify-content: center;
+    padding: 0;
     position: absolute;
     right: 0;
     top: 100%;
@@ -41,6 +43,11 @@
         gap: 20px;
         padding-top: 61px;
         padding-bottom: 45px;
+        @include smallDesktopScreen {
+          padding-top: 241px;
+          padding-bottom: 44px;
+          gap: 16px;
+        }
 
         .emptyShoppingBagText {
           width: 145px;
@@ -48,6 +55,9 @@
           line-height: 20px;
           letter-spacing: 1.9700000286102295px;
           text-align: center;
+          @include smallDesktopScreen {
+            padding-bottom: 132px;
+          }
         }
       }
 
@@ -60,6 +70,8 @@
         gap: 20px;
         @include smallDesktopScreen {
           gap: 10px;
+          padding-top: 27px;
+          padding-bottom: 37px;
         }
 
         .orderContainer {

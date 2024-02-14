@@ -17,7 +17,7 @@
     max-width: $app-max-width;
     gap: 32px;
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 48px;
 
     @include smallDesktopScreen {
       display: flex;

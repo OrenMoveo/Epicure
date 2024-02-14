@@ -10,6 +10,7 @@
   height: 46px;
   position: relative;
   @include smallDesktopScreen {
+    border-bottom: 0.2px solid rgba(151, 151, 151, 1);
     height: 64px;
   }
 

@@ -9,8 +9,8 @@
   width: 100%;
   height: 202px;
   border-top: 1px solid rgba(242, 242, 242, 1);
-
   @include smallDesktopScreen {
+    border-top: 0.2px solid rgba(151, 151, 151, 1);
     height: 86px;
     flex-direction: row;
     align-items: center;

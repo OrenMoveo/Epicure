@@ -9,9 +9,8 @@
   width: 100%;
   padding-top: 14px;
   padding-bottom: 53px;
-  border-bottom: 0.5px solid rgba(151, 151, 151, 1);
+  border-bottom: 0.2px solid rgba(151, 151, 151, 1);
   @include smallDesktopScreen {
-    border-top: 0.5px solid rgba(151, 151, 151, 1);
     padding-top: 48px;
     padding-bottom: 137px;
   }

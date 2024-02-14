@@ -9,7 +9,7 @@
   width: 100%;
 
   .heroContainer {
-    width: 100%;
+    width: 101%;
     height: 272px;
     @include smallDesktopScreen {
       width: $desktop-view-width;
