@@ -41,6 +41,7 @@ const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSide
                 </div>
               </div>
               <div className={styles.sumPaymentContainer}>
+                {!isMobileOrTablet && <div className={styles.line}></div>}
                 {isMobileOrTablet ? "TOTAL - " : ""}
                 <div className={styles.sumPaymentText}>
                   <div className={styles.currencyIconContainer}>
@@ -48,17 +49,18 @@ const Cart: FC<CartProps> = ({ shouldDisplayLeftSideLine, shouldDisplayRightSide
                   </div>
                   {cartSum}
                 </div>
+                {!isMobileOrTablet && <div className={styles.line}></div>}
               </div>
               {isMobileOrTablet ? (
                 ""
               ) : (
-                <div className={styles.checkoutContainer}>
+                <div className={styles.addACommentContainer}>
                   Add A Comment
                   <textarea className={styles.textArea} placeholder="Special requests, allergies, detary restrictions, etc." />
                 </div>
               )}
               <button className={styles.checkoutBtn}>CHECKOUT</button>
-              {isMobileOrTablet ? "" : <button className={styles.orderHistory}>ORDER HISTORY</button>}
+              {!isMobileOrTablet && <button className={styles.orderHistoryBtn}>ORDER HISTORY</button>}
             </div>
           )}
         </div>

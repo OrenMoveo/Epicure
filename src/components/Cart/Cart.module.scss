@@ -10,6 +10,12 @@
   width: 100%;
   padding-top: 16px;
   padding-bottom: 24px;
+  @include smallDesktopScreen {
+    width: 497px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
 
   .cartContent {
     display: flex;
@@ -50,6 +56,9 @@
         align-items: center;
         width: 100%;
         gap: 20px;
+        @include smallDesktopScreen {
+          gap: 10px;
+        }
 
         .orderContainer {
           display: flex;
@@ -57,6 +66,9 @@
           justify-content: flex-start;
           align-items: center;
           padding-bottom: 63px;
+          @include smallDesktopScreen {
+            padding-bottom: 14px;
+          }
 
           .cartTitle {
             display: flex;
@@ -69,6 +81,12 @@
             line-height: 24px;
             letter-spacing: 2.6700000762939453px;
             text-align: center;
+            @include smallDesktopScreen {
+              padding-bottom: 8px;
+              font-size: 32px;
+              line-height: 35px;
+              letter-spacing: 1.25px;
+            }
           }
 
           .restaurantName {
@@ -91,6 +109,7 @@
             height: 299px;
             overflow-y: auto;
             direction: rtl;
+            padding-left: 7px;
           }
         }
       }
@@ -100,13 +119,19 @@
         flex-flow: row;
         justify-content: center;
         align-items: center;
-        font-family: Helvetica Neue;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 2.6700000762939453px;
-        text-align: center;
         gap: 10px;
+        @include smallDesktopScreen {
+          order: 1;
+          gap: 12px;
+          padding-bottom: 11px;
+
+          .line {
+            width: 76px;
+            height: 0.5px;
+            background-color: rgba(151, 151, 151, 1);
+            align-self: center;
+          }
+        }
 
         .sumPaymentText {
           display: flex;
@@ -114,6 +139,18 @@
           justify-content: center;
           align-items: center;
           gap: 2px;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 2.6700000762939453px;
+          text-align: center;
+          @include smallDesktopScreen {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 1.0299999713897705px;
+            text-align: center;
+          }
 
           .currencyIconContainer {
             align-self: flex-end;
@@ -125,6 +162,71 @@
             }
           }
         }
+      }
+
+      .addACommentContainer {
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          order: 2;
+          gap: 20px;
+          padding-bottom: 10px;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+
+          .textArea {
+            padding: 8px 10px;
+            width: 358px;
+            height: 122px;
+            border: 0.6px solid rgba(151, 151, 151, 1);
+            border-radius: 3.43px;
+            font-size: 12px;
+            font-weight: 200;
+            line-height: 15px;
+            letter-spacing: 1.2899999618530273px;
+            text-align: left;
+          }
+        }
+      }
+
+      .checkoutBtn {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        order: 3;
+        width: 206px;
+        height: 48px;
+        color: white;
+        background-color: black;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+      }
+
+      .orderHistoryBtn {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        order: 4;
+        width: 206px;
+        height: 48px;
+        color: black;
+        border: 1px solid black;
+        background-color: white;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
       }
     }
   }
