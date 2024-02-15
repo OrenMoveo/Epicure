@@ -6,51 +6,9 @@ import { useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
+import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStyling, desktopDishTitleStyling, desktopStyling, mobileStyling } from "./DishCardStyling";
 
 const RestaurantDisplayPage = () => {
-  const pagePriceTextContainerGap = 2;
-  const mobileDishCardWidth = 335;
-  const mobileDishImageHeight = 211.9;
-  const mobileDishContentContainerHeight = 168;
-  const mobileLineWidth = 256;
-  const mobilePriceContainerGap = 12;
-  const desktopDishCardWidth = 272;
-  const desktopDishImageHeight = 173.23;
-  const desktopDishContentContainerHeight = 241;
-  const desktopLineWidth = 82.5;
-  const desktopPriceContainerGap = 12;
-  const desktopDishContentContainerGap = 8;
-  const desktopDishTitleStyling: React.CSSProperties = {
-    width: "auto",
-    fontSize: "24px",
-    fontWeight: "400",
-    lineHeight: "26px",
-    letterSpacing: "2.6700000762939453px",
-    textAlign: "center",
-  };
-
-  const desktopDishDescriptionStyling: React.CSSProperties = {
-    width: "auto",
-    fontSize: "20px",
-    fontWeight: "200",
-    lineHeight: "24px",
-    letterSpacing: "1.9700000286102295px",
-    textAlign: "center",
-    padding: "0px 25px",
-  };
-  const desktopDishPriceStyling: React.CSSProperties = {
-    width: "auto",
-    fontSize: "20px",
-    fontWeight: "400",
-    lineHeight: "30px",
-    letterSpacing: "1.9700000286102295px",
-    textAlign: "center",
-  };
-
-  const CurrencyIconSize: React.CSSProperties = {
-    width: "9px",
-    height: "19px",
-  };
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
 
@@ -110,43 +68,26 @@ const RestaurantDisplayPage = () => {
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardContainerStyling={{ width: mobileDishCardWidth }}
-                    dishImageSize={{
-                      width: mobileDishCardWidth,
-                      height: mobileDishImageHeight,
-                    }}
-                    dishContentLayoutStyling={{
-                      height: mobileDishContentContainerHeight,
-                    }}
+                    cardContainerStyling={mobileStyling.dishCardWidth}
+                    dishImageSize={mobileStyling.dishImage}
+                    dishContentLayoutStyling={mobileStyling.dishContentLayout}
                     shouldDisplayRightSideLine={true}
-                    lineStyling={{ width: mobileLineWidth }}
-                    dishPriceContainerStyling={{
-                      gap: mobilePriceContainerGap,
-                    }}
-                    priceTextContainerStyling={{
-                      gap: pagePriceTextContainerGap,
-                    }}
+                    lineStyling={mobileStyling.lineWidth}
+                    dishPriceContainerStyling={mobileStyling.priceContainerGap}
+                    dishPriceTextStyling={mobileStyling.priceTextContainerStyling}
+                    currencyIconSize={mobileStyling.currencyIconSize}
                   />
                 ) : (
                   <DishCard
                     key={dish.keyId}
                     dish={dish}
-                    cardContainerStyling={{ width: desktopDishCardWidth }}
-                    dishImageSize={{
-                      width: desktopDishCardWidth,
-                      height: desktopDishImageHeight,
-                    }}
-                    dishContentLayoutStyling={{
-                      width: desktopDishCardWidth,
-                      height: desktopDishContentContainerHeight,
-                      gap: desktopDishContentContainerGap,
-                    }}
+                    cardContainerStyling={desktopStyling.dishCardWidth}
+                    dishImageSize={desktopStyling.dishImage}
+                    dishContentLayoutStyling={desktopStyling.dishContentLayout}
                     shouldDisplayRightSideLine={true}
                     shouldDisplayLeftSideLine={true}
-                    lineStyling={{ width: desktopLineWidth }}
-                    dishPriceContainerStyling={{
-                      gap: desktopPriceContainerGap,
-                    }}
+                    lineStyling={desktopStyling.lineWidth}
+                    dishPriceContainerStyling={desktopStyling.priceContainerGap}
                     dishTitleStyling={desktopDishTitleStyling}
                     dishDescriptionStyling={desktopDishDescriptionStyling}
                     dishPriceTextStyling={desktopDishPriceStyling}
