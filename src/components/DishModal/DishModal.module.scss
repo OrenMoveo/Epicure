@@ -16,12 +16,16 @@
   @include smallDesktopScreen {
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: fixed;
     top: unset;
     left: unset;
     background: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+  }
+  @include mediumDesktopScreen {
+    justify-content: flex-start;
   }
 
   .DishModalLayout {

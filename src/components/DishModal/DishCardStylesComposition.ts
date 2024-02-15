@@ -34,7 +34,6 @@ export const desktopStyles = {
     width: "unset",
     fontSize: "32px",
     fontWeight: "400",
-    lineHeight: "26px",
     letterSpacing: "2.6700000762939453px",
     order: "-2",
   },
