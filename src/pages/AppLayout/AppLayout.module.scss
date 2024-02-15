@@ -1,0 +1,28 @@
+@import "../../styles/mediaQueries.scss";
+
+.rootContainer {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template: 46px 1fr 202px / 100%;
+  grid-template-areas:
+    "header"
+    "outlet"
+    "footer";
+  @include smallDesktopScreen {
+    grid-template: 64px 1fr 86px / 100%;
+    grid-template-areas:
+      "header"
+      "outlet"
+      "footer";
+  }
+
+  .outlet {
+    grid-area: outlet;
+    align-self: flex-start;
+  }
+}
+
+.modalActive {
+  display: none;
+}

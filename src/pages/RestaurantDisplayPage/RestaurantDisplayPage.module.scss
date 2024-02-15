@@ -31,7 +31,7 @@
     width: 100%;
     padding-top: 24px;
     padding-bottom: 56.47px;
-    max-width: $app-max-width;
+    max-width: 1232px;
     @include smallDesktopScreen {
       width: 100%;
       padding-top: 32px;
@@ -44,9 +44,6 @@
       justify-content: center;
       align-items: center;
       width: $mobile-view-width;
-      @include smallDesktopScreen {
-        width: $desktop-view-width;
-      }
 
       .restaurantPageContentContainer {
         display: flex;
