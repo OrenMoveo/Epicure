@@ -9,7 +9,7 @@
   width: 100%;
 
   .heroContainer {
-    width: 101%;
+    width: 100%;
     height: 272px;
     @include smallDesktopScreen {
       width: $desktop-view-width;
@@ -31,9 +31,9 @@
     width: 100%;
     padding-top: 24px;
     padding-bottom: 56.47px;
-    max-width: 1232px;
     @include smallDesktopScreen {
-      width: 100%;
+      max-width: 1186px;
+      width: $desktop-view-width;
       padding-top: 32px;
       padding-bottom: 48px;
     }
@@ -44,6 +44,9 @@
       justify-content: center;
       align-items: center;
       width: $mobile-view-width;
+      @include smallDesktopScreen {
+        width: 100%;
+      }
 
       .restaurantPageContentContainer {
         display: flex;
