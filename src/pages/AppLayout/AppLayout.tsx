@@ -7,7 +7,7 @@ import DishModal from "../../components/DishModal/DishModal";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 
-const Root = () => {
+const AppLayout = () => {
   const { isDishModalActive: isModalActive, dish } = useModalContext();
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -24,4 +24,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default AppLayout;

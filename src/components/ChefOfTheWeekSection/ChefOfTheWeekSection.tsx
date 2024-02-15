@@ -13,6 +13,7 @@ import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaur
 export const ChefOfTheWeekSection = () => {
   const isTablet: boolean = useIsTablet();
   const isMobile = useIsMobile();
+  const isMobileOrTablet = isMobile || isTablet;
 
   const chefs: Chef[] = data.data.chefs;
   const chefOfTheWeek = chefs.find((chef) => chef.name === "Yossi Shitrit");
@@ -34,29 +35,19 @@ export const ChefOfTheWeekSection = () => {
               <p className={styles.chefOfTheWeekName}> {chefOfTheWeek?.name}</p>
             </div>
           </div>
-          <p className={styles.chefOfTheWeekAboutParagraph}>
-            {chefOfTheWeek?.description}
-          </p>
+          <p className={styles.chefOfTheWeekAboutParagraph}>{chefOfTheWeek?.description}</p>
         </div>
       </div>
       <div className={styles.chefOfTheWeekRestaurantContainer}>
         <div className={styles.chefOfTheWeekRestaurantsTitle}>
-          <SectionTitle title={"YOSSI'S RESTAURANTS"} />
+          <SectionTitle title={isMobileOrTablet ? "YOSSI'S RESTAURANTS" : "Yossi's Restaurants"} />
         </div>
-        {isMobile || isTablet ? (
+        {isMobileOrTablet ? (
           <div className={styles.carouselContainer}>
-            <Swiper
-              className={styles["swiper"]}
-              spaceBetween={24}
-              slidesPerView={"auto"}
-              initialSlide={0}
-            >
+            <Swiper className={styles["swiper"]} spaceBetween={24} slidesPerView={"auto"} initialSlide={0}>
               {chefOfTheWeek &&
                 chefOfTheWeek.restaurants.map((restaurant) => (
-                  <SwiperSlide
-                    key={restaurant.keyId}
-                    className={styles["swiper-slide"]}
-                  >
+                  <SwiperSlide key={restaurant.keyId} className={styles["swiper-slide"]}>
                     <ChefsRestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
@@ -64,20 +55,10 @@ export const ChefOfTheWeekSection = () => {
           </div>
         ) : (
           <div className={styles.desktopChefOfTheWeekRestaurantsContainer}>
-            {chefOfTheWeek &&
-              chefOfTheWeek.restaurants
-                .slice(0, 3)
-                .map((restaurant) => (
-                  <ChefsRestaurantCard
-                    key={restaurant.keyId}
-                    restaurant={restaurant}
-                  />
-                ))}
+            {chefOfTheWeek && chefOfTheWeek.restaurants.slice(0, 3).map((restaurant) => <ChefsRestaurantCard key={restaurant.keyId} restaurant={restaurant} />)}
           </div>
         )}
-        {(isMobile || isTablet) && (
-        <GoToAllRestaurantsButton />
-        )}
+        {isMobileOrTablet && <GoToAllRestaurantsButton />}
       </div>
     </section>
   );
