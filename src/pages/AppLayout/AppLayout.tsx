@@ -12,8 +12,9 @@ const AppLayout = () => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
+
   return (
-    <div className={isModalActive && isMobileOrTablet ? styles.modalActive : styles.rootContainer}>
+    <div className={isModalActive && isMobileOrTablet ? styles.modalActive : styles.AppLayoutContainer}>
       <Navbar />
       <div className={styles.outlet}>
         <Outlet />

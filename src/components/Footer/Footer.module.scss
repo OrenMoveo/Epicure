@@ -9,6 +9,8 @@
   width: 100%;
   height: 202px;
   border-top: 1px solid rgba(242, 242, 242, 1);
+  padding-top: 35px;
+  padding-bottom: 24px;
   @include smallDesktopScreen {
     border-top: 0.2px solid rgba(151, 151, 151, 1);
     height: 86px;
@@ -34,15 +36,19 @@
       align-items: flex-start;
       width: 100%;
       gap: 40px;
-      font-size: 18px;
-      line-height: 22px;
-      letter-spacing: 1.9199999570846558px;
       @include smallDesktopScreen {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding: 31px 0;
+      }
+
+      .footerBtn {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 1.9199999570846558px;
       }
     }
   }
