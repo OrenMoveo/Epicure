@@ -1,8 +1,8 @@
 import styles from "./AboutSection.module.scss";
-import googlePlayIcon from "../../assets/images/googlePlayIcon.svg";
-import appleIcon from "../../assets/images/appleIcon.svg";
-import aboutSectionLogo from "../../assets/images/aboutSectionLogo.svg";
-import { SectionTitle } from "../SectionTitle/SectionTitle";
+import googlePlayIcon from "../../../assets/images/googlePlayIcon.svg";
+import appleIcon from "../../../assets/images/appleIcon.svg";
+import aboutSectionLogo from "../../../assets/images/aboutSectionLogo.svg";
+import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { FC } from "react";
 import AppStoreButton from "./AppStoreButton/AppStoreButton";
 

@@ -1,12 +1,12 @@
-import { Dish } from "../../types/types";
-import { SectionTitle } from "../SectionTitle/SectionTitle";
+import { Dish } from "../../../types/types";
+import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import styles from "./SignatureDishes.module.scss";
-import data from "../../data/data.json";
+import data from "../../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-import DishCard from "../DishCard/DishCard";
-import useIsMobile from "../../hooks/useIsMobile";
-import useIsTablet from "../../hooks/useIsTablet";
-import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
+import DishCard from "../../../components/DishCard/DishCard";
+import useIsMobile from "../../../hooks/useIsMobile";
+import useIsTablet from "../../../hooks/useIsTablet";
+import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 const SignatureDishes = () => {
   const mobileDishImageWidth = 245;
@@ -27,18 +27,10 @@ const SignatureDishes = () => {
       <div className={styles.signatureDishesContainer}>
         {isMobile || isTablet ? (
           <div className={styles.carouselContainer}>
-            <Swiper
-              className={styles["swiper"]}
-              spaceBetween={24}
-              slidesPerView={"auto"}
-              initialSlide={0}
-            >
+            <Swiper className={styles["swiper"]} spaceBetween={24} slidesPerView={"auto"} initialSlide={0}>
               {signatureDishes &&
                 signatureDishes.map((dish) => (
-                  <SwiperSlide
-                    key={dish.keyId}
-                    className={styles["swiper-slide"]}
-                  >
+                  <SwiperSlide key={dish.keyId} className={styles["swiper-slide"]}>
                     <DishCard
                       dish={dish}
                       dishImageSize={{

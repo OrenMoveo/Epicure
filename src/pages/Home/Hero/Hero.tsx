@@ -1,5 +1,5 @@
 import styles from "./Hero.module.scss";
-import Search from "../Search/Search";
+import Search from "../../../components/Search/Search";
 
 const Hero = () => {
   return (

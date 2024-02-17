@@ -1,11 +1,11 @@
-@import "../../styles/mediaQueries.scss";
+@import "../../../styles/mediaQueries.scss";
 
 .heroContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url("../../assets/images/heroPicture.png");
+  background: url("../../../assets/images/heroPicture.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -83,7 +83,7 @@
           }
         }
       }
-      
+
       .search-input {
         display: flex;
         align-self: center;
