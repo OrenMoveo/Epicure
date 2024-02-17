@@ -6,6 +6,7 @@ import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import largeShoppingBagIcon from "../../assets/images/largeShoppingBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
 import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
+import AppButton from "../AppButton/AppButton";
 
 const ShoppingBag: FC = () => {
   const { shoppingBagSum, order, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
@@ -54,8 +55,8 @@ const ShoppingBag: FC = () => {
                   <textarea className={styles.textArea} placeholder="Special requests, allergies, detary restrictions, etc." />
                 </div>
               )}
-              <button className={styles.checkoutBtn}>CHECKOUT</button>
-              {!isMobileOrTablet && <button className={styles.orderHistoryBtn}>ORDER HISTORY</button>}
+              <AppButton handleClick={() => {}} buttonContent="CHECKOUT" isBlack={true} order={3} />
+              {!isMobileOrTablet && <AppButton handleClick={() => {}} buttonContent="ORDER HISTORY" order={4} />}
             </div>
           )}
         </div>

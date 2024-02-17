@@ -14,6 +14,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import Footer from "../Footer/Footer";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
+import AppButton from "../AppButton/AppButton";
 
 interface DishModalProps {
   dish: Dish;
@@ -31,6 +32,11 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isMobileOrTablet = isMobile || isTablet;
 
   const { closeDishModal } = useModalContext();
+
+  const handleClickModal = () => {
+    updateShoppingBag({ dish, options: dishChanges }, quantity);
+    closeDishModal();
+  };
 
   const closeModalDesktop = () => {
     if (isMobileOrTablet) {
@@ -92,15 +98,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                 <ChooseDishChanges dishChanges={dishChanges} setDishChanges={setDishChanges} />
                 <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
               </div>
-              <button
-                className={styles.addToBagBtn}
-                onClick={() => {
-                  updateShoppingBag({ dish, options: dishChanges }, quantity);
-                  closeDishModal();
-                }}
-              >
-                ADD TO BAG
-              </button>
+              <AppButton handleClick={handleClickModal} isBlack={true} buttonContent="ADD TO BAG" />
             </div>
           </div>
         </section>
