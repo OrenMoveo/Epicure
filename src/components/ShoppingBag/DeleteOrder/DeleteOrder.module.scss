@@ -1,0 +1,51 @@
+.deleteOrderLayout {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 84px);
+
+  .deleteOrderContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    img {
+      width: 40.04px;
+      height: 63.91px;
+    }
+
+    .deleteOrderContent {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 32px;
+
+      .deleteOrderTitle {
+        font-size: 24px;
+        line-height: 26px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+      }
+
+      .deleteOrderMessage {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 1.9700000286102295px;
+        text-align: center;
+      }
+    }
+
+    .buttonsContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

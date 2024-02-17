@@ -7,7 +7,7 @@
   height: 100vw;
   position: fixed;
   background: rgba(0, 0, 0, 0.7);
-
+  z-index: 101;
   .genericModalLayout {
     display: flex;
     flex-flow: column;

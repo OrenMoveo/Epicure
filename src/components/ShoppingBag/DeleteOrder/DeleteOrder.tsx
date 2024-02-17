@@ -1,4 +1,6 @@
+import AppButton from "../../AppButton/AppButton";
 import styles from "./DeleteOrder.module.scss";
+import questionMark from "../../../assets/images/questionMark.svg";
 
 const DeleteOrder = () => {
   return (
@@ -12,7 +14,8 @@ const DeleteOrder = () => {
           </div>
         </div>
         <div className={styles.buttonsContainer}>
-          <button className={styles.}></button>
+          <AppButton handleClick={() => {}} buttonContent="DELETE" isBlack={true} />
+          <AppButton handleClick={() => {}} buttonContent="BACK TO ORDER" />
         </div>
       </div>
     </div>
