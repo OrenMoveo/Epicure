@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { DishWithOptions } from "../../types/types";
+import { DishWithOptions } from "../../../types/types";
 import styles from "./ShoppingBagDishCard.module.scss";
-import useIsMobile from "../../hooks/useIsMobile";
-import useIsTablet from "../../hooks/useIsTablet";
-import ILSIcon from "../../assets/images/ILSIcon.svg";
-import goldILSIcon from "../../assets/images/goldILSIcon.svg";
+import useIsMobile from "../../../hooks/useIsMobile";
+import useIsTablet from "../../../hooks/useIsTablet";
+import ILSIcon from "../../../assets/images/ILSIcon.svg";
+import goldILSIcon from "../../../assets/images/goldILSIcon.svg";
 
 interface ShoppingBagDishCardProps {
   dishWithOptions: DishWithOptions;

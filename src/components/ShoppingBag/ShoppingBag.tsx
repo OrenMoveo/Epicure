@@ -5,7 +5,7 @@ import styles from "./ShoppingBag.module.scss";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import largeShoppingBagIcon from "../../assets/images/largeShoppingBagIcon.svg";
 import currencyILSIcon from "../../assets/images/ILSIcon.svg";
-import ShoppingBagDishCard from "../ShoppingBagDishCard/ShoppingBagDishCard";
+import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
 
 const ShoppingBag: FC = () => {
   const { shoppingBagSum, order, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
