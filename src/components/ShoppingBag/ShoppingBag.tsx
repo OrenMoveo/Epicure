@@ -8,7 +8,7 @@ import currencyILSIcon from "../../assets/images/ILSIcon.svg";
 import ShoppingBagDishCard from "../ShoppingBagDishCard/ShoppingBagDishCard";
 
 const ShoppingBag: FC = () => {
-  const { updateShoppingBagSum, shoppingBagSum, order, updateShoppingBag, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
+  const { shoppingBagSum, order, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();

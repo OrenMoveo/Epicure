@@ -3,7 +3,6 @@ import { Order, Dish, DishWithOptions } from "../types/types";
 
 interface ShoppingBagContextType {
   shoppingBagSum: number;
-  updateShoppingBagSum: (dishPrice: number) => void;
   order: Order;
   updateShoppingBag: (dish: DishWithOptions, quantity: number) => void;
   isEmptyShoppingBag: boolean;
@@ -15,7 +14,6 @@ const ShoppingBagContext = createContext<ShoppingBagContextType>({
   shoppingBagSum: 0,
   updateShoppingBagSum: (dishPrice: number) => {},
   order: { restaurantName: "", dishes: [] },
-  updateShoppingBag: (dish: DishWithOptions, quantity: number) => {},
   isEmptyShoppingBag: true,
   dishQuantities: {},
   getTotalQuantity: () => 0,
@@ -52,12 +50,14 @@ export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = (
         setOrder({ restaurantName: extendedDish.dish.restaurant, dishes: [extendedDish] });
       }
     }
+    const dishPrice = extendedDish.dish.price * quantity;
+    updateShoppingBagSum(dishPrice);
   };
 
   const getTotalQuantity = () => {
     return Object.values(dishQuantities).reduce((total, quantity) => total + quantity, 0);
   };
-  const value = { updateShoppingBagSum, shoppingBagSum, updateShoppingBag, order, isEmptyShoppingBag, dishQuantities, getTotalQuantity };
+  const value = { shoppingBagSum, updateShoppingBag, order, isEmptyShoppingBag, dishQuantities, getTotalQuantity };
 
   return <ShoppingBagContext.Provider value={value}>{children}</ShoppingBagContext.Provider>;
 };
