@@ -11,7 +11,6 @@ import useFetchRestaurant from "../../hooks/useFetchRestaurant";
 const RestaurantDisplayPage = () => {
   const { keyId } = useParams();
   const restaurant = useFetchRestaurant(keyId);
-  console.log(`'restaurant' value is: ,${JSON.stringify(restaurant)}`);
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -31,6 +30,7 @@ const RestaurantDisplayPage = () => {
   if (!restaurant) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className={styles.RestaurantDisplayPageLayout}>
       <div className={styles.heroContainer}>

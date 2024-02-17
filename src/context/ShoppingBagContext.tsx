@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
-import { Order, Dish, DishWithOptions } from "../types/types";
+import { Order, DishWithOptions } from "../types/types";
 
 interface ShoppingBagContextType {
   shoppingBagSum: number;
@@ -12,8 +12,8 @@ interface ShoppingBagContextType {
 
 const ShoppingBagContext = createContext<ShoppingBagContextType>({
   shoppingBagSum: 0,
-  updateShoppingBagSum: (dishPrice: number) => {},
   order: { restaurantName: "", dishes: [] },
+  updateShoppingBag: (dish: DishWithOptions, quantity: number) => {},
   isEmptyShoppingBag: true,
   dishQuantities: {},
   getTotalQuantity: () => 0,
