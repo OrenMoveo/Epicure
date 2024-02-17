@@ -23,7 +23,7 @@ const ShoppingBag: FC = () => {
             <div className={styles.emptyShoppingBag}>
               <img src={largeShoppingBagIcon} alt="empty-shoppingBag" />
               <div className={styles.emptyShoppingBagText}>YOUR BAG IS EMPTY</div>
-              {!isMobileOrTablet && <button className={styles.orderHistoryBtn}>ORDER HISTORY</button>}
+              {!isMobileOrTablet && <AppButton handleClick={() => {}} buttonContent="ORDER HISTORY" order={4} />}
             </div>
           ) : (
             <div className={styles.nonEmptyShoppingBag}>
