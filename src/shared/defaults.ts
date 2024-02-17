@@ -2,7 +2,7 @@ import { Dish, Order, Restaurant } from "../types/types";
 export const defaultRestaurant: Restaurant = {
   name: "Claro",
   chef: "Ran Shmueli",
-  pictureUrl: "../assets/images/restaurants/claro.png",
+  pictureUrl: "/src/assets/images/restaurants/claro.png",
   openNow: false,
   location: "",
   rating: 1,

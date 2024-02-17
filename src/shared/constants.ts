@@ -4,7 +4,7 @@ export const appRoutes = {
   base: "/",
   restaurants: "/restaurants",
   chefs: "/chefs",
-  getRestaurantRoute: (id: string) => `/restaurants/${id}`,
+  getRestaurantRoute: (keyId: string) => `/restaurants/${keyId}`,
 };
 
 export const UIConstants = {

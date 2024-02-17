@@ -25,14 +25,8 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
   ratingsMap.set(5, fiveStarRating);
 
   return (
-    <Link
-      to={appRoutes.getRestaurantRoute(props.restaurant.keyId)}
-      state={{ restaurant: props.restaurant }}
-    >
-      <button
-        className={styles.restaurantCardContainer}
-        style={props.cardWidth}
-      >
+    <Link to={appRoutes.getRestaurantRoute(props.restaurant.keyId)}>
+      <button className={styles.restaurantCardContainer} style={props.cardWidth}>
         <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
         <div className={styles.restaurantCardContentLayout}>
           <div className={styles.restaurantCardContentContainer}>
@@ -40,11 +34,7 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
             <p className={styles.restaurantChefName}>{props.restaurant.chef}</p>
             {!isTablet && (
               <div className={styles.restaurantRatingContainer}>
-                <img
-                  src={ratingsMap.get(props.restaurant.rating)}
-                  alt="rating"
-                  className="rating-img"
-                />
+                <img src={ratingsMap.get(props.restaurant.rating)} alt="rating" className="rating-img" />
               </div>
             )}
           </div>

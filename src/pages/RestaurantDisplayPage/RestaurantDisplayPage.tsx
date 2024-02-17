@@ -1,14 +1,18 @@
-import { Restaurant } from "../../types/types";
 import styles from "./RestaurantDisplayPage.module.scss";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import clockIcon from "../../assets/images/clockIcon.svg";
 import { useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStyling, desktopDishTitleStyling, desktopStyling, mobileStyling } from "./DishCardStyling";
+import useFetchRestaurant from "../../hooks/useFetchRestaurant";
 
 const RestaurantDisplayPage = () => {
+  const { keyId } = useParams();
+  const restaurant = useFetchRestaurant(keyId);
+  console.log(`'restaurant' value is: ,${JSON.stringify(restaurant)}`);
+
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
 
@@ -19,13 +23,14 @@ const RestaurantDisplayPage = () => {
   }
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
-  const location = useLocation();
-  const { restaurant } = location.state as { restaurant: Restaurant };
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
   };
 
+  if (!restaurant) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className={styles.RestaurantDisplayPageLayout}>
       <div className={styles.heroContainer}>
