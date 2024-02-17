@@ -1,4 +1,5 @@
 @import "/src/styles/constants.module.scss";
+
 @mixin tablet {
   @media screen and (min-width: $mobile-max-width) {
     @content;

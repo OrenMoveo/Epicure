@@ -1,0 +1,157 @@
+@import "../../../styles/mediaQueries.scss";
+
+.ShoppingBagDishCardLayout {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  direction: ltr;
+
+  .dishImageContainer {
+    width: 96px;
+    height: 96px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .cardContentLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 244px;
+    height: 96px;
+    background-color: rgba(249, 244, 234, 1);
+
+    .cardContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: calc(100% - 24px);
+      padding-left: 12px;
+      gap: 8px;
+      @include smallDesktopScreen {
+        gap: 0;
+      }
+
+      .cardTitle {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: baseline;
+        gap: 10px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+        @include smallDesktopScreen {
+          align-items: center;
+          height: 36px;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+          padding-bottom: 8px;
+          gap: 12px;
+        }
+
+        .quantityContainer {
+          font-size: 14px;
+          @include smallDesktopScreen {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            border: 0.57px solid rgba(151, 151, 151, 1);
+            border-radius: 3.43px;
+            width: 31px;
+            height: 31px;
+            color: rgba(222, 146, 0, 1);
+            font-family: Helvetica Neue;
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 0;
+            line-height: 0;
+          }
+        }
+
+        .dishName {
+          font-size: 18px;
+          @include smallDesktopScreen {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 6px;
+          }
+        }
+
+        .priceInTitleContainer {
+          @include smallDesktopScreen {
+            display: flex;
+            flex-flow: row;
+            justify-content: flex-start;
+            align-items: baseline;
+            color: rgba(222, 146, 0, 1);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.422777771949768px;
+            text-align: center;
+            gap: 2px;
+
+            line-height: 13px;
+          }
+        }
+      }
+
+      .optionsContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 1.2300000190734863px;
+
+        .optionsWrapper {
+          display: flex;
+          flex-flow: row;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .totalPriceContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-self: flex-end;
+        gap: 2px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 1.9700000286102295px;
+        text-align: center;
+
+        .currencyIconContainer {
+          display: flex;
+          flex-flow: column;
+
+          img {
+            width: 8px;
+            height: 11px;
+          }
+        }
+      }
+    }
+  }
+}

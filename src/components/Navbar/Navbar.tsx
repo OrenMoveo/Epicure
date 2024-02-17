@@ -3,17 +3,25 @@ import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
 import logoIcon from "../../assets/images/logo.svg";
 import searchIcon from "../../assets/images/SearchIcon.svg";
 import signInIcon from "../../assets/images/SignInIcon.svg";
-import bagIcon from "../../assets/images/BagIcon.svg";
+import smallShoppingBagIcon from "../../assets/images/smallShoppingBagIcon.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UIConstants, appRoutes } from "../../shared/constants";
 import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
+import GenericPopover from "../GenericPopover/GenericPopover";
+import ShoppingBag from "../ShoppingBag/ShoppingBag";
+import { useShoppingBagContext } from "../../context/ShoppingBagContext";
+import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
 
-function Navbar() {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isBagOpen, setIsBagOpen] = useState(false);
+
+  const { isEmptyShoppingBag } = useShoppingBagContext();
+
   const screenWidth = useGetScreenWidth();
 
   const toggleMenu = () => {
@@ -22,6 +30,10 @@ function Navbar() {
 
   const toggleSearch = () => {
     setIsSearchOpen((searchOpen) => !searchOpen);
+  };
+
+  const toggleShoppingBag = () => {
+    setIsBagOpen((bagOpen) => !bagOpen);
   };
 
   const navigate = useNavigate();
@@ -68,15 +80,35 @@ function Navbar() {
           <button className={styles.signInBtn}>
             <img src={signInIcon} alt="signIn-icon" />
           </button>
-          <button className={styles.bagBtn}>
-            <img src={bagIcon} alt="bag-icon" />
+          <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
+            <img src={smallShoppingBagIcon} alt="bag-icon" />
+            {!isEmptyShoppingBag && <DishCounterCircle />}
           </button>
         </div>
       </div>
-      {isMenuOpen ? <MenuPopover toggleMenu={toggleMenu} /> : ""}
-      {isSearchOpen ? <SearchPopover toggleSearch={toggleSearch} /> : ""}
+      {isMenuOpen ? (
+        <GenericPopover coverAllPage={true}>
+          <MenuPopover toggleMenu={toggleMenu} />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
+      {isSearchOpen ? (
+        <GenericPopover coverAllPage={true}>
+          <SearchPopover toggleSearch={toggleSearch} />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
+      {isBagOpen ? (
+        <GenericPopover>
+          <ShoppingBag />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
     </section>
   );
-}
+};
 
 export default Navbar;

@@ -1,0 +1,15 @@
+@import "../../styles/mediaQueries.scss";
+
+.AppLayoutContainer {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 100%;
+  .outlet {
+    flex-grow: 1;
+  }
+}
+
+.modalActive {
+  display: none;
+}

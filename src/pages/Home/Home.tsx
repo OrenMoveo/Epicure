@@ -1,10 +1,10 @@
 import styles from "./Home.module.scss";
-import Hero from "../../components/Hero/Hero";
-import AboutSection from "../../components/AboutSection/AboutSection";
+import Hero from "./Hero/Hero";
+import AboutSection from "./AboutSection/AboutSection";
 import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/ChefOfTheWeekSection";
-import Legend from "../../components/Legend/Legend";
-import PopularRestaurant from "../../components/PopularRestaurants/PopularRestaurant";
-import SignatureDishes from "../../components/SignatureDishes/SignatureDishes";
+import Legend from "./Legend/Legend";
+import PopularRestaurant from "./PopularRestaurants/PopularRestaurant";
+import SignatureDishes from "./SignatureDishes/SignatureDishes";
 function Home() {
   return (
     <div className={styles.homepageLayout}>

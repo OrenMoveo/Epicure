@@ -1,0 +1,12 @@
+.Layout {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  box-shadow: 2px 4px 10px 0px rgba(175, 175, 175, 0.25);
+  width: 100%;
+  z-index: 2;
+}

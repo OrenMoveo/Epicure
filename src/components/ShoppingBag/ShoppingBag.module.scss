@@ -1,0 +1,220 @@
+@import "../../styles/mediaQueries.scss";
+@import "../../styles/constants.module.scss";
+
+.shoppingBagLayout {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  @include smallDesktopScreen {
+    width: 497px;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    box-shadow: 2px 4px 10px 0px rgba(175, 175, 175, 0.25);
+    box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .shoppingBagContent {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: $mobile-view-width;
+
+    .shoppingBagContentContainer {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .emptyShoppingBag {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        padding-top: 61px;
+        padding-bottom: 45px;
+        @include smallDesktopScreen {
+          padding-top: 241px;
+          padding-bottom: 44px;
+          gap: 16px;
+        }
+
+        .emptyShoppingBagText {
+          width: 145px;
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+          @include smallDesktopScreen {
+            padding-bottom: 132px;
+          }
+        }
+      }
+
+      .nonEmptyShoppingBag {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        @include smallDesktopScreen {
+          gap: 10px;
+          padding-top: 27px;
+          padding-bottom: 37px;
+        }
+
+        .orderContainer {
+          display: flex;
+          flex-flow: column;
+          justify-content: flex-start;
+          align-items: center;
+          padding-bottom: 63px;
+          @include smallDesktopScreen {
+            padding-bottom: 14px;
+          }
+
+          .shoppingBagTitle {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 4px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 2.6700000762939453px;
+            text-align: center;
+            @include smallDesktopScreen {
+              padding-bottom: 8px;
+              font-size: 32px;
+              line-height: 35px;
+              letter-spacing: 1.25px;
+            }
+          }
+
+          .restaurantName {
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 1.9700000286102295px;
+            text-align: center;
+          }
+
+          .orderDishes {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            gap: 20px;
+            height: 299px;
+            overflow-y: auto;
+            direction: rtl;
+            padding-left: 7px;
+            @include smallDesktopScreen {
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+
+      .sumPaymentContainer {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 2.6700000762939453px;
+        text-align: center;
+        @include smallDesktopScreen {
+          order: 1;
+          gap: 12px;
+          padding-bottom: 11px;
+
+          .line {
+            width: 76px;
+            height: 0.5px;
+            background-color: rgba(151, 151, 151, 1);
+            align-self: center;
+          }
+        }
+
+        .sumPaymentText {
+          display: flex;
+          flex-flow: row;
+          justify-content: center;
+          align-items: center;
+          gap: 2px;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 24px;
+          letter-spacing: 2.6700000762939453px;
+          text-align: center;
+          @include smallDesktopScreen {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 30px;
+            letter-spacing: 1.0299999713897705px;
+            text-align: center;
+          }
+
+          .currencyIconContainer {
+            align-self: flex-end;
+            padding-bottom: 2px;
+
+            img {
+              width: 8.87px;
+              height: 8.53px;
+            }
+          }
+        }
+      }
+
+      .addACommentContainer {
+        @include smallDesktopScreen {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          align-items: center;
+          order: 2;
+          gap: 20px;
+          padding-bottom: 10px;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: 1.9700000286102295px;
+          text-align: center;
+
+          .textArea {
+            padding: 8px 10px;
+            width: 358px;
+            height: 122px;
+            border: 0.6px solid rgba(151, 151, 151, 1);
+            border-radius: 3.43px;
+            font-size: 12px;
+            font-weight: 200;
+            line-height: 15px;
+            letter-spacing: 1.2899999618530273px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

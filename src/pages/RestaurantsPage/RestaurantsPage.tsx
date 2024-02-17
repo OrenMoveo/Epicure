@@ -24,10 +24,10 @@ const RestaurantsPage = () => {
   const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
 
   enum IndexType {
-    ALL = 0,
-    NEW = 1,
-    MOST_POPULAR = 2,
-    OPEN_NOW = 3,
+    ALL_RESTAURANTS = 0,
+    NEW_RESTAURANTS = 1,
+    MOST_POPULAR_RESTAURANTS = 2,
+    OPEN_NOW_RESTAURANTS = 3,
     MAP_VIEW = 4,
   }
 
@@ -35,14 +35,8 @@ const RestaurantsPage = () => {
     return restaurant.rating === rating;
   };
 
-  const priceRangePredicate = (
-    restaurant: Restaurant,
-    priceRange: number[]
-  ): boolean => {
-    return (
-      priceRange[0] <= restaurant.priceRange[0] &&
-      restaurant.priceRange[1] <= priceRange[1]
-    );
+  const priceRangePredicate = (restaurant: Restaurant, priceRange: number[]): boolean => {
+    return priceRange[0] <= restaurant.priceRange[0] && restaurant.priceRange[1] <= priceRange[1];
   };
 
   const newRestaurantPredicate = (restaurant: Restaurant): boolean => {
@@ -62,26 +56,17 @@ const RestaurantsPage = () => {
     filterRestaurants(restaurantsData, filterButtonIndex);
   };
 
-  const filterRestaurants = (
-    restaurants: Restaurant[],
-    filterButtonIndex: number
-  ) => {
+  const filterRestaurants = (restaurants: Restaurant[], filterButtonIndex: number) => {
     switch (filterButtonIndex) {
-      case IndexType.NEW:
-        setRestaurants(
-          restaurants.filter((restaurant) => newRestaurantPredicate(restaurant))
-        );
+      case IndexType.NEW_RESTAURANTS:
+        setRestaurants(restaurants.filter((restaurant) => newRestaurantPredicate(restaurant)));
 
         break;
-      case IndexType.OPEN_NOW:
-        setRestaurants(
-          restaurants.filter((restaurant) => openNowPredicate(restaurant))
-        );
+      case IndexType.OPEN_NOW_RESTAURANTS:
+        setRestaurants(restaurants.filter((restaurant) => openNowPredicate(restaurant)));
         break;
-      case IndexType.MOST_POPULAR:
-        setRestaurants(
-          restaurants.filter((restaurant) => mostPopularPredicate(restaurant))
-        );
+      case IndexType.MOST_POPULAR_RESTAURANTS:
+        setRestaurants(restaurants.filter((restaurant) => mostPopularPredicate(restaurant)));
         break;
       default:
         setRestaurants(restaurantsData);
@@ -92,9 +77,7 @@ const RestaurantsPage = () => {
       restaurants.filter((restaurant) => ratingPredicate(restaurant, rating));
     }
     if (priceRangeFilterApplied) {
-      restaurants.filter((restaurant) =>
-        priceRangePredicate(restaurant, priceRange)
-      );
+      restaurants.filter((restaurant) => priceRangePredicate(restaurant, priceRange));
     }
   };
 
@@ -110,52 +93,30 @@ const RestaurantsPage = () => {
 
           <div className={styles.filtersContainer}>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.ALL ? styles.activeButton : ""
-              }`}
-              onClick={() => handleClick(IndexType.ALL)}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.ALL_RESTAURANTS ? styles.activeButton : ""}`}
+              onClick={() => handleClick(IndexType.ALL_RESTAURANTS)}
             >
               All
             </button>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.NEW ? styles.activeButton : ""
-              }`}
-              onClick={() => handleClick(IndexType.NEW)}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.NEW_RESTAURANTS ? styles.activeButton : ""}`}
+              onClick={() => handleClick(IndexType.NEW_RESTAURANTS)}
             >
               New
             </button>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.MOST_POPULAR
-                  ? styles.activeButton
-                  : ""
-              }`}
-              onClick={() => handleClick(IndexType.MOST_POPULAR)}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.MOST_POPULAR_RESTAURANTS ? styles.activeButton : ""}`}
+              onClick={() => handleClick(IndexType.MOST_POPULAR_RESTAURANTS)}
             >
               Most Popular
             </button>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.OPEN_NOW
-                  ? styles.activeButton
-                  : ""
-              }`}
-              onClick={() => handleClick(IndexType.OPEN_NOW)}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.OPEN_NOW_RESTAURANTS ? styles.activeButton : ""}`}
+              onClick={() => handleClick(IndexType.OPEN_NOW_RESTAURANTS)}
             >
               Open Now
             </button>
-            {!isMobileOrTable && (
-              <button
-                className={`${styles.filterButton} ${
-                  activeFilterButton === IndexType.MAP_VIEW
-                    ? styles.activeButton
-                    : ""
-                }`}
-              >
-                Map View
-              </button>
-            )}
+            {!isMobileOrTable && <button className={`${styles.filterButton} ${activeFilterButton === IndexType.MAP_VIEW ? styles.activeButton : ""}`}>Map View</button>}
           </div>
 
           {!isMobileOrTable && (
@@ -168,11 +129,7 @@ const RestaurantsPage = () => {
 
           <div className={styles.restaurantsCardsContainer}>
             {restaurants.map((restaurant) => (
-              <RestaurantCard
-                restaurant={restaurant}
-                key={restaurant.keyId}
-                cardWidth={{ width: `${restaurantCardWidth}px` }}
-              />
+              <RestaurantCard restaurant={restaurant} key={restaurant.keyId} cardWidth={{ width: `${restaurantCardWidth}px` }} />
             ))}
           </div>
         </div>

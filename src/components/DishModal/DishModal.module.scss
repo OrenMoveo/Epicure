@@ -1,0 +1,121 @@
+@import "../../styles/constants.module.scss";
+@import "../../styles/mediaQueries.scss";
+
+.modalOverlay {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 100;
+  @include smallDesktopScreen {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: unset;
+    left: unset;
+    background: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+  }
+  @include mediumDesktopScreen {
+    justify-content: flex-start;
+  }
+
+  .DishModalLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    @include smallDesktopScreen {
+      width: 573px;
+    }
+
+    .modalHeader {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: $mobile-view-width;
+      height: 46px;
+      @include smallDesktopScreen {
+        width: 100%;
+        height: 36px;
+      }
+    }
+
+    .heroContainer {
+      width: 100%;
+      height: 271px;
+      @include smallDesktopScreen {
+        height: 292px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .dishContentSection {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding-top: 32px;
+      padding-bottom: 48px;
+      background-color: white;
+      @include smallDesktopScreen {
+        padding-top: 40px;
+        padding-bottom: 28px;
+      }
+
+      .dishContentLayout {
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @include smallDesktopScreen {
+          background: white;
+          align-items: center;
+        }
+
+        .dishContentContainer {
+          display: flex;
+          flex-flow: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: $mobile-view-width;
+          padding-right: 17px;
+          gap: 48px;
+          @include smallDesktopScreen {
+            padding-right: 0;
+            width: unset;
+            gap: 40px;
+            align-items: center;
+          }
+
+          .orderAddonsContainer {
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 48px;
+            @include smallDesktopScreen {
+              align-items: center;
+              gap: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

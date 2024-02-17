@@ -9,7 +9,10 @@
   width: 100%;
   height: 46px;
   position: relative;
+  padding: 7px 0;
   @include smallDesktopScreen {
+    padding: 14px 0;
+    border-bottom: 0.2px solid rgba(151, 151, 151, 1);
     height: 64px;
   }
 
@@ -98,6 +101,10 @@
         flex-flow: row;
         justify-content: center;
         align-items: center;
+      }
+
+      .bagBtn {
+        position: relative;
       }
     }
   }

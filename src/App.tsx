@@ -2,7 +2,7 @@ import "./App.scss";
 import Home from "./pages/Home/Home";
 import RestaurantDisplayPage from "./pages/RestaurantDisplayPage/RestaurantDisplayPage";
 import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
-import Root from "./pages/Root/Root";
+import AppLayout from "./pages/AppLayout/AppLayout.tsx";
 import "./styles/global.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { appRoutes } from "./shared/constants.ts";
@@ -11,7 +11,7 @@ import ChefsPage from "./pages/ChefsPage/ChefsPage.tsx";
 const router = createBrowserRouter([
   {
     path: appRoutes.base,
-    element: <Root />,
+    element: <AppLayout />,
     children: [
       {
         path: appRoutes.base,
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         element: <ChefsPage />,
       },
       {
-        path: appRoutes.getRestaurantRoute(":id"),
+        path: appRoutes.getRestaurantRoute(":keyId"),
         element: <RestaurantDisplayPage />,
       },
     ],

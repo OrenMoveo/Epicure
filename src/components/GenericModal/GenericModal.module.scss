@@ -1,0 +1,25 @@
+.genericModalOverlay {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 101;
+  .genericModalLayout {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .genericModalHeader {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 36px;
+  }
+}

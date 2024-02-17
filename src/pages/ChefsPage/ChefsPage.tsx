@@ -10,7 +10,7 @@ const ChefsPage = () => {
   const chefs: Chef[] = data.data.chefs;
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
-  const isMobileOrTable = isMobile || isTablet;
+  const isMobileOrTablet = isMobile || isTablet;
 
   enum IndexType {
     ALL_CHEFS_TAB_INDEX = 0,
@@ -18,9 +18,7 @@ const ChefsPage = () => {
     MOST_VIEWED_INDEX = 2,
   }
 
-  const [activeFilterButton, setActiveFilterButton] = useState(
-    IndexType.ALL_CHEFS_TAB_INDEX
-  );
+  const [activeFilterButton, setActiveFilterButton] = useState(IndexType.ALL_CHEFS_TAB_INDEX);
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
@@ -30,36 +28,22 @@ const ChefsPage = () => {
     <section className={styles.chefsPageSection}>
       <div className={styles.chefsPageLayout}>
         <div className={styles.chefsPageContentContainer}>
-          {isMobileOrTable && (
-            <div className={styles.chefsPageTitle}>CHEFS</div>
-          )}
+          {isMobileOrTablet && <div className={styles.chefsPageTitle}>CHEFS</div>}
           <div className={styles.chefsPageFiltersContainer}>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.ALL_CHEFS_TAB_INDEX
-                  ? styles.activeButton
-                  : ""
-              }`}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.ALL_CHEFS_TAB_INDEX ? styles.activeButton : ""}`}
               onClick={() => handleClick(IndexType.ALL_CHEFS_TAB_INDEX)}
             >
               All
             </button>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.NEW_CHEF_INDEX
-                  ? styles.activeButton
-                  : ""
-              }`}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.NEW_CHEF_INDEX ? styles.activeButton : ""}`}
               onClick={() => handleClick(IndexType.NEW_CHEF_INDEX)}
             >
               New
             </button>
             <button
-              className={`${styles.filterButton} ${
-                activeFilterButton === IndexType.MOST_VIEWED_INDEX
-                  ? styles.activeButton
-                  : ""
-              }`}
+              className={`${styles.filterButton} ${activeFilterButton === IndexType.MOST_VIEWED_INDEX ? styles.activeButton : ""}`}
               onClick={() => handleClick(IndexType.MOST_VIEWED_INDEX)}
             >
               Most Viewed

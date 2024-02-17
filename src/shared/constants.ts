@@ -4,7 +4,7 @@ export const appRoutes = {
   base: "/",
   restaurants: "/restaurants",
   chefs: "/chefs",
-  getRestaurantRoute: (id: string) => `/restaurants/${id}`,
+  getRestaurantRoute: (keyId: string) => `/restaurants/${keyId}`,
 };
 
 export const UIConstants = {
@@ -12,6 +12,7 @@ export const UIConstants = {
     mobileWidth: Number(styles.mobileMaxWidth.slice(0, -2)),
     tabletWidth: Number(styles.tabletMaxWidth.slice(0, -2)),
     smallDesktopWidth: Number(styles.smallDesktopMaxWidth.slice(0, -2)),
+    appMaxWidth: Number(styles.appMaxWidth.slice(0, -2)),
   },
   fonts: {
     primary: {

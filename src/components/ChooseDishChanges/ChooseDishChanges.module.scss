@@ -1,0 +1,47 @@
+@import "../../styles/mediaQueries.scss";
+
+.dishChangesContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  @include smallDesktopScreen {
+    width: 189px;
+  }
+
+  .dishChangesTitle {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(222, 146, 0, 0.9);
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: 1.9700000286102295px;
+    text-align: center;
+    @include smallDesktopScreen {
+      align-self: center;
+    }
+  }
+
+  .dishChangesContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+
+    .singleDishChangeContainer {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      line-height: 18px;
+      letter-spacing: 1.9700000286102295px;
+      text-align: center;
+      @include smallDesktopScreen {
+        font-size: 17px;
+      }
+    }
+  }
+}

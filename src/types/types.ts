@@ -5,11 +5,11 @@ export interface Restaurant {
   openNow: boolean;
   location: string; // not sure
   rating: number;
-  priceRange: number[];
   mostPopular: boolean;
-  keyId: string;
   newRestaurant: boolean;
   restaurantDishes: Dish[];
+  priceRange: number[];
+  keyId: string;
 }
 
 export interface Chef {
@@ -32,4 +32,20 @@ export interface Dish {
   foodIcon: string;
   keyId: string;
   mealType: string;
+  restaurant: string;
+}
+
+export interface Order {
+  restaurantName: string;
+  dishes: DishWithOptions[];
+}
+
+export interface DishWithOptions {
+  dish: Dish;
+  options: DishChangeStateInterface[];
+}
+
+export interface DishChangeStateInterface {
+  name: string;
+  isChecked: boolean;
 }
