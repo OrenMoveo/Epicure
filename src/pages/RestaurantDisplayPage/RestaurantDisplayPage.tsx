@@ -1,7 +1,7 @@
 import styles from "./RestaurantDisplayPage.module.scss";
 import { useParams } from "react-router-dom";
 import clockIcon from "../../assets/images/clockIcon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
@@ -26,6 +26,10 @@ const RestaurantDisplayPage = () => {
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!restaurant) {
     return <div>Loading...</div>;
