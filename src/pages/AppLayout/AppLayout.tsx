@@ -25,7 +25,7 @@ const AppLayout = () => {
       {isModalActive && <DishModal dish={dish} />}
       {isDeleteOrderModalOpen && (
         <GenericModal>
-          <DeleteOrder dish={dish}/>
+          <DeleteOrder />
         </GenericModal>
       )}
     </div>
