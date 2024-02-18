@@ -86,12 +86,17 @@ input {
           }
 
           .inputLabel {
+            height: 18px;
             font-size: 12px;
             line-height: 18px;
             letter-spacing: 1.9700000286102295px;
             text-align: center;
             align-self: flex-start;
             opacity: 0.4;
+          }
+
+          .inputLabelPlaceholder {
+            height: 18px;
           }
 
           .inputText {

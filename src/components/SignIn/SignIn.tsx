@@ -10,6 +10,7 @@ interface SignInProps {
 const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   const [isActiveLogin, setIsActiveLogin] = useState(false);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     alert("LOGIN");
@@ -44,9 +45,13 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
             <div className={styles.signInTitle}>SIGN IN</div>
             <div className={styles.signInDescription}>To continue the order, please sign in</div>
             <div className={styles.inputContainer}>
-              <label htmlFor="email" className={styles.inputLabel}>
-                Email address
-              </label>
+              {isActiveLogin ? (
+                <label htmlFor="email" className={styles.inputLabel}>
+                  Email address
+                </label>
+              ) : (
+                <div className={styles.inputLabelPlaceholder} />
+              )}
               <input
                 className={styles.inputText}
                 placeholder="Email address"
@@ -60,10 +65,24 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
               ></input>
             </div>
             <div className={styles.inputContainer} style={{ paddingTop: "32px" }}>
-              <label htmlFor="password" className={styles.inputLabel}>
-                Email address
-              </label>
-              <input className={styles.inputText} placeholder="Password" type="password" id="password" name="password"></input>
+              {isActiveLogin ? (
+                <label htmlFor="password" className={styles.inputLabel}>
+                  Password
+                </label>
+              ) : (
+                <div className={styles.inputLabelPlaceholder} />
+              )}
+              <input
+                className={styles.inputText}
+                placeholder="Password"
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              ></input>
             </div>
           </section>
           <div className={styles.loginContainer}>
