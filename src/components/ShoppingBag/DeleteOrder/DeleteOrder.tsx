@@ -6,15 +6,17 @@ import { useModalContext } from "../../../context/ModalContext";
 
 const DeleteOrder = () => {
   const { resetAndUpdateBag, newOrderDish } = useShoppingBagContext();
-  const { closeDeleteOrderModal, closeDishModal } = useModalContext();
+  const { closeDeleteOrderModal, closeDishModal, closeModal } = useModalContext();
 
   const handleDelete = () => {
     resetAndUpdateBag(newOrderDish);
+    closeModal();
     closeDeleteOrderModal();
     closeDishModal();
   };
 
   const handleBackToOrder = () => {
+    closeModal();
     closeDeleteOrderModal();
   };
 

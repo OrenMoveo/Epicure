@@ -33,7 +33,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const { closeDishModal, openDeleteOrderModal } = useModalContext();
+  const { closeDishModal, openDeleteOrderModal, openModal } = useModalContext();
   const { order, updateNewOrderDish } = useShoppingBagContext();
 
   const handleClickModal = () => {
@@ -42,6 +42,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
       closeDishModal();
     } else {
       updateNewOrderDish({ dish, options: dishChanges, quantity });
+      openModal();
       openDeleteOrderModal();
     }
   };
