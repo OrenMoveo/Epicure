@@ -2,6 +2,8 @@ import AppButton from "../AppButton/AppButton";
 import styles from "./SignIn.module.scss";
 import { Icons } from "../../assets/images";
 import { FC, useEffect, useState } from "react";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
 
 interface SignInProps {
   toggleSignIn: () => void;
@@ -11,6 +13,10 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   const [isActiveLogin, setIsActiveLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const isTablet = useIsTablet();
+  const isMobile = useIsMobile();
+  const isMobileOrTablet = isMobile || isTablet;
 
   const handleLogin = () => {
     alert("LOGIN");
@@ -34,11 +40,15 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
 
   return (
     <div className={styles.signInLayout}>
-      <div className={styles.popoverHeaderContainer}>
-        <button className={styles.xBtnContainer} onClick={() => toggleSignIn()}>
-          <img src={Icons.blackXIcon} alt="black-x-icon" />
-        </button>
-      </div>
+      {isMobileOrTablet ? (
+        <div className={styles.popoverHeaderContainer}>
+          <button className={styles.xBtnContainer} onClick={() => toggleSignIn()}>
+            <img src={Icons.blackXIcon} alt="black-x-icon" />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       <div className={styles.signInShadow}>
         <div className={styles.signInContentContainer}>
           <section className={styles.signInSection}>

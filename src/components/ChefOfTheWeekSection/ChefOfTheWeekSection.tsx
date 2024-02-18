@@ -10,7 +10,7 @@ import useIsTablet from "../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 export const ChefOfTheWeekSection = () => {
-  const isTablet: boolean = useIsTablet();
+  const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 

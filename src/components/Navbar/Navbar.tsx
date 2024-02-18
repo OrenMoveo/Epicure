@@ -11,6 +11,9 @@ import ShoppingBag from "../ShoppingBag/ShoppingBag";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
 import SignIn from "../SignIn/SignIn";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
+import GenericModal from "../GenericModal/GenericModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +21,12 @@ const Navbar = () => {
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
-  const { isEmptyShoppingBag } = useShoppingBagContext();
-
   const screenWidth = useGetScreenWidth();
+  const isTablet = useIsTablet();
+  const isMobile = useIsMobile();
+  const isMobileOrTablet = isMobile || isTablet;
+
+  const { isEmptyShoppingBag } = useShoppingBagContext();
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
@@ -111,9 +117,15 @@ const Navbar = () => {
       )}
 
       {isSignInOpen ? (
-        <GenericPopover coverAllPage={true}>
-          <SignIn toggleSignIn={toggleSignIn} />
-        </GenericPopover>
+        isMobileOrTablet ? (
+          <GenericPopover coverAllPage={true}>
+            <SignIn toggleSignIn={toggleSignIn} />
+          </GenericPopover>
+        ) : (
+          <GenericModal handleClose={toggleSignIn}>
+            <SignIn toggleSignIn={toggleSignIn} />
+          </GenericModal>
+        )
       ) : (
         ""
       )}
