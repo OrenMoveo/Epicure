@@ -10,11 +10,13 @@ import GenericPopover from "../GenericPopover/GenericPopover";
 import ShoppingBag from "../ShoppingBag/ShoppingBag";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
+import SignIn from "../SignIn/SignIn";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
 
   const { isEmptyShoppingBag } = useShoppingBagContext();
 
@@ -22,6 +24,10 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
+  };
+
+  const toggleSignIn = () => {
+    setIsSignInOpen((signInOpen) => !signInOpen);
   };
 
   const toggleSearch = () => {
@@ -73,7 +79,7 @@ const Navbar = () => {
               <img src={Icons.searchIcon} alt="search-icon" />
             </button>
           </div>
-          <button className={styles.signInBtn}>
+          <button className={styles.signInBtn} onClick={() => toggleSignIn()}>
             <img src={Icons.signInIcon} alt="signIn-icon" />
           </button>
           <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
@@ -99,6 +105,14 @@ const Navbar = () => {
       {isBagOpen ? (
         <GenericPopover>
           <ShoppingBag />
+        </GenericPopover>
+      ) : (
+        ""
+      )}
+
+      {isSignInOpen ? (
+        <GenericPopover coverAllPage={true}>
+          <SignIn toggleSignIn={toggleSignIn} />
         </GenericPopover>
       ) : (
         ""

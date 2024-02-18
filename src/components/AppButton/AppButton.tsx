@@ -4,14 +4,21 @@ import styles from "./AppButton.module.scss";
 interface BlackButtonProps {
   handleClick: () => void;
   isBlack?: boolean;
+  isGray?: boolean;
   buttonContent: string;
   order?: number;
 }
 
-const AppButton: FC<BlackButtonProps> = ({ handleClick, isBlack, buttonContent, order = 0 }) => {
+const AppButton: FC<BlackButtonProps> = ({ handleClick, isGray, isBlack, buttonContent, order = 0 }) => {
   const buttonStyles = isBlack
     ? {
         backgroundColor: "black",
+        color: "white",
+        order: order,
+      }
+    : isGray
+    ? {
+        backgroundColor: "rgba(151, 151, 151, 1)",
         color: "white",
         order: order,
       }
