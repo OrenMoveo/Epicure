@@ -1,7 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import { Order, DishWithOptions } from "../types/types";
 import { defaultDish } from "../shared/defaults";
-
 interface ShoppingBagContextType {
   shoppingBagSum: number;
   order: Order;
@@ -21,7 +20,7 @@ const ShoppingBagContext = createContext<ShoppingBagContextType>({
   isEmptyShoppingBag: true,
   dishQuantities: {},
   getTotalQuantity: () => 0,
-  newOrderDish: { dish: defaultDish, quantity: 0, options: [] },
+  newOrderDish: { dish: defaultDish, quantity: 0, options: [], keyId: "" },
   updateNewOrderDish: (dish: DishWithOptions) => {},
   resetAndUpdateBag: (extendedDish: DishWithOptions) => {},
 });
@@ -31,7 +30,7 @@ export const useShoppingBagContext = () => useContext<ShoppingBagContextType>(Sh
 export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = ({ children }) => {
   const [shoppingBagSum, setShoppingBagSum] = useState(0);
   const [order, setOrder] = useState<Order>({ restaurantName: "", dishes: [] });
-  const [newOrderDish, setNewOrderDish] = useState<DishWithOptions>({ dish: defaultDish, quantity: 0, options: [] });
+  const [newOrderDish, setNewOrderDish] = useState<DishWithOptions>({ dish: defaultDish, quantity: 0, options: [], keyId: "" });
   const [dishQuantities, setDishQuantities] = useState<Record<string, number>>({});
 
   const isEmptyShoppingBag = order.dishes.length == 0;
@@ -45,13 +44,14 @@ export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = (
   };
 
   const updateShoppingBag = (extendedDish: DishWithOptions) => {
-    const dishId = extendedDish.dish.keyId;
+    const dishId = extendedDish.keyId;
     const newQuantity = (dishQuantities[dishId] || 0) + extendedDish.quantity;
     setDishQuantities({ ...dishQuantities, [dishId]: newQuantity });
-    if (order.dishes.some((d) => d.dish.keyId === dishId)) {
+
+    if (order.dishes.some((d) => d.keyId === dishId)) {
       setOrder((prevOrder) => ({
         restaurantName: prevOrder.restaurantName,
-        dishes: prevOrder.dishes.map((d) => (d.dish.keyId === dishId ? { ...d, quantity: newQuantity } : d)),
+        dishes: prevOrder.dishes.map((d) => (d.keyId === dishId ? { ...d, quantity: newQuantity } : d)),
       }));
     } else {
       setOrder((prevOrder) => ({

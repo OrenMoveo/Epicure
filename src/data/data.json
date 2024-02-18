@@ -1213,6 +1213,8 @@
         "description": "",
         "keyId": "38"
       }
-    ]
+    ],
+    "dishChanges": ["Without peanuts", "Sticky Less spicy"],
+    "sideDishes": ["White bread", "Sticky rice"]
   }
 }

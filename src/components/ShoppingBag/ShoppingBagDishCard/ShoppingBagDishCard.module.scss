@@ -120,12 +120,20 @@
         font-size: 12px;
         line-height: 16px;
         letter-spacing: 1.2300000190734863px;
+        overflow: auto;
+        white-space: nowrap;
+        width: 200px;
 
         .optionsWrapper {
           display: flex;
           flex-flow: row;
-          align-items: center;
-          justify-content: center;
+
+          .singleOption {
+            display: flex;
+            flex-flow: row;
+            justify-content: flex-start;
+            align-items: center;
+          }
         }
       }
 

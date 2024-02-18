@@ -1,6 +1,6 @@
 import styles from "./DishModal.module.scss";
 import { desktopStyles, mobileStyles } from "./DishCardStylesComposition";
-import { Dish, DishChangeStateInterface } from "../../types/types";
+import { Dish } from "../../types/types";
 import DishCard from "../DishCard/DishCard";
 import ChooseSideDishes from "../ChooseSideDishes/ChooseSideDishes";
 import ChooseDishChanges from "../ChooseDishChanges/ChooseDishChanges";
@@ -15,18 +15,19 @@ import useIsTablet from "../../hooks/useIsTablet";
 import Footer from "../Footer/Footer";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import AppButton from "../AppButton/AppButton";
+import { generateUniqueKey } from "../../shared/utils";
 
 interface DishModalProps {
   dish: Dish;
 }
 
 const DishModal: FC<DishModalProps> = ({ dish }) => {
-  const [quantity, setQuantity] = useState<number>(1);
-  const [dishChanges, setDishChanges] = useState<DishChangeStateInterface[]>([
-    { name: "Without peanuts", isChecked: false },
-    { name: "Less spicy", isChecked: false },
-  ]);
+  const SINGLE_DISH = 1;
+  const [quantity, setQuantity] = useState<number>(SINGLE_DISH);
+  const [dishChanges, setDishChanges] = useState<string[]>([]);
+  const [sideDishes, setsSideDishes] = useState<string[]>([]);
 
+  const options = [...dishChanges, ...sideDishes];
   const modalContainerRef = useRef(document.getElementById("modal"));
 
   const isMobile = useIsMobile();
@@ -38,10 +39,10 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
 
   const handleClickModal = () => {
     if (order.restaurantName === dish.restaurant || order.restaurantName === "") {
-      updateShoppingBag({ dish, options: dishChanges, quantity });
+      updateShoppingBag({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options, quantity }) });
       closeDishModal();
     } else {
-      updateNewOrderDish({ dish, options: dishChanges, quantity });
+      updateNewOrderDish({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options, quantity }) });
       openModal();
       openDeleteOrderModal();
     }
@@ -104,8 +105,8 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                     )}
                   </div>
                   <div className={styles.orderAddonsContainer}>
-                    <ChooseSideDishes />
-                    <ChooseDishChanges dishChanges={dishChanges} setDishChanges={setDishChanges} />
+                    <ChooseSideDishes setSideDishes={setsSideDishes} />
+                    <ChooseDishChanges setDishChanges={setDishChanges} />
                     <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
                   </div>
                   <AppButton handleClick={handleClickModal} isBlack={true} buttonContent="ADD TO BAG" />

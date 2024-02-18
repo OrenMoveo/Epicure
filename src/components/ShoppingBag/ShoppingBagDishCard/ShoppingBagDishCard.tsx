@@ -8,13 +8,12 @@ import goldILSIcon from "../../../assets/images/goldILSIcon.svg";
 
 interface ShoppingBagDishCardProps {
   dishWithOptions: DishWithOptions;
-  quantity: number;
 }
-const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions, quantity }) => {
+const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions }) => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
-  const totalPrice = quantity * dishWithOptions.dish.price;
+  const totalPrice = dishWithOptions.quantity * dishWithOptions.dish.price;
 
   return (
     <div className={styles.ShoppingBagDishCardLayout}>
@@ -24,7 +23,7 @@ const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions, qu
       <div className={styles.cardContentLayout}>
         <div className={styles.cardContentContainer}>
           <div className={styles.cardTitle}>
-            <div className={styles.quantityContainer}>{isMobileOrTablet ? `${quantity}x` : quantity}</div>
+            <div className={styles.quantityContainer}>{isMobileOrTablet ? `${dishWithOptions.quantity}x` : dishWithOptions.quantity}</div>
             <div className={styles.dishName}>
               {dishWithOptions.dish.name}
               {!isMobileOrTablet && (
@@ -42,7 +41,7 @@ const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions, qu
               <div className={styles.optionsWrapper} key={index}>
                 {index > 0 && " | "}
                 {index > 0 && <span>&nbsp;</span>}
-                <span className={styles.singleOption}>{option.name}</span>
+                <span className={styles.singleOption}>{option}</span>
                 {index < dishWithOptions.options.length - 1 && <span>&nbsp;</span>}
               </div>
             ))}

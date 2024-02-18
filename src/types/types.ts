@@ -44,4 +44,5 @@ export interface DishWithOptions {
   dish: Dish;
   quantity: number;
   options: string[];
+  keyId: string;
 }
