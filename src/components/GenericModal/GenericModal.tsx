@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 import styles from "./GenericModal.module.scss";
-import whiteXIcon from "../../assets/images/whiteXIcon.svg";
+import { Icons } from "../../assets/images";
 import { useModalContext } from "../../context/ModalContext";
 import { createPortal } from "react-dom";
 
@@ -19,7 +19,7 @@ const GenericModal: FC<GenericModalProps> = ({ children }) => {
           <div className={styles.genericModalLayout} onClick={(e) => e.stopPropagation()}>
             <div className={styles.genericModalHeader}>
               <button className={styles.btnContainer} onClick={() => closeModal()}>
-                <img src={whiteXIcon} alt="white-x-icon" />
+                <img src={Icons.whiteXIcon} alt="white-x-icon" />
               </button>
             </div>
             {children}

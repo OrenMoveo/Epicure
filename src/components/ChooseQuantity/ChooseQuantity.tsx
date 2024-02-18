@@ -1,6 +1,5 @@
 import styles from "./ChooseQuantity.module.scss";
-import minusIcon from "../../assets/images/minusIcon.svg";
-import plusIcon from "../../assets/images/plusIcon.svg";
+import { Icons } from "../../assets/images";
 import { FC } from "react";
 
 interface ChooseQuantityProps {
@@ -28,11 +27,11 @@ const ChooseQuantity: FC<ChooseQuantityProps> = ({ quantity, setQuantity }) => {
       <div className={styles.chooseQuantityTitle}>Quantity</div>
       <div className={styles.quantityValueContainer}>
         <button className={styles.minusBtn} onClick={() => handleDecreaseQuantity(quantity)}>
-          <img src={minusIcon} alt="minus-icon" />
+          <img src={Icons.minusIcon} alt="minus-icon" />
         </button>
         <p className={styles.quantityTextContainer}>{quantity}</p>
         <button className={styles.plusBtn} onClick={() => handleIncreaseQuantity(quantity)}>
-          <img src={plusIcon} alt="plus-icon" />
+          <img src={Icons.plusIcon} alt="plus-icon" />
         </button>
       </div>
     </div>

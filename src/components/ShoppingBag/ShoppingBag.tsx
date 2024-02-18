@@ -3,13 +3,12 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import styles from "./ShoppingBag.module.scss";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
-import largeShoppingBagIcon from "../../assets/images/largeShoppingBagIcon.svg";
-import currencyILSIcon from "../../assets/images/ILSIcon.svg";
+import { Icons } from "../../assets/images";
 import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
 import AppButton from "../AppButton/AppButton";
 
 const ShoppingBag: FC = () => {
-  const { shoppingBagSum, order, isEmptyShoppingBag, dishQuantities } = useShoppingBagContext();
+  const { shoppingBagSum, order, isEmptyShoppingBag } = useShoppingBagContext();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -21,7 +20,7 @@ const ShoppingBag: FC = () => {
         <div className={styles.shoppingBagContentContainer}>
           {isEmptyShoppingBag ? (
             <div className={styles.emptyShoppingBag}>
-              <img src={largeShoppingBagIcon} alt="empty-shoppingBag" />
+              <img src={Icons.largeShoppingBagIcon} alt="empty-shoppingBag" />
               <div className={styles.emptyShoppingBagText}>YOUR BAG IS EMPTY</div>
               {!isMobileOrTablet && <AppButton handleClick={() => {}} buttonContent="ORDER HISTORY" order={4} />}
             </div>
@@ -41,7 +40,7 @@ const ShoppingBag: FC = () => {
                 {isMobileOrTablet ? "TOTAL - " : ""}
                 <div className={styles.sumPaymentText}>
                   <div className={styles.currencyIconContainer}>
-                    <img src={currencyILSIcon} alt="currency-ils-con" />
+                    <img src={Icons.ilsIcon} alt="currency-ils-con" />
                   </div>
                   {shoppingBagSum}
                 </div>

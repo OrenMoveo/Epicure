@@ -1,5 +1,5 @@
 import styles from "./DishCard.module.scss";
-import ILSIcon from "../../assets/images/ILSIcon.svg";
+import { Icons } from "../../assets/images";
 import { Dish } from "../../types/types";
 import React, { FC } from "react";
 import { useModalContext } from "../../context/ModalContext";
@@ -55,7 +55,7 @@ const DishCard: FC<DishCardProps> = (props) => {
             {props.shouldDisplayLeftSideLine && <div className={styles.line} style={props.lineStyling}></div>}
             <div className={styles.dishPriceTextContainer} style={props.priceTextContainerStyling}>
               <div className={styles.currencyIconContainer}>
-                <img src={ILSIcon} alt="currencyIcon" style={props.currencyIconSize} />
+                <img src={Icons.ilsIcon} alt="currencyIcon" style={props.currencyIconSize} />
               </div>
               <p className={styles.dishPriceAmount} style={props.dishPriceTextStyling}>
                 {props.dish.price}

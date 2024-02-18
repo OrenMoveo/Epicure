@@ -1,10 +1,8 @@
 import styles from "./Legend.module.scss";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
-import spicyIcon from "../../../assets/images/spicyIcon.svg";
-import vegetarianIcon from "../../../assets/images/vegetarianIcon.svg";
-import veganIcon from "../../../assets/images/veganIcon.svg";
 import LegendIcon from "./LegendIcon/LegendIcon";
 import useIsMobile from "../../../hooks/useIsMobile";
+import { Icons } from "../../../assets/images/";
 
 const Legend = () => {
   const isMobile = useIsMobile();
@@ -16,9 +14,9 @@ const Legend = () => {
           <SectionTitle title={"THE MEANING OF OUR ICONS:"} />
         </div>
         <div className={styles.iconsContainer}>
-          <LegendIcon icon={spicyIcon} description="Spicy" iconWidth={isMobile ? 46.14 : 76.95} iconHeight={isMobile ? 34.44 : 57.44} />
-          <LegendIcon icon={vegetarianIcon} description="Vegetarian" iconWidth={55.82} iconHeight={56.28} />
-          <LegendIcon icon={veganIcon} description="Vegan" iconWidth={56.04} iconHeight={56.45} />
+          <LegendIcon icon={Icons.spicyIcon} description="Spicy" iconWidth={76.95} iconHeight={57.44} />
+          <LegendIcon icon={Icons.vegetarianIcon} description="Vegetarian" iconWidth={55.82} iconHeight={56.28} />
+          <LegendIcon icon={Icons.veganIcon} description="Vegan" iconWidth={56.04} iconHeight={56.45} />
         </div>
       </div>
     </section>

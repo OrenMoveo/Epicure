@@ -1,7 +1,5 @@
 import styles from "./AboutSection.module.scss";
-import googlePlayIcon from "../../../assets/images/googlePlayIcon.svg";
-import appleIcon from "../../../assets/images/appleIcon.svg";
-import aboutSectionLogo from "../../../assets/images/aboutSectionLogo.svg";
+import { Icons, Logos } from "../../../assets/images";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { FC } from "react";
 import AppStoreButton from "./AppStoreButton/AppStoreButton";
@@ -11,12 +9,12 @@ const AboutSection: FC = () => {
     <section className={styles.aboutUsSectionContainer}>
       <div className={styles.aboutUsContentContainer}>
         <div className={styles.aboutUsLogoContainer}>
-          <img src={aboutSectionLogo} alt="about-us-logo" />
+          <img src={Logos.aboutSectionLogo} alt="about-us-logo" />
         </div>
         <div className={styles.aboutUsInformationContainer}>
           <div className={styles.appStoresContainer}>
-            <AppStoreButton icon={googlePlayIcon} appStoreTitle={"Google Play"} appStoreDescription={"Get it on"} />
-            <AppStoreButton icon={appleIcon} appStoreTitle={"App Store"} appStoreDescription={"Download on the"} />
+            <AppStoreButton icon={Icons.googlePlayIcon} appStoreTitle={"Google Play"} appStoreDescription={"Get it on"} />
+            <AppStoreButton icon={Icons.appleIcon} appStoreTitle={"App Store"} appStoreDescription={"Download on the"} />
           </div>
           <div className={styles.sectionTitleContainer}>
             <SectionTitle title={"ABOUT US:"} />

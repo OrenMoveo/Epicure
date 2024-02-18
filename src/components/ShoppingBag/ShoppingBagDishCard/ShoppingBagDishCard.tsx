@@ -3,8 +3,7 @@ import { DishWithOptions } from "../../../types/types";
 import styles from "./ShoppingBagDishCard.module.scss";
 import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
-import ILSIcon from "../../../assets/images/ILSIcon.svg";
-import goldILSIcon from "../../../assets/images/goldILSIcon.svg";
+import { Icons } from "../../../assets/images";
 
 interface ShoppingBagDishCardProps {
   dishWithOptions: DishWithOptions;
@@ -29,7 +28,7 @@ const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions }) 
               {!isMobileOrTablet && (
                 <div className={styles.priceInTitleContainer}>
                   <div className={styles.currencyIconContainer}>
-                    <img src={goldILSIcon} alt="currencyIcon" />
+                    <img src={Icons.goldIlsIcon} alt="currency-icon" />
                   </div>
                   <div className={styles.priceTextContainer}>{parseFloat(dishWithOptions.dish.price.toString()).toFixed(2)}</div>
                 </div>
@@ -48,7 +47,7 @@ const ShoppingBagDishCard: FC<ShoppingBagDishCardProps> = ({ dishWithOptions }) 
           </div>
           <div className={styles.totalPriceContainer}>
             <div className={styles.currencyIconContainer}>
-              <img src={ILSIcon} alt="currencyIcon" />
+              <img src={Icons.ilsIcon} alt="currencyIcon" />
             </div>
             {totalPrice}
           </div>

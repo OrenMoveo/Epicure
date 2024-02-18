@@ -1,5 +1,6 @@
 import styles from "./Dropdown.module.scss";
-import dropdownIcon from "../../assets/images/dropdownArrowIcon.svg";
+import { Icons } from "../../assets/images";
+
 import { FC, useState } from "react";
 import RatingContainer from "../RatingContainer/RatingContainer";
 interface DropDownProps {
@@ -13,13 +14,7 @@ interface DropDownProps {
 
 const Dropdown: FC<DropDownProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isChecked, setIsChecked] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [isChecked, setIsChecked] = useState([false, false, false, false, false]);
 
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {
     return booleanArray.some((value) => value);
@@ -40,7 +35,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
       >
         <div className={styles.dropdownBtnContent}>
           <p className={styles.btnText}>{props.filterTitle}</p>
-          <img src={dropdownIcon} alt="dropwdownIcon" />
+          <img src={Icons.dropdownArrowIcon} alt="dropwdownIcon" />
         </div>
       </button>
       {isOpen && (
@@ -50,10 +45,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
               <p className={styles.titleText}>{props.filterTitle}</p>
             </div>
             <div className={styles.ratingsContainer}>
-              <RatingContainer
-                isChecked={isChecked}
-                setIsChecked={setIsChecked}
-              />
+              <RatingContainer isChecked={isChecked} setIsChecked={setIsChecked} />
             </div>
             <div className={styles.clearAllCheckboxBtnContainer}>
               {hasAtLeastOneTrue(isChecked) && (

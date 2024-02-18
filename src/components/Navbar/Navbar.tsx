@@ -1,12 +1,8 @@
 import styles from "./Navbar.module.scss";
-import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
-import logoIcon from "../../assets/images/logo.svg";
-import searchIcon from "../../assets/images/SearchIcon.svg";
-import signInIcon from "../../assets/images/SignInIcon.svg";
-import smallShoppingBagIcon from "../../assets/images/smallShoppingBagIcon.svg";
+import { useState } from "react";
+import { Icons, Logos } from "../../assets/images";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UIConstants, appRoutes } from "../../shared/constants";
-import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
@@ -46,10 +42,10 @@ const Navbar = () => {
       <div className={styles.HeaderContainer}>
         <div className={styles.navbarContainer}>
           <button className={styles.menuContainer} onClick={() => toggleMenu()}>
-            <img src={hamburgerIcon} alt="hamburger-icon" />
+            <img src={Icons.hamburgerIcon} alt="hamburger-icon" />
           </button>
           <NavLink to={appRoutes.base} className={styles.logoContainer}>
-            <img src={logoIcon} alt="logo" />
+            <img src={Logos.logo} alt="logo" />
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
             <button className={styles.epicureTextTitle} onClick={handleHomePageNavigation}>
@@ -74,14 +70,14 @@ const Navbar = () => {
                 toggleSearch();
               }}
             >
-              <img src={searchIcon} alt="search-icon" />
+              <img src={Icons.searchIcon} alt="search-icon" />
             </button>
           </div>
           <button className={styles.signInBtn}>
-            <img src={signInIcon} alt="signIn-icon" />
+            <img src={Icons.signInIcon} alt="signIn-icon" />
           </button>
           <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
-            <img src={smallShoppingBagIcon} alt="bag-icon" />
+            <img src={Icons.smallShoppingBagIcon} alt="bag-icon" />
             {!isEmptyShoppingBag && <DishCounterCircle />}
           </button>
         </div>
