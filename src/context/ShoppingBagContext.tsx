@@ -1,22 +1,29 @@
 import React, { createContext, useState, useContext } from "react";
 import { Order, DishWithOptions } from "../types/types";
+import { defaultDish } from "../shared/defaults";
 
 interface ShoppingBagContextType {
   shoppingBagSum: number;
   order: Order;
-  updateShoppingBag: (dish: DishWithOptions, quantity: number) => void;
+  updateShoppingBag: (dish: DishWithOptions) => void;
   isEmptyShoppingBag: boolean;
   dishQuantities: Record<string, number>;
   getTotalQuantity: () => number;
+  newOrderDish: DishWithOptions;
+  updateNewOrderDish: (dish: DishWithOptions) => void;
+  resetAndUpdateBag: (extendedDish: DishWithOptions) => void;
 }
 
 const ShoppingBagContext = createContext<ShoppingBagContextType>({
   shoppingBagSum: 0,
   order: { restaurantName: "", dishes: [] },
-  updateShoppingBag: (dish: DishWithOptions, quantity: number) => {},
+  updateShoppingBag: (dish: DishWithOptions) => {},
   isEmptyShoppingBag: true,
   dishQuantities: {},
   getTotalQuantity: () => 0,
+  newOrderDish: { dish: defaultDish, quantity: 0, options: [] },
+  updateNewOrderDish: (dish: DishWithOptions) => {},
+  resetAndUpdateBag: (extendedDish: DishWithOptions) => {},
 });
 
 export const useShoppingBagContext = () => useContext<ShoppingBagContextType>(ShoppingBagContext);
@@ -24,7 +31,7 @@ export const useShoppingBagContext = () => useContext<ShoppingBagContextType>(Sh
 export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = ({ children }) => {
   const [shoppingBagSum, setShoppingBagSum] = useState(0);
   const [order, setOrder] = useState<Order>({ restaurantName: "", dishes: [] });
-
+  const [newOrderDish, setNewOrderDish] = useState<DishWithOptions>({ dish: defaultDish, quantity: 0, options: [] });
   const [dishQuantities, setDishQuantities] = useState<Record<string, number>>({});
 
   const isEmptyShoppingBag = order.dishes.length == 0;
@@ -33,31 +40,41 @@ export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = (
     setShoppingBagSum((prevSum) => prevSum + dishPrice);
   };
 
-  const updateShoppingBag = (extendedDish: DishWithOptions, quantity: number) => {
+  const updateNewOrderDish = (dish: DishWithOptions) => {
+    setNewOrderDish(dish);
+  };
+
+  const updateShoppingBag = (extendedDish: DishWithOptions) => {
     const dishId = extendedDish.dish.keyId;
-
-    const newQuantity = (dishQuantities[dishId] || 0) + quantity;
+    const newQuantity = (dishQuantities[dishId] || 0) + extendedDish.quantity;
     setDishQuantities({ ...dishQuantities, [dishId]: newQuantity });
-
-    if (!order.dishes.some((d) => d.dish.keyId === dishId)) {
-      if (order.restaurantName === extendedDish.dish.restaurant || order.restaurantName === "") {
-        setOrder((prevOrder) => ({
-          restaurantName: extendedDish.dish.restaurant,
-          dishes: [...prevOrder.dishes, extendedDish],
-        }));
-      } else {
-        setDishQuantities({ [dishId]: quantity });
-        setOrder({ restaurantName: extendedDish.dish.restaurant, dishes: [extendedDish] });
-      }
+    if (order.dishes.some((d) => d.dish.keyId === dishId)) {
+      setOrder((prevOrder) => ({
+        restaurantName: prevOrder.restaurantName,
+        dishes: prevOrder.dishes.map((d) => (d.dish.keyId === dishId ? { ...d, quantity: newQuantity } : d)),
+      }));
+    } else {
+      setOrder((prevOrder) => ({
+        restaurantName: extendedDish.dish.restaurant,
+        dishes: [...prevOrder.dishes, { ...extendedDish, quantity: newQuantity }],
+      }));
     }
-    const dishPrice = extendedDish.dish.price * quantity;
+    const dishPrice = extendedDish.dish.price * extendedDish.quantity;
     updateShoppingBagSum(dishPrice);
+  };
+
+  const resetAndUpdateBag = (extendedDish: DishWithOptions) => {
+    const dishId = extendedDish.dish.keyId;
+    const totalPrice = extendedDish.quantity * extendedDish.dish.price;
+    setDishQuantities({ [dishId]: extendedDish.quantity });
+    setOrder({ restaurantName: extendedDish.dish.restaurant, dishes: [extendedDish] });
+    setShoppingBagSum(totalPrice);
   };
 
   const getTotalQuantity = () => {
     return Object.values(dishQuantities).reduce((total, quantity) => total + quantity, 0);
   };
-  const value = { shoppingBagSum, updateShoppingBag, order, isEmptyShoppingBag, dishQuantities, getTotalQuantity };
+  const value = { shoppingBagSum, updateShoppingBag, order, isEmptyShoppingBag, dishQuantities, getTotalQuantity, resetAndUpdateBag, updateNewOrderDish, newOrderDish };
 
   return <ShoppingBagContext.Provider value={value}>{children}</ShoppingBagContext.Provider>;
 };

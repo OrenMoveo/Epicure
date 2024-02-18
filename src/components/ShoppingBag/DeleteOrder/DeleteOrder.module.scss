@@ -3,14 +3,17 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  width: calc(100% - 84px);
+  width: 376px;
+  background-color: white;
 
   .deleteOrderContainer {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    width: calc(100% - 84px);
     gap: 40px;
+    padding: 48px 0;
 
     img {
       width: 40.04px;

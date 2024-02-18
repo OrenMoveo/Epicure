@@ -33,11 +33,17 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const { closeDishModal } = useModalContext();
+  const { closeDishModal, openDeleteOrderModal } = useModalContext();
+  const { order, updateNewOrderDish } = useShoppingBagContext();
 
   const handleClickModal = () => {
-    updateShoppingBag({ dish, options: dishChanges }, quantity);
-    closeDishModal();
+    if (order.restaurantName === dish.restaurant || order.restaurantName === "") {
+      updateShoppingBag({ dish, options: dishChanges, quantity });
+      closeDishModal();
+    } else {
+      updateNewOrderDish({ dish, options: dishChanges, quantity });
+      openDeleteOrderModal();
+    }
   };
 
   const closeModalDesktop = () => {

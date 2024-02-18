@@ -1,8 +1,23 @@
 import AppButton from "../../AppButton/AppButton";
 import styles from "./DeleteOrder.module.scss";
 import questionMark from "../../../assets/images/questionMark.svg";
+import { useShoppingBagContext } from "../../../context/ShoppingBagContext";
+import { useModalContext } from "../../../context/ModalContext";
 
 const DeleteOrder = () => {
+  const { resetAndUpdateBag, newOrderDish } = useShoppingBagContext();
+  const { closeDeleteOrderModal, closeDishModal } = useModalContext();
+
+  const handleDelete = () => {
+    resetAndUpdateBag(newOrderDish);
+    closeDeleteOrderModal();
+    closeDishModal();
+  };
+
+  const handleBackToOrder = () => {
+    closeDeleteOrderModal();
+  };
+
   return (
     <div className={styles.deleteOrderLayout}>
       <div className={styles.deleteOrderContainer}>
@@ -14,8 +29,8 @@ const DeleteOrder = () => {
           </div>
         </div>
         <div className={styles.buttonsContainer}>
-          <AppButton handleClick={() => {}} buttonContent="DELETE" isBlack={true} />
-          <AppButton handleClick={() => {}} buttonContent="BACK TO ORDER" />
+          <AppButton handleClick={handleDelete} buttonContent="DELETE" isBlack={true} />
+          <AppButton handleClick={handleBackToOrder} buttonContent="BACK TO ORDER" />
         </div>
       </div>
     </div>

@@ -42,10 +42,6 @@ export interface Order {
 
 export interface DishWithOptions {
   dish: Dish;
-  options: DishChangeStateInterface[];
-}
-
-export interface DishChangeStateInterface {
-  name: string;
-  isChecked: boolean;
+  quantity: number;
+  options: string[];
 }
