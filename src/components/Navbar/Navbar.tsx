@@ -14,6 +14,9 @@ import SignIn from "../SignIn/SignIn";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../GenericModal/GenericModal";
+import Search from "../Search/Search";
+import { desktopSearch } from "./searchBarStyling";
+import NavbarSearchBarDesktop from "./NavbarSearchBarDesktop/NavbarSearchBarDesktop";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +24,6 @@ const Navbar = () => {
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
-  const screenWidth = useGetScreenWidth();
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
@@ -76,13 +78,12 @@ const Navbar = () => {
             <button
               className={styles.searchBtn}
               onClick={() => {
-                if (screenWidth > UIConstants.sizes.tabletWidth) {
-                  return;
-                }
                 toggleSearch();
               }}
             >
-              <img src={Icons.searchIcon} alt="search-icon" />
+              {/* <img src={Icons.searchIcon} alt="search-icon" /> */}
+              {!isMobileOrTablet && isSearchOpen && <NavbarSearchBarDesktop />}
+              {!isSearchOpen && <img src={Icons.searchIcon} alt="signIn-icon" />}
             </button>
           </div>
           <button className={styles.signInBtn} onClick={() => toggleSignIn()}>
@@ -101,7 +102,7 @@ const Navbar = () => {
       ) : (
         ""
       )}
-      {isSearchOpen ? (
+      {isSearchOpen && isMobileOrTablet ? (
         <GenericPopover coverAllPage={true}>
           <SearchPopover toggleSearch={toggleSearch} />
         </GenericPopover>
