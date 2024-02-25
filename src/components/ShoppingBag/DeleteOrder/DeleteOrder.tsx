@@ -1,8 +1,8 @@
 import AppButton from "../../AppButton/AppButton";
 import styles from "./DeleteOrder.module.scss";
-import questionMark from "../../../assets/images/questionMark.svg";
 import { useShoppingBagContext } from "../../../context/ShoppingBagContext";
 import { useModalContext } from "../../../context/ModalContext";
+import { TextSymbols } from "../../../assets/images";
 
 const DeleteOrder = () => {
   const { resetAndUpdateBag, newOrderDish } = useShoppingBagContext();
@@ -23,7 +23,7 @@ const DeleteOrder = () => {
   return (
     <div className={styles.deleteOrderLayout}>
       <div className={styles.deleteOrderContainer}>
-        <img src={questionMark} alt="question-mark" />
+        <img src={TextSymbols.questionMark} alt="question-mark" />
         <div className={styles.deleteOrderContent}>
           <div className={styles.deleteOrderTitle}>DELETE ORDER?</div>
           <div className={styles.deleteOrderMessage}>

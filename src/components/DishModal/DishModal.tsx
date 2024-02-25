@@ -8,8 +8,7 @@ import ChooseQuantity from "../ChooseQuantity/ChooseQuantity";
 import { createPortal } from "react-dom";
 import { FC, useRef, useState } from "react";
 import { useModalContext } from "../../context/ModalContext";
-import blackXIcon from "../../assets/images/blackXIcon.svg";
-import whiteXIcon from "../../assets/images/whiteXIcon.svg";
+import { Icons } from "../../assets/images";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import Footer from "../Footer/Footer";
@@ -63,7 +62,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
           <div className={styles.DishModalLayout} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <button className={styles.btnContainer} onClick={() => closeDishModal()}>
-                {isMobileOrTablet ? <img src={blackXIcon} alt="black-x-icon" /> : <img src={whiteXIcon} alt="white-x-icon" />}
+                {isMobileOrTablet ? <img src={Icons.blackXIcon} alt="black-x-icon" /> : <img src={Icons.whiteXIcon} alt="white-x-icon" />}
               </button>
             </div>
             <div className={styles.heroContainer}>

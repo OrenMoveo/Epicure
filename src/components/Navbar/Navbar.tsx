@@ -1,12 +1,8 @@
 import styles from "./Navbar.module.scss";
-import hamburgerIcon from "../../assets/images/HamburgerIcon.svg";
-import logoIcon from "../../assets/images/logo.svg";
-import searchIcon from "../../assets/images/SearchIcon.svg";
-import signInIcon from "../../assets/images/SignInIcon.svg";
-import smallShoppingBagIcon from "../../assets/images/smallShoppingBagIcon.svg";
+import { useState } from "react";
+import { Icons, Logos } from "../../assets/images";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UIConstants, appRoutes } from "../../shared/constants";
-import { useState } from "react";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
@@ -14,18 +10,30 @@ import GenericPopover from "../GenericPopover/GenericPopover";
 import ShoppingBag from "../ShoppingBag/ShoppingBag";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
+import SignIn from "../SignIn/SignIn";
+import useIsTablet from "../../hooks/useIsTablet";
+import useIsMobile from "../../hooks/useIsMobile";
+import GenericModal from "../GenericModal/GenericModal";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+
+  const screenWidth = useGetScreenWidth();
+  const isTablet = useIsTablet();
+  const isMobile = useIsMobile();
+  const isMobileOrTablet = isMobile || isTablet;
 
   const { isEmptyShoppingBag } = useShoppingBagContext();
 
-  const screenWidth = useGetScreenWidth();
-
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
+  };
+
+  const toggleSignIn = () => {
+    setIsSignInOpen((signInOpen) => !signInOpen);
   };
 
   const toggleSearch = () => {
@@ -46,10 +54,10 @@ const Navbar = () => {
       <div className={styles.HeaderContainer}>
         <div className={styles.navbarContainer}>
           <button className={styles.menuContainer} onClick={() => toggleMenu()}>
-            <img src={hamburgerIcon} alt="hamburger-icon" />
+            <img src={Icons.hamburgerIcon} alt="hamburger-icon" />
           </button>
           <NavLink to={appRoutes.base} className={styles.logoContainer}>
-            <img src={logoIcon} alt="logo" />
+            <img src={Logos.logo} alt="logo" />
           </NavLink>
           <div className={styles.navbarButtonsContainer}>
             <button className={styles.epicureTextTitle} onClick={handleHomePageNavigation}>
@@ -74,14 +82,14 @@ const Navbar = () => {
                 toggleSearch();
               }}
             >
-              <img src={searchIcon} alt="search-icon" />
+              <img src={Icons.searchIcon} alt="search-icon" />
             </button>
           </div>
-          <button className={styles.signInBtn}>
-            <img src={signInIcon} alt="signIn-icon" />
+          <button className={styles.signInBtn} onClick={() => toggleSignIn()}>
+            <img src={Icons.signInIcon} alt="signIn-icon" />
           </button>
           <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
-            <img src={smallShoppingBagIcon} alt="bag-icon" />
+            <img src={Icons.smallShoppingBagIcon} alt="bag-icon" />
             {!isEmptyShoppingBag && <DishCounterCircle />}
           </button>
         </div>
@@ -104,6 +112,20 @@ const Navbar = () => {
         <GenericPopover>
           <ShoppingBag />
         </GenericPopover>
+      ) : (
+        ""
+      )}
+
+      {isSignInOpen ? (
+        isMobileOrTablet ? (
+          <GenericPopover coverAllPage={true}>
+            <SignIn toggleSignIn={toggleSignIn} />
+          </GenericPopover>
+        ) : (
+          <GenericModal handleClose={toggleSignIn}>
+            <SignIn toggleSignIn={toggleSignIn} />
+          </GenericModal>
+        )
       ) : (
         ""
       )}

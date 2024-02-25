@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import styles from "./ChooseSideDishes.module.scss";
-import emptyRadioButton from "../../assets/images/radioButton.svg";
-import checkedRadioButton from "../../assets/images/checkedRadioButton.svg";
+import { Buttons } from "../../assets/images";
 import globalData from "../../data/data.json";
 
 interface SideDishesStateProps {
@@ -31,7 +30,7 @@ const ChooseSideDishes: FC<SideDishesStateProps> = ({ setSideDishes }) => {
         {sideDishesItems.map((sideDish: SideDishesItemType) => (
           <div className={styles.singleSideDishContainer} key={sideDish.name}>
             <button onClick={() => toggleSideDish(sideDish)} className={styles.radioButtonContainer}>
-              <img src={sideDish.isChecked ? checkedRadioButton : emptyRadioButton} alt="radioButton" />
+              <img src={sideDish.isChecked ? Buttons.checkedRadioBtn : Buttons.radioBtn} alt="radio-button" />
             </button>
             {sideDish.name}
           </div>

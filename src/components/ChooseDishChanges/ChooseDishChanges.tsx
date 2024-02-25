@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
-import emptyCheckbox from "../../assets/images/emptyCheckboxIcon.svg";
-import checkedBox from "../../assets/images/checkedboxIcon.svg";
+import { Icons } from "../../assets/images";
 import styles from "./ChooseDishChanges.module.scss";
 import globalData from "../../data/data.json";
 interface ChooseDishChangesProps {
@@ -31,7 +30,7 @@ const ChooseDishChanges: FC<ChooseDishChangesProps> = ({ setDishChanges }) => {
         {dishChangesItems.map((dishChange) => (
           <div className={styles.singleDishChangeContainer} key={dishChange.name}>
             <button onClick={() => toggleDishChange(dishChange)} className={styles.checkboxButton}>
-              <img src={dishChange.isChecked ? checkedBox : emptyCheckbox} alt="checkbox" />
+              <img src={dishChange.isChecked ? Icons.checkedboxIcon : Icons.emptyCheckboxIcon} alt="checkbox" />
             </button>
             {dishChange.name}
           </div>

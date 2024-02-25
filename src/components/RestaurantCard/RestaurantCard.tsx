@@ -2,11 +2,7 @@ import styles from "./RestaurantCard.module.scss";
 import { Restaurant } from "../../types/types";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import { UIConstants, appRoutes } from "../../shared/constants";
-import oneStarRating from "../../assets/images/ratings/rating1.svg";
-import twoStarRating from "../../assets/images/ratings/rating2.svg";
-import threeStarRating from "../../assets/images/ratings/rating3.svg";
-import fourStarRating from "../../assets/images/ratings/rating4.svg";
-import fiveStarRating from "../../assets/images/ratings/rating5.svg";
+import { Ratings } from "../../assets/images";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 interface RestaurantCardProps {
@@ -18,11 +14,11 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
   const screenWidth = useGetScreenWidth();
   const isTablet = screenWidth < UIConstants.sizes.tabletWidth;
   const ratingsMap = new Map<number, string>();
-  ratingsMap.set(1, oneStarRating);
-  ratingsMap.set(2, twoStarRating);
-  ratingsMap.set(3, threeStarRating);
-  ratingsMap.set(4, fourStarRating);
-  ratingsMap.set(5, fiveStarRating);
+  ratingsMap.set(1, Ratings.rating1);
+  ratingsMap.set(2, Ratings.rating2);
+  ratingsMap.set(3, Ratings.rating3);
+  ratingsMap.set(4, Ratings.rating4);
+  ratingsMap.set(5, Ratings.rating5);
 
   return (
     <Link to={appRoutes.getRestaurantRoute(props.restaurant.keyId)}>
