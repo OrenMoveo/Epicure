@@ -1,4 +1,4 @@
-import { Dish, Order, Restaurant } from "../types/types";
+import { Dish, Restaurant } from "../types/types";
 export const defaultRestaurant: Restaurant = {
   name: "Claro",
   chef: "Ran Shmueli",
@@ -17,6 +17,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: true,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "dinner",
+      restaurant: "Claro",
       keyId: "9",
     },
     {
@@ -27,6 +28,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: true,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "breakfast",
+      restaurant: "Claro",
       keyId: "10",
     },
     {
@@ -37,6 +39,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: true,
       foodIcon: "../assets/images/veganIcon.svg",
       mealType: "breakfast",
+      restaurant: "Claro",
       keyId: "11",
     },
     {
@@ -47,6 +50,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: false,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "lunch",
+      restaurant: "Claro",
       keyId: "12",
     },
     {
@@ -57,6 +61,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: false,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "lunch",
+      restaurant: "Claro",
       keyId: "13",
     },
     {
@@ -67,6 +72,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: false,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "breakfast",
+      restaurant: "Claro",
       keyId: "14",
     },
     {
@@ -77,6 +83,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: true,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "breakfast",
+      restaurant: "Claro",
       keyId: "15",
     },
     {
@@ -87,6 +94,7 @@ export const defaultRestaurant: Restaurant = {
       signatureDish: true,
       foodIcon: "../assets/images/spicyIcon.svg",
       mealType: "dinner",
+      restaurant: "Claro",
       keyId: "16",
     },
   ],
@@ -104,9 +112,4 @@ export const defaultDish: Dish = {
   mealType: "breakfast",
   restaurant: "Claro",
   keyId: "9",
-};
-
-export const defaultOrder: Order = {
-  restaurantName: defaultRestaurant.name,
-  dishes: defaultRestaurant.restaurantDishes,
 };

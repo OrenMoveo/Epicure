@@ -9,10 +9,13 @@ const ModalContext = createContext({
   updateDish: (dish: Dish) => {},
   dish: defaultDish,
   isGenericModalActive: false,
-  closeModal: () => {},
-  openModal: () => {},
+  isDeleteOrderModalOpen: false,
+  closeDeleteOrderModal: () => {},
+  openDeleteOrderModal: () => {},
   openDishModal: () => {},
   closeDishModal: () => {},
+  closeModal: () => {},
+  openModal: () => {},
 });
 
 export const useModalContext = () => useContext(ModalContext);
@@ -25,7 +28,11 @@ export const ModalProvider: React.FC<{ children: React.ReactElement }> = ({ chil
   const [isDishModalActive, setIsDishModalActive] = useState(false);
   const [dish, setDish] = useState<Dish>(defaultDish);
   const [isGenericModalActive, setIsGenericModalActive] = useState(false);
+  const [isDeleteOrderModalOpen, setIsDeleteOrderModalOpen] = useState(false);
 
+  const openModal = () => {
+    setIsGenericModalActive(true);
+  };
   const closeModal = () => {
     setIsGenericModalActive(false);
   };
@@ -39,8 +46,12 @@ export const ModalProvider: React.FC<{ children: React.ReactElement }> = ({ chil
     if (isMobileOrTablet) window.scrollTo(0, 0);
   };
 
-  const openModal = () => {
-    setIsGenericModalActive(true);
+  const openDeleteOrderModal = () => {
+    setIsDeleteOrderModalOpen(true);
+  };
+
+  const closeDeleteOrderModal = () => {
+    setIsDeleteOrderModalOpen(false);
   };
 
   const updateDish = (dish: Dish) => {
@@ -48,7 +59,19 @@ export const ModalProvider: React.FC<{ children: React.ReactElement }> = ({ chil
     if (isMobileOrTablet) window.scrollTo(0, 0);
   };
 
-  const value = { isDishModalActive, openDishModal, closeDishModal, updateDish, dish, closeModal, openModal, isGenericModalActive };
+  const value = {
+    isDishModalActive,
+    openDishModal,
+    closeDishModal,
+    updateDish,
+    dish,
+    openDeleteOrderModal,
+    closeDeleteOrderModal,
+    isGenericModalActive,
+    isDeleteOrderModalOpen,
+    openModal,
+    closeModal,
+  };
 
   return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
 };

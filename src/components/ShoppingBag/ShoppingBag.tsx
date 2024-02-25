@@ -32,7 +32,7 @@ const ShoppingBag: FC = () => {
                 <div className={styles.restaurantName}>{order.restaurantName}</div>
                 <div className={styles.orderDishes}>
                   {order.dishes.map((dishWithOptions) => (
-                    <ShoppingBagDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.dish.keyId} quantity={dishQuantities[dishWithOptions.dish.keyId] || 1} />
+                    <ShoppingBagDishCard dishWithOptions={dishWithOptions} key={dishWithOptions.keyId} />
                   ))}
                 </div>
               </div>

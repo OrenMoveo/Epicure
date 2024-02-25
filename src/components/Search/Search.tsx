@@ -7,11 +7,7 @@ const Search = () => {
       <button className={styles.searchBtn}>
         <img src={searchIcon} alt="search-icon" />
       </button>
-      <input
-        className={styles.searchInput}
-        placeholder="Search for restaurant cuisine, chef"
-        name="search-input"
-      ></input>
+      <input className={styles.searchInput} placeholder="Search for a restaurant, cuisine, chef" name="search-input"></input>
     </div>
   );
 };
