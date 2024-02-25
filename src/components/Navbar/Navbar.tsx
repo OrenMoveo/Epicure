@@ -2,10 +2,9 @@ import styles from "./Navbar.module.scss";
 import { useState } from "react";
 import { Icons, Logos } from "../../assets/images";
 import { NavLink, useNavigate } from "react-router-dom";
-import { UIConstants, appRoutes } from "../../shared/constants";
+import { appRoutes } from "../../shared/constants";
 import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
-import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 import GenericPopover from "../GenericPopover/GenericPopover";
 import ShoppingBag from "../ShoppingBag/ShoppingBag";
 import { useShoppingBagContext } from "../../context/ShoppingBagContext";
@@ -14,8 +13,6 @@ import SignIn from "../SignIn/SignIn";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../GenericModal/GenericModal";
-import Search from "../Search/Search";
-import { desktopSearch } from "./searchBarStyling";
 import NavbarSearchBarDesktop from "./NavbarSearchBarDesktop/NavbarSearchBarDesktop";
 
 const Navbar = () => {
