@@ -1,0 +1,43 @@
+.SearchLayout {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 410px;
+  height: 41px;
+  border: 0.5px solid rgba(0, 0, 0, 1);
+  border-radius: 4px;
+  padding: 6px 12px;
+
+  .searchBtn {
+    display: flex;
+    align-self: center;
+    order: 1;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .searchInput {
+    display: flex;
+    align-self: center;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 1.2899999618530273px;
+    font-size: 18px;
+    line-height: 22px;
+
+    &::placeholder {
+      color: black;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 1.2899999618530273px;
+      text-align: left;
+    }
+  }
+}
