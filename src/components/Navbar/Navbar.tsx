@@ -75,16 +75,15 @@ const Navbar = () => {
         </div>
         <div className={styles.headerIconsContainer}>
           <div className={styles.searchContainer}>
-            <button
+            <div
               className={styles.searchBtn}
               onClick={() => {
                 toggleSearch();
               }}
             >
-              {/* <img src={Icons.searchIcon} alt="search-icon" /> */}
               {!isMobileOrTablet && isSearchOpen && <NavbarSearchBarDesktop />}
               {!isSearchOpen && <img src={Icons.searchIcon} alt="signIn-icon" />}
-            </button>
+            </div>
           </div>
           <button className={styles.signInBtn} onClick={() => toggleSignIn()}>
             <img src={Icons.signInIcon} alt="signIn-icon" />
