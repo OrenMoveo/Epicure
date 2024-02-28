@@ -4,7 +4,6 @@ export interface Restaurant {
   chef: Chef;
   pictureUrl: string;
   openNow: boolean;
-  location: string; // not sure
   rating: number;
   mostPopular: boolean;
   newRestaurant: boolean;
@@ -32,7 +31,7 @@ export interface Dish {
   signatureDish: boolean;
   foodIcon: string;
   mealType: string;
-  restaurant: string;
+  restaurant: Restaurant;
 }
 
 export interface Order {

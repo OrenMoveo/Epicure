@@ -37,7 +37,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const { order, updateNewOrderDish } = useShoppingBagContext();
 
   const handleClickModal = () => {
-    if (order.restaurantName === dish.restaurant || order.restaurantName === "") {
+    if (order.restaurantName === dish.restaurant.name || order.restaurantName === "") {
       updateShoppingBag({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options, quantity }) });
       closeDishModal();
     } else {
@@ -75,7 +75,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                     {isMobileOrTablet ? (
                       <DishCard
                         dish={dish}
-                        key={dish.keyId}
+                        key={dish._id}
                         dishImageSize={mobileStyles.cardImage}
                         cardContainerStyling={mobileStyles.cardWith}
                         dishContentLayoutStyling={mobileStyles.cardContentLayout}
@@ -87,7 +87,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
                     ) : (
                       <DishCard
                         dish={dish}
-                        key={dish.keyId}
+                        key={dish._id}
                         dishImageSize={desktopStyles.cardImage}
                         cardContainerStyling={desktopStyles.cardWith}
                         dishContentLayoutStyling={desktopStyles.cardContentLayout}

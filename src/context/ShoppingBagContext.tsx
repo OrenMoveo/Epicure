@@ -55,19 +55,22 @@ export const ShoppingBagProvider: React.FC<{ children: React.ReactElement }> = (
       }));
     } else {
       setOrder((prevOrder) => ({
-        restaurantName: extendedDish.dish.restaurant,
+        restaurantName: extendedDish.dish.restaurant.name,
         dishes: [...prevOrder.dishes, { ...extendedDish, quantity: newQuantity }],
       }));
     }
+
     const dishPrice = extendedDish.dish.price * extendedDish.quantity;
     updateShoppingBagSum(dishPrice);
   };
 
   const resetAndUpdateBag = (extendedDish: DishWithOptions) => {
-    const dishId = extendedDish.dish.keyId;
+    const dishId = extendedDish.dish._id;
     const totalPrice = extendedDish.quantity * extendedDish.dish.price;
-    setDishQuantities({ [dishId]: extendedDish.quantity });
-    setOrder({ restaurantName: extendedDish.dish.restaurant, dishes: [extendedDish] });
+    if (dishId) {
+      setDishQuantities({ [dishId]: extendedDish.quantity });
+    }
+    setOrder({ restaurantName: extendedDish.dish.restaurant.name, dishes: [extendedDish] });
     setShoppingBagSum(totalPrice);
   };
 
