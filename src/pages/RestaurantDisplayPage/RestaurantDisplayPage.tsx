@@ -1,6 +1,6 @@
 import styles from "./RestaurantDisplayPage.module.scss";
 import { useParams } from "react-router-dom";
-import clockIcon from "../../assets/images/clockIcon.svg";
+import { Icons } from "../../assets/images";
 import { useEffect, useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
 import useIsTablet from "../../hooks/useIsTablet";
@@ -47,7 +47,7 @@ const RestaurantDisplayPage = () => {
             <p className={styles.restaurantChef}>{restaurant.chef}</p>
             <div className={styles.openNowContainer}>
               <div className={styles.clockIconContainer}>
-                <img src={clockIcon} alt="clock-icon" />
+                <img src={Icons.clockIcon} alt="clock-icon" />
               </div>
               <p className={styles.openNowText}>Open now</p>
             </div>

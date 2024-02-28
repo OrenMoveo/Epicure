@@ -5,13 +5,12 @@ import { Chef } from "../../types/types";
 import data from "../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import goToIcon from "../../assets/images/goToIcon.svg";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 
 export const ChefOfTheWeekSection = () => {
-  const isTablet: boolean = useIsTablet();
+  const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
