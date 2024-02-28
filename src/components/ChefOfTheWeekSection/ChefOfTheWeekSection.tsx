@@ -2,20 +2,33 @@ import { SectionTitle } from "../SectionTitle/SectionTitle";
 import styles from "./ChefOfTheWeekSection.module.scss";
 import ChefsRestaurantCard from "../ChefsRestaurantCard/ChefsRestaurantCard";
 import { Chef } from "../../types/types";
-import data from "../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
+import { useEffect, useState } from "react";
+import { getChefOfTheWeek } from "../../apiService/chefApiService";
 
 export const ChefOfTheWeekSection = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const chefs: Chef[] = data.data.chefs;
-  const chefOfTheWeek = chefs.find((chef) => chef.name === "Yossi Shitrit");
+  const [chefOfTheWeek, setChefOfTheWeek] = useState<Chef>();
+  const firstName = chefOfTheWeek?.name?.split(" ")[0];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getChefOfTheWeek();
+        setChefOfTheWeek(data);
+      } catch (error) {
+        console.error();
+      }
+    };
+    fetchData();
+  }, [chefOfTheWeek, setChefOfTheWeek]);
 
   return (
     <section className={styles.chefOfTheWeekSection}>
@@ -39,14 +52,14 @@ export const ChefOfTheWeekSection = () => {
       </div>
       <div className={styles.chefOfTheWeekRestaurantContainer}>
         <div className={styles.chefOfTheWeekRestaurantsTitle}>
-          <SectionTitle title={isMobileOrTablet ? "YOSSI'S RESTAURANTS" : "Yossi's Restaurants"} />
+          <SectionTitle title={isMobileOrTablet ? `${firstName}'s RESTAURANTS` : `${firstName}'s Restaurants`} />
         </div>
         {isMobileOrTablet ? (
           <div className={styles.carouselContainer}>
             <Swiper className={styles["swiper"]} spaceBetween={24} slidesPerView={"auto"} initialSlide={0}>
               {chefOfTheWeek &&
                 chefOfTheWeek.restaurants.map((restaurant) => (
-                  <SwiperSlide key={restaurant.keyId} className={styles["swiper-slide"]}>
+                  <SwiperSlide key={restaurant._id} className={styles["swiper-slide"]}>
                     <ChefsRestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
@@ -54,7 +67,7 @@ export const ChefOfTheWeekSection = () => {
           </div>
         ) : (
           <div className={styles.desktopChefOfTheWeekRestaurantsContainer}>
-            {chefOfTheWeek && chefOfTheWeek.restaurants.slice(0, 3).map((restaurant) => <ChefsRestaurantCard key={restaurant.keyId} restaurant={restaurant} />)}
+            {chefOfTheWeek && chefOfTheWeek.restaurants.slice(0, 3).map((restaurant) => <ChefsRestaurantCard key={restaurant._id} restaurant={restaurant} />)}
           </div>
         )}
         {isMobileOrTablet && <GoToAllRestaurantsButton />}
