@@ -28,3 +28,13 @@ export const fetchSingleRestaurant = async (restaurantId: string) => {
     throw error;
   }
 };
+
+export const fetchPopularRestaurants = async () => {
+  try {
+    const response = await axios.get(`${baseURL}${appRoutes.restaurants}${appRoutes.popularRestaurantsData}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error trying to get popular restaurants data", error.message);
+    throw error;
+  }
+};

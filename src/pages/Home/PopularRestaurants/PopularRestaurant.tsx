@@ -8,12 +8,27 @@ import { Restaurant } from "../../../types/types";
 import useIsTablet from "../../../hooks/useIsTablet";
 import useIsMobile from "../../../hooks/useIsMobile";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
+import { useEffect, useState } from "react";
+import { fetchPopularRestaurants } from "../../../apiService/apiService";
 
 const PopularRestaurant = () => {
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
 
-  const restaurants: Restaurant[] = data.data.restaurants;
+  const [popularRestaurants, setPopularRestaurants] = useState<Restaurant[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchPopularRestaurants();
+        setPopularRestaurants(data);
+      } catch (error) {
+        console.log("Error trying fetch popular restaurants frontend", error.message);
+        throw error;
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className={styles.popularRestaurantLayout}>
@@ -24,9 +39,9 @@ const PopularRestaurant = () => {
         {isMobile || isTablet ? (
           <div className={styles.carouselContainer}>
             <Swiper className={styles["swiper"]} spaceBetween={24} slidesPerView={"auto"} initialSlide={0}>
-              {restaurants &&
-                restaurants.map((restaurant) => (
-                  <SwiperSlide key={restaurant.keyId} className={styles["swiper-slide"]}>
+              {popularRestaurants &&
+                popularRestaurants.map((restaurant) => (
+                  <SwiperSlide key={restaurant._id} className={styles["swiper-slide"]}>
                     <RestaurantCard restaurant={restaurant} />
                   </SwiperSlide>
                 ))}
@@ -34,7 +49,7 @@ const PopularRestaurant = () => {
           </div>
         ) : (
           <div className={styles.desktopPopularRestaurantContainer}>
-            {restaurants && restaurants.slice(0, 3).map((restaurant) => <RestaurantCard key={restaurant.keyId} restaurant={restaurant} />)}
+            {popularRestaurants && popularRestaurants.slice(0, 3).map((restaurant) => <RestaurantCard key={restaurant._id} restaurant={restaurant} />)}
           </div>
         )}
         <div className={styles.GoToAllRestaurantsBtnContainer}>

@@ -6,7 +6,7 @@ import Legend from "./Legend/Legend";
 import PopularRestaurant from "./PopularRestaurants/PopularRestaurant";
 import SignatureDishes from "./SignatureDishes/SignatureDishes";
 
-function Home() {
+const Home = () => {
   return (
     <div className={styles.homepageLayout}>
       <div className={styles.bodyContainer}>
@@ -19,6 +19,6 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

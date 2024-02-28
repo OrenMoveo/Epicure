@@ -5,6 +5,7 @@ export const appRoutes = {
   restaurants: "/restaurants",
   chefs: "/chefs",
   getRestaurantRoute: (keyId: string | undefined) => `/restaurants/${keyId}`,
+  popularRestaurantsData: "/popular-restaurants-data"
 };
 
 export const UIConstants = {

@@ -31,7 +31,7 @@ const RestaurantsPage = () => {
         const data = await fetchRestaurants();
         setRestaurantsData(data);
         setRestaurants(data);
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error fetching data:", error.message);
       }
     };
