@@ -50,7 +50,7 @@ const RestaurantDisplayPage = () => {
   }, [id]);
 
   if (!restaurant) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   return (
