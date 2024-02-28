@@ -12,6 +12,7 @@ export interface Restaurant {
 }
 
 export interface Chef {
+  _id?: string;
   name: string;
   pictureUrl: string;
   restaurants: Restaurant[];

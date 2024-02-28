@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "./ChefsPage.module.scss";
-import data from "../../data/data.json";
 import { Chef } from "../../types/types";
 import ChefCard from "../../components/ChefCard/ChefCard";
 import useIsMobile from "../../hooks/useIsMobile";
@@ -64,7 +63,7 @@ const ChefsPage = () => {
           </div>
           <div className={styles.chefsPhotosContainer}>
             {chefs.map((chef) => (
-              <ChefCard key={chef.keyId} chef={chef} />
+              <ChefCard key={chef._id} chef={chef} />
             ))}
           </div>
         </div>
