@@ -8,7 +8,7 @@ import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStylin
 import { useParams } from "react-router-dom";
 
 import { Restaurant } from "../../types/types";
-import { fetchSingleRestaurant } from "../../apiService/apiService";
+import { fetchSingleRestaurant } from "../../apiService/restaurantApiService";
 
 const RestaurantDisplayPage = () => {
   const { id } = useParams();

@@ -7,11 +7,9 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import { fetchRestaurants } from "../../apiService/apiService";
+import { fetchRestaurants } from "../../apiService/restaurantApiService";
 
 const RestaurantsPage = () => {
-  // const data = useFetch();
-  // const restaurantsData: Restaurant[] = data.restaurants;
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;

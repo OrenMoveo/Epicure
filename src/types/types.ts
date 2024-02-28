@@ -18,8 +18,8 @@ export interface Chef {
   newChef: boolean;
   views: number;
   mostViewed: boolean;
+  chefOfTheWeek: boolean;
   description: string;
-  keyId: string;
 }
 
 export interface Dish {

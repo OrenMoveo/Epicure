@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ChefsPage.module.scss";
 import data from "../../data/data.json";
 import { Chef } from "../../types/types";
 import ChefCard from "../../components/ChefCard/ChefCard";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
+import { getAllChefs } from "../../apiService/chefApiService";
 
 const ChefsPage = () => {
-  const chefs: Chef[] = data.data.chefs;
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
@@ -19,6 +19,19 @@ const ChefsPage = () => {
   }
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.ALL_CHEFS_TAB_INDEX);
+  const [chefs, setChefs] = useState<Chef[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllChefs();
+        setChefs(data);
+      } catch (error) {
+        console.error();
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);

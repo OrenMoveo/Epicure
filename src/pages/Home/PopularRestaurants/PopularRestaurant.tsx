@@ -2,14 +2,13 @@ import styles from "./PopularRestaurant.module.scss";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import data from "../../../data/data.json";
 import RestaurantCard from "../../../components/RestaurantCard/RestaurantCard";
 import { Restaurant } from "../../../types/types";
 import useIsTablet from "../../../hooks/useIsTablet";
 import useIsMobile from "../../../hooks/useIsMobile";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 import { useEffect, useState } from "react";
-import { fetchPopularRestaurants } from "../../../apiService/apiService";
+import { fetchPopularRestaurants } from "../../../apiService/restaurantApiService";
 
 const PopularRestaurant = () => {
   const isMobile = useIsMobile();
