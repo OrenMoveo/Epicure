@@ -1,16 +1,17 @@
 import styles from "./RestaurantDisplayPage.module.scss";
-import { useParams } from "react-router-dom";
 import { Icons } from "../../assets/images";
 import { useEffect, useState } from "react";
 import DishCard from "../../components/DishCard/DishCard";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStyling, desktopDishTitleStyling, desktopStyling, mobileStyling } from "./DishCardStyling";
-import useFetchRestaurant from "../../hooks/useFetchRestaurant";
+import { useParams } from "react-router-dom";
+
+import { Restaurant } from "../../types/types";
+import { fetchSingleRestaurant } from "../../apiService/apiService";
 
 const RestaurantDisplayPage = () => {
-  const { keyId } = useParams();
-  const restaurant = useFetchRestaurant(keyId);
+  const { id } = useParams();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
@@ -22,6 +23,7 @@ const RestaurantDisplayPage = () => {
   }
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
+  const [restaurant, setRestaurant] = useState<Restaurant>();
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
@@ -30,6 +32,22 @@ const RestaurantDisplayPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const getRestaurantDetails = async () => {
+      try {
+        if (id) {
+          const data = await fetchSingleRestaurant(id);
+          setRestaurant(data);
+        }
+      } catch (error) {
+        console.log("fetch single restaurant error", error);
+        console.error();
+      }
+    };
+
+    getRestaurantDetails();
+  }, [id]);
 
   if (!restaurant) {
     return <div>Loading...</div>;
@@ -44,7 +62,7 @@ const RestaurantDisplayPage = () => {
         <div className={styles.restaurantPageContentLayout}>
           <div className={styles.restaurantPageContentContainer}>
             <p className={styles.restaurantName}>{restaurant.name}</p>
-            <p className={styles.restaurantChef}>{restaurant.chef}</p>
+            <p className={styles.restaurantChef}>{restaurant.chef.name}</p>
             <div className={styles.openNowContainer}>
               <div className={styles.clockIconContainer}>
                 <img src={Icons.clockIcon} alt="clock-icon" />
@@ -75,7 +93,7 @@ const RestaurantDisplayPage = () => {
               {restaurant.restaurantDishes.map((dish) =>
                 isMobile || isTablet ? (
                   <DishCard
-                    key={dish.keyId}
+                    key={dish._id}
                     dish={dish}
                     cardContainerStyling={mobileStyling.dishCardWidth}
                     dishImageSize={mobileStyling.dishImage}
@@ -88,7 +106,7 @@ const RestaurantDisplayPage = () => {
                   />
                 ) : (
                   <DishCard
-                    key={dish.keyId}
+                    key={dish._id}
                     dish={dish}
                     cardContainerStyling={desktopStyling.dishCardWidth}
                     dishImageSize={desktopStyling.dishImage}

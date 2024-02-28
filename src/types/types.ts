@@ -1,6 +1,7 @@
 export interface Restaurant {
+  _id?: string;
   name: string;
-  chef: string;
+  chef: Chef;
   pictureUrl: string;
   openNow: boolean;
   location: string; // not sure
@@ -9,7 +10,6 @@ export interface Restaurant {
   newRestaurant: boolean;
   restaurantDishes: Dish[];
   priceRange: number[];
-  keyId: string;
 }
 
 export interface Chef {
@@ -24,13 +24,13 @@ export interface Chef {
 }
 
 export interface Dish {
+  _id?: string;
   name: string;
   pictureUrl: string;
   description: string;
   price: number;
   signatureDish: boolean;
   foodIcon: string;
-  keyId: string;
   mealType: string;
   restaurant: string;
 }
