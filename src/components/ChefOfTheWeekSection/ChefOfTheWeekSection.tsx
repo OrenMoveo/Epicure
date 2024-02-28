@@ -52,7 +52,7 @@ export const ChefOfTheWeekSection = () => {
       </div>
       <div className={styles.chefOfTheWeekRestaurantContainer}>
         <div className={styles.chefOfTheWeekRestaurantsTitle}>
-          <SectionTitle title={isMobileOrTablet ? `${firstName}'s RESTAURANTS` : `${firstName}'s Restaurants`} />
+          <SectionTitle title={isMobileOrTablet ? `${firstName?.toUpperCase()}'S RESTAURANTS` : `${firstName}'s Restaurants`} />
         </div>
         {isMobileOrTablet ? (
           <div className={styles.carouselContainer}>
