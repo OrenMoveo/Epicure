@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
@@ -7,10 +7,9 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
+import { fetchRestaurants } from "../../apiService/restaurantApiService";
 
 const RestaurantsPage = () => {
-  const data = useFetch();
-  const restaurantsData: Restaurant[] = data.restaurants;
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
@@ -20,8 +19,23 @@ const RestaurantsPage = () => {
   const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
   const [rating, setRating] = useState(3);
   const [priceRange, setPriceRange] = useState([0, 330]);
+  const [restaurantsData, setRestaurantsData] = useState<Restaurant[]>([]);
   const [restaurants, setRestaurants] = useState<Restaurant[]>(restaurantsData);
   const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchRestaurants();
+        setRestaurantsData(data);
+        setRestaurants(data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   enum IndexType {
     ALL_RESTAURANTS = 0,
@@ -53,20 +67,19 @@ const RestaurantsPage = () => {
 
   const handleClick = (filterButtonIndex: number) => {
     setActiveFilterButton(filterButtonIndex);
-    filterRestaurants(restaurantsData, filterButtonIndex);
+    filterRestaurants(filterButtonIndex);
   };
 
-  const filterRestaurants = (restaurants: Restaurant[], filterButtonIndex: number) => {
+  const filterRestaurants = (filterButtonIndex: number) => {
     switch (filterButtonIndex) {
       case IndexType.NEW_RESTAURANTS:
-        setRestaurants(restaurants.filter((restaurant) => newRestaurantPredicate(restaurant)));
-
+        setRestaurants(restaurantsData.filter((restaurant) => newRestaurantPredicate(restaurant)));
         break;
       case IndexType.OPEN_NOW_RESTAURANTS:
-        setRestaurants(restaurants.filter((restaurant) => openNowPredicate(restaurant)));
+        setRestaurants(restaurantsData.filter((restaurant) => openNowPredicate(restaurant)));
         break;
       case IndexType.MOST_POPULAR_RESTAURANTS:
-        setRestaurants(restaurants.filter((restaurant) => mostPopularPredicate(restaurant)));
+        setRestaurants(restaurantsData.filter((restaurant) => mostPopularPredicate(restaurant)));
         break;
       default:
         setRestaurants(restaurantsData);
@@ -74,10 +87,10 @@ const RestaurantsPage = () => {
     }
 
     if (ratingFilterApplied) {
-      restaurants.filter((restaurant) => ratingPredicate(restaurant, rating));
+      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => ratingPredicate(restaurant, restaurant.rating)));
     }
     if (priceRangeFilterApplied) {
-      restaurants.filter((restaurant) => priceRangePredicate(restaurant, priceRange));
+      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => priceRangePredicate(restaurant, restaurant.priceRange)));
     }
   };
 
@@ -129,7 +142,7 @@ const RestaurantsPage = () => {
 
           <div className={styles.restaurantsCardsContainer}>
             {restaurants.map((restaurant) => (
-              <RestaurantCard restaurant={restaurant} key={restaurant.keyId} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+              <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
             ))}
           </div>
         </div>

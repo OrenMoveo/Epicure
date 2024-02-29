@@ -76,6 +76,7 @@
         letter-spacing: 1.9700000286102295px;
         padding-bottom: 8px;
         text-align: left;
+        overflow-y: auto;
         @include smallDesktopScreen {
           display: flex;
           flex-flow: row;

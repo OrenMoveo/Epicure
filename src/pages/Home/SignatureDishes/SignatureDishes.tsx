@@ -1,14 +1,17 @@
 import { Dish } from "../../../types/types";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import styles from "./SignatureDishes.module.scss";
-import data from "../../../data/data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import DishCard from "../../../components/DishCard/DishCard";
 import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
+import { useEffect, useState } from "react";
+import { fetchSignatureDishes } from "../../../apiService/dishApiService";
 
 const SignatureDishes = () => {
+  const [signatureDishes, setSignatureDishes] = useState<Dish[]>([]);
+
   const mobileDishImageWidth = 245;
   const mobileDishImageHeight = 152;
   const desktopDishImageWidth = 380;
@@ -17,7 +20,19 @@ const SignatureDishes = () => {
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
 
-  const signatureDishes: Dish[] = data.data.dishes;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchSignatureDishes();
+        setSignatureDishes(data);
+      } catch (error) {
+        console.error();
+      }
+    };
+    fetchData();
+  }, []);
+
+  // const signatureDishes: Dish[] = data.data.dishes;
 
   return (
     <section className={styles.signatureDishesLayout}>
@@ -30,7 +45,7 @@ const SignatureDishes = () => {
             <Swiper className={styles["swiper"]} spaceBetween={24} slidesPerView={"auto"} initialSlide={0}>
               {signatureDishes &&
                 signatureDishes.map((dish) => (
-                  <SwiperSlide key={dish.keyId} className={styles["swiper-slide"]}>
+                  <SwiperSlide key={dish._id} className={styles["swiper-slide"]}>
                     <DishCard
                       dish={dish}
                       dishImageSize={{
@@ -48,7 +63,7 @@ const SignatureDishes = () => {
             {signatureDishes &&
               signatureDishes.slice(0, 3).map((dish) => (
                 <DishCard
-                  key={dish.keyId}
+                  key={dish._id}
                   dish={dish}
                   dishImageSize={{
                     width: `${desktopDishImageWidth}px`,

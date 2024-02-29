@@ -44,7 +44,7 @@ const DishCard: FC<DishCardProps> = (props) => {
             {props.dish.name}
           </p>
           <div className={styles.dishDescription} style={props.dishDescriptionStyling}>
-            {props.dish.description}
+            {Array.isArray(props.dish.description) ? props.dish.description.join(", ") : props.dish.description}
           </div>
           {props.shouldDisplayFoodIcon && (
             <div className={styles.foodIconContainer}>

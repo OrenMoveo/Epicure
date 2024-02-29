@@ -14,6 +14,7 @@ const ShoppingBag: FC = () => {
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
+
   return (
     <div className={styles.shoppingBagLayout}>
       <div className={styles.shoppingBagContent}>

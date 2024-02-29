@@ -21,13 +21,13 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
   ratingsMap.set(5, Ratings.rating5);
 
   return (
-    <Link to={appRoutes.getRestaurantRoute(props.restaurant.keyId)}>
+    <Link to={appRoutes.getRestaurantRoute(props.restaurant._id)}>
       <button className={styles.restaurantCardContainer} style={props.cardWidth}>
         <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
         <div className={styles.restaurantCardContentLayout}>
           <div className={styles.restaurantCardContentContainer}>
             <p className={styles.restaurantName}>{props.restaurant.name}</p>
-            <p className={styles.restaurantChefName}>{props.restaurant.chef}</p>
+            <p className={styles.restaurantChefName}>{props.restaurant.chef.name}</p>
             {!isTablet && (
               <div className={styles.restaurantRatingContainer}>
                 <img src={ratingsMap.get(props.restaurant.rating)} alt="rating" className="rating-img" />

@@ -1,38 +1,38 @@
 export interface Restaurant {
+  _id?: string;
   name: string;
-  chef: string;
+  chef: Chef;
   pictureUrl: string;
   openNow: boolean;
-  location: string; // not sure
   rating: number;
   mostPopular: boolean;
   newRestaurant: boolean;
   restaurantDishes: Dish[];
   priceRange: number[];
-  keyId: string;
 }
 
 export interface Chef {
+  _id?: string;
   name: string;
   pictureUrl: string;
   restaurants: Restaurant[];
   newChef: boolean;
   views: number;
   mostViewed: boolean;
+  chefOfTheWeek: boolean;
   description: string;
-  keyId: string;
 }
 
 export interface Dish {
+  _id?: string;
   name: string;
   pictureUrl: string;
   description: string;
   price: number;
   signatureDish: boolean;
   foodIcon: string;
-  keyId: string;
   mealType: string;
-  restaurant: string;
+  restaurant: Restaurant;
 }
 
 export interface Order {

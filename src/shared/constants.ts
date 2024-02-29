@@ -4,7 +4,12 @@ export const appRoutes = {
   base: "/",
   restaurants: "/restaurants",
   chefs: "/chefs",
-  getRestaurantRoute: (keyId: string) => `/restaurants/${keyId}`,
+  dishes: "/dishes",
+  getRestaurantRoute: (keyId: string | undefined) => `/restaurants/${keyId}`,
+  popularRestaurantsData: "/popular-restaurants-data",
+  signatureDishesData: "/signature-dishes-data",
+  chefOfTheWeekData: "/chef-of-the-week-data",
+  serverUrl: "http://localhost:3000",
 };
 
 export const UIConstants = {
