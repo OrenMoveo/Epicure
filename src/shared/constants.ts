@@ -12,6 +12,10 @@ export const appRoutes = {
   serverUrl: "http://localhost:3000",
 };
 
+export const sliceNames = {
+  homePageSlice: "homePage",
+};
+
 export const UIConstants = {
   sizes: {
     mobileWidth: Number(styles.mobileMaxWidth.slice(0, -2)),

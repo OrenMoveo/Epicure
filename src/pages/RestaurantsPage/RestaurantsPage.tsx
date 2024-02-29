@@ -7,7 +7,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import { fetchRestaurants } from "../../apiService/restaurantApiService";
+import { getRestaurants } from "../../apiService/restaurantApiService";
 
 const RestaurantsPage = () => {
   const isTablet = useIsTablet();
@@ -26,7 +26,7 @@ const RestaurantsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchRestaurants();
+        const data = await getRestaurants();
         setRestaurantsData(data);
         setRestaurants(data);
       } catch (error) {

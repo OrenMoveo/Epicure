@@ -7,7 +7,7 @@ import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
 import { useEffect, useState } from "react";
-import { fetchSignatureDishes } from "../../../apiService/dishApiService";
+import { getSignatureDishes } from "../../../apiService/dishApiService";
 
 const SignatureDishes = () => {
   const [signatureDishes, setSignatureDishes] = useState<Dish[]>([]);
@@ -23,7 +23,7 @@ const SignatureDishes = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchSignatureDishes();
+        const data = await getSignatureDishes();
         setSignatureDishes(data);
       } catch (error) {
         console.error();
