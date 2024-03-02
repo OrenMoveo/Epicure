@@ -14,6 +14,8 @@ export const appRoutes = {
 
 export const sliceNames = {
   homePageSlice: "homePage",
+  restaurantsPageSlice: "restaurantsPage",
+  shoppingBagSlice: "shoppingBag",
 };
 
 export const UIConstants = {
