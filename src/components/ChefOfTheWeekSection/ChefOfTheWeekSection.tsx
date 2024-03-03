@@ -1,34 +1,22 @@
 import { SectionTitle } from "../SectionTitle/SectionTitle";
 import styles from "./ChefOfTheWeekSection.module.scss";
 import ChefsRestaurantCard from "../ChefsRestaurantCard/ChefsRestaurantCard";
-import { Chef } from "../../types/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../GoToAllRestaurantsButton/GoToAllRestaurantsButton";
-import { useEffect, useState } from "react";
-import { getChefOfTheWeek } from "../../apiService/chefApiService";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reduxToolkit/store/store";
 
 export const ChefOfTheWeekSection = () => {
+  const { chefOfTheWeek } = useSelector((state: RootState) => state.homePage);
+
+  const firstName = chefOfTheWeek?.name?.split(" ")[0];
+
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
-
-  const [chefOfTheWeek, setChefOfTheWeek] = useState<Chef>();
-  const firstName = chefOfTheWeek?.name?.split(" ")[0];
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getChefOfTheWeek();
-        setChefOfTheWeek(data);
-      } catch (error) {
-        console.error();
-      }
-    };
-    fetchData();
-  }, [chefOfTheWeek, setChefOfTheWeek]);
 
   return (
     <section className={styles.chefOfTheWeekSection}>

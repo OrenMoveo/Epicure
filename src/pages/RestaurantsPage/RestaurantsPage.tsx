@@ -2,40 +2,37 @@ import { useEffect, useState } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
-import { useFetch } from "../../hooks/useFetch";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import { fetchRestaurants } from "../../apiService/restaurantApiService";
+import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRestaurantsPageData } from "../../reduxToolkit/thunks/restaurantsPageThunk";
 
 const RestaurantsPage = () => {
+  const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
+  const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
+  const [rating, setRating] = useState(3);
+  const [priceRange, setPriceRange] = useState([0, 330]);
+  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
+  const [filteredRestaurants, setFilteredRestaurants] = useState<Restaurant[]>();
+
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
   const restaurantCardWidth = 335;
 
-  const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
-  const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
-  const [rating, setRating] = useState(3);
-  const [priceRange, setPriceRange] = useState([0, 330]);
-  const [restaurantsData, setRestaurantsData] = useState<Restaurant[]>([]);
-  const [restaurants, setRestaurants] = useState<Restaurant[]>(restaurantsData);
-  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
+  const dispatch = useDispatch<AppDispatch>();
+  const { allRestaurants } = useSelector((state: RootState) => state.restaurantsPage);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchRestaurants();
-        setRestaurantsData(data);
-        setRestaurants(data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
+    dispatch(fetchRestaurantsPageData());
+  }, [dispatch]);
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    setFilteredRestaurants(allRestaurants);
+  }, [allRestaurants]);
 
   enum IndexType {
     ALL_RESTAURANTS = 0,
@@ -73,24 +70,24 @@ const RestaurantsPage = () => {
   const filterRestaurants = (filterButtonIndex: number) => {
     switch (filterButtonIndex) {
       case IndexType.NEW_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => newRestaurantPredicate(restaurant)));
+        setFilteredRestaurants(allRestaurants.filter((restaurant) => newRestaurantPredicate(restaurant)));
         break;
       case IndexType.OPEN_NOW_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => openNowPredicate(restaurant)));
+        setFilteredRestaurants(allRestaurants.filter((restaurant) => openNowPredicate(restaurant)));
         break;
       case IndexType.MOST_POPULAR_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => mostPopularPredicate(restaurant)));
+        setFilteredRestaurants(allRestaurants.filter((restaurant) => mostPopularPredicate(restaurant)));
         break;
       default:
-        setRestaurants(restaurantsData);
+        setFilteredRestaurants(allRestaurants);
         break;
     }
 
     if (ratingFilterApplied) {
-      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => ratingPredicate(restaurant, restaurant.rating)));
+      setFilteredRestaurants((prevRestaurants) => prevRestaurants?.filter((restaurant) => ratingPredicate(restaurant, restaurant.rating)));
     }
     if (priceRangeFilterApplied) {
-      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => priceRangePredicate(restaurant, restaurant.priceRange)));
+      setFilteredRestaurants((prevRestaurants) => prevRestaurants?.filter((restaurant) => priceRangePredicate(restaurant, restaurant.priceRange)));
     }
   };
 
@@ -141,7 +138,7 @@ const RestaurantsPage = () => {
           )}
 
           <div className={styles.restaurantsCardsContainer}>
-            {restaurants.map((restaurant) => (
+            {filteredRestaurants?.map((restaurant) => (
               <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
             ))}
           </div>

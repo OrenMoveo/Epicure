@@ -7,13 +7,15 @@ import MenuPopover from "../MenuPopover/MenuPopover";
 import SearchPopover from "../SearchPopover/SearchPopover";
 import GenericPopover from "../GenericPopover/GenericPopover";
 import ShoppingBag from "../ShoppingBag/ShoppingBag";
-import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import DishCounterCircle from "../DishCounterCircle/DishCounterCircle";
 import SignIn from "../SignIn/SignIn";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../GenericModal/GenericModal";
 import NavbarSearchBarDesktop from "./NavbarSearchBarDesktop/NavbarSearchBarDesktop";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reduxToolkit/store/store";
+import { selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +27,7 @@ const Navbar = () => {
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const { isEmptyShoppingBag } = useShoppingBagContext();
+  const isEmptyShoppingBag = useSelector((state: RootState) => selectIsEmptyShoppingBag(state));
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
