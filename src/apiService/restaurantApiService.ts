@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { appRoutes } from "../shared/constants";
 
-export const getRestaurants = async () => {
+export const getAllRestaurants = async () => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants}`);
     return response.data;
