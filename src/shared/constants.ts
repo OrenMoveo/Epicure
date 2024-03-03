@@ -16,6 +16,7 @@ export const sliceNames = {
   homePageSlice: "homePage",
   restaurantsPageSlice: "restaurantsPage",
   shoppingBagSlice: "shoppingBag",
+  chefsPageSlice: "chefsPage",
 };
 
 export const UIConstants = {

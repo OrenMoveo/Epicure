@@ -11,29 +11,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurantsPageData } from "../../reduxToolkit/thunks/restaurantsPageThunk";
 
 const RestaurantsPage = () => {
-  const isTablet = useIsTablet();
-  const isMobile = useIsMobile();
-  const isMobileOrTable = isMobile || isTablet;
-  const restaurantCardWidth = 335;
-
   const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
   const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
   const [rating, setRating] = useState(3);
   const [priceRange, setPriceRange] = useState([0, 330]);
+  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
   const [filteredRestaurants, setFilteredRestaurants] = useState<Restaurant[]>();
 
-  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
+  const isTablet = useIsTablet();
+  const isMobile = useIsMobile();
+  const isMobileOrTable = isMobile || isTablet;
+  const restaurantCardWidth = 335;
 
   const dispatch = useDispatch<AppDispatch>();
   const { allRestaurants } = useSelector((state: RootState) => state.restaurantsPage);
 
   useEffect(() => {
     dispatch(fetchRestaurantsPageData());
-  }, [allRestaurants, dispatch]);
+  }, [dispatch]);
 
   useEffect(() => {
     setFilteredRestaurants(allRestaurants);
-  }, []);
+  }, [allRestaurants]);
 
   enum IndexType {
     ALL_RESTAURANTS = 0,
