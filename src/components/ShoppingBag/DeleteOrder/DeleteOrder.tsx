@@ -1,15 +1,19 @@
 import AppButton from "../../AppButton/AppButton";
 import styles from "./DeleteOrder.module.scss";
-import { useShoppingBagContext } from "../../../context/ShoppingBagContext";
 import { useModalContext } from "../../../context/ModalContext";
 import { TextSymbols } from "../../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../reduxToolkit/store/store";
+import { resetAndUpdateBag } from "../../../reduxToolkit/slices/shoppingBagSlice";
 
 const DeleteOrder = () => {
-  const { resetAndUpdateBag, newOrderDish } = useShoppingBagContext();
   const { closeDeleteOrderModal, closeDishModal, closeModal } = useModalContext();
 
+  const dispatch = useDispatch();
+  const newOrderDish = useSelector((state: RootState) => state.shoppingBag.newOrderDish);
+
   const handleDelete = () => {
-    resetAndUpdateBag(newOrderDish);
+    dispatch(resetAndUpdateBag(newOrderDish));
     closeModal();
     closeDeleteOrderModal();
     closeDishModal();

@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { appRoutes } from "../shared/constants";
 
-export const fetchRestaurants = async () => {
+export const getAllRestaurants = async () => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants}`);
     return response.data;
@@ -17,7 +17,7 @@ export const fetchRestaurants = async () => {
   }
 };
 
-export const fetchSingleRestaurant = async (restaurantId: string) => {
+export const getRestaurantById = async (restaurantId: string) => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants}/${restaurantId}`);
     return response.data;
@@ -27,7 +27,7 @@ export const fetchSingleRestaurant = async (restaurantId: string) => {
   }
 };
 
-export const fetchPopularRestaurants = async () => {
+export const getPopularRestaurant = async () => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants}${appRoutes.popularRestaurantsData}`);
     return response.data;

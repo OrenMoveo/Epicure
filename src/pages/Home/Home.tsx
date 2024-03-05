@@ -5,8 +5,22 @@ import { ChefOfTheWeekSection } from "../../components/ChefOfTheWeekSection/Chef
 import Legend from "./Legend/Legend";
 import PopularRestaurant from "./PopularRestaurants/PopularRestaurant";
 import SignatureDishes from "./SignatureDishes/SignatureDishes";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../reduxToolkit/store/store";
+import { useEffect } from "react";
+import { fetchRestaurantData } from "../../reduxToolkit/thunks/restaurantThunk";
+import { fetchDishData } from "../../reduxToolkit/thunks/dishThunk";
+import { fetchChefData } from "../../reduxToolkit/thunks/chefThunk";
 
 const Home = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchRestaurantData());
+    dispatch(fetchDishData());
+    dispatch(fetchChefData());
+  }, [dispatch]);
+
   return (
     <div className={styles.homepageLayout}>
       <div className={styles.bodyContainer}>

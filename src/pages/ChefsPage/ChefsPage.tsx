@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./ChefsPage.module.scss";
-import { Chef } from "../../types/types";
 import ChefCard from "../../components/ChefCard/ChefCard";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
-import { getAllChefs } from "../../apiService/chefApiService";
+import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchChefData } from "../../reduxToolkit/thunks/chefThunk";
 
 const ChefsPage = () => {
   const isMobile = useIsMobile();
@@ -18,19 +19,13 @@ const ChefsPage = () => {
   }
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.ALL_CHEFS_TAB_INDEX);
-  const [chefs, setChefs] = useState<Chef[]>([]);
+
+  const dispatch = useDispatch<AppDispatch>();
+  const { allChefs } = useSelector((state: RootState) => state.chef);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getAllChefs();
-        setChefs(data);
-      } catch (error) {
-        console.error();
-      }
-    };
-    fetchData();
-  }, []);
+    dispatch(fetchChefData());
+  }, [allChefs, dispatch]);
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
@@ -62,7 +57,7 @@ const ChefsPage = () => {
             </button>
           </div>
           <div className={styles.chefsPhotosContainer}>
-            {chefs.map((chef) => (
+            {allChefs?.map((chef) => (
               <ChefCard key={chef._id} chef={chef} />
             ))}
           </div>

@@ -8,7 +8,7 @@ import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStylin
 import { useParams } from "react-router-dom";
 
 import { Restaurant } from "../../types/types";
-import { fetchSingleRestaurant } from "../../apiService/restaurantApiService";
+import { getRestaurantById } from "../../apiService/restaurantApiService";
 
 const RestaurantDisplayPage = () => {
   const { id } = useParams();
@@ -37,7 +37,7 @@ const RestaurantDisplayPage = () => {
     const getRestaurantDetails = async () => {
       try {
         if (id) {
-          const data = await fetchSingleRestaurant(id);
+          const data = await getRestaurantById(id);
           setRestaurant(data);
         }
       } catch (error) {
