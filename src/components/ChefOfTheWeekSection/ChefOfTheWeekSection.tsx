@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../reduxToolkit/store/store";
 
 export const ChefOfTheWeekSection = () => {
-  const { chefOfTheWeek } = useSelector((state: RootState) => state.homePage);
+  const { chefOfTheWeek } = useSelector((state: RootState) => state.chef);
 
   const firstName = chefOfTheWeek?.name?.split(" ")[0];
 
@@ -18,7 +18,7 @@ export const ChefOfTheWeekSection = () => {
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  return (
+  return chefOfTheWeek ? (
     <section className={styles.chefOfTheWeekSection}>
       <div className={styles.chefOfTheWeekContainer}>
         <div className={styles.chefOfTheWeekTitleContainer}>
@@ -61,5 +61,7 @@ export const ChefOfTheWeekSection = () => {
         {isMobileOrTablet && <GoToAllRestaurantsButton />}
       </div>
     </section>
+  ) : (
+    ""
   );
 };

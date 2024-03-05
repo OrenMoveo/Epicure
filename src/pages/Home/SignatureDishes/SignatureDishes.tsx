@@ -5,11 +5,12 @@ import DishCard from "../../../components/DishCard/DishCard";
 import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
+
 import { useSelector } from "react-redux";
 import { RootState } from "../../../reduxToolkit/store/store";
 
 const SignatureDishes = () => {
-  const { signatureDishes } = useSelector((state: RootState) => state.homePage);
+  const { signatureDishes } = useSelector((state: RootState) => state.dish);
 
   const mobileDishImageWidth = 245;
   const mobileDishImageHeight = 152;

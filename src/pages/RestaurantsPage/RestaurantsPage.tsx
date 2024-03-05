@@ -8,7 +8,7 @@ import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
 import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurantsPageData } from "../../reduxToolkit/thunks/restaurantsPageThunk";
+import { fetchRestaurantData } from "../../reduxToolkit/thunks/restaurantThunk";
 
 const RestaurantsPage = () => {
   const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
@@ -27,7 +27,7 @@ const RestaurantsPage = () => {
   const { allRestaurants } = useSelector((state: RootState) => state.restaurantsPage);
 
   useEffect(() => {
-    dispatch(fetchRestaurantsPageData());
+    dispatch(fetchRestaurantData());
   }, [dispatch]);
 
   useEffect(() => {

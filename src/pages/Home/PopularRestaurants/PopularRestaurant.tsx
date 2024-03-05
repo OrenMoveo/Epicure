@@ -13,7 +13,7 @@ const PopularRestaurant = () => {
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
 
-  const { popularRestaurants } = useSelector((state: RootState) => state.homePage);
+  const { popularRestaurants } = useSelector((state: RootState) => state.restaurant);
 
   return (
     <section className={styles.popularRestaurantLayout}>

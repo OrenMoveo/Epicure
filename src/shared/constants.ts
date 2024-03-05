@@ -13,10 +13,10 @@ export const appRoutes = {
 };
 
 export const sliceNames = {
-  homePageSlice: "homePage",
-  restaurantsPageSlice: "restaurantsPage",
+  restaurantSlice: "restaurant",
+  chefSlice: "chef",
+  dishSlice: "dish",
   shoppingBagSlice: "shoppingBag",
-  chefsPageSlice: "chefsPage",
 };
 
 export const UIConstants = {

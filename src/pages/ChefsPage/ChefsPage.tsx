@@ -5,7 +5,7 @@ import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchChefsPageData } from "../../reduxToolkit/thunks/chefsPageThunk";
+import { fetchChefData } from "../../reduxToolkit/thunks/chefThunk";
 
 const ChefsPage = () => {
   const isMobile = useIsMobile();
@@ -21,10 +21,10 @@ const ChefsPage = () => {
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.ALL_CHEFS_TAB_INDEX);
 
   const dispatch = useDispatch<AppDispatch>();
-  const { allChefs } = useSelector((state: RootState) => state.chefsPage);
+  const { allChefs } = useSelector((state: RootState) => state.chef);
 
   useEffect(() => {
-    dispatch(fetchChefsPageData());
+    dispatch(fetchChefData());
   }, [allChefs, dispatch]);
 
   const handleClick = (filterButtonIndex: number): void => {
