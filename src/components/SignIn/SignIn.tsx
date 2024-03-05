@@ -20,10 +20,19 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const handleLogin = () => {
-    alert("LOGIN");
-
-    return;
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${appRoutes.serverUrl}${appRoutes.user.login}`, {
+        email,
+        password,
+      });
+      alert("Login successful!");
+      toggleSignIn();
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Login failed:", error.message);
+    }
   };
 
   const handleForgetPassword = () => {
@@ -37,7 +46,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
         email,
         password,
       });
-      console.log("Registration successful:", response.data);
+      alert("Registration successful!");
       setEmail("");
       setPassword("");
     } catch (error) {

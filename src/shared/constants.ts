@@ -19,6 +19,7 @@ export const appRoutes = {
   user: {
     base: "/user",
     signUp: "/user/sign-up",
+    login: "/user/login",
   },
 };
 
