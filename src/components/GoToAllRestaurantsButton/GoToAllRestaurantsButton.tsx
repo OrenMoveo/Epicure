@@ -5,7 +5,7 @@ import { Icons } from "../../assets/images";
 
 const GoToAllRestaurantsButton = () => {
   return (
-    <Link to={appRoutes.restaurants} className={styles.linkContainer}>
+    <Link to={appRoutes.restaurants.base} className={styles.linkContainer}>
       <button className={styles.gotoAllRestaurantsBtn} name="all-restaurant-goto-button">
         <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
         <img src={Icons.goToIcon} alt="go-to-icon" />

@@ -3,31 +3,17 @@ import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import RestaurantCard from "../../../components/RestaurantCard/RestaurantCard";
-import { Restaurant } from "../../../types/types";
 import useIsTablet from "../../../hooks/useIsTablet";
 import useIsMobile from "../../../hooks/useIsMobile";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
-import { useEffect, useState } from "react";
-import { fetchPopularRestaurants } from "../../../apiService/restaurantApiService";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../reduxToolkit/store/store";
 
 const PopularRestaurant = () => {
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
 
-  const [popularRestaurants, setPopularRestaurants] = useState<Restaurant[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchPopularRestaurants();
-        setPopularRestaurants(data);
-      } catch (error) {
-        console.log("Error trying fetch popular restaurants frontend", error.message);
-        throw error;
-      }
-    };
-    fetchData();
-  }, []);
+  const { popularRestaurants } = useSelector((state: RootState) => state.restaurant);
 
   return (
     <section className={styles.popularRestaurantLayout}>

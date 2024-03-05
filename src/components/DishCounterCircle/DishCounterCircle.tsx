@@ -1,9 +1,10 @@
 import styles from "./DishCounterCircle.module.scss";
-import { useShoppingBagContext } from "../../context/ShoppingBagContext";
+import { useSelector } from "react-redux";
+import { selectTotalQuantity } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { RootState } from "../../reduxToolkit/store/store";
 
 const DishCounterCircle = () => {
-  const { getTotalQuantity } = useShoppingBagContext();
-  const totalQuantity = getTotalQuantity();
+  const totalQuantity = useSelector((state: RootState) => selectTotalQuantity(state));
   return (
     <div className={styles.dishCounter}>
       <div className={styles.circle}>{totalQuantity}</div>

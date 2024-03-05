@@ -4,6 +4,8 @@ import { Icons } from "../../assets/images";
 import { FC, useEffect, useState } from "react";
 import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
+import axios from "axios";
+import { appRoutes } from "../../shared/constants";
 
 interface SignInProps {
   toggleSignIn: () => void;
@@ -18,10 +20,23 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const handleLogin = () => {
-    alert("LOGIN");
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(`${appRoutes.serverUrl}${appRoutes.user.login}`, {
+        email,
+        password,
+      });
 
-    return;
+      const { token } = response.data;
+      localStorage.setItem("authToken", token);
+      alert("Login successful!");
+      toggleSignIn();
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Login failed:", error.message);
+      setPassword("");
+    }
   };
 
   const handleForgetPassword = () => {
@@ -29,9 +44,18 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
     return;
   };
 
-  const handleSignUp = () => {
-    alert("SIGN UP");
-    return;
+  const handleSignUp = async () => {
+    try {
+      const response = await axios.post(`${appRoutes.serverUrl}${appRoutes.user.signUp}`, {
+        email,
+        password,
+      });
+      alert("Registration successful!");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Registration failed:", error.message);
+    }
   };
 
   useEffect(() => {

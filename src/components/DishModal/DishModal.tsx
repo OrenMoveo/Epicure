@@ -12,9 +12,11 @@ import { Icons } from "../../assets/images";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import Footer from "../Footer/Footer";
-import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import AppButton from "../AppButton/AppButton";
 import { generateUniqueKey } from "../../shared/utils";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../reduxToolkit/store/store";
+import { updateNewOrderDish, updateShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
 
 interface DishModalProps {
   dish: Dish;
@@ -34,14 +36,15 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isMobileOrTablet = isMobile || isTablet;
 
   const { closeDishModal, openDeleteOrderModal, openModal } = useModalContext();
-  const { order, updateNewOrderDish } = useShoppingBagContext();
+  const dispatch = useDispatch();
+  const { order } = useSelector((state: RootState) => state.shoppingBag);
 
   const handleClickModal = () => {
     if (order.restaurantName === dish.restaurant.name || order.restaurantName === "") {
-      updateShoppingBag({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options, quantity }) });
+      dispatch(updateShoppingBag({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options }) }));
       closeDishModal();
     } else {
-      updateNewOrderDish({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options, quantity }) });
+      dispatch(updateNewOrderDish({ dish, options: options, quantity, keyId: generateUniqueKey({ dish, options: options }) }));
       openModal();
       openDeleteOrderModal();
     }
@@ -53,8 +56,6 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
     }
     closeDishModal();
   };
-
-  const { updateShoppingBag } = useShoppingBagContext();
 
   return modalContainerRef.current
     ? createPortal(
