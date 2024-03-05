@@ -29,10 +29,10 @@ const MenuPopover: FC<MenuPopoverProps> = (props) => {
         </button>
       </div>
       <div className={styles.buttonsContainer}>
-        <NavLink to={appRoutes.restaurants} className={styles.menuBtn} onClick={() => props.toggleMenu()}>
+        <NavLink to={appRoutes.restaurants.base} className={styles.menuBtn} onClick={() => props.toggleMenu()}>
           Restaurants
         </NavLink>
-        <NavLink to={appRoutes.chefs} className={styles.menuBtn} onClick={() => props.toggleMenu()}>
+        <NavLink to={appRoutes.chefs.base} className={styles.menuBtn} onClick={() => props.toggleMenu()}>
           Chefs
         </NavLink>
       </div>

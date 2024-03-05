@@ -64,10 +64,10 @@ const Navbar = () => {
             <button className={styles.epicureTextTitle} onClick={handleHomePageNavigation}>
               EPICURE
             </button>
-            <NavLink to={appRoutes.restaurants} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
+            <NavLink to={appRoutes.restaurants.base} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
               Restaurants
             </NavLink>
-            <NavLink to={appRoutes.chefs} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
+            <NavLink to={appRoutes.chefs.base} className={({ isActive }) => (isActive ? styles.active : styles.inActive)}>
               Chefs
             </NavLink>
           </div>

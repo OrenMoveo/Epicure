@@ -2,14 +2,24 @@ import styles from "../styles/constants.module.scss";
 
 export const appRoutes = {
   base: "/",
-  restaurants: "/restaurants",
-  chefs: "/chefs",
-  dishes: "/dishes",
-  getRestaurantRoute: (keyId: string | undefined) => `/restaurants/${keyId}`,
-  popularRestaurantsData: "/popular-restaurants-data",
-  signatureDishesData: "/signature-dishes-data",
-  chefOfTheWeekData: "/chef-of-the-week-data",
+  restaurants: {
+    base: "/restaurants",
+    popularRestaurantsData: "/popular-restaurants-data",
+    getRestaurantRoute: (keyId: string | undefined) => `/restaurants/${keyId}`,
+  },
+  chefs: {
+    base: "/chefs",
+    chefOfTheWeekData: "/chef-of-the-week-data",
+  },
+  dishes: {
+    base: "/dishes",
+    signatureDishesData: "/signature-dishes-data",
+  },
   serverUrl: "http://localhost:3000",
+  user: {
+    base: "/user",
+    signUp: "/user/sign-up",
+  },
 };
 
 export const sliceNames = {

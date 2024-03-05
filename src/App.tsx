@@ -18,15 +18,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: appRoutes.restaurants,
+        path: appRoutes.restaurants.base,
         element: <RestaurantsPage />,
       },
       {
-        path: appRoutes.chefs,
+        path: appRoutes.chefs.base,
         element: <ChefsPage />,
       },
       {
-        path: appRoutes.getRestaurantRoute(":id"),
+        path: appRoutes.restaurants.getRestaurantRoute(":id"),
         element: <RestaurantDisplayPage />,
       },
     ],

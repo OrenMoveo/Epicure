@@ -24,7 +24,7 @@ const RestaurantsPage = () => {
   const restaurantCardWidth = 335;
 
   const dispatch = useDispatch<AppDispatch>();
-  const { allRestaurants } = useSelector((state: RootState) => state.restaurantsPage);
+  const { allRestaurants } = useSelector((state: RootState) => state.restaurant);
 
   useEffect(() => {
     dispatch(fetchRestaurantData());
