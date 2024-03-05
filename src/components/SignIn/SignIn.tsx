@@ -26,12 +26,16 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
         email,
         password,
       });
+
+      const { token } = response.data;
+      localStorage.setItem("authToken", token);
       alert("Login successful!");
       toggleSignIn();
       setEmail("");
       setPassword("");
     } catch (error) {
       console.error("Login failed:", error.message);
+      setPassword("");
     }
   };
 
