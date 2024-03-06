@@ -44,9 +44,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
             <div className={styles.titleContainer}>
               <p className={styles.titleText}>{props.filterTitle}</p>
             </div>
-            <div className={styles.ratingsContainer}>
-              <RatingContainer isChecked={isChecked} setIsChecked={setIsChecked} />
-            </div>
+            <div className={styles.ratingsContainer}>{props.rating && <RatingContainer isChecked={isChecked} setIsChecked={setIsChecked} />}</div>
             <div className={styles.clearAllCheckboxBtnContainer}>
               {hasAtLeastOneTrue(isChecked) && (
                 <button
