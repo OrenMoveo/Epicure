@@ -1,13 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ChefState } from "../slices/chefSlice";
-import { getAllChefs, getChefOfTheWeek } from "../../apiService/chefApiService";
+import { getAllChefs, getChefOfTheWeek, getNewChefs, getMostViewedChefs } from "../../apiService/chefApiService";
+import { Chef } from "../../types/types";
 
-export const fetchChefData = createAsyncThunk("chef/fetchData", async (): Promise<ChefState> => {
-  const allChefs = await getAllChefs();
-  const chefOfTheWeek = await getChefOfTheWeek();
+export const fetchAllChefs = createAsyncThunk("chef/fetchAllChefs", async (): Promise<Chef[]> => {
+  return await getAllChefs();
+});
 
-  return {
-    allChefs,
-    chefOfTheWeek,
-  };
+export const fetchChefOfTheWeek = createAsyncThunk("chef/fetchChefOfTheWeek", async (): Promise<Chef> => {
+  return await getChefOfTheWeek();
+});
+
+export const fetchNewChefs = createAsyncThunk("chef/fetchNewChefs", async (): Promise<Chef[]> => {
+  return await getNewChefs();
+});
+
+export const fetchMostViewedChefs = createAsyncThunk("chef/fetchMostViewedChefs", async (): Promise<Chef[]> => {
+  return await getMostViewedChefs();
 });

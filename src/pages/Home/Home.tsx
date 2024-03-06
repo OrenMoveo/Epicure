@@ -8,9 +8,9 @@ import SignatureDishes from "./SignatureDishes/SignatureDishes";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../reduxToolkit/store/store";
 import { useEffect } from "react";
-import { fetchPopularRestaurants, fetchRestaurantData } from "../../reduxToolkit/thunks/restaurantThunk";
+import { fetchPopularRestaurants } from "../../reduxToolkit/thunks/restaurantThunk";
 import { fetchDishData } from "../../reduxToolkit/thunks/dishThunk";
-import { fetchChefData } from "../../reduxToolkit/thunks/chefThunk";
+import { fetchChefOfTheWeek } from "../../reduxToolkit/thunks/chefThunk";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchPopularRestaurants());
     dispatch(fetchDishData());
-    dispatch(fetchChefData());
+    dispatch(fetchChefOfTheWeek());
   }, [dispatch]);
 
   return (

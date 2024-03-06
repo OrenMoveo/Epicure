@@ -1,35 +1,19 @@
-import { useEffect, useState } from "react";
 import styles from "./ChefsPage.module.scss";
-import ChefCard from "../../components/ChefCard/ChefCard";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
-import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchChefData } from "../../reduxToolkit/thunks/chefThunk";
+import { NavLink, Outlet } from "react-router-dom";
+import { appRoutes } from "../../shared/constants";
 
 const ChefsPage = () => {
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
 
-  enum IndexType {
-    ALL_CHEFS_TAB_INDEX = 0,
-    NEW_CHEF_INDEX = 1,
-    MOST_VIEWED_INDEX = 2,
-  }
-
-  const [activeFilterButton, setActiveFilterButton] = useState(IndexType.ALL_CHEFS_TAB_INDEX);
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { allChefs } = useSelector((state: RootState) => state.chef);
-
-  useEffect(() => {
-    dispatch(fetchChefData());
-  }, [allChefs, dispatch]);
-
-  const handleClick = (filterButtonIndex: number): void => {
-    setActiveFilterButton(filterButtonIndex);
-  };
+  const filterButtons = [
+    { label: "All", route: "/" },
+    { label: "New", route: appRoutes.chefs.newChefs },
+    { label: "Most Viewed", route: appRoutes.chefs.mostViewedChefs },
+  ];
 
   return (
     <section className={styles.chefsPageSection}>
@@ -37,29 +21,14 @@ const ChefsPage = () => {
         <div className={styles.chefsPageContentContainer}>
           {isMobileOrTablet && <div className={styles.chefsPageTitle}>CHEFS</div>}
           <div className={styles.chefsPageFiltersContainer}>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.ALL_CHEFS_TAB_INDEX ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.ALL_CHEFS_TAB_INDEX)}
-            >
-              All
-            </button>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.NEW_CHEF_INDEX ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.NEW_CHEF_INDEX)}
-            >
-              New
-            </button>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.MOST_VIEWED_INDEX ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.MOST_VIEWED_INDEX)}
-            >
-              Most Viewed
-            </button>
+            {filterButtons.map((button) => (
+              <NavLink key={button.label} to={`${appRoutes.chefs.base}/${button.route}`} className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)}>
+                {button.label}
+              </NavLink>
+            ))}
           </div>
           <div className={styles.chefsPhotosContainer}>
-            {allChefs?.map((chef) => (
-              <ChefCard key={chef._id} chef={chef} />
-            ))}
+            <Outlet />
           </div>
         </div>
       </div>

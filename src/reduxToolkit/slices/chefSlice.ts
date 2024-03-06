@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Chef } from "../../types/types";
 import { sliceNames } from "../../shared/constants";
-import { fetchChefData } from "../thunks/chefThunk";
+import { fetchAllChefs, fetchChefOfTheWeek, fetchMostViewedChefs, fetchNewChefs } from "../thunks/chefThunk";
 
 export interface ChefState {
   allChefs: Chef[];
   chefOfTheWeek: Chef;
+  newChefs: Chef[];
+  mostViewedChefs: Chef[];
 }
 
 const initialState: ChefState = {
@@ -21,6 +23,8 @@ const initialState: ChefState = {
     chefOfTheWeek: false,
     description: "",
   },
+  newChefs: [],
+  mostViewedChefs: [],
 };
 
 const chefSlice = createSlice({
@@ -30,14 +34,28 @@ const chefSlice = createSlice({
     setAllChefs: (state, action: PayloadAction<Chef[]>) => {
       state.allChefs = action.payload;
     },
+    setNewChefs: (state, action: PayloadAction<Chef[]>) => {
+      state.newChefs = action.payload;
+    },
+    setMostViewedChefs: (state, action: PayloadAction<Chef[]>) => {
+      state.mostViewedChefs = action.payload;
+    },
     setChefOfTheWeek: (state, action: PayloadAction<Chef>) => {
       state.chefOfTheWeek = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchChefData.fulfilled, (state, action) => {
-      state.allChefs = action.payload.allChefs;
-      state.chefOfTheWeek = action.payload.chefOfTheWeek;
+    builder.addCase(fetchAllChefs.fulfilled, (state, action) => {
+      state.allChefs = action.payload;
+    });
+    builder.addCase(fetchChefOfTheWeek.fulfilled, (state, action) => {
+      state.chefOfTheWeek = action.payload;
+    });
+    builder.addCase(fetchNewChefs.fulfilled, (state, action) => {
+      state.newChefs = action.payload;
+    });
+    builder.addCase(fetchMostViewedChefs.fulfilled, (state, action) => {
+      state.mostViewedChefs = action.payload;
     });
   },
 });

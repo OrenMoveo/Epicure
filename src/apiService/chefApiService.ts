@@ -20,3 +20,23 @@ export const getAllChefs = async () => {
     throw error;
   }
 };
+
+export const getNewChefs = async () => {
+  try {
+    const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.chefs.base}/${appRoutes.chefs.newChefs}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error trying to get all chefs data", error.message);
+    throw error;
+  }
+};
+
+export const getMostViewedChefs = async () => {
+  try {
+    const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.chefs.base}/${appRoutes.chefs.mostViewedChefs}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error trying to get all chefs data", error.message);
+    throw error;
+  }
+};

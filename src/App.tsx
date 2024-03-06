@@ -11,6 +11,9 @@ import AllRestaurants from "./pages/RestaurantsPage/AllRestaurants/AllRestaurant
 import NewRestaurants from "./pages/RestaurantsPage/NewRestaurants/NewRestaurants.tsx";
 import OpenNowRestaurants from "./pages/RestaurantsPage/OpenNowRestaurants/OpenNowRestaurants.tsx";
 import MostPopularRestaurants from "./pages/RestaurantsPage/MostPopularRestaurants/MostPopularRestaurants.tsx";
+import AllChefs from "./pages/ChefsPage/AllChefs/AllChefs.tsx";
+import NewChefs from "./pages/ChefsPage/NewChefs/NewChefs.tsx";
+import MostViewedChefs from "./pages/ChefsPage/MostViewedChefs/MostViewedChefs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: appRoutes.chefs.base,
         element: <ChefsPage />,
+        children: [
+          { path: appRoutes.chefs.allChefs, element: <AllChefs /> },
+          { path: appRoutes.chefs.newChefs, element: <NewChefs /> },
+          { path: appRoutes.chefs.mostViewedChefs, element: <MostViewedChefs /> },
+        ],
       },
       {
         path: appRoutes.restaurants.getRestaurantRoute(":id"),

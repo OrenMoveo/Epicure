@@ -14,6 +14,9 @@ export const appRoutes = {
   chefs: {
     base: "/chefs",
     chefOfTheWeekData: "/chef-of-the-week-data",
+    newChefs: "new",
+    mostViewedChefs: "most-viewed",
+    allChefs: "",
   },
   dishes: {
     base: "/dishes",
