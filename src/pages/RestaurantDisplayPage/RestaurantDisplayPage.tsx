@@ -25,7 +25,6 @@ const RestaurantDisplayPage = () => {
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
   const [restaurant, setRestaurant] = useState<Restaurant>();
-  const [isOpenNow, setIsOpenNow] = useState(false);
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
@@ -58,10 +57,10 @@ const RestaurantDisplayPage = () => {
     }
     const openTime = moment(restaurant.openingHours.openTime, "HH:mm").toDate();
     const closeTime = moment(restaurant.openingHours.closeTime, "HH:mm").toDate();
-  
+
     console.log("openTime value is:", openTime);
     console.log("closeTime value is:", closeTime);
-  
+
     return now >= openTime && now <= closeTime;
   };
 
