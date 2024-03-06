@@ -3,12 +3,12 @@ export interface Restaurant {
   name: string;
   chef: Chef;
   pictureUrl: string;
-  openNow: boolean;
   rating: number;
   mostPopular: boolean;
   newRestaurant: boolean;
   restaurantDishes: Dish[];
   priceRange: number[];
+  openingHours: { openTime: string; closeTime: string };
 }
 
 export interface Chef {

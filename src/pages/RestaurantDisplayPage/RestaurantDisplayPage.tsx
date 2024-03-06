@@ -6,6 +6,7 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStyling, desktopDishTitleStyling, desktopStyling, mobileStyling } from "./DishCardStyling";
 import { useParams } from "react-router-dom";
+import moment from "moment-timezone";
 
 import { Restaurant } from "../../types/types";
 import { getRestaurantById } from "../../apiService/restaurantApiService";
@@ -24,6 +25,7 @@ const RestaurantDisplayPage = () => {
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
   const [restaurant, setRestaurant] = useState<Restaurant>();
+  const [isOpenNow, setIsOpenNow] = useState(false);
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
@@ -49,6 +51,20 @@ const RestaurantDisplayPage = () => {
     getRestaurantDetails();
   }, [id]);
 
+  const isRestaurantOpenNow = (): boolean => {
+    const now = new Date();
+    if (!restaurant) {
+      return false;
+    }
+    const openTime = moment(restaurant.openingHours.openTime, "HH:mm").toDate();
+    const closeTime = moment(restaurant.openingHours.closeTime, "HH:mm").toDate();
+  
+    console.log("openTime value is:", openTime);
+    console.log("closeTime value is:", closeTime);
+  
+    return now >= openTime && now <= closeTime;
+  };
+
   if (!restaurant) {
     return <div></div>;
   }
@@ -67,7 +83,7 @@ const RestaurantDisplayPage = () => {
               <div className={styles.clockIconContainer}>
                 <img src={Icons.clockIcon} alt="clock-icon" />
               </div>
-              <p className={styles.openNowText}>Open now</p>
+              <p className={styles.openNowText}> {isRestaurantOpenNow() ? "Open now" : "Closed now"}</p>
             </div>
             <div className={styles.filtersContainer}>
               <button
