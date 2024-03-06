@@ -7,6 +7,10 @@ import "./styles/global.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { appRoutes } from "./shared/constants.ts";
 import ChefsPage from "./pages/ChefsPage/ChefsPage.tsx";
+import AllRestaurants from "./pages/RestaurantsPage/AllRestaurants/AllRestaurants.tsx";
+import NewRestaurants from "./pages/RestaurantsPage/NewRestaurants/NewRestaurants.tsx";
+import OpenNowRestaurants from "./pages/RestaurantsPage/OpenNowRestaurants/OpenNowRestaurants.tsx";
+import MostPopularRestaurants from "./pages/RestaurantsPage/MostPopularRestaurants/MostPopularRestaurants.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +24,12 @@ const router = createBrowserRouter([
       {
         path: appRoutes.restaurants.base,
         element: <RestaurantsPage />,
+        children: [
+          { path: appRoutes.restaurants.allRestaurants, element: <AllRestaurants /> },
+          { path: appRoutes.restaurants.newRestaurants, element: <NewRestaurants /> },
+          { path: appRoutes.restaurants.openNowRestaurants, element: <OpenNowRestaurants /> },
+          { path: appRoutes.restaurants.mostPopularRestaurants, element: <MostPopularRestaurants /> },
+        ],
       },
       {
         path: appRoutes.chefs.base,

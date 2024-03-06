@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
-import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchRestaurantData } from "../../reduxToolkit/thunks/restaurantThunk";
+import { isRestaurantOpenNow } from "../../shared/utils";
+import { Outlet, useNavigate } from "react-router-dom";
+import { appRoutes } from "../../shared/constants";
 
 const RestaurantsPage = () => {
   const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
@@ -18,21 +17,11 @@ const RestaurantsPage = () => {
   const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
   const [filteredRestaurants, setFilteredRestaurants] = useState<Restaurant[]>();
 
+  const navigate = useNavigate();
+
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
-  const restaurantCardWidth = 335;
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { allRestaurants } = useSelector((state: RootState) => state.restaurant);
-
-  useEffect(() => {
-    dispatch(fetchRestaurantData());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setFilteredRestaurants(allRestaurants);
-  }, [allRestaurants]);
 
   enum IndexType {
     ALL_RESTAURANTS = 0,
@@ -55,7 +44,7 @@ const RestaurantsPage = () => {
   };
 
   const openNowPredicate = (restaurant: Restaurant): boolean => {
-    return restaurant.openNow === true;
+    return isRestaurantOpenNow(restaurant);
   };
 
   const mostPopularPredicate = (restaurant: Restaurant): boolean => {
@@ -70,16 +59,16 @@ const RestaurantsPage = () => {
   const filterRestaurants = (filterButtonIndex: number) => {
     switch (filterButtonIndex) {
       case IndexType.NEW_RESTAURANTS:
-        setFilteredRestaurants(allRestaurants.filter((restaurant) => newRestaurantPredicate(restaurant)));
+        navigate(`${appRoutes.restaurants.base}/${appRoutes.restaurants.newRestaurants}`);
         break;
       case IndexType.OPEN_NOW_RESTAURANTS:
-        setFilteredRestaurants(allRestaurants.filter((restaurant) => openNowPredicate(restaurant)));
+        navigate(`${appRoutes.restaurants.base}/${appRoutes.restaurants.openNowRestaurants}`);
         break;
       case IndexType.MOST_POPULAR_RESTAURANTS:
-        setFilteredRestaurants(allRestaurants.filter((restaurant) => mostPopularPredicate(restaurant)));
+        navigate(`${appRoutes.restaurants.base}/${appRoutes.restaurants.mostPopularRestaurants}`);
         break;
       default:
-        setFilteredRestaurants(allRestaurants);
+        navigate(`${appRoutes.restaurants.base}`);
         break;
     }
 
@@ -136,12 +125,7 @@ const RestaurantsPage = () => {
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
-
-          <div className={styles.restaurantsCardsContainer}>
-            {filteredRestaurants?.map((restaurant) => (
-              <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
-            ))}
-          </div>
+          <Outlet />
         </div>
       </div>
     </section>

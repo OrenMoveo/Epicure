@@ -1,13 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { RestaurantState } from "../slices/restaurantSlice";
-import { getAllRestaurants, getPopularRestaurant } from "../../apiService/restaurantApiService";
 
-export const fetchRestaurantData = createAsyncThunk("restaurant/fetchData", async (): Promise<RestaurantState> => {
-  const allRestaurants = await getAllRestaurants();
-  const popularRestaurants = await getPopularRestaurant();
+import { getAllRestaurants, getPopularRestaurants, getNewRestaurants, getOpenNowRestaurants } from "../../apiService/restaurantApiService";
+import { Restaurant } from "../../types/types";
 
-  return {
-    allRestaurants,
-    popularRestaurants,
-  };
+export const fetchAllRestaurants = createAsyncThunk("restaurant/fetchAll", async (): Promise<Restaurant[]> => {
+  return await getAllRestaurants();
+});
+export const fetchPopularRestaurants = createAsyncThunk("restaurant/fetchPopular", async (): Promise<Restaurant[]> => {
+  return await getPopularRestaurants();
+});
+export const fetchNewRestaurants = createAsyncThunk("restaurant/fetchNew", async (): Promise<Restaurant[]> => {
+  return await getNewRestaurants();
+});
+export const fetchOpenNowRestaurants = createAsyncThunk("restaurant/fetchOpenNow", async (): Promise<Restaurant[]> => {
+  return await getOpenNowRestaurants();
 });

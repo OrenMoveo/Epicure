@@ -6,6 +6,10 @@ export const appRoutes = {
     base: "/restaurants",
     popularRestaurantsData: "/popular-restaurants-data",
     getRestaurantRoute: (keyId: string | undefined) => `/restaurants/${keyId}`,
+    newRestaurants: "new",
+    openNowRestaurants: "open-now",
+    mostPopularRestaurants: "most-popular",
+    allRestaurants: "",
   },
   chefs: {
     base: "/chefs",

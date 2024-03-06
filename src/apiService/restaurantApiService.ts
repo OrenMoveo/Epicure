@@ -27,12 +27,32 @@ export const getRestaurantById = async (restaurantId: string) => {
   }
 };
 
-export const getPopularRestaurant = async () => {
+export const getPopularRestaurants = async () => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants.base}${appRoutes.restaurants.popularRestaurantsData}`);
     return response.data;
   } catch (error) {
     console.error("Error trying to get popular restaurants data", error.message);
+    throw error;
+  }
+};
+
+export const getNewRestaurants = async () => {
+  try {
+    const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants.base}/${appRoutes.restaurants.newRestaurants}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error trying to get new restaurants data", error.message);
+    throw error;
+  }
+};
+
+export const getOpenNowRestaurants = async () => {
+  try {
+    const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants.base}/${appRoutes.restaurants.openNowRestaurants}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error trying to get open now restaurants data", error.message);
     throw error;
   }
 };
