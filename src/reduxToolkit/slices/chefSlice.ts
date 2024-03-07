@@ -46,20 +46,20 @@ const chefSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllChefs.fulfilled, (state, action) => {
-      state.allChefs = action.payload;
+      state.allChefs = [...state.allChefs, ...action.payload];
     });
     builder.addCase(fetchChefOfTheWeek.fulfilled, (state, action) => {
       state.chefOfTheWeek = action.payload;
     });
     builder.addCase(fetchNewChefs.fulfilled, (state, action) => {
-      state.newChefs = action.payload;
+      state.newChefs = [...state.newChefs, ...action.payload];
     });
     builder.addCase(fetchMostViewedChefs.fulfilled, (state, action) => {
-      state.mostViewedChefs = action.payload;
+      state.mostViewedChefs = [...state.mostViewedChefs, ...action.payload];
     });
   },
 });
 
-export const { setAllChefs, setChefOfTheWeek } = chefSlice.actions;
+export const { setAllChefs, setChefOfTheWeek, setNewChefs, setMostViewedChefs } = chefSlice.actions;
 
 export default chefSlice.reducer;

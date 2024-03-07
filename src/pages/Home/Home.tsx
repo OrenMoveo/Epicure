@@ -11,12 +11,17 @@ import { useEffect } from "react";
 import { fetchPopularRestaurants } from "../../reduxToolkit/thunks/restaurantThunk";
 import { fetchDishData } from "../../reduxToolkit/thunks/dishThunk";
 import { fetchChefOfTheWeek } from "../../reduxToolkit/thunks/chefThunk";
+import { setPopularRestaurants } from "../../reduxToolkit/slices/restaurantSlice";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const firstPage = "1";
+  useEffect(() => {
+    dispatch(setPopularRestaurants([]));
+  }, []);
 
   useEffect(() => {
-    dispatch(fetchPopularRestaurants());
+    dispatch(fetchPopularRestaurants(firstPage));
     dispatch(fetchDishData());
     dispatch(fetchChefOfTheWeek());
   }, [dispatch]);

@@ -27,9 +27,7 @@ const ChefsPage = () => {
               </NavLink>
             ))}
           </div>
-          <div className={styles.chefsPhotosContainer}>
-            <Outlet />
-          </div>
+          <Outlet context={styles.chefsPhotosContainer} />
         </div>
       </div>
     </section>
