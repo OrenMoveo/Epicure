@@ -8,6 +8,7 @@ export interface RestaurantState {
   popularRestaurants: Restaurant[];
   newRestaurants: Restaurant[];
   openNowRestaurants: Restaurant[];
+  ratingFilter: number;
 }
 
 const initialState: RestaurantState = {
@@ -15,6 +16,7 @@ const initialState: RestaurantState = {
   popularRestaurants: [],
   newRestaurants: [],
   openNowRestaurants: [],
+  ratingFilter: 0,
 };
 
 const restaurantSlice = createSlice({
@@ -33,6 +35,9 @@ const restaurantSlice = createSlice({
     setPopularRestaurants: (state, action: PayloadAction<Restaurant[]>) => {
       state.popularRestaurants = action.payload;
     },
+    setRatingFilter: (state, action: PayloadAction<number>) => {
+      state.ratingFilter = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllRestaurants.fulfilled, (state, action) => {
@@ -50,6 +55,6 @@ const restaurantSlice = createSlice({
   },
 });
 
-export const { setAllRestaurants, setPopularRestaurants, setNewRestaurants, setOpenNowRestaurants } = restaurantSlice.actions;
+export const { setAllRestaurants, setPopularRestaurants, setNewRestaurants, setOpenNowRestaurants, setRatingFilter } = restaurantSlice.actions;
 
 export default restaurantSlice.reducer;

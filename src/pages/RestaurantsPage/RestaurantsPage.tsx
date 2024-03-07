@@ -2,30 +2,27 @@ import Dropdown from "../../components/Dropdown/Dropdown";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
-import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import { appRoutes } from "../../shared/constants";
+import { Restaurant } from "../../types/types";
 
 const RestaurantsPage = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
 
+
+  const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
+    return restaurant.rating === rating;
+  };
+  
   const filterButtons = [
     { label: "All", route: "" },
     { label: "New", route: appRoutes.restaurants.newRestaurants },
     { label: "Most Popular", route: appRoutes.restaurants.mostPopularRestaurants },
     { label: "Open Now", route: appRoutes.restaurants.openNowRestaurants },
   ];
-
-  const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
-    return restaurant.rating === rating;
-  };
-
-  const priceRangePredicate = (restaurant: Restaurant, priceRange: number[]): boolean => {
-    return priceRange[0] <= restaurant.priceRange[0] && restaurant.priceRange[1] <= priceRange[1];
-  };
 
   return (
     <section className={styles.RestaurantsPageSection}>
@@ -52,7 +49,7 @@ const RestaurantsPage = () => {
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
-          <Outlet context={styles.restaurantsCardsContainer} />
+          <Outlet context={[styles.restaurantsCardsContainer,ratingPredicate]} />
         </div>
       </div>
     </section>

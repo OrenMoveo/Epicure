@@ -9,17 +9,27 @@ import { useOutletContext } from "react-router-dom";
 import { setAllRestaurants } from "../../../reduxToolkit/slices/restaurantSlice";
 import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
+import { Restaurant } from "../../../types/types";
 
 const AllRestaurants: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { allRestaurants } = useSelector((state: RootState) => state.restaurant);
+  const { allRestaurants, ratingFilter } = useSelector((state: RootState) => state.restaurant);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [renderRestaurant, setRenderRestaurant] = useState<Restaurant[]>();
 
+  const [classN, ratingPredicate] = useOutletContext();
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
-  const classN: string = useOutletContext();
+  useEffect(() => {
+    if (ratingFilter !== 0) {
+      setRenderRestaurant(allRestaurants.filter((restaurant) => ratingPredicate(restaurant, ratingFilter)));
+    } else {
+      setRenderRestaurant(allRestaurants);
+    }
+  }, [ratingFilter, allRestaurants]);
+
   const [page, setPage] = useState(1);
 
   const marginError = 10;
@@ -51,14 +61,14 @@ const AllRestaurants: FC = () => {
 
   return !isMobileOrTablet ? (
     <div className={classN} ref={containerRef} onScroll={handleScroll}>
-      {allRestaurants?.map((restaurant) => (
+      {renderRestaurant?.map((restaurant) => (
         <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
       ))}
     </div>
   ) : (
-    <InfiniteScroll dataLength={allRestaurants.length} next={fetchMoreData} hasMore={true} loader={""} className="">
+    <InfiniteScroll dataLength={renderRestaurant.length} next={fetchMoreData} hasMore={true} loader={""} className="">
       <div style={{ display: "flex", flexDirection: "column", gap: "25px" }}>
-        {allRestaurants?.map((restaurant) => (
+        {renderRestaurant?.map((restaurant) => (
           <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
         ))}
       </div>

@@ -1,8 +1,11 @@
 import styles from "./Dropdown.module.scss";
 import { Icons } from "../../assets/images";
 
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import RatingContainer from "../RatingContainer/RatingContainer";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../reduxToolkit/store/store";
+import { setRatingFilter } from "../../reduxToolkit/slices/restaurantSlice";
 interface DropDownProps {
   filterTitle: string;
   rating?: boolean;
@@ -16,6 +19,18 @@ const Dropdown: FC<DropDownProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isChecked, setIsChecked] = useState([false, false, false, false, false]);
 
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const maxIndex = isChecked.reduce((acc, currentValue, index) => {
+      return currentValue ? index : acc;
+    }, -1);
+
+    const ratingFilter = maxIndex !== -1 ? maxIndex + 1 : 0;
+
+    dispatch(setRatingFilter(ratingFilter));
+  }, [isChecked, dispatch]);
+
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {
     return booleanArray.some((value) => value);
   };
@@ -23,6 +38,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
   const handleClearAll = (): void => {
     const clearedCheckboxArray = isChecked.map(() => false);
     setIsChecked(clearedCheckboxArray);
+    setIsOpen(false);
   };
 
   return (
@@ -38,13 +54,13 @@ const Dropdown: FC<DropDownProps> = (props) => {
           <img src={Icons.dropdownArrowIcon} alt="dropwdownIcon" />
         </div>
       </button>
-      {isOpen && (
+      {isOpen && props.rating && (
         <div className={styles.ratingPopoverContainer}>
           <div className={styles.ratingsContentContainer}>
             <div className={styles.titleContainer}>
               <p className={styles.titleText}>{props.filterTitle}</p>
             </div>
-            <div className={styles.ratingsContainer}>{props.rating && <RatingContainer isChecked={isChecked} setIsChecked={setIsChecked} />}</div>
+            <div className={styles.ratingsContainer}>{<RatingContainer isChecked={isChecked} setIsChecked={setIsChecked} />}</div>
             <div className={styles.clearAllCheckboxBtnContainer}>
               {hasAtLeastOneTrue(isChecked) && (
                 <button

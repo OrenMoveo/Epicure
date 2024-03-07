@@ -20,8 +20,6 @@ export const getAllRestaurants = async (page: string) => {
 export const getRestaurantById = async (restaurantId: string) => {
   try {
     const response = await axios.get(`${appRoutes.serverUrl}${appRoutes.restaurants.getRestaurantRoute(restaurantId)}`);
-    console.log(response);
-
     return response.data;
   } catch (error) {
     console.error("Error fetching single restaurant:", error);
