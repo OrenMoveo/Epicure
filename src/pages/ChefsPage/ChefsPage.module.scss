@@ -20,7 +20,7 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     width: $mobile-view-width;
     @include smallDesktopScreen {
       width: $desktop-view-width;
@@ -33,7 +33,6 @@
       align-items: flex-start;
       gap: 24px;
       max-width: $app-max-width;
-
       @include smallDesktopScreen {
         display: flex;
         flex-flow: column;
@@ -72,7 +71,10 @@
         .activeButton {
           position: relative;
           font-weight: 400;
+          font-size: 18px;
+          font-weight: 400;
           line-height: 21px;
+          letter-spacing: 1.9199999570846558px;
           @include smallDesktopScreen {
             font-size: 18px;
             text-align: left;
