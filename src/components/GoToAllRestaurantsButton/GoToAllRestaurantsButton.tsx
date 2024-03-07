@@ -5,11 +5,9 @@ import { Icons } from "../../assets/images";
 
 const GoToAllRestaurantsButton = () => {
   return (
-    <NavLink to={appRoutes.restaurants.base} className={styles.linkContainer}>
-      <button className={styles.gotoAllRestaurantsBtn} name="all-restaurant-goto-button">
-        <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
-        <img src={Icons.goToIcon} alt="go-to-icon" />
-      </button>
+    <NavLink to={appRoutes.restaurants.base} className={styles.gotoAllRestaurantsBtn} end>
+      <p className={styles.gotoAllRestaurantsText}>All Restaurants</p>
+      <img src={Icons.goToIcon} alt="go-to-icon" />
     </NavLink>
   );
 };
