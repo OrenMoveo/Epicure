@@ -67,3 +67,8 @@ h6 {
   font-weight: $app-primary-font-weight;
   text-align: $app-primary-text-align;
 }
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}

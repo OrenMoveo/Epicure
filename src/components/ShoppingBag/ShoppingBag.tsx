@@ -2,18 +2,21 @@ import { FC } from "react";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
 import styles from "./ShoppingBag.module.scss";
-import { useShoppingBagContext } from "../../context/ShoppingBagContext";
 import { Icons } from "../../assets/images";
 import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
 import AppButton from "../AppButton/AppButton";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reduxToolkit/store/store";
+import { selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
 
 const ShoppingBag: FC = () => {
-  const { shoppingBagSum, order, isEmptyShoppingBag } = useShoppingBagContext();
+  const { shoppingBagSum, order } = useSelector((state: RootState) => state.shoppingBag);
+
+  const isEmptyShoppingBag = useSelector((state: RootState) => selectIsEmptyShoppingBag(state));
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
-
 
   return (
     <div className={styles.shoppingBagLayout}>

@@ -8,7 +8,8 @@ import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStylin
 import { useParams } from "react-router-dom";
 
 import { Restaurant } from "../../types/types";
-import { fetchSingleRestaurant } from "../../apiService/restaurantApiService";
+import { getRestaurantById } from "../../apiService/restaurantApiService";
+import { isRestaurantOpenNow } from "../../shared/utils";
 
 const RestaurantDisplayPage = () => {
   const { id } = useParams();
@@ -37,7 +38,7 @@ const RestaurantDisplayPage = () => {
     const getRestaurantDetails = async () => {
       try {
         if (id) {
-          const data = await fetchSingleRestaurant(id);
+          const data = await getRestaurantById(id);
           setRestaurant(data);
         }
       } catch (error) {
@@ -67,7 +68,7 @@ const RestaurantDisplayPage = () => {
               <div className={styles.clockIconContainer}>
                 <img src={Icons.clockIcon} alt="clock-icon" />
               </div>
-              <p className={styles.openNowText}>Open now</p>
+              <p className={styles.openNowText}> {isRestaurantOpenNow(restaurant) ? "Open now" : "Closed now"}</p>
             </div>
             <div className={styles.filtersContainer}>
               <button

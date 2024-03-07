@@ -1,98 +1,22 @@
-import { useEffect, useState } from "react";
 import Dropdown from "../../components/Dropdown/Dropdown";
-import RestaurantCard from "../../components/RestaurantCard/RestaurantCard";
 import { SectionTitle } from "../../components/SectionTitle/SectionTitle";
-import { useFetch } from "../../hooks/useFetch";
 import useIsMobile from "../../hooks/useIsMobile";
 import useIsTablet from "../../hooks/useIsTablet";
-import { Restaurant } from "../../types/types";
 import styles from "./RestaurantsPage.module.scss";
-import { fetchRestaurants } from "../../apiService/restaurantApiService";
+import { NavLink, Outlet } from "react-router-dom";
+import { appRoutes } from "../../shared/constants";
 
 const RestaurantsPage = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
-  const restaurantCardWidth = 335;
 
-  const [ratingFilterApplied, setRatingFilterApplied] = useState(false);
-  const [priceRangeFilterApplied, setPriceRangeFilterApplied] = useState(false);
-  const [rating, setRating] = useState(3);
-  const [priceRange, setPriceRange] = useState([0, 330]);
-  const [restaurantsData, setRestaurantsData] = useState<Restaurant[]>([]);
-  const [restaurants, setRestaurants] = useState<Restaurant[]>(restaurantsData);
-  const [activeFilterButton, setActiveFilterButton] = useState<number>(0);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchRestaurants();
-        setRestaurantsData(data);
-        setRestaurants(data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  enum IndexType {
-    ALL_RESTAURANTS = 0,
-    NEW_RESTAURANTS = 1,
-    MOST_POPULAR_RESTAURANTS = 2,
-    OPEN_NOW_RESTAURANTS = 3,
-    MAP_VIEW = 4,
-  }
-
-  const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
-    return restaurant.rating === rating;
-  };
-
-  const priceRangePredicate = (restaurant: Restaurant, priceRange: number[]): boolean => {
-    return priceRange[0] <= restaurant.priceRange[0] && restaurant.priceRange[1] <= priceRange[1];
-  };
-
-  const newRestaurantPredicate = (restaurant: Restaurant): boolean => {
-    return restaurant.newRestaurant === true;
-  };
-
-  const openNowPredicate = (restaurant: Restaurant): boolean => {
-    return restaurant.openNow === true;
-  };
-
-  const mostPopularPredicate = (restaurant: Restaurant): boolean => {
-    return restaurant.mostPopular === true;
-  };
-
-  const handleClick = (filterButtonIndex: number) => {
-    setActiveFilterButton(filterButtonIndex);
-    filterRestaurants(filterButtonIndex);
-  };
-
-  const filterRestaurants = (filterButtonIndex: number) => {
-    switch (filterButtonIndex) {
-      case IndexType.NEW_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => newRestaurantPredicate(restaurant)));
-        break;
-      case IndexType.OPEN_NOW_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => openNowPredicate(restaurant)));
-        break;
-      case IndexType.MOST_POPULAR_RESTAURANTS:
-        setRestaurants(restaurantsData.filter((restaurant) => mostPopularPredicate(restaurant)));
-        break;
-      default:
-        setRestaurants(restaurantsData);
-        break;
-    }
-
-    if (ratingFilterApplied) {
-      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => ratingPredicate(restaurant, restaurant.rating)));
-    }
-    if (priceRangeFilterApplied) {
-      setRestaurants((prevRestaurants) => prevRestaurants.filter((restaurant) => priceRangePredicate(restaurant, restaurant.priceRange)));
-    }
-  };
+  const filterButtons = [
+    { label: "All", route: "" },
+    { label: "New", route: appRoutes.restaurants.newRestaurants },
+    { label: "Most Popular", route: appRoutes.restaurants.mostPopularRestaurants },
+    { label: "Open Now", route: appRoutes.restaurants.openNowRestaurants },
+  ];
 
   return (
     <section className={styles.RestaurantsPageSection}>
@@ -105,31 +29,11 @@ const RestaurantsPage = () => {
           )}
 
           <div className={styles.filtersContainer}>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.ALL_RESTAURANTS ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.ALL_RESTAURANTS)}
-            >
-              All
-            </button>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.NEW_RESTAURANTS ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.NEW_RESTAURANTS)}
-            >
-              New
-            </button>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.MOST_POPULAR_RESTAURANTS ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.MOST_POPULAR_RESTAURANTS)}
-            >
-              Most Popular
-            </button>
-            <button
-              className={`${styles.filterButton} ${activeFilterButton === IndexType.OPEN_NOW_RESTAURANTS ? styles.activeButton : ""}`}
-              onClick={() => handleClick(IndexType.OPEN_NOW_RESTAURANTS)}
-            >
-              Open Now
-            </button>
-            {!isMobileOrTable && <button className={`${styles.filterButton} ${activeFilterButton === IndexType.MAP_VIEW ? styles.activeButton : ""}`}>Map View</button>}
+            {filterButtons.map((button) => (
+              <NavLink key={button.label} to={`${appRoutes.restaurants.base}/${button.route}`} className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)}>
+                {button.label}
+              </NavLink>
+            ))}
           </div>
 
           {!isMobileOrTable && (
@@ -139,12 +43,7 @@ const RestaurantsPage = () => {
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
-
-          <div className={styles.restaurantsCardsContainer}>
-            {restaurants.map((restaurant) => (
-              <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
-            ))}
-          </div>
+          <Outlet context={styles.restaurantsCardsContainer} />
         </div>
       </div>
     </section>

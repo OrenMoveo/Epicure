@@ -1,4 +1,3 @@
-import { Dish } from "../../../types/types";
 import { SectionTitle } from "../../../components/SectionTitle/SectionTitle";
 import styles from "./SignatureDishes.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,11 +5,12 @@ import DishCard from "../../../components/DishCard/DishCard";
 import useIsMobile from "../../../hooks/useIsMobile";
 import useIsTablet from "../../../hooks/useIsTablet";
 import GoToAllRestaurantsButton from "../../../components/GoToAllRestaurantsButton/GoToAllRestaurantsButton";
-import { useEffect, useState } from "react";
-import { fetchSignatureDishes } from "../../../apiService/dishApiService";
+
+import { useSelector } from "react-redux";
+import { RootState } from "../../../reduxToolkit/store/store";
 
 const SignatureDishes = () => {
-  const [signatureDishes, setSignatureDishes] = useState<Dish[]>([]);
+  const { signatureDishes } = useSelector((state: RootState) => state.dish);
 
   const mobileDishImageWidth = 245;
   const mobileDishImageHeight = 152;
@@ -19,20 +19,6 @@ const SignatureDishes = () => {
 
   const isMobile = useIsMobile();
   const isTablet: boolean = useIsTablet();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchSignatureDishes();
-        setSignatureDishes(data);
-      } catch (error) {
-        console.error();
-      }
-    };
-    fetchData();
-  }, []);
-
-  // const signatureDishes: Dish[] = data.data.dishes;
 
   return (
     <section className={styles.signatureDishesLayout}>
