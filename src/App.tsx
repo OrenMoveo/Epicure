@@ -14,7 +14,6 @@ import MostPopularRestaurants from "./pages/RestaurantsPage/MostPopularRestauran
 import AllChefs from "./pages/ChefsPage/AllChefs/AllChefs.tsx";
 import NewChefs from "./pages/ChefsPage/NewChefs/NewChefs.tsx";
 import MostViewedChefs from "./pages/ChefsPage/MostViewedChefs/MostViewedChefs.tsx";
-
 const router = createBrowserRouter([
   {
     path: appRoutes.base,

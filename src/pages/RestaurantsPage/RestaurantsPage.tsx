@@ -13,7 +13,7 @@ const RestaurantsPage = () => {
   const isMobileOrTable = isMobile || isTablet;
 
   const filterButtons = [
-    { label: "All", route: "/" },
+    { label: "All", route: "" },
     { label: "New", route: appRoutes.restaurants.newRestaurants },
     { label: "Most Popular", route: appRoutes.restaurants.mostPopularRestaurants },
     { label: "Open Now", route: appRoutes.restaurants.openNowRestaurants },
@@ -52,9 +52,7 @@ const RestaurantsPage = () => {
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
-          <div className={styles.restaurantsCardsContainer}>
-            <Outlet />
-          </div>
+          <Outlet context={styles.restaurantsCardsContainer} />
         </div>
       </div>
     </section>

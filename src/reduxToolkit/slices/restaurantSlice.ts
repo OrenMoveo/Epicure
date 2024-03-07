@@ -36,16 +36,16 @@ const restaurantSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllRestaurants.fulfilled, (state, action) => {
-      state.allRestaurants = action.payload;
+      state.allRestaurants = [...state.allRestaurants, ...action.payload];
     });
     builder.addCase(fetchNewRestaurants.fulfilled, (state, action) => {
-      state.newRestaurants = action.payload;
+      state.newRestaurants = [...state.newRestaurants, ...action.payload];
     });
     builder.addCase(fetchOpenNowRestaurants.fulfilled, (state, action) => {
-      state.openNowRestaurants = action.payload;
+      state.openNowRestaurants = [...state.openNowRestaurants, ...action.payload];
     });
     builder.addCase(fetchPopularRestaurants.fulfilled, (state, action) => {
-      state.popularRestaurants = action.payload;
+      state.popularRestaurants = [...state.popularRestaurants, ...action.payload];
     });
   },
 });

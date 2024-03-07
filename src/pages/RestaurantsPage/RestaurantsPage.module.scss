@@ -109,13 +109,16 @@
         justify-content: center;
         align-items: center;
         gap: 25px;
+        height: calc(100% - 100px);
         max-width: $app-max-width;
         @include smallDesktopScreen {
           display: flex;
           flex-flow: row wrap;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
-          width: $desktop-view-width;
+          overflow-y: auto;
+          height: 1160px;
+          padding: 0 50px;
           gap: 40px 24px;
         }
       }
