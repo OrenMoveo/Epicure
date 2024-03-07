@@ -8,7 +8,7 @@ export interface RestaurantState {
   popularRestaurants: Restaurant[];
   newRestaurants: Restaurant[];
   openNowRestaurants: Restaurant[];
-  ratingFilter: number;
+  ratingFilter: number[];
 }
 
 const initialState: RestaurantState = {
@@ -16,7 +16,7 @@ const initialState: RestaurantState = {
   popularRestaurants: [],
   newRestaurants: [],
   openNowRestaurants: [],
-  ratingFilter: 0,
+  ratingFilter: [],
 };
 
 const restaurantSlice = createSlice({
@@ -35,7 +35,7 @@ const restaurantSlice = createSlice({
     setPopularRestaurants: (state, action: PayloadAction<Restaurant[]>) => {
       state.popularRestaurants = action.payload;
     },
-    setRatingFilter: (state, action: PayloadAction<number>) => {
+    setRatingFilter: (state, action: PayloadAction<number[]>) => {
       state.ratingFilter = action.payload;
     },
   },

@@ -22,13 +22,9 @@ const Dropdown: FC<DropDownProps> = (props) => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const maxIndex = isChecked.reduce((acc, currentValue, index) => {
-      return currentValue ? index : acc;
-    }, -1);
+    const selectedRatings = isChecked.map((value, index) => (value ? index + 1 : 0)).filter((value) => value !== 0);
 
-    const ratingFilter = maxIndex !== -1 ? maxIndex + 1 : 0;
-
-    dispatch(setRatingFilter(ratingFilter));
+    dispatch(setRatingFilter(selectedRatings));
   }, [isChecked, dispatch]);
 
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {

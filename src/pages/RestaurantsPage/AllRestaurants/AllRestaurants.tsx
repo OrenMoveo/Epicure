@@ -17,14 +17,14 @@ const AllRestaurants: FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [renderRestaurant, setRenderRestaurant] = useState<Restaurant[]>();
 
-  const [classN, ratingPredicate] = useOutletContext();
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
+  const classN: string = useOutletContext();
 
   useEffect(() => {
-    if (ratingFilter !== 0) {
-      setRenderRestaurant(allRestaurants.filter((restaurant) => ratingPredicate(restaurant, ratingFilter)));
+    if (ratingFilter.length > 0) {
+      setRenderRestaurant(allRestaurants.filter((restaurant) => ratingFilter.includes(restaurant.rating)));
     } else {
       setRenderRestaurant(allRestaurants);
     }

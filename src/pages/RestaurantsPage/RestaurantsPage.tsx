@@ -5,18 +5,12 @@ import useIsTablet from "../../hooks/useIsTablet";
 import styles from "./RestaurantsPage.module.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import { appRoutes } from "../../shared/constants";
-import { Restaurant } from "../../types/types";
 
 const RestaurantsPage = () => {
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTable = isMobile || isTablet;
 
-
-  const ratingPredicate = (restaurant: Restaurant, rating: number): boolean => {
-    return restaurant.rating === rating;
-  };
-  
   const filterButtons = [
     { label: "All", route: "" },
     { label: "New", route: appRoutes.restaurants.newRestaurants },
@@ -49,7 +43,7 @@ const RestaurantsPage = () => {
               <Dropdown filterTitle={"Rating"} rating={true} />
             </div>
           )}
-          <Outlet context={[styles.restaurantsCardsContainer,ratingPredicate]} />
+          <Outlet context={styles.restaurantsCardsContainer} />
         </div>
       </div>
     </section>

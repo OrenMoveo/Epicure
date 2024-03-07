@@ -16,12 +16,11 @@ const OpenNowRestaurants: FC = () => {
   const { openNowRestaurants, ratingFilter } = useSelector((state: RootState) => state.restaurant);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [renderRestaurant, setRenderRestaurant] = useState<Restaurant[]>();
-
-  const [classN, ratingPredicate] = useOutletContext();
+  const classN: string = useOutletContext();
 
   useEffect(() => {
-    if (ratingFilter !== 0) {
-      setRenderRestaurant(openNowRestaurants.filter((restaurant) => ratingPredicate(restaurant, ratingFilter)));
+    if (ratingFilter.length > 0) {
+      setRenderRestaurant(openNowRestaurants.filter((restaurant) => ratingFilter.includes(restaurant.rating)));
     } else {
       setRenderRestaurant(openNowRestaurants);
     }
