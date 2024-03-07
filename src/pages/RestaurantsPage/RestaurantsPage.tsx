@@ -13,9 +13,9 @@ const RestaurantsPage = () => {
 
   const filterButtons = [
     { label: "All", route: "" },
-    { label: "New", route: appRoutes.restaurants.newRestaurants },
-    { label: "Most Popular", route: appRoutes.restaurants.mostPopularRestaurants },
-    { label: "Open Now", route: appRoutes.restaurants.openNowRestaurants },
+    { label: "New", route: `/${appRoutes.restaurants.newRestaurants}` },
+    { label: "Most Popular", route: `/${appRoutes.restaurants.mostPopularRestaurants}` },
+    { label: "Open Now", route: `/${appRoutes.restaurants.openNowRestaurants}` },
   ];
 
   return (
@@ -30,7 +30,12 @@ const RestaurantsPage = () => {
 
           <div className={styles.filtersContainer}>
             {filterButtons.map((button) => (
-              <NavLink key={button.label} to={`${appRoutes.restaurants.base}/${button.route}`} className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)}>
+              <NavLink
+                key={button.label}
+                to={`${appRoutes.restaurants.base}${button.route}`}
+                className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)}
+                end
+              >
                 {button.label}
               </NavLink>
             ))}

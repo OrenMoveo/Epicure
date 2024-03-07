@@ -10,9 +10,9 @@ const ChefsPage = () => {
   const isMobileOrTablet = isMobile || isTablet;
 
   const filterButtons = [
-    { label: "All", route: "/" },
-    { label: "New", route: appRoutes.chefs.newChefs },
-    { label: "Most Viewed", route: appRoutes.chefs.mostViewedChefs },
+    { label: "All", route: "" },
+    { label: "New", route: `/${appRoutes.chefs.newChefs}` },
+    { label: "Most Viewed", route: `/${appRoutes.chefs.mostViewedChefs}` },
   ];
 
   return (
@@ -22,7 +22,7 @@ const ChefsPage = () => {
           {isMobileOrTablet && <div className={styles.chefsPageTitle}>CHEFS</div>}
           <div className={styles.chefsPageFiltersContainer}>
             {filterButtons.map((button) => (
-              <NavLink key={button.label} to={`${appRoutes.chefs.base}/${button.route}`} className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)}>
+              <NavLink key={button.label} to={`${appRoutes.chefs.base}${button.route}`} className={({ isActive }) => (isActive ? styles.activeButton : styles.filterButton)} end>
                 {button.label}
               </NavLink>
             ))}
