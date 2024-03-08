@@ -11,10 +11,11 @@ import { AppDispatch } from "../../reduxToolkit/store/store";
 import { setIsLoggedInUser } from "../../reduxToolkit/slices/userSlice";
 
 interface SignInProps {
-  toggleSignIn: () => void;
+  handleSignIn: () => void;
+  handleClose: () => void;
 }
 
-const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
+const SignIn: FC<SignInProps> = ({ handleSignIn, handleClose }) => {
   const [isActiveLogin, setIsActiveLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,7 +37,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
       localStorage.setItem("authToken", token);
       alert("Login successful!");
       dispatch(setIsLoggedInUser(true));
-      toggleSignIn();
+      handleSignIn();
       setEmail("");
       setPassword("");
     } catch (error) {
@@ -58,7 +59,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
       alert("Registration successful!");
       setEmail("");
       setPassword("");
-      toggleSignIn();
+      handleSignIn();
     } catch (error) {
       console.error("Registration failed:", error.message);
     }
@@ -72,7 +73,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
     <div className={styles.signInLayout}>
       {isMobileOrTablet ? (
         <div className={styles.popoverHeaderContainer}>
-          <button className={styles.xBtnContainer} onClick={() => toggleSignIn()}>
+          <button className={styles.xBtnContainer} onClick={handleClose}>
             <img src={Icons.blackXIcon} alt="black-x-icon" />
           </button>
         </div>

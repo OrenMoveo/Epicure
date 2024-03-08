@@ -131,11 +131,11 @@ const Navbar = () => {
       {isSignInModalOpen ? (
         isMobileOrTablet ? (
           <GenericPopover coverAllPage={true}>
-            <SignIn toggleSignIn={handleSignIn} />
+            <SignIn handleSignIn={handleSignIn} handleClose={() => dispatch(setSignInModal(false))}/>
           </GenericPopover>
         ) : (
           <GenericModal handleClose={() => dispatch(setSignInModal(false))}>
-            <SignIn toggleSignIn={handleSignIn} />
+            <SignIn handleSignIn={handleSignIn} handleClose={() => dispatch(setSignInModal(false))} />
           </GenericModal>
         )
       ) : (
