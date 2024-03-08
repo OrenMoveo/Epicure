@@ -46,3 +46,8 @@ export interface DishWithOptions {
   options: string[];
   keyId: string;
 }
+
+export interface User {
+  email: string;
+  password: string;
+}

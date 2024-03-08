@@ -13,15 +13,20 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../GenericModal/GenericModal";
 import NavbarSearchBarDesktop from "./NavbarSearchBarDesktop/NavbarSearchBarDesktop";
-import { useSelector } from "react-redux";
-import { RootState } from "../../reduxToolkit/store/store";
 import { selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
+import { setIsLoggedInUser } from "../../reduxToolkit/slices/userSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isBagOpen, setIsBagOpen] = useState(false);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { isLoggedInUser } = useSelector((state: RootState) => state.user);
 
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
@@ -33,8 +38,12 @@ const Navbar = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
   };
 
-  const toggleSignIn = () => {
-    setIsSignInOpen((signInOpen) => !signInOpen);
+  const handleSignIn = () => {
+    if (isLoggedInUser) {
+      dispatch(setIsLoggedInUser(false));
+      return;
+    }
+    setIsSignInOpen((isLoggedIn) => !isLoggedIn);
   };
 
   const toggleSearch = () => {
@@ -84,8 +93,8 @@ const Navbar = () => {
               {!isSearchOpen && <img src={Icons.searchIcon} alt="signIn-icon" />}
             </div>
           </div>
-          <button className={styles.signInBtn} onClick={() => toggleSignIn()}>
-            <img src={Icons.signInIcon} alt="signIn-icon" />
+          <button className={styles.signInBtn} onClick={() => handleSignIn()}>
+            {isLoggedInUser ? <img src={Icons.blackSignInIcon} alt="signed-in-icon" /> : <img src={Icons.whiteSignInIcon} alt="sign-in-icon" />}
           </button>
           <button className={styles.bagBtn} onClick={() => toggleShoppingBag()}>
             <img src={Icons.smallShoppingBagIcon} alt="bag-icon" />
@@ -118,11 +127,11 @@ const Navbar = () => {
       {isSignInOpen ? (
         isMobileOrTablet ? (
           <GenericPopover coverAllPage={true}>
-            <SignIn toggleSignIn={toggleSignIn} />
+            <SignIn toggleSignIn={handleSignIn} />
           </GenericPopover>
         ) : (
-          <GenericModal handleClose={toggleSignIn}>
-            <SignIn toggleSignIn={toggleSignIn} />
+          <GenericModal handleClose={handleSignIn}>
+            <SignIn toggleSignIn={handleSignIn} />
           </GenericModal>
         )
       ) : (

@@ -6,6 +6,9 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import axios from "axios";
 import { appRoutes } from "../../shared/constants";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../reduxToolkit/store/store";
+import { setIsLoggedInUser } from "../../reduxToolkit/slices/userSlice";
 
 interface SignInProps {
   toggleSignIn: () => void;
@@ -15,6 +18,8 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   const [isActiveLogin, setIsActiveLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
@@ -30,6 +35,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
       const { token } = response.data;
       localStorage.setItem("authToken", token);
       alert("Login successful!");
+      dispatch(setIsLoggedInUser(true));
       toggleSignIn();
       setEmail("");
       setPassword("");
@@ -40,7 +46,6 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
   };
 
   const handleForgetPassword = () => {
-    alert("FORGET PASSWORD?");
     return;
   };
 
@@ -53,6 +58,7 @@ const SignIn: FC<SignInProps> = ({ toggleSignIn }) => {
       alert("Registration successful!");
       setEmail("");
       setPassword("");
+      toggleSignIn();
     } catch (error) {
       console.error("Registration failed:", error.message);
     }

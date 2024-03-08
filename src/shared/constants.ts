@@ -35,6 +35,7 @@ export const sliceNames = {
   chefSlice: "chef",
   dishSlice: "dish",
   shoppingBagSlice: "shoppingBag",
+  userSlice: "user",
 };
 
 export const UIConstants = {

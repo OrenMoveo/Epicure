@@ -20,7 +20,8 @@ import whiteXIcon from "./Icons/whiteXIcon.svg";
 import ilsIcon from "./Icons/ilsIcon.svg";
 import goToIcon from "./Icons/goToIcon.svg";
 import searchIcon from "./Icons/searchIcon.svg";
-import signInIcon from "./Icons/signInIcon.svg";
+import whiteSignInIcon from "./Icons/whiteSignInIcon.svg";
+import blackSignInIcon from "./Icons/blackSignInIcon.svg";
 
 // Logo
 import logo from "./Logo/logo.svg";
@@ -57,12 +58,13 @@ const Icons = {
   minusIcon,
   plusIcon,
   searchIcon,
-  signInIcon,
+  whiteSignInIcon,
   smallShoppingBagIcon,
   spicyIcon,
   veganIcon,
   vegetarianIcon,
   whiteXIcon,
+  blackSignInIcon,
 };
 
 const Ratings = {
