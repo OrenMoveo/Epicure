@@ -13,26 +13,25 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../GenericModal/GenericModal";
 import NavbarSearchBarDesktop from "./NavbarSearchBarDesktop/NavbarSearchBarDesktop";
-import { selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { emptyShoppingBag, selectIsEmptyShoppingBag, setIsShoppingBagOpen } from "../../reduxToolkit/slices/shoppingBagSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
-import { setIsLoggedInUser } from "../../reduxToolkit/slices/userSlice";
+import { setIsLoggedInUser, setSignInModal } from "../../reduxToolkit/slices/userSlice";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isBagOpen, setIsBagOpen] = useState(false);
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isLoggedInUser } = useSelector((state: RootState) => state.user);
+  const { isLoggedInUser, isSignInModalOpen } = useSelector((state: RootState) => state.user);
 
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
 
   const isEmptyShoppingBag = useSelector((state: RootState) => selectIsEmptyShoppingBag(state));
+  const { isCheckoutClicked, isShoppingBagOpen } = useSelector((state: RootState) => state.shoppingBag);
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
@@ -43,7 +42,12 @@ const Navbar = () => {
       dispatch(setIsLoggedInUser(false));
       return;
     }
-    setIsSignInOpen((isLoggedIn) => !isLoggedIn);
+
+    if (isCheckoutClicked) {
+      dispatch(emptyShoppingBag());
+      dispatch(setIsShoppingBagOpen(false));
+    }
+    dispatch(setSignInModal(!isSignInModalOpen));
   };
 
   const toggleSearch = () => {
@@ -51,7 +55,7 @@ const Navbar = () => {
   };
 
   const toggleShoppingBag = () => {
-    setIsBagOpen((bagOpen) => !bagOpen);
+    dispatch(setIsShoppingBagOpen(!isShoppingBagOpen));
   };
 
   const navigate = useNavigate();
@@ -116,7 +120,7 @@ const Navbar = () => {
       ) : (
         ""
       )}
-      {isBagOpen ? (
+      {isShoppingBagOpen ? (
         <GenericPopover>
           <ShoppingBag />
         </GenericPopover>
@@ -124,7 +128,7 @@ const Navbar = () => {
         ""
       )}
 
-      {isSignInOpen ? (
+      {isSignInModalOpen ? (
         isMobileOrTablet ? (
           <GenericPopover coverAllPage={true}>
             <SignIn toggleSignIn={handleSignIn} />

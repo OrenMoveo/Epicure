@@ -10,6 +10,8 @@ interface ShoppingBagState {
   dishQuantities: Record<string, number>;
   isEmptyShoppingBag: boolean;
   totalQuantity: number;
+  isCheckoutClicked: boolean;
+  isShoppingBagOpen: boolean;
 }
 
 const initialState: ShoppingBagState = {
@@ -19,6 +21,8 @@ const initialState: ShoppingBagState = {
   dishQuantities: {},
   isEmptyShoppingBag: true,
   totalQuantity: 0,
+  isCheckoutClicked: false,
+  isShoppingBagOpen: false,
 };
 
 const shoppingBagSlice = createSlice({
@@ -67,6 +71,13 @@ const shoppingBagSlice = createSlice({
     updateNewOrderDish: (state, action: PayloadAction<DishWithOptions>) => {
       state.newOrderDish = action.payload;
     },
+    setIsCheckoutClicked: (state, action: PayloadAction<boolean>) => {
+      state.isCheckoutClicked = action.payload;
+    },
+
+    setIsShoppingBagOpen: (state, action: PayloadAction<boolean>) => {
+      state.isShoppingBagOpen = action.payload;
+    },
 
     emptyShoppingBag: (state) => {
       state.shoppingBagSum = 0;
@@ -86,5 +97,5 @@ export const selectTotalQuantity = (state: { shoppingBag: ShoppingBagState }) =>
   return state.shoppingBag.totalQuantity;
 };
 
-export const { updateShoppingBag, resetAndUpdateBag, updateNewOrderDish, emptyShoppingBag } = shoppingBagSlice.actions;
+export const { setIsShoppingBagOpen, updateShoppingBag, resetAndUpdateBag, updateNewOrderDish, emptyShoppingBag, setIsCheckoutClicked } = shoppingBagSlice.actions;
 export default shoppingBagSlice.reducer;

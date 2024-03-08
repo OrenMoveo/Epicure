@@ -7,11 +7,13 @@ import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
 import AppButton from "../AppButton/AppButton";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
-import { emptyShoppingBag, selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { emptyShoppingBag, selectIsEmptyShoppingBag, setIsCheckoutClicked, setIsShoppingBagOpen } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { setSignInModal } from "../../reduxToolkit/slices/userSlice";
 
 const ShoppingBag: FC = () => {
   const { shoppingBagSum, order } = useSelector((state: RootState) => state.shoppingBag);
   const isEmptyShoppingBag = useSelector((state: RootState) => selectIsEmptyShoppingBag(state));
+  const { isLoggedInUser } = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -20,7 +22,13 @@ const ShoppingBag: FC = () => {
   const isMobileOrTablet = isMobile || isTablet;
 
   const handleCheckOut = () => {
-    dispatch(emptyShoppingBag());
+    if (!isLoggedInUser) {
+      dispatch(setSignInModal(true));
+      dispatch(setIsCheckoutClicked(true));
+    } else {
+      dispatch(emptyShoppingBag());
+      dispatch(setIsShoppingBagOpen(false));
+    }
   };
 
   return (

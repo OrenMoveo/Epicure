@@ -5,6 +5,7 @@ import { sliceNames } from "../../shared/constants";
 export interface UserState {
   user: User;
   isLoggedInUser: boolean;
+  isSignInModalOpen: boolean;
 }
 
 const initialState: UserState = {
@@ -13,6 +14,7 @@ const initialState: UserState = {
     password: "",
   },
   isLoggedInUser: false,
+  isSignInModalOpen: false,
 };
 
 const userSlice = createSlice({
@@ -22,9 +24,12 @@ const userSlice = createSlice({
     setIsLoggedInUser: (state, action: PayloadAction<boolean>) => {
       state.isLoggedInUser = action.payload;
     },
+    setSignInModal: (state, action: PayloadAction<boolean>) => {
+      state.isSignInModalOpen = action.payload;
+    },
   },
 });
 
-export const { setIsLoggedInUser } = userSlice.actions;
+export const { setIsLoggedInUser, setSignInModal } = userSlice.actions;
 
 export default userSlice.reducer;
