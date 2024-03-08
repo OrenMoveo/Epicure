@@ -134,7 +134,7 @@ const Navbar = () => {
             <SignIn toggleSignIn={handleSignIn} />
           </GenericPopover>
         ) : (
-          <GenericModal handleClose={handleSignIn}>
+          <GenericModal handleClose={() => dispatch(setSignInModal(false))}>
             <SignIn toggleSignIn={handleSignIn} />
           </GenericModal>
         )
