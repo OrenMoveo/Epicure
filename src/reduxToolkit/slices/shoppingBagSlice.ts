@@ -67,6 +67,14 @@ const shoppingBagSlice = createSlice({
     updateNewOrderDish: (state, action: PayloadAction<DishWithOptions>) => {
       state.newOrderDish = action.payload;
     },
+
+    emptyShoppingBag: (state) => {
+      state.shoppingBagSum = 0;
+      state.order = { restaurantName: "", dishes: [] };
+      state.dishQuantities = {};
+      state.isEmptyShoppingBag = true;
+      state.totalQuantity = 0;
+    },
   },
 });
 
@@ -78,5 +86,5 @@ export const selectTotalQuantity = (state: { shoppingBag: ShoppingBagState }) =>
   return state.shoppingBag.totalQuantity;
 };
 
-export const { updateShoppingBag, resetAndUpdateBag, updateNewOrderDish } = shoppingBagSlice.actions;
+export const { updateShoppingBag, resetAndUpdateBag, updateNewOrderDish, emptyShoppingBag } = shoppingBagSlice.actions;
 export default shoppingBagSlice.reducer;

@@ -5,18 +5,23 @@ import styles from "./ShoppingBag.module.scss";
 import { Icons } from "../../assets/images";
 import ShoppingBagDishCard from "./ShoppingBagDishCard/ShoppingBagDishCard";
 import AppButton from "../AppButton/AppButton";
-import { useSelector } from "react-redux";
-import { RootState } from "../../reduxToolkit/store/store";
-import { selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
+import { emptyShoppingBag, selectIsEmptyShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
 
 const ShoppingBag: FC = () => {
   const { shoppingBagSum, order } = useSelector((state: RootState) => state.shoppingBag);
-
   const isEmptyShoppingBag = useSelector((state: RootState) => selectIsEmptyShoppingBag(state));
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
+
+  const handleCheckOut = () => {
+    dispatch(emptyShoppingBag());
+  };
 
   return (
     <div className={styles.shoppingBagLayout}>
@@ -58,7 +63,7 @@ const ShoppingBag: FC = () => {
                   <textarea className={styles.textArea} placeholder="Special requests, allergies, detary restrictions, etc." />
                 </div>
               )}
-              <AppButton handleClick={() => {}} buttonContent="CHECKOUT" isBlack={true} order={3} />
+              <AppButton handleClick={handleCheckOut} buttonContent="CHECKOUT" isBlack={true} order={3} />
               {!isMobileOrTablet && <AppButton handleClick={() => {}} buttonContent="ORDER HISTORY" order={4} />}
             </div>
           )}

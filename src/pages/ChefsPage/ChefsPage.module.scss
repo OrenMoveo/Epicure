@@ -105,7 +105,7 @@
         @include smallDesktopScreen {
           display: flex;
           flex-flow: row wrap;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: flex-start;
           overflow-y: auto;
           height: 100%;
