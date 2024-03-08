@@ -1,7 +1,7 @@
 import styles from "./Dropdown.module.scss";
 import { Icons } from "../../assets/images";
 
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import RatingContainer from "../RatingContainer/RatingContainer";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../reduxToolkit/store/store";
@@ -19,6 +19,9 @@ const Dropdown: FC<DropDownProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isChecked, setIsChecked] = useState([false, false, false, false, false]);
 
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -26,6 +29,22 @@ const Dropdown: FC<DropDownProps> = (props) => {
 
     dispatch(setRatingFilter(selectedRatings));
   }, [isChecked, dispatch]);
+
+
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const hasAtLeastOneTrue = (booleanArray: boolean[]) => {
     return booleanArray.some((value) => value);
@@ -38,7 +57,7 @@ const Dropdown: FC<DropDownProps> = (props) => {
   };
 
   return (
-    <div className={styles.dropdownLayout}>
+    <div className={styles.dropdownLayout} ref={dropdownRef}>
       <button
         className={styles.dropdownBtnContainer}
         onClick={() => {
