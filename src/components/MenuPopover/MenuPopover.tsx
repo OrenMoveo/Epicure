@@ -3,7 +3,7 @@ import styles from "./MenuPopover.module.scss";
 import { UIConstants, appRoutes } from "../../shared/constants";
 import Footer from "../Footer/Footer";
 import { Icons } from "../../assets/images";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import useGetScreenWidth from "../../hooks/useGetWidthScreen";
 
 interface MenuPopoverProps {
@@ -11,6 +11,8 @@ interface MenuPopoverProps {
 }
 
 const MenuPopover: FC<MenuPopoverProps> = (props) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const screenWidth = useGetScreenWidth();
   useEffect(() => {
     const handleScreenSizeChange = () => {
@@ -21,8 +23,22 @@ const MenuPopover: FC<MenuPopoverProps> = (props) => {
     handleScreenSizeChange();
   }, [screenWidth, props]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        props.toggleMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.MenuPopoverLayout}>
+    <div className={styles.MenuPopoverLayout} ref={containerRef}>
       <div className={styles.popoverHeaderContainer}>
         <button className={styles.xBtnContainer} onClick={() => props.toggleMenu()}>
           <img src={Icons.blackXIcon} alt="black-x-icon" />
