@@ -45,6 +45,7 @@ input {
       gap: 40px;
       width: calc(100% - 24px);
       padding: 40px 0;
+      max-width: 360px;
       @include smallDesktopScreen {
         width: calc(100% - 222px);
       }
