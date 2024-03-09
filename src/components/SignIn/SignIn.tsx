@@ -41,7 +41,7 @@ const SignIn: FC<SignInProps> = ({ handleSignIn, handleClose }) => {
       setEmail("");
       setPassword("");
     } catch (error) {
-      console.error("Login failed:", error.message);
+      alert("Login failed: " + JSON.stringify(error.response.data.error));
       setPassword("");
     }
   };
