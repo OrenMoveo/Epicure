@@ -15,7 +15,7 @@ import Footer from "../Footer/Footer";
 import AppButton from "../AppButton/AppButton";
 import { generateUniqueKey } from "../../shared/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../reduxToolkit/store/store";
+import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
 import { updateNewOrderDish, updateShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
 
 interface DishModalProps {
@@ -36,7 +36,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   const isMobileOrTablet = isMobile || isTablet;
 
   const { closeDishModal, openDeleteOrderModal, openModal } = useModalContext();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { order } = useSelector((state: RootState) => state.shoppingBag);
 
   const handleClickModal = () => {

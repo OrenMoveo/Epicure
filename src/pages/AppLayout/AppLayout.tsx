@@ -10,7 +10,7 @@ import GenericModal from "../../components/GenericModal/GenericModal";
 import DeleteOrder from "../../components/ShoppingBag/DeleteOrder/DeleteOrder";
 
 const AppLayout = () => {
-  const { isDishModalActive: isModalActive, dish, isDeleteOrderModalOpen, isGenericModalActive } = useModalContext();
+  const { isDishModalActive: isModalActive, dish, isDeleteOrderModalOpen, isGenericModalActive, closeModal } = useModalContext();
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
@@ -24,7 +24,7 @@ const AppLayout = () => {
       <Footer />
       {isModalActive && <DishModal dish={dish} />}
       {isDeleteOrderModalOpen && isGenericModalActive && (
-        <GenericModal>
+        <GenericModal handleClose={closeModal}>
           <DeleteOrder />
         </GenericModal>
       )}
