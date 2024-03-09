@@ -6,8 +6,7 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import { CurrencyIconSize, desktopDishDescriptionStyling, desktopDishPriceStyling, desktopDishTitleStyling, desktopStyling, mobileStyling } from "./DishCardStyling";
 import { useParams } from "react-router-dom";
-
-import { Restaurant } from "../../types/types";
+import { Dish, Restaurant } from "../../types/types";
 import { getRestaurantById } from "../../apiService/restaurantApiService";
 import { isRestaurantOpenNow } from "../../shared/utils";
 
@@ -25,28 +24,46 @@ const RestaurantDisplayPage = () => {
 
   const [activeFilterButton, setActiveFilterButton] = useState(IndexType.BREAKFAST_INDEX);
   const [restaurant, setRestaurant] = useState<Restaurant>();
+  const [filteredDishes, setFilteredDishes] = useState<Dish[]>([]);
+
+  const filterDishes = (filterIndex: IndexType): void => {
+    if (restaurant) {
+      switch (filterIndex) {
+        case IndexType.LUNCH_INDEX:
+          setFilteredDishes(restaurant.restaurantDishes.filter((dish) => dish.mealType.includes("lunch")));
+          break;
+        case IndexType.DINNER_INDEX:
+          setFilteredDishes(restaurant.restaurantDishes.filter((dish) => dish.mealType.includes("dinner")));
+          break;
+        default:
+          setFilteredDishes(restaurant.restaurantDishes.filter((dish) => dish.mealType.includes("breakfast")));
+      }
+    }
+  };
 
   const handleClick = (filterButtonIndex: number): void => {
     setActiveFilterButton(filterButtonIndex);
+    filterDishes(filterButtonIndex);
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const getRestaurantDetails = async () => {
-      try {
-        if (id) {
-          const data = await getRestaurantById(id);
-          setRestaurant(data);
-        }
-      } catch (error) {
-        console.log("fetch single restaurant error", error);
-        console.error();
+  const getRestaurantDetails = async () => {
+    try {
+      if (id) {
+        const data = await getRestaurantById(id);
+        setRestaurant(data);
+        setFilteredDishes(data.restaurantDishes.filter((dish: Dish) => dish.mealType.includes("breakfast")));
       }
-    };
+    } catch (error) {
+      console.log("fetch single restaurant error", error);
+      console.error();
+    }
+  };
 
+  useEffect(() => {
     getRestaurantDetails();
   }, [id]);
 
@@ -91,7 +108,7 @@ const RestaurantDisplayPage = () => {
               </button>
             </div>
             <div className={styles.dishesDisplayContainer}>
-              {restaurant.restaurantDishes.map((dish) =>
+              {filteredDishes.map((dish) =>
                 isMobile || isTablet ? (
                   <DishCard
                     key={dish._id}

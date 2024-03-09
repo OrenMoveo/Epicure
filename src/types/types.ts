@@ -31,7 +31,7 @@ export interface Dish {
   price: number;
   signatureDish: boolean;
   foodIcon: string;
-  mealType: string;
+  mealType: string[];
   restaurant: Restaurant;
 }
 
