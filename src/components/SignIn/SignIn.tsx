@@ -41,7 +41,7 @@ const SignIn: FC<SignInProps> = ({ handleSignIn, handleClose }) => {
       setEmail("");
       setPassword("");
     } catch (error) {
-      alert("Login failed: " + JSON.stringify(error.response.data.error));
+      alert("Login failed:\n" + JSON.stringify(error.response.data.error));
       setPassword("");
     }
   };
@@ -61,7 +61,7 @@ const SignIn: FC<SignInProps> = ({ handleSignIn, handleClose }) => {
       setPassword("");
       handleSignIn();
     } catch (error) {
-      console.error("Registration failed:", error.message);
+      alert("Registration failed:\n" + JSON.stringify(error.response.data.error));
     }
   };
 
