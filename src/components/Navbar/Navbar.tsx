@@ -35,6 +35,8 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((menuOpen) => !menuOpen);
+    setIsSearchOpen(false);
+    dispatch(setIsShoppingBagOpen(false));
   };
 
   const handleSignIn = () => {
@@ -47,15 +49,20 @@ const Navbar = () => {
       dispatch(emptyShoppingBag());
       dispatch(setIsShoppingBagOpen(false));
     }
+
     dispatch(setSignInModal(!isSignInModalOpen));
   };
 
   const toggleSearch = () => {
     setIsSearchOpen((searchOpen) => !searchOpen);
+    setIsMenuOpen(false);
+    dispatch(setIsShoppingBagOpen(false));
   };
 
   const toggleShoppingBag = () => {
     dispatch(setIsShoppingBagOpen(!isShoppingBagOpen));
+    setIsMenuOpen(false);
+    setIsSearchOpen(false);
   };
 
   const navigate = useNavigate();
@@ -131,7 +138,7 @@ const Navbar = () => {
       {isSignInModalOpen ? (
         isMobileOrTablet ? (
           <GenericPopover coverAllPage={true}>
-            <SignIn handleSignIn={handleSignIn} handleClose={() => dispatch(setSignInModal(false))}/>
+            <SignIn handleSignIn={handleSignIn} handleClose={() => dispatch(setSignInModal(false))} />
           </GenericPopover>
         ) : (
           <GenericModal handleClose={() => dispatch(setSignInModal(false))}>
