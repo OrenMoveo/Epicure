@@ -42,6 +42,10 @@ const Navbar = () => {
   const handleSignIn = () => {
     if (isLoggedInUser) {
       dispatch(setIsLoggedInUser(false));
+      const auth = localStorage.getItem("authToken");
+      if (auth) {
+        localStorage.removeItem("authToken");
+      }
       return;
     }
 

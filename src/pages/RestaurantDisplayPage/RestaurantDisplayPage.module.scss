@@ -42,9 +42,10 @@
       display: flex;
       flex-flow: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       width: $mobile-view-width;
       @include smallDesktopScreen {
+        align-items: center;
         width: 100%;
       }
 

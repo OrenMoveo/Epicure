@@ -8,12 +8,25 @@ import useIsTablet from "../../hooks/useIsTablet";
 import useIsMobile from "../../hooks/useIsMobile";
 import GenericModal from "../../components/GenericModal/GenericModal";
 import DeleteOrder from "../../components/ShoppingBag/DeleteOrder/DeleteOrder";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../reduxToolkit/store/store";
+import { setIsLoggedInUser } from "../../reduxToolkit/slices/userSlice";
 
 const AppLayout = () => {
   const { isDishModalActive: isModalActive, dish, isDeleteOrderModalOpen, isGenericModalActive, closeModal } = useModalContext();
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
   const isMobileOrTablet = isMobile || isTablet;
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("authToken");
+    if (auth) {
+      dispatch(setIsLoggedInUser(true));
+    }
+  }, []);
 
   return (
     <div className={isModalActive && isMobileOrTablet ? styles.modalActive : styles.AppLayoutContainer}>

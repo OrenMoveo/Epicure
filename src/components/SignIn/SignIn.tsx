@@ -22,10 +22,10 @@ const SignIn: FC<SignInProps> = ({ handleSignIn, handleClose }) => {
 
   const dispatch = useDispatch<AppDispatch>();
 
+
   const isTablet = useIsTablet();
   const isMobile = useIsMobile();
   const isMobileOrTablet = isMobile || isTablet;
-
   const handleLogin = async () => {
     try {
       const response = await axios.post(`${appRoutes.serverUrl}${appRoutes.user.login}`, {
