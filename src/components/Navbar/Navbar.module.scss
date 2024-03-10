@@ -24,6 +24,7 @@
     width: $mobile-view-width;
     @include smallDesktopScreen {
       width: $desktop-view-width;
+      max-width: $app-max-width;
     }
 
     .navbarContainer {

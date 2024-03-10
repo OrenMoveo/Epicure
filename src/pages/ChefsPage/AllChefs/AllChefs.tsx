@@ -27,7 +27,7 @@ const AllChefs = () => {
   };
 
   return (
-    <InfiniteScroll dataLength={allChefs ? allChefs.length : 0} next={fetchMoreData} hasMore={true} loader={""}>
+    <InfiniteScroll dataLength={allChefs.length} next={fetchMoreData} hasMore={true} loader={""}>
       <div className={classN}>
         {allChefs?.map((chef) => (
           <ChefCard chef={chef} key={chef._id} />
