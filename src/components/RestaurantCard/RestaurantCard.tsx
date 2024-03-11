@@ -24,7 +24,7 @@ const RestaurantCard: FC<RestaurantCardProps> = (props) => {
     <Link to={appRoutes.restaurants.getRestaurantRoute(props.restaurant._id)}>
       <button className={styles.restaurantCardContainer} style={props.cardWidth}>
         <div className={styles.restaurantCardImageContainer}>
-        <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
+          <img src={props.restaurant.pictureUrl} alt={props.restaurant.name} />
         </div>
         <div className={styles.restaurantCardContentLayout}>
           <div className={styles.restaurantCardContentContainer}>

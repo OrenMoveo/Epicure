@@ -43,6 +43,9 @@ const SignatureDishes = () => {
                   </SwiperSlide>
                 ))}
             </Swiper>
+            <div className={styles.GoToAllRestaurantsBtnContainer}>
+              <GoToAllRestaurantsButton />
+            </div>
           </div>
         ) : (
           <div className={styles.desktopSignatureDishesContainer}>
@@ -62,8 +65,6 @@ const SignatureDishes = () => {
               ))}
           </div>
         )}
-
-        {isMobile || (isTablet && <GoToAllRestaurantsButton />)}
       </div>
     </section>
   );

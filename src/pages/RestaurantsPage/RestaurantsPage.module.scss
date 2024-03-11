@@ -18,6 +18,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: center;
     width: $mobile-view-width;
     @include smallDesktopScreen {
       width: 100%;
