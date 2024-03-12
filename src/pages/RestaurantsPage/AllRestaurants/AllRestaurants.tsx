@@ -16,7 +16,6 @@ const AllRestaurants: FC = () => {
   const [renderRestaurant, setRenderRestaurant] = useState<Restaurant[]>();
   const [page, setPage] = useState(1);
 
-  const restaurantCardWidth = 335;
   const classN: string = useOutletContext();
 
   useEffect(() => {
@@ -50,7 +49,7 @@ const AllRestaurants: FC = () => {
             animate="visible"
             transition={{ delay: 0.1 * index, duration: 0.5 }}
           >
-            <RestaurantCard restaurant={restaurant} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+            <RestaurantCard restaurant={restaurant} />
           </motion.li>
         ))}
       </motion.ul>

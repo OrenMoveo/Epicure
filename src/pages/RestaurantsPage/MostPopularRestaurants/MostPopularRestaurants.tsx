@@ -43,7 +43,7 @@ const MostPopularRestaurants: FC = () => {
     <InfiniteScroll dataLength={renderRestaurant ? renderRestaurant.length : 0} next={fetchMoreData} hasMore={true} loader={""}>
       <div className={classN}>
         {renderRestaurant?.map((restaurant) => (
-          <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+          <RestaurantCard restaurant={restaurant} key={restaurant._id} />
         ))}
       </div>
     </InfiniteScroll>

@@ -14,7 +14,6 @@ const OpenNowRestaurants: FC = () => {
   const { openNowRestaurants, ratingFilter } = useSelector((state: RootState) => state.restaurant);
   const [renderRestaurant, setRenderRestaurant] = useState<Restaurant[]>();
   const [page, setPage] = useState(1);
-  const restaurantCardWidth = 335;
   const classN: string = useOutletContext();
 
   useEffect(() => {
@@ -25,8 +24,6 @@ const OpenNowRestaurants: FC = () => {
     }
   }, [ratingFilter, openNowRestaurants]);
 
-  
-
   useEffect(() => {
     dispatch(setOpenNowRestaurants([]));
   }, []);
@@ -34,7 +31,6 @@ const OpenNowRestaurants: FC = () => {
   useEffect(() => {
     dispatch(fetchOpenNowRestaurants(page.toString()));
   }, [dispatch, page]);
-
 
   const fetchMoreData = () => {
     setPage(page + 1);
@@ -44,7 +40,7 @@ const OpenNowRestaurants: FC = () => {
     <InfiniteScroll dataLength={renderRestaurant ? renderRestaurant.length : 0} next={fetchMoreData} hasMore={true} loader={""}>
       <div className={classN}>
         {renderRestaurant?.map((restaurant) => (
-          <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+          <RestaurantCard restaurant={restaurant} key={restaurant._id} />
         ))}
       </div>
     </InfiniteScroll>
