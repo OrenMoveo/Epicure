@@ -8,6 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useOutletContext } from "react-router-dom";
 import { setAllRestaurants } from "../../../reduxToolkit/slices/restaurantSlice";
 import { Restaurant } from "../../../types/types";
+import { delay, motion } from "framer-motion";
 
 const AllRestaurants: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -40,11 +41,19 @@ const AllRestaurants: FC = () => {
 
   return (
     <InfiniteScroll dataLength={renderRestaurant ? renderRestaurant.length : 0} next={fetchMoreData} hasMore={true} loader={""}>
-      <div className={classN}>
-        {renderRestaurant?.map((restaurant) => (
-          <RestaurantCard restaurant={restaurant} key={restaurant._id} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+      <motion.ul className={classN} transition={{ staggerChildren: 0.05 }}>
+        {renderRestaurant?.map((restaurant, index) => (
+          <motion.li
+            key={restaurant._id}
+            variants={{ hidden: { opacity: 0, scale: 0.5 }, visible: { opacity: 1, scale: 1 } }}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.1 * index, duration: 0.5 }}
+          >
+            <RestaurantCard restaurant={restaurant} cardWidth={{ width: `${restaurantCardWidth}px` }} />
+          </motion.li>
         ))}
-      </div>
+      </motion.ul>
     </InfiniteScroll>
   );
 };

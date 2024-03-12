@@ -11,14 +11,12 @@
     width: 379px;
   }
 
-  .restaurantCardImageContainer {
+  img {
     width: 100%;
-    height: 209.38px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    height: 151.8px;
+    object-fit: cover;
+    @include smallDesktopScreen {
+      height: 236px;
     }
   }
 
@@ -69,6 +67,17 @@
         @include smallDesktopScreen {
           font-size: 24px;
           line-height: 30px;
+        }
+      }
+
+      .restaurantRatingContainer {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: unset;
         }
       }
     }

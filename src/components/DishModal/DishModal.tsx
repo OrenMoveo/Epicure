@@ -17,6 +17,7 @@ import { generateUniqueKey } from "../../shared/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../reduxToolkit/store/store";
 import { updateNewOrderDish, updateShoppingBag } from "../../reduxToolkit/slices/shoppingBagSlice";
+import { motion } from "framer-motion";
 
 interface DishModalProps {
   dish: Dish;
@@ -60,7 +61,13 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
   return modalContainerRef.current
     ? createPortal(
         <div className={styles.modalOverlay} onClick={() => closeModalDesktop()}>
-          <div className={styles.DishModalLayout} onClick={(e) => e.stopPropagation()}>
+          <motion.div
+            className={styles.DishModalLayout}
+            onClick={(e) => e.stopPropagation()}
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 30, opacity: 0 }}
+          >
             <div className={styles.modalHeader}>
               <button className={styles.btnContainer} onClick={() => closeDishModal()}>
                 {isMobileOrTablet ? <img src={Icons.blackXIcon} alt="black-x-icon" /> : <img src={Icons.whiteXIcon} alt="white-x-icon" />}
@@ -114,7 +121,7 @@ const DishModal: FC<DishModalProps> = ({ dish }) => {
               </div>
             </section>
             {isMobileOrTablet && <Footer />}
-          </div>
+          </motion.div>
         </div>,
         modalContainerRef.current
       )
