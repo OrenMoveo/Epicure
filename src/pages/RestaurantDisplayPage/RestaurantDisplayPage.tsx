@@ -58,7 +58,6 @@ const RestaurantDisplayPage = () => {
         setFilteredDishes(data.restaurantDishes.filter((dish: Dish) => dish.mealType.includes("breakfast")));
       }
     } catch (error) {
-      console.log("fetch single restaurant error", error);
       console.error();
     }
   };
