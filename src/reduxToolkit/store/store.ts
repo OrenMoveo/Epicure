@@ -4,7 +4,7 @@ import restaurantReducer from "../slices/restaurantSlice";
 import chefReducer from "../slices/chefSlice";
 import dishReducer from "../slices/dishSlice";
 import userReducer from "../slices/userSlice";
-
+import searchReducer from "../slices/searchSlice";
 const store = configureStore({
   reducer: {
     chef: chefReducer,
@@ -12,6 +12,7 @@ const store = configureStore({
     dish: dishReducer,
     shoppingBag: shoppingBagReducer,
     user: userReducer,
+    search: searchReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

@@ -28,6 +28,10 @@ export const appRoutes = {
     signUp: "/user/sign-up",
     login: "/user/login",
   },
+  search: {
+    base: "/search",
+    byTerm: "/search?searchTerm=",
+  },
 };
 
 export const sliceNames = {
@@ -36,6 +40,7 @@ export const sliceNames = {
   dishSlice: "dish",
   shoppingBagSlice: "shoppingBag",
   userSlice: "user",
+  searchSlice: "search",
 };
 
 export const UIConstants = {
